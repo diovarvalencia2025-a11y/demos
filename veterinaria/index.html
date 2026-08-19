@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clínica Veterinaria & Cuidado Animal | Cita Previa</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap');
+    body { font-family: 'Outfit', sans-serif; }
+    .hero-vet {
+      background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(6, 78, 59, 0.85)), 
+                  url('https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=1600&q=80') center/cover;
+    }
+  </style>
+</head>
+<body class="bg-emerald-50/30 text-slate-800 antialiased">
+  <div class="bg-emerald-900 text-emerald-100 text-xs py-2 px-4 flex justify-between items-center max-w-6xl mx-auto rounded-b-xl">
+    <span>🐾 Cuidamos de tu mejor amigo con amor y tecnología</span>
+    <span class="font-bold flex items-center gap-1 text-amber-300"><i class="fa-solid fa-star"></i> 4.9 en Google Maps</span>
+  </div>
+
+  <nav class="bg-white/95 backdrop-blur-md sticky top-0 z-40 shadow-sm border-b border-emerald-100">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+      <div class="flex items-center gap-2">
+        <div class="w-10 h-10 bg-emerald-600 rounded-xl flex items-center justify-center text-white text-xl shadow-md">
+          <i class="fa-solid fa-paw"></i>
+        </div>
+        <span class="font-black text-xl text-emerald-950">VET SAN ANTÓN</span>
+      </div>
+      <a href="https://wa.me/34600000000?text=Hola,%20quisiera%20pedir%20cita%20veterinaria" class="bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2 rounded-xl font-bold text-sm flex items-center gap-2 shadow-lg transition">
+        <i class="fa-brands fa-whatsapp text-lg"></i> Pedir Cita Online
+      </a>
+    </div>
+  </nav>
+
+  <section class="hero-vet text-white py-20 px-4 text-center">
+    <div class="max-w-3xl mx-auto">
+      <span class="bg-emerald-500/30 border border-emerald-400/40 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider text-emerald-200">Atención Veterinaria Integral</span>
+      <h1 class="text-3xl sm:text-5xl font-extrabold mt-4 mb-6 leading-tight">La Salud y Felicidad de tu Mascota en Manos Expertas</h1>
+      <p class="text-emerald-100 text-base sm:text-lg mb-8 max-w-xl mx-auto">Medicina preventiva, cirugías, diagnósticos por imagen, vacunación y peluquería canina con trato cariñoso.</p>
+      <a href="https://wa.me/34600000000?text=Hola,%20quiero%20agendar%20una%20consulta" class="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-emerald-950 px-8 py-4 rounded-xl font-extrabold text-base shadow-xl transition">
+        <i class="fa-brands fa-whatsapp text-xl"></i> Agendar Consulta por WhatsApp
+      </a>
+    </div>
+  </section>
+
+  <section class="py-16 px-4 max-w-6xl mx-auto">
+    <div class="text-center mb-12">
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Nuestros Servicios Médicos</h2>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+      <div class="bg-white p-6 rounded-2xl border border-emerald-100 shadow-sm hover:shadow-md transition">
+        <div class="w-12 h-12 bg-emerald-100 text-emerald-700 rounded-xl flex items-center justify-center text-xl mb-4"><i class="fa-solid fa-stethoscope"></i></div>
+        <h3 class="font-bold text-lg text-slate-900 mb-2">Consulta General & Vacunación</h3>
+        <p class="text-slate-600 text-sm">Revisiones preventivas, desparasitación y cartilla de vacunación completa.</p>
+      </div>
+      <div class="bg-white p-6 rounded-2xl border border-emerald-100 shadow-sm hover:shadow-md transition">
+        <div class="w-12 h-12 bg-emerald-100 text-emerald-700 rounded-xl flex items-center justify-center text-xl mb-4"><i class="fa-solid fa-x-ray"></i></div>
+        <h3 class="font-bold text-lg text-slate-900 mb-2">Cirugía & Diagnóstico</h3>
+        <p class="text-slate-600 text-sm">Quirófano equipado, ecografías, radiografías y análisis clínicos en el día.</p>
+      </div>
+      <div class="bg-white p-6 rounded-2xl border border-emerald-100 shadow-sm hover:shadow-md transition">
+        <div class="w-12 h-12 bg-emerald-100 text-emerald-700 rounded-xl flex items-center justify-center text-xl mb-4"><i class="fa-solid fa-scissors"></i></div>
+        <h3 class="font-bold text-lg text-slate-900 mb-2">Peluquería & Spa Canino</h3>
+        <p class="text-slate-600 text-sm">Baños dermatológicos, cortes de raza y cuidado higiénico sin estrés.</p>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trattoria La Toscana | Cocina Tradicional Italiana & Horno de Leña</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,400&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap');
+    .serif-toscana { font-family: 'Playfair Display', serif; }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .hero-toscana {
+      background: linear-gradient(rgba(20, 10, 5, 0.72), rgba(30, 15, 10, 0.85)), 
+                  url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1600&q=80') center/cover;
+    }
+  </style>
+</head>
+<body class="bg-[#FDFBF7] text-stone-800 antialiased">
+  <div class="bg-[#2D1E18] text-amber-200 text-xs py-2 px-4 text-center tracking-widest uppercase font-semibold">
+    🍷 Reserva tu mesa con antelación para el fin de semana • Horno de Leña Tradicional
+  </div>
+
+  <nav class="bg-white/95 backdrop-blur-md sticky top-0 z-40 border-b border-stone-200">
+    <div class="max-w-6xl mx-auto px-4 py-3.5 flex justify-between items-center">
+      <div class="flex items-center gap-2">
+        <i class="fa-solid fa-wine-glass text-amber-700 text-2xl"></i>
+        <div>
+          <span class="serif-toscana font-bold text-xl sm:text-2xl text-stone-900 block leading-tight">La Toscana</span>
+          <span class="text-[9px] uppercase tracking-widest text-stone-500 font-semibold block">Trattoria & Pizzeria</span>
+        </div>
+      </div>
+      <a href="https://wa.me/34600000000?text=Hola,%20quisiera%20reservar%20una%20mesa" class="bg-amber-700 hover:bg-amber-800 text-white px-5 py-2.5 rounded-full font-bold text-xs sm:text-sm flex items-center gap-2 shadow-md transition">
+        <i class="fa-brands fa-whatsapp text-lg"></i> Reservar Mesa
+      </a>
+    </div>
+  </nav>
+
+  <section class="hero-toscana text-white py-24 px-4 text-center">
+    <div class="max-w-3xl mx-auto">
+      <span class="text-amber-300 serif-toscana italic text-lg sm:text-xl block mb-2">Auténtico Sabor Italiano</span>
+      <h1 class="serif-toscana text-4xl sm:text-6xl font-bold text-white mb-6 leading-tight">La Verdadera Esencia de la Cocina Toscana</h1>
+      <p class="text-stone-200 text-base sm:text-lg mb-8 max-w-xl mx-auto font-light leading-relaxed">Pasta fresca hecha a mano diariamente, pizzas artesanales en horno de leña e ingredientes traídos directamente de Italia.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="https://wa.me/34600000000?text=Hola,%20deseo%20reservar%20mesa" class="bg-amber-600 hover:bg-amber-500 text-white px-8 py-4 rounded-full font-bold text-base shadow-xl transition">
+          <i class="fa-brands fa-whatsapp text-xl mr-1"></i> Reservar por WhatsApp
+        </a>
+        <a href="#carta" class="bg-white/10 hover:bg-white/20 border border-white/30 text-white px-8 py-4 rounded-full font-bold text-base transition">
+          Ver Carta Digital
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="carta" class="py-20 px-4 max-w-6xl mx-auto">
+    <div class="text-center mb-12">
+      <span class="text-amber-800 uppercase tracking-widest text-xs font-bold">Nuestra Selección</span>
+      <h2 class="serif-toscana text-3xl sm:text-4xl font-bold text-stone-900 mt-1">Platos Estrella</h2>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
+      <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-stone-200">
+        <img src="https://images.unsplash.com/photo-1621996346565-e3d5d6281545?auto=format&fit=crop&w=600&q=80" alt="Pasta" class="w-full h-48 object-cover">
+        <div class="p-6">
+          <h3 class="serif-toscana font-bold text-xl text-stone-900 mb-1">Tagliatelle al Tartufo</h3>
+          <p class="text-stone-600 text-sm mb-3">Pasta fresca al huevo con crema de trufa negra, setas silvestres y parmesano 24 meses.</p>
+          <span class="text-amber-800 font-bold text-lg">16,50 €</span>
+        </div>
+      </div>
+      <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-stone-200">
+        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Pizza" class="w-full h-48 object-cover">
+        <div class="p-6">
+          <h3 class="serif-toscana font-bold text-xl text-stone-900 mb-1">Pizza Margherita DOC</h3>
+          <p class="text-stone-600 text-sm mb-3">Masa fermentada 48h en horno de leña, tomate San Marzano, mozzarella di bufala y albahaca.</p>
+          <span class="text-amber-800 font-bold text-lg">13,00 €</span>
+        </div>
+      </div>
+      <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-stone-200">
+        <img src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&w=600&q=80" alt="Postre" class="w-full h-48 object-cover">
+        <div class="p-6">
+          <h3 class="serif-toscana font-bold text-xl text-stone-900 mb-1">Tiramisú Tradizionale</h3>
+          <p class="text-stone-600 text-sm mb-3">Receta clásica véneta con mascarpone artesanal, café espresso y cacao amargo.</p>
+          <span class="text-amber-800 font-bold text-lg">6,50 €</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-[#1C130E] text-stone-400 py-10 px-4 text-center text-xs">
+    <p class="serif-toscana text-lg text-amber-200 mb-2">Trattoria La Toscana</p>
+    <p>© 2026 • Cocina Tradicional con Amor • Todos los derechos reservados.</p>
+  </footer>
+</body>
+</html>
