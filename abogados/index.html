@@ -3,58 +3,600 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bufete de Abogados & Asesoría Jurídica | Consulta Confidencial</title>
+  <title>VALENCIA & ASOCIADOS • Despacho de Abogados & Asesoría Jurídica</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap');
-    .serif-title { font-family: 'Cinzel', serif; }
-    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+    
+    :root {
+      --font-serif: 'Cinzel', serif;
+      --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      --navy-deep: #070d1e;
+      --navy-surface: #0e172e;
+      --navy-card: #131f3d;
+      --gold-law: #d4af37;
+      --gold-law-hover: #e5be48;
+    }
+
+    body { 
+      font-family: var(--font-sans);
+      background-color: var(--navy-deep);
+      color: #f8fafc;
+    }
+
+    .serif-law { font-family: var(--font-serif); }
+
     .hero-law {
-      background: linear-gradient(rgba(10, 15, 30, 0.88), rgba(10, 15, 30, 0.92)), 
+      background: linear-gradient(rgba(7, 13, 30, 0.88), rgba(7, 13, 30, 0.94)), 
                   url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1600&q=80') center/cover;
     }
   </style>
 </head>
-<body class="bg-slate-950 text-slate-100 antialiased">
-  <nav class="bg-slate-900/90 backdrop-blur-md sticky top-0 z-40 border-b border-slate-800">
-    <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-      <div class="flex items-center gap-3">
-        <i class="fa-solid fa-scale-balanced text-amber-400 text-2xl"></i>
-        <span class="serif-title font-bold text-xl tracking-wider text-white">VALENCIA & ASOCIADOS</span>
+<body class="antialiased selection:bg-amber-400 selection:text-slate-950">
+
+  <!-- 1. BARRA SUPERIOR DE ATENCIÓN Y CONFIDENCIALIDAD -->
+  <div class="bg-[#050914] text-slate-400 text-xs py-2.5 px-4 border-b border-slate-800/80">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+      <div class="flex items-center gap-4 flex-wrap justify-center sm:justify-start text-[11px] sm:text-xs">
+        <span class="flex items-center gap-1.5 text-slate-300">
+          <svg class="w-3.5 h-3.5 text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          Consulta Jurídica Confidencial • Atención Personalizada
+        </span>
+        <span class="hidden md:flex items-center gap-1.5 text-slate-400">
+          <svg class="w-3.5 h-3.5 text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Horario Despacho: Lun - Vie de 9:00 a 19:00
+        </span>
       </div>
-      <a href="https://wa.me/34362547479?text=Hola,%20solicito%20consulta%20juridica" class="bg-amber-500 hover:bg-amber-400 text-slate-950 px-5 py-2.5 rounded-lg font-bold text-xs uppercase tracking-wider transition">
-        Primera Consulta
-      </a>
+      <div class="flex items-center gap-3 text-[11px] sm:text-xs font-semibold text-amber-300">
+        <span>Defensa Legal Rigurosa &amp; Cercanía</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. NAVEGACIÓN INSTITUCIONAL -->
+  <nav class="bg-[#091124]/95 backdrop-blur-md sticky top-0 z-40 border-b border-slate-800/90 shadow-xl">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+      
+      <!-- LOGO / IDENTIDAD -->
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 bg-amber-400/10 border border-amber-400/30 rounded-xl flex items-center justify-center text-amber-400">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></svg>
+        </div>
+        <div>
+          <span class="serif-law font-bold text-lg sm:text-xl text-white tracking-wider block leading-tight">VALENCIA &amp; ASOCIADOS</span>
+          <span class="text-[9px] uppercase tracking-widest text-amber-400 font-semibold block">Despacho de Abogados &amp; Consultoría</span>
+        </div>
+      </div>
+
+      <!-- BOTONES DE CONTACTO -->
+      <div class="flex items-center gap-3">
+        <a href="tel:+34362547479" class="hidden sm:inline-flex items-center gap-2 text-slate-300 hover:text-white font-bold text-xs px-3 py-2 rounded-lg transition">
+          <svg class="w-4 h-4 text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span>Llamar al Despacho</span>
+        </a>
+
+        <a href="#contacto" class="bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-slate-950 font-black text-xs sm:text-sm px-4 sm:px-5 py-2.5 rounded-xl shadow-lg shadow-amber-400/20 flex items-center gap-2 transition transform active:scale-95 min-h-[44px]">
+          <svg class="w-4 h-4 text-slate-950" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          <span>Solicitar Consulta</span>
+        </a>
+      </div>
     </div>
   </nav>
 
-  <section class="hero-law py-24 px-4 text-center">
+  <!-- 3. HERO EDITORIAL DE ALTO IMPACTO -->
+  <section class="hero-law text-white py-16 sm:py-28 px-4 relative overflow-hidden">
+    <div class="max-w-4xl mx-auto text-center relative z-10">
+      
+      <div class="inline-flex items-center gap-2 bg-amber-400/10 text-amber-300 border border-amber-400/30 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-6">
+        <svg class="w-3.5 h-3.5 text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Asesoramiento Jurídico Especializado • Máxima Discreción
+      </div>
+
+      <h1 class="serif-law text-3xl sm:text-5xl lg:text-6xl font-bold tracking-normal leading-tight sm:leading-none mb-6">
+        Protegemos Tus Derechos con <span class="text-amber-400">Rigor, Claridad</span> y Compromiso.
+      </h1>
+
+      <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto mb-8 font-light leading-relaxed">
+        Soluciones legales estratégicas para particulares y empresas en Derecho Civil, Herencias, Familia y Ámbito Laboral. Te acompañamos en cada etapa de tu procedimiento.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-3.5 justify-center items-center">
+        <a href="#contacto" class="w-full sm:w-auto bg-gradient-to-r from-amber-400 to-amber-300 hover:from-amber-300 hover:to-amber-200 text-slate-950 font-black px-8 py-4 rounded-xl text-base flex items-center justify-center gap-2.5 shadow-xl shadow-amber-400/25 transition transform hover:-translate-y-0.5 min-h-[48px]">
+          <svg class="w-5 h-5 text-slate-950" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          <span>Exponer Mi Caso Confidencialmente</span>
+        </a>
+
+        <a href="https://wa.me/34362547479?text=Hola,%20quisiera%20solicitar%20asesoramiento%20jur%C3%ADdico%20con%20el%20despacho." class="w-full sm:w-auto bg-[#0e172e]/90 hover:bg-slate-800 text-white border border-slate-700 font-bold px-6 py-4 rounded-xl text-base flex items-center justify-center gap-2.5 transition min-h-[48px]">
+          <svg class="w-5 h-5 text-emerald-400" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.073-2.152-.533-1.637-.679-2.69-2.347-2.772-2.457-.08-.11-1.11-1.477-1.11-2.813 0-1.336.702-1.993.95-2.257.248-.264.542-.33.723-.33.18 0 .361.002.519.01.168.008.393-.064.614.469.23.555.786 1.917.854 2.057.069.14.116.305.023.49-.092.186-.139.303-.275.467-.136.165-.286.368-.409.495-.136.14-.278.293-.12.565.158.272.702 1.16 1.507 1.877 1.036.924 1.91 1.209 2.182 1.346.272.137.432.119.593-.066.162-.186.69-.806.874-1.082.184-.275.368-.231.614-.141.246.09 1.559.734 1.826.868.267.134.446.2.512.311.066.111.066.643-.078 1.048z"/></svg>
+          <span>WhatsApp Directo</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 4. PILARES DE CONFIANZA EDITORIALES -->
+  <section class="py-12 bg-[#091124] border-b border-slate-800">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <div class="p-5 rounded-2xl bg-[#0e172e] border border-slate-800/90">
+          <div class="w-10 h-10 rounded-lg bg-amber-400/10 text-amber-400 flex items-center justify-center mb-3">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
+          <h3 class="serif-law font-bold text-white text-base">Secreto Profesional</h3>
+          <p class="text-slate-400 text-xs mt-1.5 leading-relaxed">Trato estrictamente confidencial en cada consulta y documentación aportada.</p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-[#0e172e] border border-slate-800/90">
+          <div class="w-10 h-10 rounded-lg bg-amber-400/10 text-amber-400 flex items-center justify-center mb-3">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          </div>
+          <h3 class="serif-law font-bold text-white text-base">Estudio de Viabilidad</h3>
+          <p class="text-slate-400 text-xs mt-1.5 leading-relaxed">Analizamos la solidez y opciones reales de tu asunto antes de cualquier acción.</p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-[#0e172e] border border-slate-800/90">
+          <div class="w-10 h-10 rounded-lg bg-amber-400/10 text-amber-400 flex items-center justify-center mb-3">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" x2="12" y1="2" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <h3 class="serif-law font-bold text-white text-base">Honorarios Claros</h3>
+          <p class="text-slate-400 text-xs mt-1.5 leading-relaxed">Hoja de encargo transparente con presupuesto cerrado sin gastos imprevistos.</p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-[#0e172e] border border-slate-800/90">
+          <div class="w-10 h-10 rounded-lg bg-amber-400/10 text-amber-400 flex items-center justify-center mb-3">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3 class="serif-law font-bold text-white text-base">Comunicación Directa</h3>
+          <p class="text-slate-400 text-xs mt-1.5 leading-relaxed">Información puntual y continua sobre el avance de tu expediente en todo momento.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. ÁREAS DE PRÁCTICA JURÍDICA (COMPOSICIÓN EDITORIAL) -->
+  <section class="py-20 px-4 max-w-6xl mx-auto" id="areas">
+    <div class="text-center max-w-2xl mx-auto mb-14">
+      <span class="text-xs font-bold text-amber-400 uppercase tracking-widest">Especialidades del Despacho</span>
+      <h2 class="serif-law text-2xl sm:text-4xl font-bold text-white mt-1">Áreas de Práctica Jurídica</h2>
+      <p class="text-slate-400 text-xs sm:text-sm mt-2">Defensa y asesoramiento riguroso en las principales ramas del derecho.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      
+      <!-- ÁREA 1: HERENCIAS Y SUCESIONES -->
+      <div class="bg-[#0e172e] border border-slate-800 rounded-2xl p-7 hover:border-slate-700 transition flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="serif-law text-lg sm:text-xl font-bold text-amber-300">Herencias y Sucesiones</span>
+            <div class="p-2 rounded-lg bg-amber-400/10 text-amber-400">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            </div>
+          </div>
+          <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-4">
+            Tramitación completa de herencias testadas e intestadas, redacción de testamentos, partición judicial de bienes, reclamación de legítimas y liquidación del Impuesto sobre Sucesiones y Plusvalía.
+          </p>
+        </div>
+        <div class="pt-4 border-t border-slate-800/80">
+          <a href="#contacto" class="text-xs font-bold text-amber-400 hover:text-amber-300 inline-flex items-center gap-1.5">
+            <span>Consultar caso de herencia</span>
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- ÁREA 2: DERECHO CIVIL Y CONTRATOS -->
+      <div class="bg-[#0e172e] border border-slate-800 rounded-2xl p-7 hover:border-slate-700 transition flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="serif-law text-lg sm:text-xl font-bold text-amber-300">Derecho Civil y Obligaciones</span>
+            <div class="p-2 rounded-lg bg-amber-400/10 text-amber-400">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10"/><path d="M6 10h10"/></svg>
+            </div>
+          </div>
+          <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-4">
+            Redacción y revisión de contratos de compraventa y arrendamiento, reclamaciones de cantidad e impagos, responsabilidad civil contractual y extracontractual, y resolución de conflictos de propiedad.
+          </p>
+        </div>
+        <div class="pt-4 border-t border-slate-800/80">
+          <a href="#contacto" class="text-xs font-bold text-amber-400 hover:text-amber-300 inline-flex items-center gap-1.5">
+            <span>Consultar reclamación civil</span>
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- ÁREA 3: FAMILIA Y DIVORCIOS -->
+      <div class="bg-[#0e172e] border border-slate-800 rounded-2xl p-7 hover:border-slate-700 transition flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="serif-law text-lg sm:text-xl font-bold text-amber-300">Derecho de Familia y Menores</span>
+            <div class="p-2 rounded-lg bg-amber-400/10 text-amber-400">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+          </div>
+          <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-4">
+            Divorcios de mutuo acuerdo y contenciosos, convenios reguladores, guardia y custodia compartida, pensión de alimentos y compensatoria, y liquidación del régimen económico matrimonial.
+          </p>
+        </div>
+        <div class="pt-4 border-t border-slate-800/80">
+          <a href="#contacto" class="text-xs font-bold text-amber-400 hover:text-amber-300 inline-flex items-center gap-1.5">
+            <span>Consultar asunto familiar</span>
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- ÁREA 4: DERECHO LABORAL -->
+      <div class="bg-[#0e172e] border border-slate-800 rounded-2xl p-7 hover:border-slate-700 transition flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="serif-law text-lg sm:text-xl font-bold text-amber-300">Derecho Laboral y Seguridad Social</span>
+            <div class="p-2 rounded-lg bg-amber-400/10 text-amber-400">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            </div>
+          </div>
+          <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-4">
+            Impugnación de despidos disciplinarios e improcedentes, reclamaciones de salarios y finiquitos, incapacidades laborales permanentes, acoso laboral y representación ante el SMAC y Juzgados de lo Social.
+          </p>
+        </div>
+        <div class="pt-4 border-t border-slate-800/80">
+          <a href="#contacto" class="text-xs font-bold text-amber-400 hover:text-amber-300 inline-flex items-center gap-1.5">
+            <span>Consultar despido o reclamación</span>
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 6. EL DESPACHO / ROSTRO HUMANO & FILOSOFÍA -->
+  <section class="py-16 bg-[#091124] border-y border-slate-800 px-4">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+      
+      <div class="lg:col-span-5">
+        <div class="relative rounded-3xl overflow-hidden border border-slate-800 shadow-2xl">
+          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80" alt="Socio Director del Despacho" class="w-full h-96 object-cover object-top">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent flex flex-col justify-end p-6">
+            <p class="serif-law text-lg font-bold text-white">[Nombre del Letrado Titular]</p>
+            <p class="text-xs text-amber-400 font-medium">Abogado Director • [Colegio de Abogados]</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-7 space-y-5">
+        <span class="text-xs font-bold text-amber-400 uppercase tracking-widest">Compromiso Deontológico</span>
+        <h2 class="serif-law text-2xl sm:text-4xl font-bold text-white leading-tight">
+          Una práctica legal basada en la honestidad y la solvencia técnica
+        </h2>
+        <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+          En <strong>VALENCIA &amp; ASOCIADOS</strong> entendemos que detrás de cada consulta jurídica existen personas y empresas que atraviesan momentos decisivos. Nuestro compromiso es ofrecerte un asesoramiento realista, sin falsas expectativas, priorizando siempre la mejor vía de resolución: extrajudicial cuando sea posible y firme en los tribunales cuando sea necesario.
+        </p>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 text-xs text-slate-300">
+          <div class="flex items-center gap-2.5">
+            <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+            <span>Atención jurídica individualizada.</span>
+          </div>
+          <div class="flex items-center gap-2.5">
+            <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+            <span>Explicación clara de riesgos y costes.</span>
+          </div>
+          <div class="flex items-center gap-2.5">
+            <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+            <span>Defensa técnica rigurosa en Sala.</span>
+          </div>
+          <div class="flex items-center gap-2.5">
+            <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+            <span>Transparencia total de honorarios.</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 7. PROCESO DE ATENCIÓN EN 3 PASOS -->
+  <section class="py-20 px-4 max-w-6xl mx-auto">
+    <div class="text-center max-w-2xl mx-auto mb-14">
+      <span class="text-xs font-bold text-amber-400 uppercase tracking-widest">Metodología de Trabajo</span>
+      <h2 class="serif-law text-2xl sm:text-4xl font-bold text-white mt-1">Cómo Atendemos Tu Caso</h2>
+      <p class="text-slate-400 text-xs sm:text-sm mt-2">Un procedimiento estructurado para darte respuesta ágil y con plena validez jurídica.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      
+      <div class="bg-[#0e172e] border border-slate-800 p-7 rounded-2xl relative">
+        <span class="text-[11px] font-bold text-amber-400 bg-amber-400/10 border border-amber-400/30 px-3 py-1 rounded-full uppercase">Paso 1</span>
+        <h3 class="serif-law font-bold text-white text-lg mt-4 mb-2">Consulta y Recepción</h3>
+        <p class="text-slate-300 text-xs leading-relaxed">
+          Nos expones tu situación mediante el formulario o por WhatsApp. Recopilamos la información básica para entender el contexto.
+        </p>
+      </div>
+
+      <div class="bg-[#0e172e] border border-slate-800 p-7 rounded-2xl relative">
+        <span class="text-[11px] font-bold text-amber-400 bg-amber-400/10 border border-amber-400/30 px-3 py-1 rounded-full uppercase">Paso 2</span>
+        <h3 class="serif-law font-bold text-white text-lg mt-4 mb-2">Estudio y Dictamen</h3>
+        <p class="text-slate-300 text-xs leading-relaxed">
+          Examinamos la documentación, la normativa aplicable y la jurisprudencia para evaluar la viabilidad legal y las alternativas existentes.
+        </p>
+      </div>
+
+      <div class="bg-[#0e172e] border border-slate-800 p-7 rounded-2xl relative">
+        <span class="text-[11px] font-bold text-amber-400 bg-amber-400/10 border border-amber-400/30 px-3 py-1 rounded-full uppercase">Paso 3</span>
+        <h3 class="serif-law font-bold text-white text-lg mt-4 mb-2">Estrategia y Acción</h3>
+        <p class="text-slate-300 text-xs leading-relaxed">
+          Acordamos contigo la estrategia de actuación, elaboramos la hoja de encargo y ponemos en marcha la negociación o la vía judicial.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 8. FORMULARIO DE CONSULTA CONFIDENCIAL -->
+  <section class="py-16 bg-[#091124] border-t border-slate-800 px-4" id="contacto">
+    <div class="max-w-4xl mx-auto">
+      
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <span class="text-xs font-bold text-amber-400 uppercase tracking-widest">Contacto Directo</span>
+        <h2 class="serif-law text-2xl sm:text-4xl font-bold text-white mt-1">Solicita una Consulta Jurídica</h2>
+        <p class="text-slate-400 text-xs sm:text-sm mt-2">
+          Rellena el formulario con los detalles básicos de tu asunto y nos pondremos en contacto contigo a la mayor brevedad.
+        </p>
+      </div>
+
+      <div class="bg-[#0e172e] border border-slate-800 rounded-3xl p-6 sm:p-10 shadow-2xl">
+        <form id="form_abogados" onsubmit="enviarConsultaAbogados(event);" class="space-y-4 text-xs sm:text-sm">
+          
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label for="nombre_cliente" class="block font-bold text-slate-300 mb-1.5 text-xs uppercase tracking-wider">
+                Nombre y Apellidos <span class="text-amber-400">*</span>
+              </label>
+              <input type="text" id="nombre_cliente" required placeholder="Ej. Carlos Mendoza" class="w-full bg-[#070d1e] border border-slate-700 rounded-xl px-4 py-3 text-white focus:border-amber-400 focus:outline-none transition placeholder:text-slate-600 min-h-[48px]">
+            </div>
+
+            <div>
+              <label for="telefono_cliente" class="block font-bold text-slate-300 mb-1.5 text-xs uppercase tracking-wider">
+                Teléfono de Contacto <span class="text-amber-400">*</span>
+              </label>
+              <input type="tel" id="telefono_cliente" required placeholder="Ej. 612 345 678" class="w-full bg-[#070d1e] border border-slate-700 rounded-xl px-4 py-3 text-white focus:border-amber-400 focus:outline-none transition placeholder:text-slate-600 min-h-[48px]">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label for="email_cliente" class="block font-bold text-slate-300 mb-1.5 text-xs uppercase tracking-wider">
+                Correo Electrónico <span class="text-slate-500 font-normal text-[11px]">(Opcional)</span>
+              </label>
+              <input type="email" id="email_cliente" placeholder="Ej. carlos@email.com" class="w-full bg-[#070d1e] border border-slate-700 rounded-xl px-4 py-3 text-white focus:border-amber-400 focus:outline-none transition placeholder:text-slate-600 min-h-[48px]">
+            </div>
+
+            <div>
+              <label for="area_consulta" class="block font-bold text-slate-300 mb-1.5 text-xs uppercase tracking-wider">
+                Materia del Asunto <span class="text-amber-400">*</span>
+              </label>
+              <select id="area_consulta" class="w-full bg-[#070d1e] border border-slate-700 rounded-xl px-4 py-3 text-white focus:border-amber-400 focus:outline-none transition min-h-[48px]">
+                <option value="Herencias y Sucesiones">Herencias y Sucesiones</option>
+                <option value="Derecho Civil / Contratos / Reclamaciones">Derecho Civil / Contratos / Impagos</option>
+                <option value="Familia / Divorcios / Custodias">Familia / Divorcios / Custodias</option>
+                <option value="Laboral / Despidos / Incapacidades">Laboral / Despidos / Incapacidades</option>
+                <option value="Otra Consulta Jurídica">Otra Consulta Jurídica</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label for="resumen_caso" class="block font-bold text-slate-300 mb-1.5 text-xs uppercase tracking-wider">
+              Breve Resumen de Tu Asunto <span class="text-amber-400">*</span>
+            </label>
+            <textarea id="resumen_caso" required rows="3" placeholder="Describe brevemente los hechos principales para que podamos preparar la consulta..." class="w-full bg-[#070d1e] border border-slate-700 rounded-xl px-4 py-3 text-white focus:border-amber-400 focus:outline-none transition placeholder:text-slate-600"></textarea>
+          </div>
+
+          <div class="pt-2">
+            <button type="submit" class="w-full bg-gradient-to-r from-amber-400 to-amber-300 hover:from-amber-300 hover:to-amber-200 text-slate-950 font-black text-sm py-4 px-6 rounded-xl shadow-xl shadow-amber-400/20 transition transform active:scale-95 flex items-center justify-center gap-2 min-h-[48px]">
+              <svg class="w-5 h-5 text-slate-950" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              <span>Enviar Consulta Confidencial por WhatsApp</span>
+            </button>
+          </div>
+
+          <p class="text-[11px] text-slate-400 text-center mt-3">
+            Tus datos se tratarán con absoluta reserva conforme al secreto profesional y la normativa de protección de datos.
+          </p>
+
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 9. PRUEBA SOCIAL / OPINIONES DEMOSTRATIVAS -->
+  <section class="py-16 bg-[#070d1e] px-4">
+    <div class="max-w-6xl mx-auto">
+      
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-xs font-bold text-amber-400 uppercase tracking-widest">Opiniones de Clientes</span>
+        <h2 class="serif-law text-2xl sm:text-4xl font-bold text-white mt-1">Testimonios y Experiencias</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <div class="bg-[#0e172e] border border-slate-800 p-6 rounded-2xl flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-1 text-amber-400 mb-3">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-4">
+              "Gestionaron una herencia compleja con varios herederos. Nos explicaron cada paso con total claridad y lograron un acuerdo satisfactorio sin llegar a juicio."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-3 border-t border-slate-800">
+            <div class="w-8 h-8 rounded-full bg-amber-400/20 text-amber-300 font-bold flex items-center justify-center text-xs">RM</div>
+            <div>
+              <h4 class="font-bold text-white text-xs">Roberto M.</h4>
+              <span class="text-[11px] text-slate-400">Tramitación de Herencia</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-[#0e172e] border border-slate-800 p-6 rounded-2xl flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-1 text-amber-400 mb-3">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-4">
+              "Gran profesionalidad y cercanía en mi proceso de divorcio y custodia. El trato humano y la dedicación durante los meses que duró el trámite fueron impecables."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-3 border-t border-slate-800">
+            <div class="w-8 h-8 rounded-full bg-amber-400/20 text-amber-300 font-bold flex items-center justify-center text-xs">LG</div>
+            <div>
+              <h4 class="font-bold text-white text-xs">Laura G.</h4>
+              <span class="text-[11px] text-slate-400">Derecho de Familia</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-[#0e172e] border border-slate-800 p-6 rounded-2xl flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-1 text-amber-400 mb-3">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-4">
+              "Defendieron mi caso de reclamación de cantidad con rigor desde el primer momento. Muy agradecido por la transparencia con los honorarios y la rapidez."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-3 border-t border-slate-800">
+            <div class="w-8 h-8 rounded-full bg-amber-400/20 text-amber-300 font-bold flex items-center justify-center text-xs">JS</div>
+            <div>
+              <h4 class="font-bold text-white text-xs">Javier S.</h4>
+              <span class="text-[11px] text-slate-400">Reclamación de Cantidad</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 10. UBICACIÓN, HORARIOS Y CONTACTO -->
+  <section class="py-16 px-4 max-w-6xl mx-auto">
+    <div class="bg-[#0e172e] text-white rounded-3xl p-8 sm:p-12 border border-slate-800 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+      
+      <div>
+        <span class="text-xs font-bold text-amber-400 uppercase tracking-widest">Sede Principal</span>
+        <h2 class="serif-law text-2xl sm:text-3xl font-bold text-white mt-1 mb-4">Ubicación y Atención</h2>
+        <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-6">
+          Atendemos en nuestro despacho mediante cita previa para garantizar la debida privacidad y el tiempo que requiere el estudio de cada asunto.
+        </p>
+
+        <div class="space-y-4 text-xs sm:text-sm text-slate-300">
+          <div class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-amber-400 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            <div>
+              <p class="font-bold text-white">Dirección del Despacho:</p>
+              <p class="text-slate-400">[Calle Principal / Zona Centro Jurídico de la Localidad]</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-amber-400 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <div>
+              <p class="font-bold text-white">Horario de Consultas:</p>
+              <p class="text-slate-400">Lunes a Viernes: 9:00 a 14:00 y 16:00 a 19:00</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-amber-400 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <div>
+              <p class="font-bold text-white">Teléfono de Citas:</p>
+              <p class="text-amber-400 font-extrabold">+34 362 54 74 79</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-[#070d1e] p-6 rounded-2xl border border-slate-800 text-center">
+        <h3 class="serif-law font-bold text-white text-lg mb-2">¿Prefieres consultarnos directamente por WhatsApp?</h3>
+        <p class="text-slate-300 text-xs sm:text-sm mb-6 leading-relaxed">
+          Escríbenos una breve síntesis de tu consulta jurídica y te orientaremos sobre los primeros pasos a seguir.
+        </p>
+        <a href="https://wa.me/34362547479?text=Hola,%20deseo%20realizar%20una%20consulta%20jur%C3%ADdica%20confidencial%20con%20el%20despacho." class="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-400 to-amber-300 hover:from-amber-300 text-slate-950 font-black text-xs sm:text-sm px-6 py-3.5 rounded-xl shadow-lg transition min-h-[48px] w-full">
+          <svg class="w-4 h-4 text-slate-950" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.073-2.152-.533-1.637-.679-2.69-2.347-2.772-2.457-.08-.11-1.11-1.477-1.11-2.813 0-1.336.702-1.993.95-2.257.248-.264.542-.33.723-.33.18 0 .361.002.519.01.168.008.393-.064.614.469.23.555.786 1.917.854 2.057.069.14.116.305.023.49-.092.186-.139.303-.275.467-.136.165-.286.368-.409.495-.136.14-.278.293-.12.565.158.272.702 1.16 1.507 1.877 1.036.924 1.91 1.209 2.182 1.346.272.137.432.119.593-.066.162-.186.69-.806.874-1.082.184-.275.368-.231.614-.141.246.09 1.559.734 1.826.868.267.134.446.2.512.311.066.111.066.643-.078 1.048z"/></svg>
+          <span>Abrir Consulta en WhatsApp</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 11. CTA FINAL DE CIERRE -->
+  <section class="py-14 bg-gradient-to-r from-amber-400 to-amber-300 text-slate-950 text-center px-4">
     <div class="max-w-3xl mx-auto">
-      <span class="text-amber-400 text-xs uppercase tracking-widest font-semibold">Defensa Legal Rigurosa y Personalizada</span>
-      <h1 class="serif-title text-3xl sm:text-5xl font-bold text-white mt-4 mb-6 leading-tight">Protegemos Tus Derechos con Experiencia y Compromiso</h1>
-      <p class="text-slate-300 text-base sm:text-lg mb-8 max-w-xl mx-auto font-light">Especialistas en Derecho Civil, Laboral, Herencias, Familia y Reclamaciones con más del 92% de casos resueltos con éxito.</p>
-      <a href="https://wa.me/34362547479?text=Hola,%20deseo%20asesoramiento%20legal" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-950 px-8 py-4 rounded-lg font-extrabold text-sm tracking-wide shadow-xl transition">
-        <i class="fa-brands fa-whatsapp text-lg"></i> Consulta Confidencial por WhatsApp
+      <h2 class="serif-law text-2xl sm:text-4xl font-bold mb-3">La tranquilidad de contar con el asesoramiento legal adecuado</h2>
+      <p class="text-slate-900 text-sm sm:text-base font-medium mb-6 max-w-xl mx-auto">
+        Contacta hoy mismo con nuestro despacho para analizar tu situación y defender tus intereses.
+      </p>
+      <a href="#contacto" class="inline-flex items-center gap-2 bg-slate-950 hover:bg-slate-900 text-white font-black text-sm px-8 py-4 rounded-xl shadow-2xl transition transform hover:scale-105 min-h-[48px]">
+        <svg class="w-5 h-5 text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        <span>Solicitar Consulta Ahora</span>
       </a>
     </div>
   </section>
 
-  <section class="py-16 px-4 max-w-6xl mx-auto">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <div class="bg-slate-900 p-8 rounded-xl border border-slate-800">
-        <h3 class="serif-title text-xl text-amber-400 mb-2">Herencias y Sucesiones</h3>
-        <p class="text-slate-400 text-sm">Tramitación integral de testamentos, partición de bienes y liquidación de impuestos.</p>
-      </div>
-      <div class="bg-slate-900 p-8 rounded-xl border border-slate-800">
-        <h3 class="serif-title text-xl text-amber-400 mb-2">Derecho Laboral</h3>
-        <p class="text-slate-400 text-sm">Despidos improcedentes, reclamación de salarios, incapacidades y convenios.</p>
-      </div>
-      <div class="bg-slate-900 p-8 rounded-xl border border-slate-800">
-        <h3 class="serif-title text-xl text-amber-400 mb-2">Familia y Divorcios</h3>
-        <p class="text-slate-400 text-sm">Custodias, pensiones de alimentos, acuerdos mutuos y liquidación de gananciales.</p>
-      </div>
-    </div>
-  </section>
+  <!-- 12. PIE DE PÁGINA CORPORATIVO -->
+  <footer class="bg-[#050914] text-slate-500 py-8 px-4 text-center text-xs border-t border-slate-800/80">
+    <p class="serif-law font-bold text-slate-300 text-sm">VALENCIA &amp; ASOCIADOS • ABOGADOS Y ASESORES JURÍDICOS</p>
+    <p class="mt-1.5 text-slate-400">© 2026 VALENCIA &amp; ASOCIADOS. Todos los derechos reservados. Web de demostración profesional.</p>
+  </footer>
+
+  <!-- 13. BOTÓN FLOTANTE MÓVIL DE WHATSAPP -->
+  <a href="https://wa.me/34362547479?text=Hola,%20quisiera%20solicitar%20asesoramiento%20jur%C3%ADdico%20con%20el%20despacho." class="fixed bottom-5 right-5 z-50 bg-emerald-500 hover:bg-emerald-400 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl shadow-emerald-500/50 transition transform hover:scale-110 active:scale-95">
+    <svg class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.073-2.152-.533-1.637-.679-2.69-2.347-2.772-2.457-.08-.11-1.11-1.477-1.11-2.813 0-1.336.702-1.993.95-2.257.248-.264.542-.33.723-.33.18 0 .361.002.519.01.168.008.393-.064.614.469.23.555.786 1.917.854 2.057.069.14.116.305.023.49-.092.186-.139.303-.275.467-.136.165-.286.368-.409.495-.136.14-.278.293-.12.565.158.272.702 1.16 1.507 1.877 1.036.924 1.91 1.209 2.182 1.346.272.137.432.119.593-.066.162-.186.69-.806.874-1.082.184-.275.368-.231.614-.141.246.09 1.559.734 1.826.868.267.134.446.2.512.311.066.111.066.643-.078 1.048z"/></svg>
+  </a>
+
+  <!-- SCRIPT DE ENVÍO DE CONSULTA -->
+  <script>
+    function enviarConsultaAbogados(e) {
+      e.preventDefault();
+      const nombre = document.getElementById('nombre_cliente').value.trim();
+      const tel = document.getElementById('telefono_cliente').value.trim();
+      const email = document.getElementById('email_cliente').value.trim();
+      const area = document.getElementById('area_consulta').value;
+      const caso = document.getElementById('resumen_caso').value.trim();
+
+      const mensaje = `*CONSULTA JURÍDICA CONFIDENCIAL - VALENCIA & ASOCIADOS*
+
+👤 *Cliente:* ${nombre}
+📞 *Teléfono:* ${tel}
+${email ? `✉️ *Email:* ${email}\n` : ''}⚖️ *Área Jurídica:* ${area}
+
+📝 *Resumen del Asunto:*
+"${caso}"
+
+_Enviado desde el formulario web del despacho._`;
+
+      const url = `https://wa.me/34362547479?text=${encodeURIComponent(mensaje)}`;
+      window.open(url, '_blank');
+    }
+  </script>
+
 </body>
 </html>
