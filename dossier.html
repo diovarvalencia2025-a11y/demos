@@ -2,138 +2,431 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Dossier de Servicios y Alcance Web - Diovar Valencia • LogiMotion Digital</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dossier Oficial y Estimador de Presupuesto - LogiMotion Digital</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
     body { font-family: 'Plus Jakarta Sans', sans-serif; }
     @media print {
-      body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      body { background: white !important; padding: 0 !important; color: black !important; }
+      .no-print { display: none !important; }
+      .print-shadow-none { box-shadow: none !important; border: 1px solid #e2e8f0 !important; }
+      .page-break { page-break-before: always; }
     }
   </style>
 </head>
-<body class="bg-slate-100 p-4 sm:p-10 text-slate-800">
-  <div class="max-w-4xl mx-auto bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-200">
+<body class="bg-slate-100 p-3 sm:p-8 text-slate-800 antialiased">
+
+  <div class="max-w-4xl mx-auto bg-white rounded-3xl shadow-2xl overflow-hidden border border-slate-200 print-shadow-none">
     
-    <!-- CABECERA -->
-    <div class="bg-gradient-to-r from-slate-950 via-slate-900 to-indigo-950 text-white p-8 sm:p-12">
-      <div class="flex justify-between items-start flex-wrap gap-4">
-        <div>
-          <span class="bg-amber-500/20 text-amber-300 border border-amber-400/30 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Alcance y Condiciones Oficiales</span>
-          <h1 class="text-3xl sm:text-4xl font-extrabold mt-3 tracking-tight">Dossier de Servicios Web</h1>
-          <p class="text-slate-300 text-sm mt-1">Páginas Web de Alta Conversión para Negocios Locales</p>
-        </div>
-        <div class="text-right">
-          <p class="font-bold text-white text-base">Diovar Valencia • LogiMotion Digital</p>
-          <p class="text-amber-400 text-xs font-semibold">vdiovar@gmail.com • WhatsApp: +34 362 54 74 79</p>
-          <p class="text-slate-400 text-xs mt-1">Entrega: 24 a 48 Horas</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- CONTENIDO -->
-    <div class="p-8 sm:p-12 space-y-10">
+    <!-- CABECERA PRINCIPAL -->
+    <header class="bg-gradient-to-r from-slate-950 via-slate-900 to-indigo-950 text-white p-8 sm:p-12 relative overflow-hidden">
+      <div class="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 rounded-full bg-amber-500/10 blur-3xl pointer-events-none"></div>
       
-      <!-- SECCIÓN 1 -->
-      <div>
-        <h2 class="text-xl font-extrabold text-slate-900 flex items-center gap-2 mb-3">
-          <span class="w-8 h-8 rounded-lg bg-amber-100 text-amber-700 flex items-center justify-center text-sm font-black">1</span>
-          ¿Qué entregamos exactamente?
-        </h2>
-        <p class="text-slate-600 text-sm leading-relaxed">
-          Diseñamos una <strong>página web de una sola página (One-Page / Landing Page)</strong> optimizada para que los clientes que buscan tu negocio en Google Maps puedan llamarte o pedirte presupuesto por WhatsApp en 1 solo clic desde su teléfono móvil.
+      <div class="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+        <div>
+          <span class="inline-flex items-center gap-1.5 bg-amber-500/20 text-amber-300 border border-amber-400/30 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+            ⭐ Solución Digital Certificada
+          </span>
+          <h1 class="text-3xl sm:text-4xl font-extrabold mt-3 tracking-tight">Dossier de Servicios y Estimador Oficial</h1>
+          <p class="text-slate-300 text-sm sm:text-base mt-1">Páginas Web de Alto Rendimiento y Conversión para Negocios Locales</p>
+        </div>
+        <div class="bg-slate-800/80 backdrop-blur border border-slate-700 p-4 rounded-2xl text-left md:text-right shrink-0">
+          <p class="font-bold text-white text-sm sm:text-base">Diovar Valencia</p>
+          <p class="text-amber-400 text-xs font-semibold">Director de Proyectos • LogiMotion Digital</p>
+          <p class="text-slate-300 text-xs mt-1">WhatsApp: <strong>+34 362 54 74 79</strong></p>
+          <p class="text-slate-400 text-[11px]">Email: vdiovar@gmail.com</p>
+        </div>
+      </div>
+    </header>
+
+    <main class="p-6 sm:p-12 space-y-12">
+
+      <!-- SECCIÓN 1: PROPUESTA DE VALOR -->
+      <section class="border-b border-slate-100 pb-8">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="w-9 h-9 rounded-xl bg-amber-500/10 text-amber-600 font-black flex items-center justify-center text-sm border border-amber-500/20">01</span>
+          <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900">¿Qué conseguimos para tu negocio?</h2>
+        </div>
+        <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+          Diseñamos y desplegamos tu <strong>página web de alta conversión (One-Page / Mobile-First)</strong> conectada estratégicamente a tu perfil de Google Maps y WhatsApp. El objetivo es directo: transformar a las personas que buscan tus servicios en tu ciudad en clientes que te llamen o te escriban en 1 solo clic.
         </p>
-      </div>
 
-      <!-- SECCIÓN 2: LAS 2 TARIFAS CERRADAS -->
-      <div>
-        <h2 class="text-xl font-extrabold text-slate-900 flex items-center gap-2 mb-6">
-          <span class="w-8 h-8 rounded-lg bg-amber-100 text-amber-700 flex items-center justify-center text-sm font-black">2</span>
-          Las 2 Únicas Modalidades de Contratación
-        </h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- BENEFICIOS CLAVE -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6">
+          <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200/80">
+            <span class="text-xl">⚡</span>
+            <h3 class="font-bold text-slate-900 text-sm mt-1">Carga Ultrarrápida</h3>
+            <p class="text-xs text-slate-500 mt-1">Optimizada para móviles sin demoras para no perder llamadas.</p>
+          </div>
+          <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200/80">
+            <span class="text-xl">📍</span>
+            <h3 class="font-bold text-slate-900 text-sm mt-1">Captación Local Directa</h3>
+            <p class="text-xs text-slate-500 mt-1">Botón de WhatsApp y llamada directa fijados en pantalla.</p>
+          </div>
+          <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200/80">
+            <span class="text-xl">🛡️</span>
+            <h3 class="font-bold text-slate-900 text-sm mt-1">Garantía y Claridad</h3>
+            <p class="text-xs text-slate-500 mt-1">Entrega llave en mano en 24 a 48 horas sin costes ocultos.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECCIÓN 2: LAS 2 MODALIDADES PRINCIPALES -->
+      <section class="border-b border-slate-100 pb-8">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="w-9 h-9 rounded-xl bg-amber-500/10 text-amber-600 font-black flex items-center justify-center text-sm border border-amber-500/20">02</span>
+          <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900">Modalidades Oficiales de Contratación</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
           
-          <!-- PLAN A -->
-          <div class="border-2 border-slate-200 p-6 rounded-2xl flex flex-col justify-between bg-slate-50/50">
+          <!-- PLAN 1: LANZAMIENTO -->
+          <div class="border border-slate-200 rounded-3xl p-6 sm:p-7 flex flex-col justify-between bg-slate-50/60 hover:bg-white hover:shadow-lg transition duration-200">
             <div>
-              <span class="text-xs uppercase font-bold text-slate-500 tracking-wider">Modalidad 1</span>
+              <div class="flex justify-between items-center mb-2">
+                <span class="text-xs font-bold uppercase tracking-wider text-slate-500 bg-slate-200/60 px-3 py-1 rounded-full">Modalidad 1</span>
+              </div>
               <h3 class="text-xl font-extrabold text-slate-900 mt-1">Plan Lanzamiento</h3>
-              <p class="text-xs text-slate-500 mt-1 mb-3 font-medium">Pago Único • Proyecto Cerrado</p>
-              <p class="text-3xl font-black text-slate-900 mb-4">250 € <span class="text-xs font-normal text-slate-500">/ pago único</span></p>
+              <p class="text-xs text-slate-500 mt-1 mb-4">Proyecto cerrado • Pago único sin cuotas mensuales</p>
               
-              <div class="text-xs space-y-2 text-slate-700">
-                <p class="font-bold text-slate-900">Incluye:</p>
-                <p>✓ Web One-Page completa adaptada a móviles</p>
-                <p>✓ Botones directos de WhatsApp y llamadas</p>
-                <p>✓ Integración de reseñas de Google Maps</p>
-                <p>✓ 1 ronda de revisión previa a la entrega</p>
-                <p>✓ 15 días de garantía técnica para erratas</p>
+              <div class="flex items-baseline gap-1 mb-6 pb-4 border-b border-slate-200">
+                <span class="text-4xl font-black text-slate-900">250 €</span>
+                <span class="text-xs font-semibold text-slate-500">pago único</span>
               </div>
 
-              <div class="mt-4 pt-4 border-t border-slate-200 text-[11px] text-slate-500 space-y-1">
-                <p class="font-bold text-red-600">Límites estrictos:</p>
-                <p>✗ NO incluye dominio ni servidor (hosting)</p>
-                <p>✗ NO incluye mantenimiento posterior (proyecto cerrado)</p>
+              <div class="space-y-3 text-xs text-slate-700">
+                <p class="font-bold text-slate-900 uppercase text-[11px] tracking-wide">Qué incluye el proyecto:</p>
+                <div class="flex items-start gap-2">
+                  <span class="text-emerald-600 font-bold">✓</span>
+                  <span>Estructura One-Page profesional 100% optimizada para móvil y PC.</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <span class="text-emerald-600 font-bold">✓</span>
+                  <span>Integración de WhatsApp directo, llamada inmediata y Google Maps.</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <span class="text-emerald-600 font-bold">✓</span>
+                  <span>Galería de proyectos/servicios destacados y testimonios de clientes.</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <span class="text-emerald-600 font-bold">✓</span>
+                  <span>1 ronda de revisión previa a la entrega final.</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <span class="text-emerald-600 font-bold">✓</span>
+                  <span><strong>15 días de garantía técnica</strong> post-entrega para ajustes iniciales.</span>
+                </div>
               </div>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-slate-200 text-xs text-slate-500">
+              <span class="font-semibold text-slate-700">Alojamiento y dominio:</span> Gestionado por el cliente o alojado en sus propios servidores.
             </div>
           </div>
 
-          <!-- PLAN B -->
-          <div class="border-2 border-amber-500 bg-amber-50/30 p-6 rounded-2xl flex flex-col justify-between relative shadow-lg">
-            <span class="absolute -top-3 right-4 bg-amber-500 text-slate-950 font-black text-[10px] uppercase px-3 py-0.5 rounded-full">Recomendado</span>
+          <!-- PLAN 2: TODO INCLUIDO (DESTACADO) -->
+          <div class="border-2 border-amber-500 rounded-3xl p-6 sm:p-7 flex flex-col justify-between bg-gradient-to-b from-amber-50/50 via-white to-amber-50/30 relative shadow-xl">
+            <span class="absolute -top-3.5 right-6 bg-amber-500 text-slate-950 font-black text-[11px] uppercase tracking-wider px-3.5 py-1 rounded-full shadow">
+              Opción Recomendada
+            </span>
+
             <div>
-              <span class="text-xs uppercase font-bold text-amber-700 tracking-wider">Modalidad 2</span>
-              <h3 class="text-xl font-extrabold text-slate-900 mt-1">Plan Todo Incluido</h3>
-              <p class="text-xs text-slate-500 mt-1 mb-3 font-medium">Puesta en Marcha + Mantenimiento Mensual</p>
-              <p class="text-3xl font-black text-slate-900 mb-1">190 € <span class="text-xs font-semibold text-slate-500">puesta en marcha</span></p>
-              <p class="text-lg font-bold text-amber-700 mb-4">+ 35 € / mes <span class="text-xs font-normal text-slate-500">(cuota mensual activa)</span></p>
-              
-              <div class="text-xs space-y-2 text-slate-700">
-                <p class="font-bold text-slate-900">Puesta en marcha (190 €):</p>
-                <p>✓ Creación web, dominio, hosting y SSL listo</p>
-                <p class="font-bold text-slate-900 mt-2">Mantenimiento mensual (35 €/mes):</p>
-                <p>✓ Renovación anual de tu dominio (.com / .es)</p>
-                <p>✓ Alojamiento en servidor rápido y seguro 24/7</p>
-                <p>✓ Certificado SSL y copias de seguridad</p>
-                <p>✓ <strong>Hasta 1 solicitud de cambio menor al mes</strong> (horario, teléfono, hasta 3 fotos o textos)</p>
-                <p>✓ Soporte técnico directo por WhatsApp</p>
+              <div class="flex justify-between items-center mb-2">
+                <span class="text-xs font-bold uppercase tracking-wider text-amber-800 bg-amber-100 px-3 py-1 rounded-full">Modalidad 2</span>
               </div>
+              <h3 class="text-xl font-extrabold text-slate-900 mt-1">Plan Todo Incluido</h3>
+              <p class="text-xs text-slate-500 mt-1 mb-4">Puesta en marcha + Alojamiento, Dominio y Soporte Continuo</p>
+              
+              <div class="flex flex-col mb-6 pb-4 border-b border-amber-200/80">
+                <div class="flex items-baseline gap-1">
+                  <span class="text-4xl font-black text-slate-900">190 €</span>
+                  <span class="text-xs font-semibold text-slate-500">puesta en marcha</span>
+                </div>
+                <div class="text-amber-800 font-bold text-sm mt-1">
+                  + 35 € / mes <span class="text-xs font-normal text-slate-500">(mantenimiento y tranquilidad total)</span>
+                </div>
+              </div>
+
+              <div class="space-y-3 text-xs text-slate-700">
+                <p class="font-bold text-slate-900 uppercase text-[11px] tracking-wide">Puesta en marcha (190 €):</p>
+                <div class="flex items-start gap-2">
+                  <span class="text-emerald-600 font-bold">✓</span>
+                  <span>Desarrollo completo de la web, configuración de dominio y servidor.</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <span class="text-emerald-600 font-bold">✓</span>
+                  <span>Certificado de seguridad SSL (https) y optimización de velocidad.</span>
+                </div>
+
+                <p class="font-bold text-slate-900 uppercase text-[11px] tracking-wide mt-3 pt-2 border-t border-amber-100">Mantenimiento mensual (35 €/mes):</p>
+                <div class="flex items-start gap-2">
+                  <span class="text-emerald-600 font-bold">✓</span>
+                  <span><strong>Dominio propio anual</strong> (.com o .es) incluido sin coste extra.</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <span class="text-emerald-600 font-bold">✓</span>
+                  <span><strong>Alojamiento Cloud de alta velocidad</strong> y copias de seguridad continuas.</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <span class="text-emerald-600 font-bold">✓</span>
+                  <span><strong>Actualizaciones mensuales incluidas:</strong> Actualización de teléfonos, horarios, textos o hasta 3 fotos de trabajos cada mes.</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <span class="text-emerald-600 font-bold">✓</span>
+                  <span><strong>Soporte prioritario por WhatsApp</strong> para resolver cualquier duda.</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-amber-200/80 text-xs text-slate-600 flex items-center justify-between">
+              <span class="font-semibold text-emerald-700">✓ Sin permanencia obligatoria</span>
+              <span class="text-slate-400">Cancela cuando quieras</span>
             </div>
           </div>
 
         </div>
-      </div>
+      </section>
 
-      <!-- SECCIÓN 3: LO QUE NUNCA ENTRA -->
-      <div class="bg-red-50/70 border border-red-200 rounded-2xl p-6 text-xs text-slate-700 space-y-3">
-        <h3 class="font-extrabold text-red-950 text-sm flex items-center gap-2">
-          <span>🚫</span> Lo que NUNCA está incluido en la cuota de 35 €/mes (Servicios Extras)
-        </h3>
-        <p class="text-slate-600">Para evitar abusos y garantizar un servicio ágil, los siguientes trabajos se cobran siempre aparte:</p>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-slate-800">
-          <p>✗ <strong>Nuevas páginas o secciones:</strong> +80 € por sección</p>
-          <p>✗ <strong>Rediseño completo de la web:</strong> Presupuesto nuevo</p>
-          <p>✗ <strong>Tiendas online o pasarelas de pago:</strong> No incluido</p>
-          <p>✗ <strong>Campañas de publicidad (Google/Meta Ads):</strong> No incluido</p>
-          <p>✗ <strong>Sistemas complejos de reservas:</strong> No incluido</p>
-          <p>✗ <strong>Sesiones de fotos o redacción desde cero:</strong> No incluido</p>
+      <!-- SECCIÓN 3: ESTIMADOR INTERACTIVO Y CALCULADORA EN TIEMPO REAL -->
+      <section class="bg-slate-900 text-white rounded-3xl p-6 sm:p-10 shadow-2xl relative overflow-hidden no-print">
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-80 h-80 rounded-full bg-amber-500/10 blur-3xl pointer-events-none"></div>
+
+        <div class="relative z-10">
+          <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
+            <div>
+              <span class="text-xs font-bold text-amber-400 uppercase tracking-wider bg-amber-400/10 px-3 py-1 rounded-full border border-amber-400/20">
+                🧮 Herramienta Interactiva
+              </span>
+              <h2 class="text-2xl font-extrabold mt-2 text-white">Calculadora y Estimador de Presupuesto</h2>
+              <p class="text-xs sm:text-sm text-slate-300">Configura tu propuesta personalizada y obtén el desglose exacto al instante.</p>
+            </div>
+            <button onclick="window.print()" class="bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-600 text-xs font-semibold px-4 py-2 rounded-xl transition flex items-center gap-2">
+              🖨️ Imprimir / Guardar PDF
+            </button>
+          </div>
+
+          <!-- SELECTOR DE MODALIDAD -->
+          <div class="bg-slate-800/90 rounded-2xl p-4 sm:p-6 border border-slate-700 space-y-4">
+            <label class="block text-xs font-bold uppercase tracking-wider text-amber-400">1. Selecciona tu Modalidad Base</label>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <label class="flex items-center gap-3 p-3.5 rounded-xl border border-slate-600 bg-slate-900/60 cursor-pointer hover:border-amber-500 transition">
+                <input type="radio" name="modalidad" value="lanzamiento" class="accent-amber-500 w-4 h-4" onchange="calcularEstimacion()">
+                <div>
+                  <p class="font-bold text-sm text-white">Plan Lanzamiento</p>
+                  <p class="text-xs text-slate-400">250 € (Pago único cerrado)</p>
+                </div>
+              </label>
+
+              <label class="flex items-center gap-3 p-3.5 rounded-xl border-2 border-amber-500 bg-amber-500/10 cursor-pointer transition">
+                <input type="radio" name="modalidad" value="todo_incluido" checked class="accent-amber-500 w-4 h-4" onchange="calcularEstimacion()">
+                <div>
+                  <p class="font-bold text-sm text-amber-300">Plan Todo Incluido (Recomendado)</p>
+                  <p class="text-xs text-slate-300">190 € iniciales + 35 €/mes</p>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- MÓDULOS EXTRAS OPCIONALES -->
+          <div class="mt-6 bg-slate-800/90 rounded-2xl p-4 sm:p-6 border border-slate-700 space-y-4">
+            <label class="block text-xs font-bold uppercase tracking-wider text-amber-400">2. Módulos Adicionales de Crecimiento (Opcionales)</label>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+              
+              <label class="flex items-center gap-3 p-3 rounded-xl bg-slate-900/50 border border-slate-700 cursor-pointer hover:border-slate-500">
+                <input type="checkbox" id="extra_seccion" value="80" class="accent-amber-500 w-4 h-4" onchange="calcularEstimacion()">
+                <div class="flex-1 flex justify-between items-center">
+                  <span>Página / Sección extra (+1)</span>
+                  <span class="font-bold text-amber-400">+80 €</span>
+                </div>
+              </label>
+
+              <label class="flex items-center gap-3 p-3 rounded-xl bg-slate-900/50 border border-slate-700 cursor-pointer hover:border-slate-500">
+                <input type="checkbox" id="extra_ecommerce" value="180" class="accent-amber-500 w-4 h-4" onchange="calcularEstimacion()">
+                <div class="flex-1 flex justify-between items-center">
+                  <span>Catálogo Digital o Pasarela de Pago</span>
+                  <span class="font-bold text-amber-400">+180 €</span>
+                </div>
+              </label>
+
+              <label class="flex items-center gap-3 p-3 rounded-xl bg-slate-900/50 border border-slate-700 cursor-pointer hover:border-slate-500">
+                <input type="checkbox" id="extra_ads" value="120" class="accent-amber-500 w-4 h-4" onchange="calcularEstimacion()">
+                <div class="flex-1 flex justify-between items-center">
+                  <span>Configuración Campaña Google Ads</span>
+                  <span class="font-bold text-amber-400">+120 €</span>
+                </div>
+              </label>
+
+              <label class="flex items-center gap-3 p-3 rounded-xl bg-slate-900/50 border border-slate-700 cursor-pointer hover:border-slate-500">
+                <input type="checkbox" id="extra_reservas" value="95" class="accent-amber-500 w-4 h-4" onchange="calcularEstimacion()">
+                <div class="flex-1 flex justify-between items-center">
+                  <span>Sistema de Reservas Avanzado</span>
+                  <span class="font-bold text-amber-400">+95 €</span>
+                </div>
+              </label>
+
+            </div>
+          </div>
+
+          <!-- RESUMEN EN TIEMPO REAL -->
+          <div class="mt-6 bg-gradient-to-r from-amber-500/20 to-amber-600/10 rounded-2xl p-5 border border-amber-500/30 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+            <div>
+              <p class="text-xs uppercase font-bold text-amber-400 tracking-wider">Total Estimado del Proyecto</p>
+              <div class="flex items-baseline gap-2 mt-1">
+                <span id="total_inicial" class="text-3xl sm:text-4xl font-black text-white">190 €</span>
+                <span id="total_recurrente" class="text-sm font-semibold text-amber-300">+ 35 € / mes</span>
+              </div>
+              <p id="total_resumen_detalle" class="text-xs text-slate-300 mt-1">Incluye puesta en marcha y mantenimiento con dominio y SSL.</p>
+            </div>
+
+            <a id="btn_whatsapp_presupuesto" href="https://wa.me/34362547479?text=Hola%20Diovar,%20he%20visto%20el%20dossier%20y%20me%20gustar%C3%ADa%20activar%20el%20Plan%20Todo%20Incluido." target="_blank" class="w-full sm:w-auto bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold text-xs sm:text-sm px-6 py-3.5 rounded-xl shadow-lg transition text-center flex items-center justify-center gap-2">
+              <span>💬 Confirmar Proyecto por WhatsApp</span>
+            </a>
+          </div>
+
         </div>
+      </section>
+
+      <!-- SECCIÓN 4: ESCALABILIDAD Y SERVICIOS ADICIONALES A MEDIDA -->
+      <section class="border-b border-slate-100 pb-8">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="w-9 h-9 rounded-xl bg-amber-500/10 text-amber-600 font-black flex items-center justify-center text-sm border border-amber-500/20">03</span>
+          <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900">Escalabilidad y Servicios Adicionales a Medida</h2>
+        </div>
+        <p class="text-slate-600 text-sm leading-relaxed mb-6">
+          Tu plan de mantenimiento garantiza que tu web esté siempre rápida, protegida y con soporte activo. A medida que tu empresa crezca, dispones de módulos de expansión para llevar tu negocio al siguiente nivel:
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h4 class="font-bold text-slate-900 text-sm flex items-center gap-2">
+              <span class="text-amber-600">➕</span> Ampliación de Secciones o Páginas
+            </h4>
+            <p class="text-xs text-slate-600 mt-1">Desde <strong>80 € / sección</strong>. Ideal para promociones especiales, nuevas líneas de servicio o sedes.</p>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h4 class="font-bold text-slate-900 text-sm flex items-center gap-2">
+              <span class="text-amber-600">🛒</span> Comercio Electrónico y Pagos Online
+            </h4>
+            <p class="text-xs text-slate-600 mt-1">Presupuestos a medida según catálogo de productos, pasarelas de pago y opciones de envío.</p>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h4 class="font-bold text-slate-900 text-sm flex items-center gap-2">
+              <span class="text-amber-600">📅</span> Software de Reservas y Cita Previa
+            </h4>
+            <p class="text-xs text-slate-600 mt-1">Integraciones con calendarios interactivos (Google Calendar, Calendly, sistemas personalizados).</p>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h4 class="font-bold text-slate-900 text-sm flex items-center gap-2">
+              <span class="text-amber-600">📈</span> Campañas de Publicidad Digital (Google Ads)
+            </h4>
+            <p class="text-xs text-slate-600 mt-1">Estrategias de posicionamiento y captación para multiplicar las llamadas en tu ciudad.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECCIÓN 5: PROCESO DE TRABAJO EN 3 PASOS -->
+      <section class="border-b border-slate-100 pb-8">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="w-9 h-9 rounded-xl bg-amber-500/10 text-amber-600 font-black flex items-center justify-center text-sm border border-amber-500/20">04</span>
+          <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900">Proceso de Trabajo y Entrega</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 relative">
+            <span class="text-xs font-black text-amber-600 bg-amber-100 px-2.5 py-1 rounded-md">Paso 1</span>
+            <h3 class="font-bold text-slate-900 text-sm mt-3">Envío de Información</h3>
+            <p class="text-xs text-slate-600 mt-1">Completas el <a href="https://diovarvalencia2025-a11y.github.io/demos/formulario.html" target="_blank" class="text-amber-700 underline font-semibold">Formulario de Onboarding</a> con tu logo, fotos y servicios principales.</p>
+          </div>
+
+          <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 relative">
+            <span class="text-xs font-black text-amber-600 bg-amber-100 px-2.5 py-1 rounded-md">Paso 2</span>
+            <h3 class="font-bold text-slate-900 text-sm mt-3">Desarrollo Rápido</h3>
+            <p class="text-xs text-slate-600 mt-1">Maquetamos tu web en 24-48h y te enviamos el enlace privado para tu visto bueno.</p>
+          </div>
+
+          <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 relative">
+            <span class="text-xs font-black text-amber-600 bg-amber-100 px-2.5 py-1 rounded-md">Paso 3</span>
+            <h3 class="font-bold text-slate-900 text-sm mt-3">Lanzamiento Oficial</h3>
+            <p class="text-xs text-slate-600 mt-1">Conectamos tu dominio, activamos la seguridad SSL y tu web empieza a recibir clientes.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECCIÓN 6: TRANSPARENCIA Y POLÍTICA DE SERVICIO -->
+      <section class="bg-slate-50 p-6 rounded-3xl border border-slate-200 text-xs text-slate-600 space-y-3">
+        <h3 class="font-extrabold text-slate-900 text-sm flex items-center gap-2">
+          <span>🛡️</span> Compromiso de Transparencia y Flexibilidad
+        </h3>
+        <p>• <strong>Sin permanencia forzada:</strong> En el Plan Todo Incluido puedes cancelar cuando lo desees avisando con antelación al siguiente ciclo mensual.</p>
+        <p>• <strong>Propiedad del cliente:</strong> El dominio y los contenidos son siempre propiedad tuya.</p>
+        <p>• <strong>Soporte directo:</strong> Atención ágil por WhatsApp para que nunca tengas que lidiar con problemas técnicos ni tickets impersonales.</p>
+      </section>
+
+    </main>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="bg-slate-950 text-slate-400 p-8 text-center text-xs border-t border-slate-800">
+      <div class="max-w-md mx-auto space-y-2">
+        <p class="text-white font-bold text-sm">LogiMotion Digital • Soluciones Web con IA</p>
+        <p>Email: <a href="mailto:vdiovar@gmail.com" class="text-amber-400 underline">vdiovar@gmail.com</a> | WhatsApp: <a href="https://wa.me/34362547479" class="text-amber-400 font-semibold">+34 362 54 74 79</a></p>
+        <p class="text-slate-400 text-[11px]">© 2026 LogiMotion Digital. Todos los derechos reservados.</p>
       </div>
-
-      <!-- SECCIÓN 4: CONDICIONES DE CANCELACIÓN -->
-      <div class="bg-slate-50 p-5 rounded-2xl border border-slate-100 text-xs text-slate-600 space-y-2">
-        <h4 class="font-bold text-slate-900">Condiciones de Baja y Permanencia:</h4>
-        <p>• <strong>Sin permanencia obligatoria:</strong> Puedes dar de baja la cuota de 35 €/mes cuando lo desees avisando antes del siguiente ciclo.</p>
-        <p>• <strong>En caso de baja:</strong> El servicio y alojamiento finalizan al terminar el mes pagado, y te facilitamos los accesos del dominio.</p>
-      </div>
-
-    </div>
-
-    <!-- PIE -->
-    <div class="bg-slate-900 text-slate-400 p-6 text-center text-xs border-t border-slate-800">
-      <p>Contacto oficial: <strong>vdiovar@gmail.com • WhatsApp: +34 362 54 74 79</strong> • Soluciones Digitales Claras y Profesionales.</p>
-    </div>
+    </footer>
 
   </div>
+
+  <!-- SCRIPT INTERACTIVO DEL ESTIMADOR -->
+  <script>
+    function calcularEstimacion() {
+      const modalidad = document.querySelector('input[name="modalidad"]:checked').value;
+      
+      let baseInicial = 190;
+      let recurrente = 35;
+      let detalleTexto = "Incluye puesta en marcha y mantenimiento con dominio y SSL.";
+
+      if (modalidad === 'lanzamiento') {
+        baseInicial = 250;
+        recurrente = 0;
+        detalleTexto = "Plan Lanzamiento: Pago único cerrado (sin cuota mensual).";
+      }
+
+      // Sumar extras
+      let extrasIniciales = 0;
+      if (document.getElementById('extra_seccion').checked) extrasIniciales += 80;
+      if (document.getElementById('extra_ecommerce').checked) extrasIniciales += 180;
+      if (document.getElementById('extra_ads').checked) extrasIniciales += 120;
+      if (document.getElementById('extra_reservas').checked) extrasIniciales += 95;
+
+      const totalInicial = baseInicial + extrasIniciales;
+
+      // Actualizar UI
+      document.getElementById('total_inicial').innerText = totalInicial + " €";
+      
+      const totalRecurrenteEl = document.getElementById('total_recurrente');
+      if (recurrente > 0) {
+        totalRecurrenteEl.innerText = "+ " + recurrente + " € / mes";
+        totalRecurrenteEl.style.display = "inline";
+      } else {
+        totalRecurrenteEl.innerText = "(Pago único cerrado)";
+        totalRecurrenteEl.style.display = "inline";
+      }
+
+      document.getElementById('total_resumen_detalle').innerText = detalleTexto;
+
+      // Actualizar enlace de WhatsApp
+      const planName = modalidad === 'lanzamiento' ? 'Plan Lanzamiento (250€)' : 'Plan Todo Incluido (190€ + 35€/mes)';
+      const msg = encodeURIComponent(`Hola Diovar, he configurado una estimación en el Dossier para el ${planName} con un total de ${totalInicial}€ iniciales. Me gustaría ponerlo en marcha.`);
+      document.getElementById('btn_whatsapp_presupuesto').href = `https://wa.me/34362547479?text=${msg}`;
+    }
+
+    // Inicializar al cargar
+    document.addEventListener('DOMContentLoaded', calcularEstimacion);
+  </script>
+
 </body>
 </html>
