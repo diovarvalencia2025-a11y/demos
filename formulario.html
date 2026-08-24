@@ -2,104 +2,693 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Formulario de Especificaciones Web - Diovar Valencia</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Onboarding de Proyecto Web • LogiMotion Digital</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap');
-    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap');
+    
+    :root {
+      --bg-main: #070d1e;
+      --bg-card: #0e172e;
+      --bg-card-elevated: #152244;
+      --gold-primary: #fbbf24;
+      --gold-hover: #f59e0b;
+      --emerald-positive: #10b981;
+    }
+
+    body { 
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg-main);
+      color: #f8fafc;
+    }
+
+    /* Print Styles */
     @media print {
-      body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      body { background: #ffffff !important; color: #0f172a !important; padding: 0 !important; font-size: 11pt !important; }
+      .no-print { display: none !important; }
+      .print-only { display: block !important; }
+      .print-container { box-shadow: none !important; border: none !important; max-width: 100% !important; margin: 0 !important; padding: 0 !important; }
+      .print-card { background: #f8fafc !important; border: 1px solid #cbd5e1 !important; color: #0f172a !important; }
+      .print-heading { color: #0f172a !important; }
+      .print-muted { color: #475569 !important; }
     }
   </style>
 </head>
-<body class="bg-slate-100 p-4 sm:p-10 text-slate-800">
-  <div class="max-w-3xl mx-auto bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-200 p-8 sm:p-12">
+<body class="min-h-screen py-6 px-3 sm:px-8 antialiased selection:bg-amber-400 selection:text-slate-950 flex flex-col justify-between">
+
+  <!-- CONTENEDOR PRINCIPAL DEL ONBOARDING -->
+  <main class="max-w-3xl mx-auto w-full bg-[#091124] rounded-3xl shadow-2xl overflow-hidden border border-slate-800/90 print-container my-auto">
     
-    <div class="border-b border-slate-200 pb-6 mb-8 flex justify-between items-start flex-wrap gap-4">
-      <div>
-        <span class="text-amber-600 font-bold text-xs uppercase tracking-wider">Cuestionario de Personalización</span>
-        <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">Formulario para Tu Nueva Web</h1>
-        <p class="text-slate-500 text-xs sm:text-sm mt-1">Completa los datos de tu negocio para dejar tu web 100% lista.</p>
+    <!-- CABECERA DE LA AGENCIA -->
+    <header class="bg-gradient-to-b from-[#0e1a38] via-[#0b142c] to-[#091124] p-6 sm:p-8 border-b border-slate-800/80">
+      <div class="flex justify-between items-center flex-wrap gap-4">
+        <div>
+          <div class="inline-flex items-center gap-2 bg-amber-400/10 text-amber-300 border border-amber-400/30 px-3 py-0.5 rounded-full text-[11px] font-bold uppercase tracking-wider mb-2">
+            <svg class="w-3 h-3 text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            Onboarding Oficial de Clientes
+          </div>
+          <h1 class="text-2xl sm:text-3xl font-black text-white tracking-tight">
+            LogiMotion <span class="text-amber-400">Digital</span>
+          </h1>
+          <p class="text-slate-300 text-xs sm:text-sm mt-0.5">Especificaciones y personalización de tu nueva página web.</p>
+        </div>
+
+        <div class="text-left sm:text-right text-xs text-slate-400 bg-slate-900/80 border border-slate-800 p-3 rounded-xl print-card">
+          <p class="text-slate-200 font-bold">Responsable: Diovar Valencia</p>
+          <p class="text-amber-400 font-semibold mt-0.5">WhatsApp: +34 362 54 74 79</p>
+          <p class="text-slate-400 text-[11px]">vdiovar@gmail.com</p>
+        </div>
       </div>
-      <div class="text-right text-xs text-slate-500">
-        <p>Diovar Valencia</p>
-        <p class="text-amber-600 font-bold">vdiovar@gmail.com</p>
+
+      <!-- BARRA DE PROGRESO INTERACTIVA -->
+      <div class="mt-6 pt-4 border-t border-slate-800/80 no-print" id="progress_section">
+        <div class="flex justify-between items-center text-xs font-bold mb-2">
+          <span class="text-amber-400 uppercase tracking-wider" id="step_indicator_text">Paso 1 de 5</span>
+          <span class="text-slate-300" id="step_title_text">Datos del Negocio</span>
+          <span class="text-slate-400" id="progress_percent_text">20%</span>
+        </div>
+        <div class="w-full bg-slate-900 h-2 rounded-full overflow-hidden border border-slate-800">
+          <div id="progress_bar" class="bg-gradient-to-r from-amber-500 to-amber-300 h-full w-1/5 transition-all duration-300"></div>
+        </div>
       </div>
+    </header>
+
+    <!-- FORMULARIO WIZARD POR PASOS -->
+    <div class="p-6 sm:p-10">
+      
+      <form id="onboarding_form" onsubmit="event.preventDefault();" novalidate>
+
+        <!-- ==================== PASO 1: TU NEGOCIO ==================== -->
+        <div id="step_1" class="step-pane space-y-6">
+          <div>
+            <span class="text-xs font-bold text-amber-400 uppercase tracking-wider">Paso 1 • Identidad Básica</span>
+            <h2 class="text-xl sm:text-2xl font-black text-white mt-1">Cuéntanos sobre tu negocio</h2>
+            <p class="text-slate-400 text-xs sm:text-sm mt-1">Utilizaremos estos datos como el pilar central de tu nueva página web.</p>
+          </div>
+
+          <div class="space-y-4">
+            <div>
+              <label for="nombre_comercial" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5">
+                Nombre comercial del negocio <span class="text-amber-400">*</span>
+              </label>
+              <input type="text" id="nombre_comercial" name="nombre_comercial" placeholder="Ej. Reformas y Construcciones Madrid / Clínica Veterinaria Luna" class="w-full bg-[#0e172e] border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:border-amber-400 focus:outline-none transition placeholder:text-slate-500">
+              <p class="text-[11px] text-slate-400 mt-1">Es el nombre exacto con el que tus clientes te conocen.</p>
+              <p id="error_nombre_comercial" class="text-xs text-rose-400 font-semibold mt-1 hidden"></p>
+            </div>
+
+            <div>
+              <label for="sector_actividad" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5">
+                Sector o Actividad Principal <span class="text-amber-400">*</span>
+              </label>
+              <select id="sector_actividad" name="sector_actividad" class="w-full bg-[#0e172e] border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:border-amber-400 focus:outline-none transition">
+                <option value="" disabled selected>Selecciona tu sector...</option>
+                <option value="Reformas / Construcción">Reformas / Construcción / Albañilería</option>
+                <option value="Clínica Veterinaria / Mascotas">Clínica Veterinaria / Cuidado Animal</option>
+                <option value="Despacho de Abogados / Asesoría">Despacho de Abogados / Asesoría Jurídica</option>
+                <option value="Taller Mecánico / Automoción">Taller Mecánico / Chapa y Pintura</option>
+                <option value="Restaurante / Hostelería">Restaurante / Cafetería / Gastronomía</option>
+                <option value="Salud / Clínica / Fisioterapia">Salud / Clínica / Estética / Fisioterapia</option>
+                <option value="Otro Servicio Local">Otro Servicio Profesional Local</option>
+              </select>
+              <p id="error_sector_actividad" class="text-xs text-rose-400 font-semibold mt-1 hidden"></p>
+            </div>
+
+            <div>
+              <label for="eslogan" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5">
+                Eslogan o Frase que te define <span class="text-slate-400 font-normal text-[11px]">(Opcional)</span>
+              </label>
+              <input type="text" id="eslogan" name="eslogan" placeholder="Ej. Más de 15 años renovando hogares con garantía total" class="w-full bg-[#0e172e] border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:border-amber-400 focus:outline-none transition placeholder:text-slate-500">
+              <p class="text-[11px] text-slate-400 mt-1">Una frase corta que destaque tu experiencia, rapidez o calidad.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==================== PASO 2: UBICACIÓN Y CONTACTO ==================== -->
+        <div id="step_2" class="step-pane space-y-6 hidden">
+          <div>
+            <span class="text-xs font-bold text-amber-400 uppercase tracking-wider">Paso 2 • Contacto y Conversión</span>
+            <h2 class="text-xl sm:text-2xl font-black text-white mt-1">¿Cómo te contactarán tus clientes?</h2>
+            <p class="text-slate-400 text-xs sm:text-sm mt-1">Conectaremos estos canales directamente a los botones de llamada y WhatsApp de tu web.</p>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label for="whatsapp_clientes" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5">
+                WhatsApp para recibir clientes <span class="text-amber-400">*</span>
+              </label>
+              <input type="tel" id="whatsapp_clientes" name="whatsapp_clientes" placeholder="Ej. 612 345 678" class="w-full bg-[#0e172e] border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:border-amber-400 focus:outline-none transition placeholder:text-slate-500">
+              <p class="text-[11px] text-slate-400 mt-1">Donde entrarán los presupuestos y mensajes en 1 clic.</p>
+              <p id="error_whatsapp_clientes" class="text-xs text-rose-400 font-semibold mt-1 hidden"></p>
+            </div>
+
+            <div>
+              <label for="telefono_llamadas" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5">
+                Teléfono para llamadas <span class="text-slate-400 font-normal text-[11px]">(Si es diferente al WhatsApp)</span>
+              </label>
+              <input type="tel" id="telefono_llamadas" name="telefono_llamadas" placeholder="Ej. 910 123 456" class="w-full bg-[#0e172e] border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:border-amber-400 focus:outline-none transition placeholder:text-slate-500">
+              <p class="text-[11px] text-slate-400 mt-1">Para llamadas directas desde el teléfono móvil.</p>
+            </div>
+
+            <div class="sm:col-span-2">
+              <label for="direccion_fisica" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5">
+                Dirección física, Ciudad y Código Postal <span class="text-amber-400">*</span>
+              </label>
+              <input type="text" id="direccion_fisica" name="direccion_fisica" placeholder="Ej. Calle Mayor 14, 28013 Madrid" class="w-full bg-[#0e172e] border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:border-amber-400 focus:outline-none transition placeholder:text-slate-500">
+              <p class="text-[11px] text-slate-400 mt-1">Para vincular la ubicación exacta en Google Maps.</p>
+              <p id="error_direccion_fisica" class="text-xs text-rose-400 font-semibold mt-1 hidden"></p>
+            </div>
+
+            <div>
+              <label for="horario_atencion" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5">
+                Horario de atención al público <span class="text-amber-400">*</span>
+              </label>
+              <input type="text" id="horario_atencion" name="horario_atencion" placeholder="Ej. Lunes a Viernes de 9:00 a 19:00" class="w-full bg-[#0e172e] border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:border-amber-400 focus:outline-none transition placeholder:text-slate-500">
+              <p id="error_horario_atencion" class="text-xs text-rose-400 font-semibold mt-1 hidden"></p>
+            </div>
+
+            <div>
+              <label for="email_contacto" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5">
+                Email de contacto <span class="text-slate-400 font-normal text-[11px]">(Opcional)</span>
+              </label>
+              <input type="email" id="email_contacto" name="email_contacto" placeholder="Ej. info@tunegocio.es" class="w-full bg-[#0e172e] border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:border-amber-400 focus:outline-none transition placeholder:text-slate-500">
+            </div>
+          </div>
+        </div>
+
+        <!-- ==================== PASO 3: SERVICIOS PRINCIPALES ==================== -->
+        <div id="step_3" class="step-pane space-y-6 hidden">
+          <div>
+            <span class="text-xs font-bold text-amber-400 uppercase tracking-wider">Paso 3 • Catálogo y Oferta</span>
+            <h2 class="text-xl sm:text-2xl font-black text-white mt-1">Tus 3 a 5 servicios estrella</h2>
+            <p class="text-slate-400 text-xs sm:text-sm mt-1">Escribe los servicios que más te interesa promocionar y vender a través de tu web.</p>
+          </div>
+
+          <div class="space-y-3.5">
+            <div>
+              <label class="block text-xs font-bold text-slate-300 mb-1">Servicio 1 (Principal) <span class="text-amber-400">*</span></label>
+              <input type="text" id="servicio_1" name="servicio_1" placeholder="Ej. Reformas integrales de viviendas / Vacunación y desparasitación" class="w-full bg-[#0e172e] border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white focus:border-amber-400 focus:outline-none transition placeholder:text-slate-500">
+              <p id="error_servicio_1" class="text-xs text-rose-400 font-semibold mt-1 hidden"></p>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-slate-300 mb-1">Servicio 2 <span class="text-amber-400">*</span></label>
+              <input type="text" id="servicio_2" name="servicio_2" placeholder="Ej. Reformas de cocinas y baños / Cirugía y diagnóstico veterinario" class="w-full bg-[#0e172e] border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white focus:border-amber-400 focus:outline-none transition placeholder:text-slate-500">
+              <p id="error_servicio_2" class="text-xs text-rose-400 font-semibold mt-1 hidden"></p>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-slate-300 mb-1">Servicio 3 <span class="text-amber-400">*</span></label>
+              <input type="text" id="servicio_3" name="servicio_3" placeholder="Ej. Instalaciones eléctricas y fontanería / Peluquería canina y felina" class="w-full bg-[#0e172e] border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white focus:border-amber-400 focus:outline-none transition placeholder:text-slate-500">
+              <p id="error_servicio_3" class="text-xs text-rose-400 font-semibold mt-1 hidden"></p>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-slate-300 mb-1">Servicio 4 <span class="text-slate-400 font-normal text-[11px]">(Opcional)</span></label>
+              <input type="text" id="servicio_4" name="servicio_4" placeholder="Ej. Pintura y alisado de paredes / Urgencias veterinarias 24h" class="w-full bg-[#0e172e] border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white focus:border-amber-400 focus:outline-none transition placeholder:text-slate-500">
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-slate-300 mb-1">Servicio 5 <span class="text-slate-400 font-normal text-[11px]">(Opcional)</span></label>
+              <input type="text" id="servicio_5" name="servicio_5" placeholder="Ej. Coordinación de licencias de obra / Asesoramiento nutricional" class="w-full bg-[#0e172e] border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white focus:border-amber-400 focus:outline-none transition placeholder:text-slate-500">
+            </div>
+          </div>
+        </div>
+
+        <!-- ==================== PASO 4: IDENTIDAD Y FOTOGRAFÍAS ==================== -->
+        <div id="step_4" class="step-pane space-y-6 hidden">
+          <div>
+            <span class="text-xs font-bold text-amber-400 uppercase tracking-wider">Paso 4 • Estilo y Material Gráfico</span>
+            <h2 class="text-xl sm:text-2xl font-black text-white mt-1">Preferencia visual y fotos</h2>
+            <p class="text-slate-400 text-xs sm:text-sm mt-1">Personalizaremos la estética de tu web para que represente la calidad de tu marca.</p>
+          </div>
+
+          <!-- ESTILO DE COLORES -->
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2.5">
+              ¿Qué estilo de colores prefieres? <span class="text-amber-400">*</span>
+            </label>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+              <label class="flex items-center gap-3 p-3.5 rounded-xl border border-slate-700 bg-[#0e172e] cursor-pointer hover:border-slate-500 transition">
+                <input type="radio" name="estilo_colores" value="Colores corporativos actuales de mi marca" checked class="accent-amber-400 w-4 h-4">
+                <div>
+                  <span class="font-bold text-white block">Colores de mi marca</span>
+                  <span class="text-slate-400">Usar los tonos de mi logo actual.</span>
+                </div>
+              </label>
+
+              <label class="flex items-center gap-3 p-3.5 rounded-xl border border-slate-700 bg-[#0e172e] cursor-pointer hover:border-slate-500 transition">
+                <input type="radio" name="estilo_colores" value="Elegante y Sobrio (Azul Marino / Dorado / Gris)" class="accent-amber-400 w-4 h-4">
+                <div>
+                  <span class="font-bold text-white block">Elegante y Sobrio</span>
+                  <span class="text-slate-400">Azul marino, dorados y grises oscuros.</span>
+                </div>
+              </label>
+
+              <label class="flex items-center gap-3 p-3.5 rounded-xl border border-slate-700 bg-[#0e172e] cursor-pointer hover:border-slate-500 transition">
+                <input type="radio" name="estilo_colores" value="Cálido y Tradicional (Terracota / Madera / Verde)" class="accent-amber-400 w-4 h-4">
+                <div>
+                  <span class="font-bold text-white block">Cálido y Acogedor</span>
+                  <span class="text-slate-400">Terracota, tonos madera y verde oliva.</span>
+                </div>
+              </label>
+
+              <label class="flex items-center gap-3 p-3.5 rounded-xl border border-slate-700 bg-[#0e172e] cursor-pointer hover:border-slate-500 transition">
+                <input type="radio" name="estilo_colores" value="Limpio y Sanitario (Blanco / Cian / Esmeralda)" class="accent-amber-400 w-4 h-4">
+                <div>
+                  <span class="font-bold text-white block">Limpio y Clínico</span>
+                  <span class="text-slate-400">Blanco puro, azul cian y esmeralda.</span>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- LOGOTIPO Y FOTOS -->
+          <div class="p-5 rounded-2xl bg-[#0e172e] border border-slate-800 space-y-4">
+            <h3 class="font-bold text-white text-sm flex items-center gap-2">
+              <svg class="w-4 h-4 text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+              Logotipo y Fotografías de tu Negocio
+            </h3>
+            
+            <div class="space-y-3 text-xs text-slate-300">
+              <label class="flex items-start gap-2.5 cursor-pointer">
+                <input type="radio" name="opcion_fotos" value="Enviaremos logo y fotos reales por WhatsApp tras completar el formulario" checked class="accent-amber-400 w-4 h-4 mt-0.5">
+                <span><strong>Te enviaremos fotos reales y logo por WhatsApp:</strong> Te facilitamos un enlace directo para enviarlas cómodamente desde tu móvil.</span>
+              </label>
+
+              <label class="flex items-start gap-2.5 cursor-pointer">
+                <input type="radio" name="opcion_fotos" value="No tenemos fotos profesionales; utilizar imágenes de catálogo de alta calidad" class="accent-amber-400 w-4 h-4 mt-0.5">
+                <span><strong>No tenemos fotos profesionales:</strong> Utilizaremos imágenes profesionales de catálogo seleccionadas para tu sector.</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- ACCIÓN PRINCIPAL DE CONVERSIÓN -->
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5">
+              ¿Cuál es la acción principal que deseas que haga el cliente en tu web? <span class="text-amber-400">*</span>
+            </label>
+            <select id="accion_principal" name="accion_principal" class="w-full bg-[#0e172e] border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:border-amber-400 focus:outline-none transition">
+              <option value="Enviar un mensaje de WhatsApp para pedir presupuesto o información" selected>Enviar un mensaje de WhatsApp directo para pedir presupuesto o consulta</option>
+              <option value="Llamar directamente por teléfono al negocio">Llamar directamente por teléfono</option>
+              <option value="Pedir cita previa o reservar fecha/hora">Pedir cita previa o reservar</option>
+              <option value="Ver la carta / menú digital">Ver la carta / catálogo digital</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- ==================== PASO 5: REVISIÓN Y CONFIRMACIÓN ==================== -->
+        <div id="step_5" class="step-pane space-y-6 hidden">
+          <div>
+            <span class="text-xs font-bold text-amber-400 uppercase tracking-wider">Paso 5 • Revisión Final</span>
+            <h2 class="text-xl sm:text-2xl font-black text-white mt-1">Revisa y confirma los datos</h2>
+            <p class="text-slate-400 text-xs sm:text-sm mt-1">Comprueba que todo esté correcto antes de enviar. Puedes volver atrás y modificar cualquier apartado.</p>
+          </div>
+
+          <!-- TARJETA RESUMEN -->
+          <div class="bg-[#0e172e] border border-slate-800 rounded-2xl p-6 space-y-5 text-xs print-card">
+            
+            <!-- BLOQUE 1 -->
+            <div class="flex justify-between items-start pb-3 border-b border-slate-800">
+              <div>
+                <span class="font-bold text-amber-400 uppercase tracking-wider text-[11px] block">1. Tu Negocio</span>
+                <p class="text-white font-extrabold text-sm mt-0.5" id="summary_nombre">-</p>
+                <p class="text-slate-400 mt-0.5" id="summary_sector">-</p>
+                <p class="text-slate-400 italic mt-0.5" id="summary_eslogan">-</p>
+              </div>
+              <button type="button" onclick="goToStep(1)" class="text-amber-400 hover:underline font-bold text-xs no-print">Editar</button>
+            </div>
+
+            <!-- BLOQUE 2 -->
+            <div class="flex justify-between items-start pb-3 border-b border-slate-800">
+              <div>
+                <span class="font-bold text-amber-400 uppercase tracking-wider text-[11px] block">2. Contacto y Ubicación</span>
+                <p class="text-white font-semibold mt-0.5" id="summary_contacto">-</p>
+                <p class="text-slate-400 mt-0.5" id="summary_direccion">-</p>
+                <p class="text-slate-400 mt-0.5" id="summary_horario">-</p>
+              </div>
+              <button type="button" onclick="goToStep(2)" class="text-amber-400 hover:underline font-bold text-xs no-print">Editar</button>
+            </div>
+
+            <!-- BLOQUE 3 -->
+            <div class="flex justify-between items-start pb-3 border-b border-slate-800">
+              <div>
+                <span class="font-bold text-amber-400 uppercase tracking-wider text-[11px] block">3. Servicios Destacados</span>
+                <ul class="text-slate-300 mt-1 space-y-1" id="summary_servicios">
+                  <!-- Generado dinámicamente -->
+                </ul>
+              </div>
+              <button type="button" onclick="goToStep(3)" class="text-amber-400 hover:underline font-bold text-xs no-print">Editar</button>
+            </div>
+
+            <!-- BLOQUE 4 -->
+            <div class="flex justify-between items-start">
+              <div>
+                <span class="font-bold text-amber-400 uppercase tracking-wider text-[11px] block">4. Identidad y CTA</span>
+                <p class="text-slate-300 mt-0.5" id="summary_estilo">-</p>
+                <p class="text-slate-400 mt-0.5" id="summary_fotos">-</p>
+                <p class="text-emerald-400 font-semibold mt-0.5" id="summary_cta">-</p>
+              </div>
+              <button type="button" onclick="goToStep(4)" class="text-amber-400 hover:underline font-bold text-xs no-print">Editar</button>
+            </div>
+
+          </div>
+
+          <!-- NOTA DE PRIVACIDAD Y CONSENTIMIENTO -->
+          <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800 text-xs text-slate-400">
+            <label class="flex items-start gap-2.5 cursor-pointer">
+              <input type="checkbox" id="check_consentimiento" checked class="accent-amber-400 w-4 h-4 mt-0.5">
+              <span>Confirmo que los datos proporcionados son correctos y autorizo a LogiMotion Digital a utilizarlos para la maquetación y puesta en marcha de mi página web.</span>
+            </label>
+            <p id="error_consentimiento" class="text-xs text-rose-400 font-semibold mt-1 hidden"></p>
+          </div>
+        </div>
+
+        <!-- ==================== PANTALLA 6: CONFIRMACIÓN EXITOSA ==================== -->
+        <div id="step_success" class="step-pane space-y-6 hidden text-center py-6">
+          <div class="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center justify-center mx-auto">
+            <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+
+          <div>
+            <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">¡Información Recibida con Éxito!</span>
+            <h2 class="text-2xl sm:text-3xl font-black text-white mt-1">Tu proyecto está en marcha</h2>
+            <p class="text-slate-300 text-sm mt-3 max-w-md mx-auto leading-relaxed">
+              Hemos recibido los datos de tu negocio. Nuestro equipo comenzará de inmediato con la maquetación y personalización de tu página web.
+            </p>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-[#0e172e] border border-slate-800 max-w-md mx-auto text-left space-y-2 text-xs">
+            <p class="font-bold text-amber-400 uppercase tracking-wider text-[11px]">Próximos Pasos:</p>
+            <p class="text-slate-300">• En un plazo de <strong>24 a 48 horas</strong> recibirás tu enlace privado para revisar la web.</p>
+            <p class="text-slate-300">• Si deseas adjuntar fotos de tu local o trabajos, puedes enviarlas directamente respondiendo a nuestro WhatsApp.</p>
+          </div>
+
+          <div class="pt-4 flex flex-col sm:flex-row justify-center gap-3 no-print">
+            <a id="btn_reabrir_whatsapp" href="#" target="_blank" class="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-400 to-amber-300 hover:from-amber-300 hover:to-amber-200 text-slate-950 font-black text-sm py-3.5 px-6 rounded-xl shadow-lg transition">
+              <svg class="w-4 h-4 text-slate-950" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.073-2.152-.533-1.637-.679-2.69-2.347-2.772-2.457-.08-.11-1.11-1.477-1.11-2.813 0-1.336.702-1.993.95-2.257.248-.264.542-.33.723-.33.18 0 .361.002.519.01.168.008.393-.064.614.469.23.555.786 1.917.854 2.057.069.14.116.305.023.49-.092.186-.139.303-.275.467-.136.165-.286.368-.409.495-.136.14-.278.293-.12.565.158.272.702 1.16 1.507 1.877 1.036.924 1.91 1.209 2.182 1.346.272.137.432.119.593-.066.162-.186.69-.806.874-1.082.184-.275.368-.231.614-.141.246.09 1.559.734 1.826.868.267.134.446.2.512.311.066.111.066.643-.078 1.048z"/></svg>
+              <span>Abrir Chat de WhatsApp</span>
+            </a>
+            <button onclick="window.print()" class="bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-bold text-xs py-3.5 px-5 rounded-xl transition">
+              Guardar Copia en PDF
+            </button>
+          </div>
+        </div>
+
+        <!-- ==================== BOTONES DE NAVEGACIÓN (WIZARD) ==================== -->
+        <div class="mt-8 pt-6 border-t border-slate-800 flex justify-between items-center no-print" id="wizard_controls">
+          <button type="button" id="btn_prev" onclick="navigateStep(-1)" class="bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold text-xs sm:text-sm py-3.5 px-6 rounded-xl border border-slate-700 transition hidden">
+            ← Atrás
+          </button>
+          <div class="flex-1"></div>
+          <button type="button" id="btn_next" onclick="navigateStep(1)" class="bg-gradient-to-r from-amber-400 to-amber-300 hover:from-amber-300 hover:to-amber-200 text-slate-950 font-black text-xs sm:text-sm py-3.5 px-7 rounded-xl shadow-lg shadow-amber-500/20 transition min-h-[48px]">
+            Continuar →
+          </button>
+        </div>
+
+      </form>
+
     </div>
 
-    <form class="space-y-6 text-xs sm:text-sm">
+    <!-- PIE CORPORATIVO -->
+    <footer class="bg-[#070d1e] text-slate-500 p-6 text-center text-xs border-t border-slate-800">
+      <p class="text-white font-bold">LogiMotion Digital • Sistema Oficial de Onboarding</p>
+      <p class="text-slate-400 text-[11px] mt-1">© 2026 LogiMotion Digital. Tu información está protegida y se utiliza únicamente para el desarrollo de tu web.</p>
+    </footer>
+
+  </main>
+
+  <!-- LÓGICA JAVASCRIPT DEL ONBOARDING -->
+  <script>
+    let currentStep = 1;
+    const totalSteps = 5;
+
+    const stepTitles = [
+      "Datos del Negocio",
+      "Ubicación y Contacto",
+      "Tus Servicios",
+      "Estilo y Fotografías",
+      "Revisión y Confirmación"
+    ];
+
+    // Cargar datos persistidos
+    function loadSavedData() {
+      const inputs = document.querySelectorAll('#onboarding_form input, #onboarding_form select, #onboarding_form textarea');
+      inputs.forEach(input => {
+        if (input.type === 'radio') {
+          const saved = localStorage.getItem(`logimotion_${input.name}`);
+          if (saved && input.value === saved) input.checked = true;
+        } else if (input.type === 'checkbox') {
+          const saved = localStorage.getItem(`logimotion_${input.id}`);
+          if (saved !== null) input.checked = (saved === 'true');
+        } else {
+          const saved = localStorage.getItem(`logimotion_${input.id}`);
+          if (saved !== null) input.value = saved;
+        }
+
+        // Auto guardar al escribir
+        input.addEventListener('input', () => {
+          if (input.type === 'radio') {
+            localStorage.setItem(`logimotion_${input.name}`, input.value);
+          } else if (input.type === 'checkbox') {
+            localStorage.setItem(`logimotion_${input.id}`, input.checked);
+          } else {
+            localStorage.setItem(`logimotion_${input.id}`, input.value);
+          }
+        });
+      });
+    }
+
+    function updateProgressUI() {
+      document.getElementById('step_indicator_text').innerText = `Paso ${currentStep} de ${totalSteps}`;
+      document.getElementById('step_title_text').innerText = stepTitles[currentStep - 1];
+      const percent = (currentStep / totalSteps) * 100;
+      document.getElementById('progress_percent_text').innerText = `${Math.round(percent)}%`;
+      document.getElementById('progress_bar').style.width = `${percent}%`;
+
+      // Botón atrás
+      const btnPrev = document.getElementById('btn_prev');
+      if (currentStep === 1) {
+        btnPrev.classList.add('hidden');
+      } else {
+        btnPrev.classList.remove('hidden');
+      }
+
+      // Botón siguiente / Enviar
+      const btnNext = document.getElementById('btn_next');
+      if (currentStep === totalSteps) {
+        btnNext.innerHTML = `<span>Confirmar y Enviar por WhatsApp ✓</span>`;
+        btnNext.className = "bg-gradient-to-r from-emerald-400 to-emerald-300 hover:from-emerald-300 text-slate-950 font-black text-xs sm:text-sm py-3.5 px-7 rounded-xl shadow-lg shadow-emerald-500/20 transition min-h-[48px]";
+      } else {
+        btnNext.innerHTML = `<span>Continuar →</span>`;
+        btnNext.className = "bg-gradient-to-r from-amber-400 to-amber-300 hover:from-amber-300 hover:to-amber-200 text-slate-950 font-black text-xs sm:text-sm py-3.5 px-7 rounded-xl shadow-lg shadow-amber-500/20 transition min-h-[48px]";
+      }
+    }
+
+    function showStep(step) {
+      document.querySelectorAll('.step-pane').forEach(el => el.classList.add('hidden'));
+      const activePane = document.getElementById(`step_${step}`);
+      if (activePane) activePane.classList.remove('hidden');
+      updateProgressUI();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function validateCurrentStep() {
+      let isValid = true;
+
+      // Limpiar errores
+      document.querySelectorAll('[id^="error_"]').forEach(el => {
+        el.innerText = '';
+        el.classList.add('hidden');
+      });
+
+      if (currentStep === 1) {
+        const nombre = document.getElementById('nombre_comercial').value.trim();
+        const sector = document.getElementById('sector_actividad').value;
+
+        if (!nombre) {
+          showError('error_nombre_comercial', 'Por favor, introduce el nombre comercial de tu negocio.');
+          isValid = false;
+        }
+        if (!sector) {
+          showError('error_sector_actividad', 'Selecciona el sector o actividad de tu negocio.');
+          isValid = false;
+        }
+      } else if (currentStep === 2) {
+        const whatsapp = document.getElementById('whatsapp_clientes').value.trim();
+        const direccion = document.getElementById('direccion_fisica').value.trim();
+        const horario = document.getElementById('horario_atencion').value.trim();
+
+        if (!whatsapp) {
+          showError('error_whatsapp_clientes', 'Introduce el número de WhatsApp para recibir clientes.');
+          isValid = false;
+        }
+        if (!direccion) {
+          showError('error_direccion_fisica', 'Indica la dirección física y ciudad de tu negocio.');
+          isValid = false;
+        }
+        if (!horario) {
+          showError('error_horario_atencion', 'Indica tu horario de atención.');
+          isValid = false;
+        }
+      } else if (currentStep === 3) {
+        const s1 = document.getElementById('servicio_1').value.trim();
+        const s2 = document.getElementById('servicio_2').value.trim();
+        const s3 = document.getElementById('servicio_3').value.trim();
+
+        if (!s1) {
+          showError('error_servicio_1', 'Indica al menos tu servicio o producto principal.');
+          isValid = false;
+        }
+        if (!s2) {
+          showError('error_servicio_2', 'Indica un segundo servicio para tu web.');
+          isValid = false;
+        }
+        if (!s3) {
+          showError('error_servicio_3', 'Indica un tercer servicio destacado.');
+          isValid = false;
+        }
+      } else if (currentStep === 5) {
+        const check = document.getElementById('check_consentimiento').checked;
+        if (!check) {
+          showError('error_consentimiento', 'Debes confirmar la casilla de consentimiento para continuar.');
+          isValid = false;
+        }
+      }
+
+      return isValid;
+    }
+
+    function showError(elementId, message) {
+      const el = document.getElementById(elementId);
+      if (el) {
+        el.innerText = message;
+        el.classList.remove('hidden');
+      }
+    }
+
+    function populateSummary() {
+      document.getElementById('summary_nombre').innerText = document.getElementById('nombre_comercial').value.trim() || 'No indicado';
+      document.getElementById('summary_sector').innerText = document.getElementById('sector_actividad').value || 'No indicado';
       
-      <!-- SECCIÓN 1 -->
-      <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 space-y-4">
-        <h3 class="font-extrabold text-slate-900 text-base">1. Datos de tu Negocio</h3>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div>
-            <label class="block font-bold text-slate-700 mb-1">Nombre Comercial:</label>
-            <div class="h-10 bg-white border border-slate-300 rounded-lg p-2"></div>
-          </div>
-          <div>
-            <label class="block font-bold text-slate-700 mb-1">Eslogan / Frase corta:</label>
-            <div class="h-10 bg-white border border-slate-300 rounded-lg p-2"></div>
-          </div>
-          <div class="sm:col-span-2">
-            <label class="block font-bold text-slate-700 mb-1">Dirección y Ciudad:</label>
-            <div class="h-10 bg-white border border-slate-300 rounded-lg p-2"></div>
-          </div>
-          <div>
-            <label class="block font-bold text-slate-700 mb-1">WhatsApp para Clientes:</label>
-            <div class="h-10 bg-white border border-slate-300 rounded-lg p-2"></div>
-          </div>
-          <div>
-            <label class="block font-bold text-slate-700 mb-1">Horario de Atención:</label>
-            <div class="h-10 bg-white border border-slate-300 rounded-lg p-2"></div>
-          </div>
-        </div>
-      </div>
+      const eslogan = document.getElementById('eslogan').value.trim();
+      document.getElementById('summary_eslogan').innerText = eslogan ? `"${eslogan}"` : 'Sin eslogan específico';
 
-      <!-- SECCIÓN 2 -->
-      <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 space-y-3">
-        <h3 class="font-extrabold text-slate-900 text-base">2. Servicios Principales a Destacar</h3>
-        <p class="text-slate-500 text-xs">Indica de 3 a 5 servicios o productos estrella:</p>
-        <div class="space-y-2">
-          <div class="h-9 bg-white border border-slate-300 rounded-lg p-2">1.</div>
-          <div class="h-9 bg-white border border-slate-300 rounded-lg p-2">2.</div>
-          <div class="h-9 bg-white border border-slate-300 rounded-lg p-2">3.</div>
-          <div class="h-9 bg-white border border-slate-300 rounded-lg p-2">4.</div>
-        </div>
-      </div>
+      const whatsapp = document.getElementById('whatsapp_clientes').value.trim();
+      const tel = document.getElementById('telefono_llamadas').value.trim();
+      document.getElementById('summary_contacto').innerText = `WhatsApp: ${whatsapp} ${tel ? '• Teléfono: ' + tel : ''}`;
+      
+      document.getElementById('summary_direccion').innerText = `Ubicación: ${document.getElementById('direccion_fisica').value.trim()}`;
+      document.getElementById('summary_horario').innerText = `Horario: ${document.getElementById('horario_atencion').value.trim()}`;
 
-      <!-- SECCIÓN 3 -->
-      <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 space-y-3">
-        <h3 class="font-extrabold text-slate-900 text-base">3. Preferencias de Estilo y Colores</h3>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
-          <label class="flex items-center gap-2 bg-white p-2.5 rounded-lg border border-slate-200">
-            <input type="checkbox" class="w-4 h-4 text-amber-500"> Mis colores corporativos actuales
-          </label>
-          <label class="flex items-center gap-2 bg-white p-2.5 rounded-lg border border-slate-200">
-            <input type="checkbox" class="w-4 h-4 text-amber-500"> Elegante (Azul marino / Dorado)
-          </label>
-          <label class="flex items-center gap-2 bg-white p-2.5 rounded-lg border border-slate-200">
-            <input type="checkbox" class="w-4 h-4 text-amber-500"> Cálido (Terracota / Madera)
-          </label>
-          <label class="flex items-center gap-2 bg-white p-2.5 rounded-lg border border-slate-200">
-            <input type="checkbox" class="w-4 h-4 text-amber-500"> Limpio / Clínico (Blanco / Cian)
-          </label>
-        </div>
-      </div>
+      // Servicios
+      const listServicios = document.getElementById('summary_servicios');
+      listServicios.innerHTML = '';
+      ['servicio_1', 'servicio_2', 'servicio_3', 'servicio_4', 'servicio_5'].forEach(id => {
+        const val = document.getElementById(id).value.trim();
+        if (val) {
+          const li = document.createElement('li');
+          li.className = 'flex items-center gap-1.5';
+          li.innerHTML = `<span class="text-amber-400 font-bold">•</span> <span>${val}</span>`;
+          listServicios.appendChild(li);
+        }
+      });
 
-      <!-- SECCIÓN 4: CONFIRMACIÓN -->
-      <div class="border-t border-slate-200 pt-6 flex justify-between items-center text-xs">
-        <div>
-          <p class="font-bold text-slate-900">Nombre del Responsable:</p>
-          <div class="w-48 h-8 border-b-2 border-slate-400 mt-2"></div>
-        </div>
-        <div>
-          <p class="font-bold text-slate-900">Firma / Fecha:</p>
-          <div class="w-48 h-8 border-b-2 border-slate-400 mt-2"></div>
-        </div>
-      </div>
+      // Estilo y Fotos
+      const estilo = document.querySelector('input[name="estilo_colores"]:checked')?.value || 'Colores corporativos';
+      const fotos = document.querySelector('input[name="opcion_fotos"]:checked')?.value || 'Fotos por WhatsApp';
+      const cta = document.getElementById('accion_principal').value;
 
-    </form>
-  </div>
+      document.getElementById('summary_estilo').innerText = `Estilo: ${estilo}`;
+      document.getElementById('summary_fotos').innerText = `Material: ${fotos}`;
+      document.getElementById('summary_cta').innerText = `Acción principal: ${cta}`;
+    }
+
+    function navigateStep(direction) {
+      if (direction === 1) {
+        if (!validateCurrentStep()) return;
+        
+        if (currentStep === totalSteps) {
+          submitOnboarding();
+          return;
+        }
+
+        currentStep++;
+        if (currentStep === 5) populateSummary();
+        showStep(currentStep);
+      } else if (direction === -1) {
+        if (currentStep > 1) {
+          currentStep--;
+          showStep(currentStep);
+        }
+      }
+    }
+
+    function goToStep(step) {
+      currentStep = step;
+      showStep(step);
+    }
+
+    function submitOnboarding() {
+      // Construir mensaje estructurado para WhatsApp
+      const nombre = document.getElementById('nombre_comercial').value.trim();
+      const sector = document.getElementById('sector_actividad').value;
+      const eslogan = document.getElementById('eslogan').value.trim();
+      const whatsapp = document.getElementById('whatsapp_clientes').value.trim();
+      const tel = document.getElementById('telefono_llamadas').value.trim();
+      const direccion = document.getElementById('direccion_fisica').value.trim();
+      const horario = document.getElementById('horario_atencion').value.trim();
+      const estilo = document.querySelector('input[name="estilo_colores"]:checked')?.value || 'Colores corporativos';
+      const fotos = document.querySelector('input[name="opcion_fotos"]:checked')?.value || 'Fotos por WhatsApp';
+      const cta = document.getElementById('accion_principal').value;
+
+      let servicios = [];
+      ['servicio_1', 'servicio_2', 'servicio_3', 'servicio_4', 'servicio_5'].forEach(id => {
+        const val = document.getElementById(id).value.trim();
+        if (val) servicios.push(val);
+      });
+
+      const mensajeWhatsApp = `*NUEVO ONBOARDING DE PROYECTO WEB - LOGIMOTION*
+
+🏢 *1. DATOS DEL NEGOCIO*
+• Nombre: ${nombre}
+• Sector: ${sector}
+${eslogan ? `• Eslogan: "${eslogan}"\n` : ''}
+📍 *2. CONTACTO Y UBICACIÓN*
+• WhatsApp: ${whatsapp}
+${tel ? `• Teléfono: ${tel}\n` : ''}• Dirección: ${direccion}
+• Horario: ${horario}
+
+🛠️ *3. SERVICIOS PRINCIPALES*
+• ${servicios.join('\n• ')}
+
+🎨 *4. IDENTIDAD Y PREFERENCIAS*
+• Estilo: ${estilo}
+• Fotos / Logo: ${fotos}
+• Acción Principal: ${cta}
+
+_Datos completados y confirmados desde el formulario oficial._`;
+
+      const whatsappUrl = `https://wa.me/34362547479?text=${encodeURIComponent(mensajeWhatsApp)}`;
+      
+      // Actualizar botón de reabrir
+      document.getElementById('btn_reabrir_whatsapp').href = whatsappUrl;
+
+      // Ocultar controles y barra, mostrar éxito
+      document.getElementById('progress_section').classList.add('hidden');
+      document.getElementById('wizard_controls').classList.add('hidden');
+      document.querySelectorAll('.step-pane').forEach(el => el.classList.add('hidden'));
+      document.getElementById('step_success').classList.remove('hidden');
+
+      // Abrir WhatsApp automáticamente
+      window.open(whatsappUrl, '_blank');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      loadSavedData();
+      showStep(1);
+    });
+  </script>
+
 </body>
 </html>
