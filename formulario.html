@@ -25,7 +25,7 @@
 
     /* Print Styles */
     @media print {
-      body { background: #ffffff !important; color: #0f172a !important; padding: 0 !important; font-size: 11pt !important; }
+      body { background: #ffffff !important; color: #0f172a !important; padding: 0 !important; font-size: 10.5pt !important; }
       .no-print { display: none !important; }
       .print-only { display: block !important; }
       .print-container { box-shadow: none !important; border: none !important; max-width: 100% !important; margin: 0 !important; padding: 0 !important; }
@@ -40,6 +40,22 @@
   <!-- CONTENEDOR PRINCIPAL DEL ONBOARDING -->
   <main class="max-w-3xl mx-auto w-full bg-[#091124] rounded-3xl shadow-2xl overflow-hidden border border-slate-800/90 print-container my-auto">
     
+    <!-- BANNER DE DATOS GUARDADOS (CONDICIONAL) -->
+    <div id="banner_recuperar" class="bg-amber-500/15 border-b border-amber-400/30 px-6 py-3.5 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 hidden no-print">
+      <div class="flex items-center gap-2.5 text-xs text-amber-300">
+        <svg class="w-4 h-4 text-amber-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+        <span>Encontramos información guardada de una sesión anterior.</span>
+      </div>
+      <div class="flex items-center gap-2 self-end sm:self-center">
+        <button type="button" onclick="restaurarSesion()" class="bg-amber-400 hover:bg-amber-300 text-slate-950 font-extrabold text-[11px] px-3 py-1.5 rounded-lg transition">
+          Continuar
+        </button>
+        <button type="button" onclick="empezarDeNuevo()" class="bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold text-[11px] px-3 py-1.5 rounded-lg border border-slate-700 transition">
+          Empezar de nuevo
+        </button>
+      </div>
+    </div>
+
     <!-- CABECERA DE LA AGENCIA -->
     <header class="bg-gradient-to-b from-[#0e1a38] via-[#0b142c] to-[#091124] p-6 sm:p-8 border-b border-slate-800/80">
       <div class="flex justify-between items-center flex-wrap gap-4">
@@ -92,7 +108,7 @@
               <label for="nombre_comercial" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5">
                 Nombre comercial del negocio <span class="text-amber-400">*</span>
               </label>
-              <input type="text" id="nombre_comercial" name="nombre_comercial" placeholder="Ej. Reformas y Construcciones Madrid / Clínica Veterinaria Luna" class="w-full bg-[#0e172e] border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:border-amber-400 focus:outline-none transition placeholder:text-slate-500">
+              <input type="text" id="nombre_comercial" name="nombre_comercial" placeholder="Ej. Reformas y Construcciones Madrid / Clínica Veterinaria Luna" class="w-full bg-[#0e172e] border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:border-amber-400 focus:outline-none transition placeholder:text-slate-500 min-h-[48px]">
               <p class="text-[11px] text-slate-400 mt-1">Es el nombre exacto con el que tus clientes te conocen.</p>
               <p id="error_nombre_comercial" class="text-xs text-rose-400 font-semibold mt-1 hidden"></p>
             </div>
@@ -101,24 +117,36 @@
               <label for="sector_actividad" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5">
                 Sector o Actividad Principal <span class="text-amber-400">*</span>
               </label>
-              <select id="sector_actividad" name="sector_actividad" class="w-full bg-[#0e172e] border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:border-amber-400 focus:outline-none transition">
+              <select id="sector_actividad" name="sector_actividad" onchange="toggleSectorOtro()" class="w-full bg-[#0e172e] border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:border-amber-400 focus:outline-none transition min-h-[48px]">
                 <option value="" disabled selected>Selecciona tu sector...</option>
-                <option value="Reformas / Construcción">Reformas / Construcción / Albañilería</option>
+                <option value="Restaurante / Gastronomía">Restaurante / Gastronomía / Cafetería</option>
                 <option value="Clínica Veterinaria / Mascotas">Clínica Veterinaria / Cuidado Animal</option>
-                <option value="Despacho de Abogados / Asesoría">Despacho de Abogados / Asesoría Jurídica</option>
+                <option value="Abogado / Despacho Jurídico">Abogado / Despacho Jurídico / Asesoría</option>
+                <option value="Reformas / Construcción">Reformas / Construcción / Albañilería</option>
                 <option value="Taller Mecánico / Automoción">Taller Mecánico / Chapa y Pintura</option>
-                <option value="Restaurante / Hostelería">Restaurante / Cafetería / Gastronomía</option>
-                <option value="Salud / Clínica / Fisioterapia">Salud / Clínica / Estética / Fisioterapia</option>
-                <option value="Otro Servicio Local">Otro Servicio Profesional Local</option>
+                <option value="Peluquería / Estética / Belleza">Peluquería / Estética / Centro de Belleza</option>
+                <option value="Clínica / Salud / Fisioterapia">Clínica / Salud / Fisioterapia / Dental</option>
+                <option value="Inmobiliaria / Gestión de Propiedades">Inmobiliaria / Gestión de Inmuebles</option>
+                <option value="Comercio / Tienda Local">Comercio / Tienda Local / Retail</option>
+                <option value="Otro">Otro sector...</option>
               </select>
               <p id="error_sector_actividad" class="text-xs text-rose-400 font-semibold mt-1 hidden"></p>
+            </div>
+
+            <!-- CAMPO CONDICIONAL PARA 'OTRO' -->
+            <div id="wrapper_sector_otro" class="hidden">
+              <label for="sector_otro" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5">
+                ¿Qué actividad realiza tu negocio? <span class="text-amber-400">*</span>
+              </label>
+              <input type="text" id="sector_otro" name="sector_otro" placeholder="Ej. Carpintería a medida / Cerrajería 24 horas / Adiestramiento" class="w-full bg-[#0e172e] border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:border-amber-400 focus:outline-none transition placeholder:text-slate-500 min-h-[48px]">
+              <p id="error_sector_otro" class="text-xs text-rose-400 font-semibold mt-1 hidden"></p>
             </div>
 
             <div>
               <label for="eslogan" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5">
                 Eslogan o Frase que te define <span class="text-slate-400 font-normal text-[11px]">(Opcional)</span>
               </label>
-              <input type="text" id="eslogan" name="eslogan" placeholder="Ej. Más de 15 años renovando hogares con garantía total" class="w-full bg-[#0e172e] border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:border-amber-400 focus:outline-none transition placeholder:text-slate-500">
+              <input type="text" id="eslogan" name="eslogan" placeholder="Ej. Más de 15 años renovando hogares con garantía total" class="w-full bg-[#0e172e] border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:border-amber-400 focus:outline-none transition placeholder:text-slate-500 min-h-[48px]">
               <p class="text-[11px] text-slate-400 mt-1">Una frase corta que destaque tu experiencia, rapidez o calidad.</p>
             </div>
           </div>
@@ -137,90 +165,74 @@
               <label for="whatsapp_clientes" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5">
                 WhatsApp para recibir clientes <span class="text-amber-400">*</span>
               </label>
-              <input type="tel" id="whatsapp_clientes" name="whatsapp_clientes" placeholder="Ej. 612 345 678" class="w-full bg-[#0e172e] border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:border-amber-400 focus:outline-none transition placeholder:text-slate-500">
+              <input type="tel" id="whatsapp_clientes" name="whatsapp_clientes" placeholder="Ej. 612 345 678" class="w-full bg-[#0e172e] border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:border-amber-400 focus:outline-none transition placeholder:text-slate-500 min-h-[48px]">
               <p class="text-[11px] text-slate-400 mt-1">Donde entrarán los presupuestos y mensajes en 1 clic.</p>
               <p id="error_whatsapp_clientes" class="text-xs text-rose-400 font-semibold mt-1 hidden"></p>
             </div>
 
             <div>
               <label for="telefono_llamadas" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5">
-                Teléfono para llamadas <span class="text-slate-400 font-normal text-[11px]">(Si es diferente al WhatsApp)</span>
+                Teléfono fijo / secundario <span class="text-slate-400 font-normal text-[11px]">(Opcional)</span>
               </label>
-              <input type="tel" id="telefono_llamadas" name="telefono_llamadas" placeholder="Ej. 910 123 456" class="w-full bg-[#0e172e] border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:border-amber-400 focus:outline-none transition placeholder:text-slate-500">
-              <p class="text-[11px] text-slate-400 mt-1">Para llamadas directas desde el teléfono móvil.</p>
+              <input type="tel" id="telefono_llamadas" name="telefono_llamadas" placeholder="Ej. 910 123 456" class="w-full bg-[#0e172e] border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:border-amber-400 focus:outline-none transition placeholder:text-slate-500 min-h-[48px]">
+              <p class="text-[11px] text-slate-400 mt-1">Si deseas que también puedan llamarte a un fijo.</p>
             </div>
 
-            <div class="sm:col-span-2">
+            <div>
               <label for="direccion_fisica" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5">
-                Dirección física, Ciudad y Código Postal <span class="text-amber-400">*</span>
+                Dirección física y Ciudad <span class="text-amber-400">*</span>
               </label>
-              <input type="text" id="direccion_fisica" name="direccion_fisica" placeholder="Ej. Calle Mayor 14, 28013 Madrid" class="w-full bg-[#0e172e] border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:border-amber-400 focus:outline-none transition placeholder:text-slate-500">
-              <p class="text-[11px] text-slate-400 mt-1">Para vincular la ubicación exacta en Google Maps.</p>
+              <input type="text" id="direccion_fisica" name="direccion_fisica" placeholder="Ej. Calle Mayor 14, Madrid" class="w-full bg-[#0e172e] border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:border-amber-400 focus:outline-none transition placeholder:text-slate-500 min-h-[48px]">
               <p id="error_direccion_fisica" class="text-xs text-rose-400 font-semibold mt-1 hidden"></p>
             </div>
 
             <div>
+              <label for="codigo_postal" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5">
+                Código Postal <span class="text-amber-400">*</span>
+              </label>
+              <input type="text" id="codigo_postal" name="codigo_postal" placeholder="Ej. 28013" class="w-full bg-[#0e172e] border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:border-amber-400 focus:outline-none transition placeholder:text-slate-500 min-h-[48px]">
+              <p id="error_codigo_postal" class="text-xs text-rose-400 font-semibold mt-1 hidden"></p>
+            </div>
+
+            <div class="sm:col-span-2">
               <label for="horario_atencion" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5">
                 Horario de atención al público <span class="text-amber-400">*</span>
               </label>
-              <input type="text" id="horario_atencion" name="horario_atencion" placeholder="Ej. Lunes a Viernes de 9:00 a 19:00" class="w-full bg-[#0e172e] border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:border-amber-400 focus:outline-none transition placeholder:text-slate-500">
+              <input type="text" id="horario_atencion" name="horario_atencion" placeholder="Ej. Lunes a Viernes de 9:00 a 19:00 / Sábados de 10:00 a 14:00" class="w-full bg-[#0e172e] border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:border-amber-400 focus:outline-none transition placeholder:text-slate-500 min-h-[48px]">
               <p id="error_horario_atencion" class="text-xs text-rose-400 font-semibold mt-1 hidden"></p>
-            </div>
-
-            <div>
-              <label for="email_contacto" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5">
-                Email de contacto <span class="text-slate-400 font-normal text-[11px]">(Opcional)</span>
-              </label>
-              <input type="email" id="email_contacto" name="email_contacto" placeholder="Ej. info@tunegocio.es" class="w-full bg-[#0e172e] border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:border-amber-400 focus:outline-none transition placeholder:text-slate-500">
             </div>
           </div>
         </div>
 
-        <!-- ==================== PASO 3: SERVICIOS PRINCIPALES ==================== -->
+        <!-- ==================== PASO 3: SERVICIOS PRINCIPALES (3 A 5 DINÁMICOS) ==================== -->
         <div id="step_3" class="step-pane space-y-6 hidden">
           <div>
             <span class="text-xs font-bold text-amber-400 uppercase tracking-wider">Paso 3 • Catálogo y Oferta</span>
-            <h2 class="text-xl sm:text-2xl font-black text-white mt-1">Tus 3 a 5 servicios estrella</h2>
-            <p class="text-slate-400 text-xs sm:text-sm mt-1">Escribe los servicios que más te interesa promocionar y vender a través de tu web.</p>
+            <h2 class="text-xl sm:text-2xl font-black text-white mt-1">Tus servicios estrella (3 a 5)</h2>
+            <p class="text-slate-400 text-xs sm:text-sm mt-1">Escribe los servicios que más te interesa promocionar. Puedes añadir entre 3 y 5 servicios.</p>
           </div>
 
-          <div class="space-y-3.5">
-            <div>
-              <label class="block text-xs font-bold text-slate-300 mb-1">Servicio 1 (Principal) <span class="text-amber-400">*</span></label>
-              <input type="text" id="servicio_1" name="servicio_1" placeholder="Ej. Reformas integrales de viviendas / Vacunación y desparasitación" class="w-full bg-[#0e172e] border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white focus:border-amber-400 focus:outline-none transition placeholder:text-slate-500">
-              <p id="error_servicio_1" class="text-xs text-rose-400 font-semibold mt-1 hidden"></p>
-            </div>
-
-            <div>
-              <label class="block text-xs font-bold text-slate-300 mb-1">Servicio 2 <span class="text-amber-400">*</span></label>
-              <input type="text" id="servicio_2" name="servicio_2" placeholder="Ej. Reformas de cocinas y baños / Cirugía y diagnóstico veterinario" class="w-full bg-[#0e172e] border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white focus:border-amber-400 focus:outline-none transition placeholder:text-slate-500">
-              <p id="error_servicio_2" class="text-xs text-rose-400 font-semibold mt-1 hidden"></p>
-            </div>
-
-            <div>
-              <label class="block text-xs font-bold text-slate-300 mb-1">Servicio 3 <span class="text-amber-400">*</span></label>
-              <input type="text" id="servicio_3" name="servicio_3" placeholder="Ej. Instalaciones eléctricas y fontanería / Peluquería canina y felina" class="w-full bg-[#0e172e] border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white focus:border-amber-400 focus:outline-none transition placeholder:text-slate-500">
-              <p id="error_servicio_3" class="text-xs text-rose-400 font-semibold mt-1 hidden"></p>
-            </div>
-
-            <div>
-              <label class="block text-xs font-bold text-slate-300 mb-1">Servicio 4 <span class="text-slate-400 font-normal text-[11px]">(Opcional)</span></label>
-              <input type="text" id="servicio_4" name="servicio_4" placeholder="Ej. Pintura y alisado de paredes / Urgencias veterinarias 24h" class="w-full bg-[#0e172e] border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white focus:border-amber-400 focus:outline-none transition placeholder:text-slate-500">
-            </div>
-
-            <div>
-              <label class="block text-xs font-bold text-slate-300 mb-1">Servicio 5 <span class="text-slate-400 font-normal text-[11px]">(Opcional)</span></label>
-              <input type="text" id="servicio_5" name="servicio_5" placeholder="Ej. Coordinación de licencias de obra / Asesoramiento nutricional" class="w-full bg-[#0e172e] border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white focus:border-amber-400 focus:outline-none transition placeholder:text-slate-500">
-            </div>
+          <div id="servicios_container" class="space-y-3.5">
+            <!-- Renderizado dinámico por JS -->
           </div>
+
+          <div class="flex items-center justify-between pt-2">
+            <button type="button" id="btn_add_servicio" onclick="addServicioField()" class="inline-flex items-center gap-2 bg-slate-800 hover:bg-slate-700 text-amber-400 font-bold text-xs py-2.5 px-4 rounded-xl border border-slate-700 transition">
+              <svg class="w-4 h-4 text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              <span>Añadir otro servicio</span>
+            </button>
+            <span class="text-xs text-slate-500" id="servicios_counter_text">3 de 5 servicios</span>
+          </div>
+
+          <p id="error_servicios_global" class="text-xs text-rose-400 font-semibold mt-1 hidden"></p>
         </div>
 
-        <!-- ==================== PASO 4: IDENTIDAD Y FOTOGRAFÍAS ==================== -->
+        <!-- ==================== PASO 4: IDENTIDAD, RECURSOS Y ACCIÓN ==================== -->
         <div id="step_4" class="step-pane space-y-6 hidden">
           <div>
             <span class="text-xs font-bold text-amber-400 uppercase tracking-wider">Paso 4 • Estilo y Material Gráfico</span>
-            <h2 class="text-xl sm:text-2xl font-black text-white mt-1">Preferencia visual y fotos</h2>
-            <p class="text-slate-400 text-xs sm:text-sm mt-1">Personalizaremos la estética de tu web para que represente la calidad de tu marca.</p>
+            <h2 class="text-xl sm:text-2xl font-black text-white mt-1">Identidad visual y recursos</h2>
+            <p class="text-slate-400 text-xs sm:text-sm mt-1">Personalizaremos la estética para que represente la calidad de tu marca.</p>
           </div>
 
           <!-- ESTILO DE COLORES -->
@@ -246,7 +258,7 @@
               </label>
 
               <label class="flex items-center gap-3 p-3.5 rounded-xl border border-slate-700 bg-[#0e172e] cursor-pointer hover:border-slate-500 transition">
-                <input type="radio" name="estilo_colores" value="Cálido y Tradicional (Terracota / Madera / Verde)" class="accent-amber-400 w-4 h-4">
+                <input type="radio" name="estilo_colores" value="Cálido y Acogedor (Terracota / Madera / Verde)" class="accent-amber-400 w-4 h-4">
                 <div>
                   <span class="font-bold text-white block">Cálido y Acogedor</span>
                   <span class="text-slate-400">Terracota, tonos madera y verde oliva.</span>
@@ -273,7 +285,7 @@
             <div class="space-y-3 text-xs text-slate-300">
               <label class="flex items-start gap-2.5 cursor-pointer">
                 <input type="radio" name="opcion_fotos" value="Enviaremos logo y fotos reales por WhatsApp tras completar el formulario" checked class="accent-amber-400 w-4 h-4 mt-0.5">
-                <span><strong>Te enviaremos fotos reales y logo por WhatsApp:</strong> Te facilitamos un enlace directo para enviarlas cómodamente desde tu móvil.</span>
+                <span><strong>Te enviaremos fotos reales y logo por WhatsApp:</strong> Puedes enviarlas cómodamente desde tu móvil tras finalizar el formulario.</span>
               </label>
 
               <label class="flex items-start gap-2.5 cursor-pointer">
@@ -286,14 +298,25 @@
           <!-- ACCIÓN PRINCIPAL DE CONVERSIÓN -->
           <div>
             <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5">
-              ¿Cuál es la acción principal que deseas que haga el cliente en tu web? <span class="text-amber-400">*</span>
+              ¿Qué quieres que hagan principalmente tus clientes en tu web? <span class="text-amber-400">*</span>
             </label>
-            <select id="accion_principal" name="accion_principal" class="w-full bg-[#0e172e] border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:border-amber-400 focus:outline-none transition">
-              <option value="Enviar un mensaje de WhatsApp para pedir presupuesto o información" selected>Enviar un mensaje de WhatsApp directo para pedir presupuesto o consulta</option>
+            <select id="accion_principal" name="accion_principal" class="w-full bg-[#0e172e] border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:border-amber-400 focus:outline-none transition min-h-[48px]">
+              <option value="Enviar un mensaje de WhatsApp para pedir presupuesto o consulta" selected>Enviar un mensaje de WhatsApp directo</option>
               <option value="Llamar directamente por teléfono al negocio">Llamar directamente por teléfono</option>
-              <option value="Pedir cita previa o reservar fecha/hora">Pedir cita previa o reservar</option>
-              <option value="Ver la carta / menú digital">Ver la carta / catálogo digital</option>
+              <option value="Solicitar presupuesto detallado">Solicitar presupuesto detallado</option>
+              <option value="Reservar cita previa o fecha/hora">Reservar cita previa</option>
+              <option value="Comprar productos o servicios online">Comprar o contratar online</option>
+              <option value="Visitar el establecimiento físico con Google Maps">Visitar el establecimiento físico</option>
+              <option value="Otro objetivo">Otro objetivo comercial</option>
             </select>
+          </div>
+
+          <!-- NOTAS ADICIONALES -->
+          <div>
+            <label for="notas_adicionales" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5">
+              Notas o Requisitos Especiales <span class="text-slate-400 font-normal text-[11px]">(Opcional)</span>
+            </label>
+            <textarea id="notas_adicionales" name="notas_adicionales" rows="3" placeholder="Ej. Nos gustaría destacar que tenemos parking gratuito / Preferimos que el botón de WhatsApp diga 'Pedir Presupuesto Sin Compromiso'" class="w-full bg-[#0e172e] border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:border-amber-400 focus:outline-none transition placeholder:text-slate-500"></textarea>
           </div>
         </div>
 
@@ -301,39 +324,39 @@
         <div id="step_5" class="step-pane space-y-6 hidden">
           <div>
             <span class="text-xs font-bold text-amber-400 uppercase tracking-wider">Paso 5 • Revisión Final</span>
-            <h2 class="text-xl sm:text-2xl font-black text-white mt-1">Revisa y confirma los datos</h2>
-            <p class="text-slate-400 text-xs sm:text-sm mt-1">Comprueba que todo esté correcto antes de enviar. Puedes volver atrás y modificar cualquier apartado.</p>
+            <h2 class="text-xl sm:text-2xl font-black text-white mt-1">Revisa tu información</h2>
+            <p class="text-slate-400 text-xs sm:text-sm mt-1">Comprueba que todo esté correcto antes de enviar. Puedes pulsar en "Editar" en cualquier sección para corregir datos.</p>
           </div>
 
           <!-- TARJETA RESUMEN -->
           <div class="bg-[#0e172e] border border-slate-800 rounded-2xl p-6 space-y-5 text-xs print-card">
             
-            <!-- BLOQUE 1 -->
-            <div class="flex justify-between items-start pb-3 border-b border-slate-800">
+            <!-- BLOQUE 1: NEGOCIO -->
+            <div class="flex justify-between items-start pb-3.5 border-b border-slate-800">
               <div>
-                <span class="font-bold text-amber-400 uppercase tracking-wider text-[11px] block">1. Tu Negocio</span>
+                <span class="font-bold text-amber-400 uppercase tracking-wider text-[11px] block">1. Datos del Negocio</span>
                 <p class="text-white font-extrabold text-sm mt-0.5" id="summary_nombre">-</p>
-                <p class="text-slate-400 mt-0.5" id="summary_sector">-</p>
+                <p class="text-slate-300 mt-0.5" id="summary_sector">-</p>
                 <p class="text-slate-400 italic mt-0.5" id="summary_eslogan">-</p>
               </div>
               <button type="button" onclick="goToStep(1)" class="text-amber-400 hover:underline font-bold text-xs no-print">Editar</button>
             </div>
 
-            <!-- BLOQUE 2 -->
-            <div class="flex justify-between items-start pb-3 border-b border-slate-800">
+            <!-- BLOQUE 2: CONTACTO -->
+            <div class="flex justify-between items-start pb-3.5 border-b border-slate-800">
               <div>
-                <span class="font-bold text-amber-400 uppercase tracking-wider text-[11px] block">2. Contacto y Ubicación</span>
+                <span class="font-bold text-amber-400 uppercase tracking-wider text-[11px] block">2. Ubicación y Contacto</span>
                 <p class="text-white font-semibold mt-0.5" id="summary_contacto">-</p>
-                <p class="text-slate-400 mt-0.5" id="summary_direccion">-</p>
+                <p class="text-slate-300 mt-0.5" id="summary_direccion">-</p>
                 <p class="text-slate-400 mt-0.5" id="summary_horario">-</p>
               </div>
               <button type="button" onclick="goToStep(2)" class="text-amber-400 hover:underline font-bold text-xs no-print">Editar</button>
             </div>
 
-            <!-- BLOQUE 3 -->
-            <div class="flex justify-between items-start pb-3 border-b border-slate-800">
+            <!-- BLOQUE 3: SERVICIOS -->
+            <div class="flex justify-between items-start pb-3.5 border-b border-slate-800">
               <div>
-                <span class="font-bold text-amber-400 uppercase tracking-wider text-[11px] block">3. Servicios Destacados</span>
+                <span class="font-bold text-amber-400 uppercase tracking-wider text-[11px] block">3. Servicios Principales</span>
                 <ul class="text-slate-300 mt-1 space-y-1" id="summary_servicios">
                   <!-- Generado dinámicamente -->
                 </ul>
@@ -341,10 +364,10 @@
               <button type="button" onclick="goToStep(3)" class="text-amber-400 hover:underline font-bold text-xs no-print">Editar</button>
             </div>
 
-            <!-- BLOQUE 4 -->
-            <div class="flex justify-between items-start">
+            <!-- BLOQUE 4: IDENTIDAD Y OBJETIVO -->
+            <div class="flex justify-between items-start pb-3.5 border-b border-slate-800">
               <div>
-                <span class="font-bold text-amber-400 uppercase tracking-wider text-[11px] block">4. Identidad y CTA</span>
+                <span class="font-bold text-amber-400 uppercase tracking-wider text-[11px] block">4. Identidad y Objetivo Principal</span>
                 <p class="text-slate-300 mt-0.5" id="summary_estilo">-</p>
                 <p class="text-slate-400 mt-0.5" id="summary_fotos">-</p>
                 <p class="text-emerald-400 font-semibold mt-0.5" id="summary_cta">-</p>
@@ -352,9 +375,18 @@
               <button type="button" onclick="goToStep(4)" class="text-amber-400 hover:underline font-bold text-xs no-print">Editar</button>
             </div>
 
+            <!-- BLOQUE 5: NOTAS -->
+            <div class="flex justify-between items-start">
+              <div>
+                <span class="font-bold text-amber-400 uppercase tracking-wider text-[11px] block">5. Notas Adicionales</span>
+                <p class="text-slate-300 mt-0.5 italic" id="summary_notas">Sin notas adicionales.</p>
+              </div>
+              <button type="button" onclick="goToStep(4)" class="text-amber-400 hover:underline font-bold text-xs no-print">Editar</button>
+            </div>
+
           </div>
 
-          <!-- NOTA DE PRIVACIDAD Y CONSENTIMIENTO -->
+          <!-- NOTA DE CONSENTIMIENTO -->
           <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800 text-xs text-slate-400">
             <label class="flex items-start gap-2.5 cursor-pointer">
               <input type="checkbox" id="check_consentimiento" checked class="accent-amber-400 w-4 h-4 mt-0.5">
@@ -372,9 +404,9 @@
 
           <div>
             <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">¡Información Recibida con Éxito!</span>
-            <h2 class="text-2xl sm:text-3xl font-black text-white mt-1">Tu proyecto está en marcha</h2>
+            <h2 class="text-2xl sm:text-3xl font-black text-white mt-1">Hemos recibido la información de tu proyecto</h2>
             <p class="text-slate-300 text-sm mt-3 max-w-md mx-auto leading-relaxed">
-              Hemos recibido los datos de tu negocio. Nuestro equipo comenzará de inmediato con la maquetación y personalización de tu página web.
+              Nuestro equipo la revisará y utilizará estos datos para preparar tu web personalizada.
             </p>
           </div>
 
@@ -385,11 +417,11 @@
           </div>
 
           <div class="pt-4 flex flex-col sm:flex-row justify-center gap-3 no-print">
-            <a id="btn_reabrir_whatsapp" href="#" target="_blank" class="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-400 to-amber-300 hover:from-amber-300 hover:to-amber-200 text-slate-950 font-black text-sm py-3.5 px-6 rounded-xl shadow-lg transition">
+            <a id="btn_reabrir_whatsapp" href="#" target="_blank" class="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-400 to-amber-300 hover:from-amber-300 hover:to-amber-200 text-slate-950 font-black text-sm py-3.5 px-6 rounded-xl shadow-lg transition min-h-[48px]">
               <svg class="w-4 h-4 text-slate-950" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.073-2.152-.533-1.637-.679-2.69-2.347-2.772-2.457-.08-.11-1.11-1.477-1.11-2.813 0-1.336.702-1.993.95-2.257.248-.264.542-.33.723-.33.18 0 .361.002.519.01.168.008.393-.064.614.469.23.555.786 1.917.854 2.057.069.14.116.305.023.49-.092.186-.139.303-.275.467-.136.165-.286.368-.409.495-.136.14-.278.293-.12.565.158.272.702 1.16 1.507 1.877 1.036.924 1.91 1.209 2.182 1.346.272.137.432.119.593-.066.162-.186.69-.806.874-1.082.184-.275.368-.231.614-.141.246.09 1.559.734 1.826.868.267.134.446.2.512.311.066.111.066.643-.078 1.048z"/></svg>
               <span>Abrir Chat de WhatsApp</span>
             </a>
-            <button onclick="window.print()" class="bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-bold text-xs py-3.5 px-5 rounded-xl transition">
+            <button onclick="window.print()" class="bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-bold text-xs py-3.5 px-5 rounded-xl transition min-h-[48px]">
               Guardar Copia en PDF
             </button>
           </div>
@@ -397,7 +429,7 @@
 
         <!-- ==================== BOTONES DE NAVEGACIÓN (WIZARD) ==================== -->
         <div class="mt-8 pt-6 border-t border-slate-800 flex justify-between items-center no-print" id="wizard_controls">
-          <button type="button" id="btn_prev" onclick="navigateStep(-1)" class="bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold text-xs sm:text-sm py-3.5 px-6 rounded-xl border border-slate-700 transition hidden">
+          <button type="button" id="btn_prev" onclick="navigateStep(-1)" class="bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold text-xs sm:text-sm py-3.5 px-6 rounded-xl border border-slate-700 transition hidden min-h-[48px]">
             ← Atrás
           </button>
           <div class="flex-1"></div>
@@ -427,36 +459,174 @@
       "Datos del Negocio",
       "Ubicación y Contacto",
       "Tus Servicios",
-      "Estilo y Fotografías",
+      "Identidad y Recursos",
       "Revisión y Confirmación"
     ];
 
-    // Cargar datos persistidos
-    function loadSavedData() {
-      const inputs = document.querySelectorAll('#onboarding_form input, #onboarding_form select, #onboarding_form textarea');
-      inputs.forEach(input => {
-        if (input.type === 'radio') {
-          const saved = localStorage.getItem(`logimotion_${input.name}`);
-          if (saved && input.value === saved) input.checked = true;
-        } else if (input.type === 'checkbox') {
-          const saved = localStorage.getItem(`logimotion_${input.id}`);
-          if (saved !== null) input.checked = (saved === 'true');
-        } else {
-          const saved = localStorage.getItem(`logimotion_${input.id}`);
-          if (saved !== null) input.value = saved;
+    let serviciosList = [
+      { id: 1, val: "" },
+      { id: 2, val: "" },
+      { id: 3, val: "" }
+    ];
+
+    function toggleSectorOtro() {
+      const select = document.getElementById('sector_actividad');
+      const wrapper = document.getElementById('wrapper_sector_otro');
+      if (select.value === 'Otro') {
+        wrapper.classList.remove('hidden');
+      } else {
+        wrapper.classList.add('hidden');
+      }
+      clearError('error_sector_actividad');
+    }
+
+    function renderServiciosFields() {
+      const container = document.getElementById('servicios_container');
+      container.innerHTML = '';
+
+      serviciosList.forEach((s, index) => {
+        const div = document.createElement('div');
+        div.className = 'space-y-1';
+
+        const isRequired = (index < 3);
+        const labelText = `Servicio ${index + 1} ${isRequired ? '<span class="text-amber-400">*</span>' : '<span class="text-slate-400 font-normal text-[11px]">(Opcional)</span>'}`;
+
+        let deleteBtn = '';
+        if (serviciosList.length > 3) {
+          deleteBtn = `<button type="button" onclick="removeServicioField(${index})" class="text-xs text-rose-400 hover:text-rose-300 font-semibold flex items-center gap-1">
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            Eliminar
+          </button>`;
         }
 
-        // Auto guardar al escribir
-        input.addEventListener('input', () => {
-          if (input.type === 'radio') {
-            localStorage.setItem(`logimotion_${input.name}`, input.value);
-          } else if (input.type === 'checkbox') {
-            localStorage.setItem(`logimotion_${input.id}`, input.checked);
-          } else {
-            localStorage.setItem(`logimotion_${input.id}`, input.value);
-          }
-        });
+        div.innerHTML = `
+          <div class="flex justify-between items-center mb-1">
+            <label class="block text-xs font-bold text-slate-300">${labelText}</label>
+            ${deleteBtn}
+          </div>
+          <input type="text" id="servicio_input_${index}" value="${s.val}" oninput="updateServicioVal(${index}, this.value)" placeholder="Ej. Reformas integrales / Cirugía veterinaria / Consulta legal" class="w-full bg-[#0e172e] border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:border-amber-400 focus:outline-none transition placeholder:text-slate-500 min-h-[48px]">
+          <p id="error_servicio_${index}" class="text-xs text-rose-400 font-semibold mt-1 hidden"></p>
+        `;
+        container.appendChild(div);
       });
+
+      // Actualizar contador y botón de añadir
+      document.getElementById('servicios_counter_text').innerText = `${serviciosList.length} de 5 servicios`;
+      const btnAdd = document.getElementById('btn_add_servicio');
+      if (serviciosList.length >= 5) {
+        btnAdd.classList.add('hidden');
+      } else {
+        btnAdd.classList.remove('hidden');
+      }
+    }
+
+    function addServicioField() {
+      if (serviciosList.length < 5) {
+        serviciosList.push({ id: Date.now(), val: "" });
+        renderServiciosFields();
+        saveAllData();
+      }
+    }
+
+    function removeServicioField(index) {
+      if (serviciosList.length > 3) {
+        serviciosList.splice(index, 1);
+        renderServiciosFields();
+        saveAllData();
+      }
+    }
+
+    function updateServicioVal(index, val) {
+      serviciosList[index].val = val;
+      clearError(`error_servicio_${index}`);
+      clearError('error_servicios_global');
+      saveAllData();
+    }
+
+    // Guardado y Persistencia en localStorage
+    function saveAllData() {
+      const data = {
+        nombre_comercial: document.getElementById('nombre_comercial').value,
+        sector_actividad: document.getElementById('sector_actividad').value,
+        sector_otro: document.getElementById('sector_otro').value,
+        eslogan: document.getElementById('eslogan').value,
+        whatsapp_clientes: document.getElementById('whatsapp_clientes').value,
+        telefono_llamadas: document.getElementById('telefono_llamadas').value,
+        direccion_fisica: document.getElementById('direccion_fisica').value,
+        codigo_postal: document.getElementById('codigo_postal').value,
+        horario_atencion: document.getElementById('horario_atencion').value,
+        estilo_colores: document.querySelector('input[name="estilo_colores"]:checked')?.value || '',
+        opcion_fotos: document.querySelector('input[name="opcion_fotos"]:checked')?.value || '',
+        accion_principal: document.getElementById('accion_principal').value,
+        notas_adicionales: document.getElementById('notas_adicionales').value,
+        servicios: serviciosList.map(s => s.val),
+        savedStep: currentStep
+      };
+      localStorage.setItem('logimotion_onboarding_data', JSON.stringify(data));
+    }
+
+    function checkSavedSession() {
+      const raw = localStorage.getItem('logimotion_onboarding_data');
+      if (raw) {
+        try {
+          const data = JSON.parse(raw);
+          if (data.nombre_comercial || data.whatsapp_clientes || (data.servicios && data.servicios.some(v => v))) {
+            document.getElementById('banner_recuperar').classList.remove('hidden');
+          }
+        } catch (e) {}
+      }
+    }
+
+    function restaurarSesion() {
+      const raw = localStorage.getItem('logimotion_onboarding_data');
+      if (raw) {
+        try {
+          const data = JSON.parse(raw);
+          if (data.nombre_comercial) document.getElementById('nombre_comercial').value = data.nombre_comercial;
+          if (data.sector_actividad) {
+            document.getElementById('sector_actividad').value = data.sector_actividad;
+            toggleSectorOtro();
+          }
+          if (data.sector_otro) document.getElementById('sector_otro').value = data.sector_otro;
+          if (data.eslogan) document.getElementById('eslogan').value = data.eslogan;
+          if (data.whatsapp_clientes) document.getElementById('whatsapp_clientes').value = data.whatsapp_clientes;
+          if (data.telefono_llamadas) document.getElementById('telefono_llamadas').value = data.telefono_llamadas;
+          if (data.direccion_fisica) document.getElementById('direccion_fisica').value = data.direccion_fisica;
+          if (data.codigo_postal) document.getElementById('codigo_postal').value = data.codigo_postal;
+          if (data.horario_atencion) document.getElementById('horario_atencion').value = data.horario_atencion;
+          if (data.accion_principal) document.getElementById('accion_principal').value = data.accion_principal;
+          if (data.notas_adicionales) document.getElementById('notas_adicionales').value = data.notas_adicionales;
+
+          if (data.estilo_colores) {
+            const rad = document.querySelector(`input[name="estilo_colores"][value="${data.estilo_colores}"]`);
+            if (rad) rad.checked = true;
+          }
+          if (data.opcion_fotos) {
+            const rad = document.querySelector(`input[name="opcion_fotos"][value="${data.opcion_fotos}"]`);
+            if (rad) rad.checked = true;
+          }
+
+          if (data.servicios && Array.isArray(data.servicios) && data.servicios.length >= 3) {
+            serviciosList = data.servicios.map((val, i) => ({ id: i + 1, val }));
+            renderServiciosFields();
+          }
+        } catch (e) {}
+      }
+      document.getElementById('banner_recuperar').classList.add('hidden');
+    }
+
+    function empezarDeNuevo() {
+      localStorage.removeItem('logimotion_onboarding_data');
+      document.getElementById('onboarding_form').reset();
+      serviciosList = [
+        { id: 1, val: "" },
+        { id: 2, val: "" },
+        { id: 3, val: "" }
+      ];
+      renderServiciosFields();
+      toggleSectorOtro();
+      document.getElementById('banner_recuperar').classList.add('hidden');
+      goToStep(1);
     }
 
     function updateProgressUI() {
@@ -496,7 +666,7 @@
     function validateCurrentStep() {
       let isValid = true;
 
-      // Limpiar errores
+      // Limpiar errores previos del paso actual
       document.querySelectorAll('[id^="error_"]').forEach(el => {
         el.innerText = '';
         el.classList.add('hidden');
@@ -513,10 +683,17 @@
         if (!sector) {
           showError('error_sector_actividad', 'Selecciona el sector o actividad de tu negocio.');
           isValid = false;
+        } else if (sector === 'Otro') {
+          const sectorOtro = document.getElementById('sector_otro').value.trim();
+          if (!sectorOtro) {
+            showError('error_sector_otro', 'Indica qué actividad realiza tu negocio.');
+            isValid = false;
+          }
         }
       } else if (currentStep === 2) {
         const whatsapp = document.getElementById('whatsapp_clientes').value.trim();
         const direccion = document.getElementById('direccion_fisica').value.trim();
+        const cp = document.getElementById('codigo_postal').value.trim();
         const horario = document.getElementById('horario_atencion').value.trim();
 
         if (!whatsapp) {
@@ -527,31 +704,30 @@
           showError('error_direccion_fisica', 'Indica la dirección física y ciudad de tu negocio.');
           isValid = false;
         }
+        if (!cp) {
+          showError('error_codigo_postal', 'Indica el código postal de tu localidad.');
+          isValid = false;
+        }
         if (!horario) {
           showError('error_horario_atencion', 'Indica tu horario de atención.');
           isValid = false;
         }
       } else if (currentStep === 3) {
-        const s1 = document.getElementById('servicio_1').value.trim();
-        const s2 = document.getElementById('servicio_2').value.trim();
-        const s3 = document.getElementById('servicio_3').value.trim();
-
-        if (!s1) {
-          showError('error_servicio_1', 'Indica al menos tu servicio o producto principal.');
-          isValid = false;
+        let emptyRequired = 0;
+        for (let i = 0; i < 3; i++) {
+          if (!serviciosList[i] || !serviciosList[i].val.trim()) {
+            showError(`error_servicio_${i}`, `Por favor, introduce el servicio ${i + 1}.`);
+            emptyRequired++;
+          }
         }
-        if (!s2) {
-          showError('error_servicio_2', 'Indica un segundo servicio para tu web.');
-          isValid = false;
-        }
-        if (!s3) {
-          showError('error_servicio_3', 'Indica un tercer servicio destacado.');
+        if (emptyRequired > 0) {
+          showError('error_servicios_global', 'Debes indicar al menos 3 servicios principales.');
           isValid = false;
         }
       } else if (currentStep === 5) {
         const check = document.getElementById('check_consentimiento').checked;
         if (!check) {
-          showError('error_consentimiento', 'Debes confirmar la casilla de consentimiento para continuar.');
+          showError('error_consentimiento', 'Debes confirmar la casilla de consentimiento para enviar los datos.');
           isValid = false;
         }
       }
@@ -567,47 +743,62 @@
       }
     }
 
+    function clearError(elementId) {
+      const el = document.getElementById(elementId);
+      if (el) {
+        el.innerText = '';
+        el.classList.add('hidden');
+      }
+    }
+
     function populateSummary() {
       document.getElementById('summary_nombre').innerText = document.getElementById('nombre_comercial').value.trim() || 'No indicado';
-      document.getElementById('summary_sector').innerText = document.getElementById('sector_actividad').value || 'No indicado';
+      
+      const sectorSelect = document.getElementById('sector_actividad').value;
+      const sectorTexto = (sectorSelect === 'Otro') ? `Otro: ${document.getElementById('sector_otro').value.trim()}` : sectorSelect;
+      document.getElementById('summary_sector').innerText = `Sector: ${sectorTexto || 'No indicado'}`;
       
       const eslogan = document.getElementById('eslogan').value.trim();
       document.getElementById('summary_eslogan').innerText = eslogan ? `"${eslogan}"` : 'Sin eslogan específico';
 
       const whatsapp = document.getElementById('whatsapp_clientes').value.trim();
       const tel = document.getElementById('telefono_llamadas').value.trim();
-      document.getElementById('summary_contacto').innerText = `WhatsApp: ${whatsapp} ${tel ? '• Teléfono: ' + tel : ''}`;
+      document.getElementById('summary_contacto').innerText = `WhatsApp: ${whatsapp} ${tel ? '• Fijo: ' + tel : ''}`;
       
-      document.getElementById('summary_direccion').innerText = `Ubicación: ${document.getElementById('direccion_fisica').value.trim()}`;
+      const dir = document.getElementById('direccion_fisica').value.trim();
+      const cp = document.getElementById('codigo_postal').value.trim();
+      document.getElementById('summary_direccion').innerText = `Ubicación: ${dir} (CP: ${cp})`;
       document.getElementById('summary_horario').innerText = `Horario: ${document.getElementById('horario_atencion').value.trim()}`;
 
       // Servicios
       const listServicios = document.getElementById('summary_servicios');
       listServicios.innerHTML = '';
-      ['servicio_1', 'servicio_2', 'servicio_3', 'servicio_4', 'servicio_5'].forEach(id => {
-        const val = document.getElementById(id).value.trim();
-        if (val) {
+      serviciosList.forEach((s, idx) => {
+        if (s.val.trim()) {
           const li = document.createElement('li');
-          li.className = 'flex items-center gap-1.5';
-          li.innerHTML = `<span class="text-amber-400 font-bold">•</span> <span>${val}</span>`;
+          li.className = 'flex items-center gap-2';
+          li.innerHTML = `<span class="text-amber-400 font-bold">•</span> <span class="text-slate-200">${s.val.trim()}</span>`;
           listServicios.appendChild(li);
         }
       });
 
-      // Estilo y Fotos
+      // Estilo, Fotos, CTA y Notas
       const estilo = document.querySelector('input[name="estilo_colores"]:checked')?.value || 'Colores corporativos';
       const fotos = document.querySelector('input[name="opcion_fotos"]:checked')?.value || 'Fotos por WhatsApp';
       const cta = document.getElementById('accion_principal').value;
+      const notas = document.getElementById('notas_adicionales').value.trim();
 
       document.getElementById('summary_estilo').innerText = `Estilo: ${estilo}`;
-      document.getElementById('summary_fotos').innerText = `Material: ${fotos}`;
+      document.getElementById('summary_fotos').innerText = `Material gráfico: ${fotos}`;
       document.getElementById('summary_cta').innerText = `Acción principal: ${cta}`;
+      document.getElementById('summary_notas').innerText = notas ? `"${notas}"` : 'Sin notas adicionales.';
     }
 
     function navigateStep(direction) {
       if (direction === 1) {
         if (!validateCurrentStep()) return;
-        
+        saveAllData();
+
         if (currentStep === totalSteps) {
           submitOnboarding();
           return;
@@ -618,6 +809,7 @@
         showStep(currentStep);
       } else if (direction === -1) {
         if (currentStep > 1) {
+          saveAllData();
           currentStep--;
           showStep(currentStep);
         }
@@ -630,51 +822,51 @@
     }
 
     function submitOnboarding() {
-      // Construir mensaje estructurado para WhatsApp
       const nombre = document.getElementById('nombre_comercial').value.trim();
-      const sector = document.getElementById('sector_actividad').value;
+      const sectorSelect = document.getElementById('sector_actividad').value;
+      const sector = (sectorSelect === 'Otro') ? `Otro (${document.getElementById('sector_otro').value.trim()})` : sectorSelect;
       const eslogan = document.getElementById('eslogan').value.trim();
       const whatsapp = document.getElementById('whatsapp_clientes').value.trim();
       const tel = document.getElementById('telefono_llamadas').value.trim();
       const direccion = document.getElementById('direccion_fisica').value.trim();
+      const cp = document.getElementById('codigo_postal').value.trim();
       const horario = document.getElementById('horario_atencion').value.trim();
       const estilo = document.querySelector('input[name="estilo_colores"]:checked')?.value || 'Colores corporativos';
       const fotos = document.querySelector('input[name="opcion_fotos"]:checked')?.value || 'Fotos por WhatsApp';
       const cta = document.getElementById('accion_principal').value;
+      const notas = document.getElementById('notas_adicionales').value.trim();
 
-      let servicios = [];
-      ['servicio_1', 'servicio_2', 'servicio_3', 'servicio_4', 'servicio_5'].forEach(id => {
-        const val = document.getElementById(id).value.trim();
-        if (val) servicios.push(val);
-      });
+      const serviciosTextos = serviciosList.filter(s => s.val.trim()).map(s => s.val.trim());
 
-      const mensajeWhatsApp = `*NUEVO ONBOARDING DE PROYECTO WEB - LOGIMOTION*
+      const mensajeWhatsApp = `*ONBOARDING LOGIMOTION DIGITAL*
 
-🏢 *1. DATOS DEL NEGOCIO*
+🏢 *DATOS DEL NEGOCIO*
 • Nombre: ${nombre}
 • Sector: ${sector}
 ${eslogan ? `• Eslogan: "${eslogan}"\n` : ''}
-📍 *2. CONTACTO Y UBICACIÓN*
+📍 *CONTACTO Y UBICACIÓN*
 • WhatsApp: ${whatsapp}
-${tel ? `• Teléfono: ${tel}\n` : ''}• Dirección: ${direccion}
+${tel ? `• Teléfono: ${tel}\n` : ''}• Dirección: ${direccion} (CP: ${cp})
 • Horario: ${horario}
 
-🛠️ *3. SERVICIOS PRINCIPALES*
-• ${servicios.join('\n• ')}
+🛠️ *SERVICIOS PRINCIPALES*
+• ${serviciosTextos.join('\n• ')}
 
-🎨 *4. IDENTIDAD Y PREFERENCIAS*
+🎨 *IDENTIDAD Y RECURSOS*
 • Estilo: ${estilo}
-• Fotos / Logo: ${fotos}
-• Acción Principal: ${cta}
-
-_Datos completados y confirmados desde el formulario oficial._`;
+• Logotipo / Fotos: ${fotos}
+• Objetivo Principal: ${cta}
+${notas ? `\n📝 *NOTAS ADICIONALES*\n"${notas}"\n` : ''}
+_Formulario de onboarding completado y confirmado oficialmente._`;
 
       const whatsappUrl = `https://wa.me/34362547479?text=${encodeURIComponent(mensajeWhatsApp)}`;
       
-      // Actualizar botón de reabrir
       document.getElementById('btn_reabrir_whatsapp').href = whatsappUrl;
 
-      // Ocultar controles y barra, mostrar éxito
+      // Limpiar datos de localStorage tras el envío confirmado
+      localStorage.removeItem('logimotion_onboarding_data');
+
+      // Ocultar controles y barra, mostrar pantalla de éxito
       document.getElementById('progress_section').classList.add('hidden');
       document.getElementById('wizard_controls').classList.add('hidden');
       document.querySelectorAll('.step-pane').forEach(el => el.classList.add('hidden'));
@@ -684,8 +876,20 @@ _Datos completados y confirmados desde el formulario oficial._`;
       window.open(whatsappUrl, '_blank');
     }
 
+    // Inicialización al cargar la página
     document.addEventListener('DOMContentLoaded', () => {
-      loadSavedData();
+      renderServiciosFields();
+      checkSavedSession();
+
+      // Listeners para limpiar errores en vivo al escribir
+      const inputsLive = document.querySelectorAll('#onboarding_form input, #onboarding_form select, #onboarding_form textarea');
+      inputsLive.forEach(input => {
+        input.addEventListener('input', () => {
+          clearError(`error_${input.id}`);
+          saveAllData();
+        });
+      });
+
       showStep(1);
     });
   </script>
