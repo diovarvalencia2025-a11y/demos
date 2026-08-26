@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LogiMotion AEO • Answer Engine Optimization para IA</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap');
+    
+    :root {
+      --bg-main: #050a16;
+      --bg-card: #091124;
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --violet-accent: #818cf8;
+    }
+
+    body { 
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg-main);
+      color: #f8fafc;
+      overflow-x: hidden;
+    }
+
+    .glow-violet {
+      box-shadow: 0 0 50px -10px rgba(129, 140, 248, 0.25);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col antialiased selection:bg-indigo-500 selection:text-white">
+
+  <!-- HEADER / NAVEGACIÓN GLOBAL -->
+  <header class="sticky top-0 z-50 backdrop-blur-xl bg-[#050a16]/90 border-b border-slate-800/80">
+    <div class="max-w-6xl mx-auto px-4 sm:px-8 h-20 flex items-center justify-between">
+      
+      <!-- LOGO -->
+      <a href="index.html" class="flex flex-col">
+        <span class="text-xl sm:text-2xl font-black tracking-tight text-white flex items-center gap-1">
+          LOGIMOTION
+        </span>
+        <span class="text-[9px] tracking-[0.3em] font-extrabold text-indigo-400 uppercase -mt-1">
+          DIGITAL
+        </span>
+      </a>
+
+      <!-- NAVEGACIÓN ESCRITORIO -->
+      <nav class="hidden md:flex items-center gap-8 text-xs font-semibold text-slate-300">
+        <a href="index.html" class="hover:text-white transition-colors">Inicio</a>
+        <a href="web.html" class="hover:text-white transition-colors">Web</a>
+        <a href="aeo.html" class="text-white font-bold transition-colors py-1 border-b-2 border-indigo-400">AEO</a>
+        <a href="creators.html" class="hover:text-white transition-colors">Creators</a>
+        <a href="index.html#sobre-nosotros" class="hover:text-white transition-colors">Sobre nosotros</a>
+      </nav>
+
+      <!-- CTA CONTACTAR -->
+      <div class="hidden md:flex items-center">
+        <a href="https://wa.me/34362547479?text=Hola%20LogiMotion,%20me%20interesa%20el%20servicio%20LogiMotion%20AEO" 
+           class="bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs uppercase tracking-wider px-5 py-2.5 rounded-xl transition-all shadow-md shadow-indigo-950/50">
+          Contactar
+        </a>
+      </div>
+
+      <!-- BOTÓN MENÚ MÓVIL -->
+      <button id="mobileMenuBtn" class="md:hidden text-slate-300 hover:text-white p-2" aria-label="Abrir menú">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+
+    </div>
+
+    <!-- MENÚ MÓVIL DESPLEGABLE -->
+    <div id="mobileMenu" class="hidden md:hidden bg-[#070d1e] border-b border-slate-800 px-6 py-5 space-y-4 text-sm font-semibold text-slate-300">
+      <a href="index.html" class="block hover:text-white">Inicio</a>
+      <a href="web.html" class="block hover:text-white">Web</a>
+      <a href="aeo.html" class="block text-indigo-400 font-bold">AEO</a>
+      <a href="creators.html" class="block hover:text-white">Creators</a>
+      <a href="index.html#sobre-nosotros" class="block hover:text-white">Sobre nosotros</a>
+      <div class="pt-2">
+        <a href="https://wa.me/34362547479?text=Hola%20LogiMotion,%20me%20interesa%20el%20servicio%20LogiMotion%20AEO" 
+           class="block text-center bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs uppercase tracking-wider py-3 rounded-xl">
+          Contactar
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO PRINCIPAL (PANEL 3 - AEO) -->
+  <main class="flex-grow">
+    
+    <section class="max-w-6xl mx-auto px-4 sm:px-8 py-12 sm:py-20 lg:py-24 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative">
+      
+      <!-- COLUMNA IZQUIERDA: MENSAJE HERO -->
+      <div class="lg:col-span-7 space-y-6 text-left">
+        
+        <span class="inline-block text-[11px] font-extrabold uppercase tracking-widest text-indigo-400">
+          LOGIMOTION AEO
+        </span>
+
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-[1.1]">
+          Que tu empresa sea comprendida por la <span class="text-indigo-400 underline decoration-indigo-400/30">nueva generación</span> de IA.
+        </h1>
+
+        <p class="text-slate-300 text-sm sm:text-base leading-relaxed max-w-xl font-normal">
+          Optimizamos tu presencia digital para que los motores de respuesta (ChatGPT, Perplexity, Claude, Gemini) entiendan, relacionen y recomienden tu empresa correctamente.
+        </p>
+
+        <div class="flex flex-wrap items-center gap-4 pt-2">
+          <a href="https://wa.me/34362547479?text=Hola%20LogiMotion,%20quiero%20solicitar%20una%20Auditoría%20AEO%20para%20mi%20empresa" 
+             class="bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs uppercase tracking-wider py-3.5 px-7 rounded-xl transition-all shadow-lg shadow-indigo-900/40">
+            SOLICITAR AUDITORÍA
+          </a>
+          <a href="#planes" 
+             class="bg-slate-900 hover:bg-slate-800 text-white border border-slate-700 font-bold text-xs uppercase tracking-wider py-3.5 px-6 rounded-xl transition-all">
+            VER PLANES
+          </a>
+        </div>
+
+      </div>
+
+      <!-- COLUMNA DERECHA: RED NEURONAL / CEREBRO IA -->
+      <div class="lg:col-span-5 flex justify-center items-center relative">
+        <div class="w-full max-w-[380px] aspect-square relative flex items-center justify-center">
+          
+          <!-- LUZ AMBIENTAL PÚRPURA -->
+          <div class="absolute inset-0 bg-indigo-600/20 rounded-full blur-3xl -z-10"></div>
+
+          <!-- CONTENEDOR CEREBRO SEMÁNTICO -->
+          <div class="relative w-72 h-72 sm:w-80 sm:h-80 bg-gradient-to-br from-[#1c1130] via-[#091124] to-[#040814] rounded-3xl border border-indigo-500/40 p-6 flex flex-col justify-between shadow-2xl glow-violet">
+            
+            <div class="flex justify-between items-center text-[10px] font-mono text-indigo-300">
+              <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-indigo-400 animate-ping"></span> IA KNOWLEDGE GRAPH</span>
+              <span>LLM RECOGNITION</span>
+            </div>
+
+            <!-- ILUSTRACIÓN NÓDULOS DE CONOCIMIENTO -->
+            <div class="my-auto flex flex-col items-center justify-center relative">
+              <div class="relative w-32 h-32 flex items-center justify-center">
+                
+                <!-- ICONO CEREBRO CENTRAL -->
+                <div class="w-20 h-20 rounded-2xl bg-indigo-950/80 border-2 border-indigo-400/80 flex items-center justify-center shadow-lg text-indigo-300">
+                  <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+                </div>
+
+                <!-- NODOS ORBITALES -->
+                <div class="absolute -top-2 left-0 bg-slate-900/90 border border-indigo-400/50 text-[10px] font-bold text-indigo-300 px-2 py-0.5 rounded-full shadow">
+                  Entidad
+                </div>
+                <div class="absolute -bottom-2 right-0 bg-slate-900/90 border border-indigo-400/50 text-[10px] font-bold text-indigo-300 px-2 py-0.5 rounded-full shadow">
+                  Schema JSON-LD
+                </div>
+                <div class="absolute top-1/2 -right-4 bg-slate-900/90 border border-indigo-400/50 text-[10px] font-bold text-indigo-300 px-2 py-0.5 rounded-full shadow">
+                  Fuentes
+                </div>
+
+              </div>
+            </div>
+
+            <!-- CHIPS INFERIORES -->
+            <div class="flex justify-between items-center text-[10px] font-semibold text-slate-400 border-t border-slate-800/80 pt-3">
+              <span class="text-slate-300">ANSWER ENGINE OPTIMIZATION</span>
+              <span class="text-indigo-400">LOGIMOTION AEO</span>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+    <!-- SECCIÓN: NUESTRO ENFOQUE AEO EN 5 PASOS -->
+    <section class="max-w-6xl mx-auto px-4 sm:px-8 py-16 border-t border-slate-800/80">
+      
+      <div class="text-center max-w-xl mx-auto mb-12">
+        <span class="text-xs font-bold uppercase tracking-widest text-indigo-400 block mb-2">METODOLOGÍA RIGUROSA</span>
+        <h2 class="text-2xl sm:text-3xl font-black text-white">Nuestro enfoque AEO en 5 pasos</h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
+        
+        <!-- PASO 1 -->
+        <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800 flex flex-col justify-between">
+          <div>
+            <span class="text-xs font-black text-indigo-400 block mb-1">01</span>
+            <h3 class="text-sm font-bold text-white mb-1">Auditoría</h3>
+            <p class="text-[11px] text-slate-400 leading-relaxed">Analizamos tu presencia digital, entidad, contenido y fuentes.</p>
+          </div>
+        </div>
+
+        <!-- PASO 2 -->
+        <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800 flex flex-col justify-between">
+          <div>
+            <span class="text-xs font-black text-indigo-400 block mb-1">02</span>
+            <h3 class="text-sm font-bold text-white mb-1">Estructuración</h3>
+            <p class="text-[11px] text-slate-400 leading-relaxed">Organizamos la información para mejorar la entidad y el contexto.</p>
+          </div>
+        </div>
+
+        <!-- PASO 3 -->
+        <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800 flex flex-col justify-between">
+          <div>
+            <span class="text-xs font-black text-indigo-400 block mb-1">03</span>
+            <h3 class="text-sm font-bold text-white mb-1">Implementación</h3>
+            <p class="text-[11px] text-slate-400 leading-relaxed">Aplicamos las mejoras técnicas y semánticas necesarias.</p>
+          </div>
+        </div>
+
+        <!-- PASO 4 -->
+        <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800 flex flex-col justify-between">
+          <div>
+            <span class="text-xs font-black text-indigo-400 block mb-1">04</span>
+            <h3 class="text-sm font-bold text-white mb-1">Seguimiento</h3>
+            <p class="text-[11px] text-slate-400 leading-relaxed">Monitorizamos la evolución y detectamos nuevas oportunidades.</p>
+          </div>
+        </div>
+
+        <!-- PASO 5 -->
+        <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800 flex flex-col justify-between">
+          <div>
+            <span class="text-xs font-black text-indigo-400 block mb-1">05</span>
+            <h3 class="text-sm font-bold text-white mb-1">Optimización</h3>
+            <p class="text-[11px] text-slate-400 leading-relaxed">Evolucionamos la presencia para mantenerla actual y competitiva.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- SECCIÓN: PLANES AEO OFICIALES (SETUP + 3 RETAINERS) -->
+    <section id="planes" class="max-w-6xl mx-auto px-4 sm:px-8 py-16 border-t border-slate-800/80">
+      
+      <div class="text-center max-w-xl mx-auto mb-12">
+        <span class="text-xs font-bold uppercase tracking-widest text-indigo-400 block mb-2">SERVICIOS OFICIALES</span>
+        <h2 class="text-2xl sm:text-3xl font-black text-white">Planes AEO</h2>
+        <p class="text-xs sm:text-sm text-slate-400 mt-1">Elige el nivel que mejor se adapta a tu empresa.</p>
+      </div>
+
+      <!-- SETUP CARD DESTACADA -->
+      <div class="bg-gradient-to-r from-[#171336] via-[#091124] to-[#050a16] rounded-2xl p-6 sm:p-8 border border-indigo-500/40 mb-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 shadow-xl">
+        <div>
+          <span class="text-[10px] font-extrabold uppercase tracking-wider text-indigo-400 px-3 py-1 bg-indigo-950/80 rounded-full border border-indigo-800/50 inline-block mb-3">
+            Puesta a Punto Inicial
+          </span>
+          <h3 class="text-2xl font-black text-white">AEO Setup Completo</h3>
+          <p class="text-xs sm:text-sm text-slate-300 mt-1 max-w-xl">
+            El servicio fundamental para auditar, organizar y dotar a tu empresa de una estructura semántica profesional en la web.
+          </p>
+          <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-300 mt-4">
+            <li class="flex items-center gap-2"><span class="text-emerald-400">✔</span> Auditoría completa de presencia y entidad</li>
+            <li class="flex items-center gap-2"><span class="text-emerald-400">✔</span> Estructuración inicial y perfil semántico</li>
+            <li class="flex items-center gap-2"><span class="text-emerald-400">✔</span> Informe de mejoras y vacíos de datos</li>
+            <li class="flex items-center gap-2"><span class="text-emerald-400">✔</span> Plan de acción e inyección Schema JSON-LD</li>
+          </ul>
+        </div>
+        <div class="bg-slate-950/90 p-5 rounded-2xl border border-indigo-800/50 text-center w-full md:w-auto min-w-[200px]">
+          <span class="text-[11px] text-slate-400 block mb-1">Precio Público Oficial</span>
+          <div class="text-4xl font-black text-white">290 €</div>
+          <span class="text-[10px] text-indigo-400 block mt-1">Pago único</span>
+          <a href="https://wa.me/34362547479?text=Hola%20LogiMotion,%20quiero%20contratar%20el%20AEO%20Setup%20(290€)" 
+             class="mt-4 block w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs uppercase tracking-wider py-2.5 px-4 rounded-xl transition-all shadow">
+            EMPEZAR
+          </a>
+        </div>
+      </div>
+
+      <!-- 3 RETAINERS MENSUALES -->
+      <h3 class="text-sm font-bold uppercase tracking-wider text-slate-400 mb-4">Planes de Optimización y Mantenimiento Mensual</h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <!-- BÁSICO -->
+        <div class="bg-slate-900/80 rounded-2xl p-6 border border-slate-800 flex flex-col justify-between">
+          <div>
+            <h4 class="text-lg font-bold text-white">Retainer Básico</h4>
+            <p class="text-xs text-slate-400 mt-1 mb-4">Mantenimiento y monitorización mensual esencial.</p>
+            <div class="text-3xl font-black text-white mb-4">450 € <span class="text-xs font-normal text-slate-400">/ mes</span></div>
+            <ul class="space-y-2 text-xs text-slate-300 border-t border-slate-800 pt-4">
+              <li class="flex items-center gap-2"><span class="text-indigo-400">✔</span> Todo lo del Setup</li>
+              <li class="flex items-center gap-2"><span class="text-indigo-400">✔</span> Seguimiento mensual de consultas</li>
+              <li class="flex items-center gap-2"><span class="text-indigo-400">✔</span> Monitorización en LLMs</li>
+              <li class="flex items-center gap-2"><span class="text-indigo-400">✔</span> Soporte continuo</li>
+            </ul>
+          </div>
+          <a href="https://wa.me/34362547479?text=Hola%20LogiMotion,%20me%20interesa%20el%20Retainer%20Básico%20AEO%20(450€/mes)" 
+             class="mt-6 block text-center bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs uppercase tracking-wider py-3 rounded-xl transition-all border border-slate-700">
+            ELEGIR PLAN
+          </a>
+        </div>
+
+        <!-- PROFESIONAL (DESTACADO) -->
+        <div class="bg-gradient-to-b from-[#1a153b] via-[#091124] to-[#050a16] rounded-2xl p-6 border-2 border-indigo-500 flex flex-col justify-between relative shadow-xl shadow-indigo-950/50">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-indigo-500 text-slate-950 text-[10px] uppercase tracking-wider font-black px-3 py-0.5 rounded-full">
+            ★ Recomendado
+          </div>
+          <div>
+            <h4 class="text-lg font-bold text-white">Retainer Profesional</h4>
+            <p class="text-xs text-indigo-200 mt-1 mb-4">Desarrollo semántico activo y optimización continua.</p>
+            <div class="text-3xl font-black text-white">650 € <span class="text-xs font-normal text-slate-300">/ mes</span></div>
+            <span class="text-[11px] text-emerald-400 font-medium block mb-4">Tarifa negociada habitual: 600 €/mes</span>
+            <ul class="space-y-2 text-xs text-slate-200 border-t border-indigo-800/50 pt-4">
+              <li class="flex items-center gap-2"><span class="text-emerald-400">✔</span> Todo lo del Básico</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-400">✔</span> Optimización semántica avanzada</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-400">✔</span> Implementaciones técnicas</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-400">✔</span> Informe mensual de evolución</li>
+            </ul>
+          </div>
+          <a href="https://wa.me/34362547479?text=Hola%20LogiMotion,%20me%20interesa%20el%20Retainer%20Profesional%20AEO%20(650€/mes)" 
+             class="mt-6 block text-center bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs uppercase tracking-wider py-3 rounded-xl transition-all shadow-md shadow-indigo-500/20">
+            ELEGIR PLAN
+          </a>
+        </div>
+
+        <!-- AVANZADO -->
+        <div class="bg-slate-900/80 rounded-2xl p-6 border border-slate-800 flex flex-col justify-between">
+          <div>
+            <h4 class="text-lg font-bold text-white">Retainer Avanzado</h4>
+            <p class="text-xs text-slate-400 mt-1 mb-4">Para firmas con alta exigencia y catálogo amplio.</p>
+            <div class="text-3xl font-black text-white">1.000 € <span class="text-xs font-normal text-slate-400">/ mes</span></div>
+            <span class="text-[11px] text-emerald-400 font-medium block mb-4">Tarifa negociada habitual: 950 €/mes</span>
+            <ul class="space-y-2 text-xs text-slate-300 border-t border-slate-800 pt-4">
+              <li class="flex items-center gap-2"><span class="text-indigo-400">✔</span> Todo lo del Profesional</li>
+              <li class="flex items-center gap-2"><span class="text-indigo-400">✔</span> Estrategia integral avanzada</li>
+              <li class="flex items-center gap-2"><span class="text-indigo-400">✔</span> Prioridad en entregables</li>
+              <li class="flex items-center gap-2"><span class="text-indigo-400">✔</span> Soporte premium ejecutivo</li>
+            </ul>
+          </div>
+          <a href="https://wa.me/34362547479?text=Hola%20LogiMotion,%20me%20interesa%20el%20Retainer%20Avanzado%20AEO%20(1000€/mes)" 
+             class="mt-6 block text-center bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs uppercase tracking-wider py-3 rounded-xl transition-all border border-slate-700">
+            ELEGIR PLAN
+          </a>
+        </div>
+
+      </div>
+
+      <div class="text-center mt-8">
+        <a href="dossier-aeo.html" class="inline-flex items-center gap-2 text-xs font-bold text-indigo-400 hover:underline">
+          Consultar Dossier AEO completo en PDF / Interactivo →
+        </a>
+      </div>
+
+    </section>
+
+    <!-- BANNER FINAL DE CONVERSIÓN -->
+    <section class="max-w-6xl mx-auto px-4 sm:px-8 py-16 border-t border-slate-800/80">
+      <div class="bg-gradient-to-r from-indigo-950/60 to-slate-900/90 rounded-3xl p-8 sm:p-12 border border-indigo-500/30 text-center max-w-3xl mx-auto space-y-4">
+        <div class="w-12 h-12 rounded-full bg-indigo-500/20 text-indigo-400 flex items-center justify-center mx-auto text-xl font-bold mb-2">🧠</div>
+        <h2 class="text-2xl sm:text-3xl font-black text-white">¿Quieres saber qué entiende la IA sobre tu empresa?</h2>
+        <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+          Solicita una auditoría inicial y descubre vacíos de información y oportunidades que pueden marcar la diferencia.
+        </p>
+        <div class="pt-4">
+          <a href="https://wa.me/34362547479?text=Hola%20LogiMotion,%20quiero%20solicitar%20una%20auditoría%20AEO%20para%20mi%20empresa" 
+             class="inline-block bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs uppercase tracking-wider py-3.5 px-8 rounded-xl transition-all shadow-md shadow-indigo-500/20">
+            SOLICITAR AUDITORÍA
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER GLOBAL UNIFICADO -->
+  <footer class="bg-[#030712] border-t border-slate-800/80 py-12 px-4 sm:px-8 text-xs text-slate-400">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+      
+      <!-- LOGO + DESCRIPCIÓN -->
+      <div class="md:col-span-2 space-y-3">
+        <div class="flex flex-col">
+          <span class="text-lg font-black tracking-tight text-white">LOGIMOTION</span>
+          <span class="text-[8px] tracking-[0.3em] font-extrabold text-indigo-400 uppercase -mt-1">DIGITAL</span>
+        </div>
+        <p class="text-slate-400 text-xs max-w-sm leading-relaxed">
+          Soluciones digitales para empresas y creadores que quieren una presencia que importa.
+        </p>
+      </div>
+
+      <!-- NAVEGACIÓN -->
+      <div>
+        <h4 class="text-white font-bold uppercase tracking-wider text-[11px] mb-3">Navegación</h4>
+        <ul class="space-y-2">
+          <li><a href="index.html" class="hover:text-white transition-colors">Inicio</a></li>
+          <li><a href="web.html" class="hover:text-white transition-colors">Web</a></li>
+          <li><a href="aeo.html" class="text-indigo-400 font-semibold">AEO</a></li>
+          <li><a href="creators.html" class="hover:text-white transition-colors">Creators</a></li>
+          <li><a href="dossier-logimotion.html" class="text-amber-400 hover:underline">Dossier Corporativo</a></li>
+        </ul>
+      </div>
+
+      <!-- CONTACTO OFICIAL -->
+      <div>
+        <h4 class="text-white font-bold uppercase tracking-wider text-[11px] mb-3">Contacto</h4>
+        <ul class="space-y-2">
+          <li>WhatsApp: <a href="https://wa.me/34362547479" class="text-slate-200 hover:text-white font-semibold underline decoration-slate-600">+34 362 54 74 79</a></li>
+          <li>Email: <span class="text-slate-200">vdiovar@gmail.com</span></li>
+          <li>Responsable: <span class="text-slate-200">Diovar Valencia</span></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- COPYRIGHT -->
+    <div class="max-w-6xl mx-auto pt-6 border-t border-slate-900 flex flex-col sm:flex-row justify-between items-center gap-3 text-[11px] text-slate-500">
+      <p>© 2026 LogiMotion Digital. Todos los derechos reservados.</p>
+      <p>LogiMotion AEO • Answer Engine Optimization.</p>
+    </div>
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+  </script>
+
+</body>
+</html>
