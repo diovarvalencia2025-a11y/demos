@@ -456,8 +456,29 @@
       });
     }
 
+    // FORZAR AUTOPLAY DE VIDEOS HERO (MÓVIL Y DESKTOP)
+    const initHeroVideos = () => {
+      document.querySelectorAll('video').forEach(v => {
+        v.muted = true;
+        v.playsInline = true;
+        v.setAttribute('muted', '');
+        v.setAttribute('playsinline', '');
+        v.setAttribute('webkit-playsinline', '');
+        const playPromise = v.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(error => {
+            console.log('Autoplay reintentando al primer toque:', error);
+            document.addEventListener('touchstart', () => v.play(), { once: true });
+            document.addEventListener('click', () => v.play(), { once: true });
+          });
+        }
+      });
+    };
+    initHeroVideos();
+
     // GSAP: ANIMACIÓN DE ENTRADA Y PARALLAX SCROLLTRIGGER
     document.addEventListener("DOMContentLoaded", () => {
+      initHeroVideos();
       gsap.registerPlugin(ScrollTrigger);
 
       // 1. Animación de entrada con rebote elástico en el botón del Hero
