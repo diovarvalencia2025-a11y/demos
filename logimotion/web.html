@@ -133,11 +133,11 @@
 
         <div class="flex flex-wrap items-center justify-center gap-4 pt-3">
           <a href="#planes" 
-             class="bg-[#0284c7] hover:bg-[#0369a1] text-white font-bold text-xs uppercase tracking-wider py-3.5 px-8 rounded-lg transition-all shadow-lg shadow-sky-950/60 hover:scale-105 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-sky-400">
+             class="hero-btn bg-[#0284c7] hover:bg-[#0369a1] text-white font-bold text-xs uppercase tracking-wider py-3.5 px-8 rounded-lg transition-all shadow-lg shadow-sky-950/60 hover:scale-105 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-sky-400">
             VER PLANES
           </a>
           <a href="https://wa.me/34362547479?text=Hola%20LogiMotion,%20quiero%20hablar%20con%20un%20experto%20sobre%20mi%20página%20Web" 
-             class="bg-slate-900/90 hover:bg-slate-800 text-white border border-slate-700 font-bold text-xs uppercase tracking-wider py-3.5 px-6 rounded-lg transition-all hover:scale-105 focus-visible:ring-2 focus-visible:ring-sky-400">
+             class="hero-btn bg-slate-900/90 hover:bg-slate-800 text-white border border-slate-700 font-bold text-xs uppercase tracking-wider py-3.5 px-6 rounded-lg transition-all hover:scale-105 focus-visible:ring-2 focus-visible:ring-sky-400">
             HABLAR CON EXPERTOS
           </a>
         </div>
@@ -458,14 +458,23 @@
       });
     }
 
-    // GSAP + SCROLLTRIGGER: PARALLAX Y EXPANSIÓN SUAVE
+    // GSAP: ANIMACIÓN DE ENTRADA Y PARALLAX SCROLLTRIGGER
     document.addEventListener("DOMContentLoaded", () => {
       gsap.registerPlugin(ScrollTrigger);
 
-      // 1. Hero reveal limpio que nunca oculta botones
-      gsap.fromTo("main section:first-child h1, main section:first-child p, main section:first-child a", 
-        { y: 20, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.8, stagger: 0.1, ease: "power2.out", clearProps: "transform,opacity" }
+      // 1. Animación de entrada de los botones del Hero (Deslizamiento con línea y rebote suave)
+      const tlHero = gsap.timeline();
+      tlHero.from("main section:first-child h1, main section:first-child p", {
+        y: 25,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.15,
+        ease: "power2.out"
+      })
+      .fromTo(".hero-btn", 
+        { x: -35, opacity: 0, scale: 0.9 },
+        { x: 0, opacity: 1, scale: 1, duration: 0.8, stagger: 0.15, ease: "back.out(1.4)", clearProps: "all" },
+        "-=0.3"
       );
 
       // 2. Parallax de expansión en los 5 iconos circulares

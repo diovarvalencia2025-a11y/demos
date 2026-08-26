@@ -132,7 +132,7 @@
 
         <div class="pt-3">
           <a href="#especialidades" 
-             class="inline-block bg-[#e11d48] hover:bg-[#be123c] text-white font-bold text-xs uppercase tracking-wider py-3.5 px-8 rounded-lg transition-all shadow-lg shadow-rose-950/60 hover:scale-105 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-rose-500">
+             class="hero-btn inline-block bg-[#e11d48] hover:bg-[#be123c] text-white font-bold text-xs uppercase tracking-wider py-3.5 px-8 rounded-lg transition-all shadow-lg shadow-rose-950/60 hover:scale-105 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-rose-500">
             DESCUBRIR LOGIMOTION
           </a>
         </div>
@@ -418,25 +418,30 @@
       });
     }
 
-    // GSAP + SCROLLTRIGGER: PARALLAX Y EXPANSIÓN SUAVE
+    // GSAP: ANIMACIÓN DE ENTRADA Y PARALLAX SCROLLTRIGGER
     document.addEventListener("DOMContentLoaded", () => {
       gsap.registerPlugin(ScrollTrigger);
 
-      // 1. Hero reveal limpio que nunca oculta botones
-      gsap.fromTo("main section:first-child h1, main section:first-child p, main section:first-child a", 
-        { y: 20, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.8, stagger: 0.1, ease: "power2.out", clearProps: "transform,opacity" }
+      // 1. Animación de entrada de los botones del Hero (Deslizamiento con línea y rebote suave)
+      const tlHero = gsap.timeline();
+      tlHero.from("main section:first-child h1, main section:first-child p", {
+        y: 25,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.15,
+        ease: "power2.out"
+      })
+      .fromTo(".hero-btn", 
+        { x: -35, opacity: 0, scale: 0.9 },
+        { x: 0, opacity: 1, scale: 1, duration: 0.8, ease: "back.out(1.4)", clearProps: "all" },
+        "-=0.3"
       );
 
       // 2. Parallax de expansión suave en las 3 tarjetas de especialidades
       const specialtyCards = gsap.utils.toArray("#especialidades .card-item");
-      specialtyCards.forEach((card, index) => {
+      specialtyCards.forEach((card) => {
         gsap.fromTo(card, 
-          { 
-            scale: 0.90, 
-            y: 60, 
-            opacity: 0.3 
-          },
+          { scale: 0.90, y: 50, opacity: 0.4 },
           {
             scale: 1,
             y: 0,
@@ -446,8 +451,7 @@
               trigger: card,
               start: "top 88%",
               end: "top 55%",
-              scrub: 1.2,
-              toggleActions: "play reverse play reverse"
+              scrub: 1.2
             }
           }
         );
@@ -457,11 +461,7 @@
       const testimonialCards = gsap.utils.toArray("#testimonios .card-item");
       testimonialCards.forEach((card) => {
         gsap.fromTo(card,
-          { 
-            scale: 0.88, 
-            y: 50, 
-            opacity: 0.4 
-          },
+          { scale: 0.88, y: 50, opacity: 0.4 },
           {
             scale: 1,
             y: 0,
@@ -480,7 +480,7 @@
       // 4. Expansión y parallax en los 4 pilares
       const pillars = gsap.utils.toArray("#sobre-nosotros .card-item");
       gsap.fromTo(pillars,
-        { scale: 0.92, y: 40, opacity: 0.3 },
+        { scale: 0.92, y: 40, opacity: 0.4 },
         {
           scale: 1,
           y: 0,
