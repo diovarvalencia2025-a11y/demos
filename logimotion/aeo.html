@@ -5,15 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LogiMotion AEO • Answer Engine Optimization</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- THREE.JS PARA CEREBRO NEURONAL 3D INTERACTIVO -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap');
     
     :root {
       --bg-main: #030712;
       --bg-card: #081022;
-      --border-card: rgba(255, 255, 255, 0.08);
       --violet-accent: #818cf8;
     }
 
@@ -24,43 +21,21 @@
       overflow-x: hidden;
     }
 
-    /* ANIMACIONES DE ENTRADA SCROLL */
-    .reveal {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-      will-change: opacity, transform;
+    .card-item {
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    
-    .reveal.active {
-      opacity: 1;
-      transform: translateY(0);
+    .card-item:hover {
+      transform: translateY(-4px);
     }
 
-    .reveal-delay-1 { transition-delay: 0.1s; }
-    .reveal-delay-2 { transition-delay: 0.2s; }
-    .reveal-delay-3 { transition-delay: 0.3s; }
-    .reveal-delay-4 { transition-delay: 0.4s; }
-
-    /* EFECTO HOVER EN TARJETAS */
-    .card-hover {
-      transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
-    }
-    .card-hover:hover {
-      transform: translateY(-5px);
-    }
-
-    .glow-violet {
-      box-shadow: 0 0 60px -10px rgba(129, 140, 248, 0.35);
-    }
     .glow-violet-card {
       box-shadow: 0 0 35px -5px rgba(129, 140, 248, 0.35);
     }
   </style>
 </head>
-<body class="min-h-screen flex flex-col antialiased selection:bg-indigo-500 selection:text-white">
+<body class="min-h-screen flex flex-col antialiased selection:bg-indigo-500 selection:text-white bg-[#030712]">
 
-  <!-- HEADER GLOBAL -->
+  <!-- HEADER -->
   <header class="sticky top-0 z-50 backdrop-blur-xl bg-[#030712]/90 border-b border-slate-800/80">
     <div class="max-w-6xl mx-auto px-4 sm:px-8 h-20 flex items-center justify-between">
       
@@ -114,14 +89,14 @@
     </div>
   </header>
 
-  <!-- CONTENIDO PRINCIPAL (PANEL 3 DEL MOCKUP) -->
+  <!-- CONTENIDO PRINCIPAL -->
   <main class="flex-grow">
     
     <!-- HERO SECTION -->
-    <section class="max-w-6xl mx-auto px-4 sm:px-8 py-16 sm:py-24 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative">
+    <section class="max-w-6xl mx-auto px-4 sm:px-8 py-14 sm:py-20 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative">
       
       <!-- COLUMNA IZQUIERDA -->
-      <div class="lg:col-span-7 space-y-6 text-left reveal active">
+      <div class="lg:col-span-7 space-y-6 text-left">
         
         <span class="inline-block text-[11px] font-extrabold uppercase tracking-widest text-[#818cf8]">
           LOGIMOTION AEO
@@ -148,99 +123,98 @@
 
       </div>
 
-      <!-- COLUMNA DERECHA: RED NEURONAL 3D INTERACTIVA CON THREE.JS -->
-      <div class="lg:col-span-5 flex justify-center items-center relative reveal reveal-delay-2 active">
-        <div class="w-full max-w-[380px] aspect-square relative flex items-center justify-center">
-          
-          <div class="absolute inset-0 bg-indigo-600/30 rounded-full blur-3xl -z-10"></div>
-
-          <!-- MARCO TARJETA AEO -->
-          <div class="relative w-full h-full bg-gradient-to-br from-[#180e2b] via-[#091124] to-[#040814] rounded-3xl border border-indigo-500/40 p-5 flex flex-col justify-between shadow-2xl glow-violet overflow-hidden">
-            
-            <div class="flex justify-between items-center text-[10px] font-mono text-indigo-300 z-10">
-              <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-indigo-400 animate-ping"></span> IA KNOWLEDGE GRAPH</span>
-              <span>LLM RECOGNITION</span>
+      <!-- COLUMNA DERECHA: ESPACIO PARA VÍDEO AEO -->
+      <div class="lg:col-span-5 flex justify-center items-center relative">
+        <div class="w-full max-w-[420px] aspect-square relative rounded-3xl overflow-hidden border border-indigo-500/30 bg-[#06081c] shadow-2xl flex items-center justify-center">
+          <div class="absolute inset-0 bg-gradient-to-tr from-indigo-600/20 via-transparent to-transparent -z-10"></div>
+          <div class="w-full h-full flex flex-col items-center justify-center p-6 text-center">
+            <div class="w-16 h-16 rounded-full bg-indigo-600/20 text-indigo-400 border border-indigo-500/40 flex items-center justify-center mb-3">
+              <svg class="w-8 h-8 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
             </div>
-
-            <!-- CANVAS 3D CEREBRO SEMÁNTICO -->
-            <div class="relative w-full h-56 flex items-center justify-center my-auto">
-              <canvas id="aeo3dCanvas" class="w-full h-full cursor-grab active:cursor-grabbing"></canvas>
-            </div>
-
-            <div class="flex justify-between items-center text-[10px] font-semibold text-slate-400 border-t border-slate-800/80 pt-3 z-10">
-              <span class="text-slate-300">ANSWER ENGINE OPTIMIZATION</span>
-              <span class="text-indigo-400 font-mono">LOGIMOTION AEO</span>
-            </div>
-
+            <span class="text-xs font-bold text-white uppercase tracking-wider">Espacio de Vídeo LogiMotion AEO</span>
+            <span class="text-[11px] text-slate-400 mt-1">Listo para incrustar vídeo</span>
           </div>
-
         </div>
       </div>
 
     </section>
 
-    <!-- SECCIÓN: NUESTRO ENFOQUE AEO EN 5 PASOS (EXACTO AL STEPPER CONECTADO DEL MOCKUP) -->
+    <!-- SECCIÓN: NUESTRO ENFOQUE AEO EN 5 PASOS (EXACTA A LA IMAGEN media_1787743721956.png) -->
     <section class="max-w-6xl mx-auto px-4 sm:px-8 py-20 border-t border-slate-800/80">
       
-      <div class="text-center max-w-xl mx-auto mb-14 reveal">
+      <div class="text-center max-w-xl mx-auto mb-16">
         <h2 class="text-2xl sm:text-3xl font-black text-white">Nuestro enfoque AEO en 5 pasos</h2>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+      <!-- STEPPER CONECTADO HORIZONTAL EXACTO AL MOCKUP -->
+      <div class="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 lg:gap-3 text-center">
         
         <!-- PASO 1 -->
-        <div class="bg-[#0b0e24] p-5 rounded-2xl border border-slate-800/80 hover:border-indigo-500/50 transition-all card-hover flex flex-col justify-between reveal reveal-delay-1">
-          <div>
-            <div class="w-8 h-8 rounded-full bg-indigo-950 border border-indigo-500/60 text-indigo-400 font-black text-xs flex items-center justify-center mb-4">
+        <div class="flex flex-col items-center relative">
+          <!-- CÍRCULO CON NÚMERO Y FLECHA EN DESKTOP -->
+          <div class="w-full flex items-center justify-center relative mb-4">
+            <div class="w-12 h-12 rounded-full bg-[#18133a] border-2 border-indigo-400 text-indigo-300 font-bold text-sm flex items-center justify-center shadow-lg shadow-indigo-950 z-10">
               01
             </div>
-            <h3 class="text-sm font-bold text-white mb-1">Auditoría</h3>
-            <p class="text-xs text-slate-400 leading-relaxed">Analizamos tu presencia digital, contenido y fuentes.</p>
+            <div class="hidden lg:block absolute left-[50%] right-[-50%] top-1/2 -translate-y-1/2 h-[2px] bg-indigo-800/60 z-0">
+              <div class="absolute right-0 -top-1 border-solid border-l-indigo-400 border-l-8 border-y-transparent border-y-4 border-r-0"></div>
+            </div>
           </div>
+          <h3 class="text-sm font-bold text-white mb-1.5">Auditoría</h3>
+          <p class="text-xs text-slate-400 leading-relaxed max-w-[170px]">Analizamos tu presencia digital, contenido y fuentes.</p>
         </div>
 
         <!-- PASO 2 -->
-        <div class="bg-[#0b0e24] p-5 rounded-2xl border border-slate-800/80 hover:border-indigo-500/50 transition-all card-hover flex flex-col justify-between reveal reveal-delay-2">
-          <div>
-            <div class="w-8 h-8 rounded-full bg-indigo-950 border border-indigo-500/60 text-indigo-400 font-black text-xs flex items-center justify-center mb-4">
+        <div class="flex flex-col items-center relative">
+          <div class="w-full flex items-center justify-center relative mb-4">
+            <div class="w-12 h-12 rounded-full bg-[#18133a] border-2 border-indigo-400 text-indigo-300 font-bold text-sm flex items-center justify-center shadow-lg shadow-indigo-950 z-10">
               02
             </div>
-            <h3 class="text-sm font-bold text-white mb-1">Estructuración</h3>
-            <p class="text-xs text-slate-400 leading-relaxed">Organizamos la información para mejorar la entidad y el contexto.</p>
+            <div class="hidden lg:block absolute left-[50%] right-[-50%] top-1/2 -translate-y-1/2 h-[2px] bg-indigo-800/60 z-0">
+              <div class="absolute right-0 -top-1 border-solid border-l-indigo-400 border-l-8 border-y-transparent border-y-4 border-r-0"></div>
+            </div>
           </div>
+          <h3 class="text-sm font-bold text-white mb-1.5">Estructuración</h3>
+          <p class="text-xs text-slate-400 leading-relaxed max-w-[170px]">Organizamos la información para mejorar la entidad y el contexto.</p>
         </div>
 
         <!-- PASO 3 -->
-        <div class="bg-[#0b0e24] p-5 rounded-2xl border border-slate-800/80 hover:border-indigo-500/50 transition-all card-hover flex flex-col justify-between reveal reveal-delay-3">
-          <div>
-            <div class="w-8 h-8 rounded-full bg-indigo-950 border border-indigo-500/60 text-indigo-400 font-black text-xs flex items-center justify-center mb-4">
+        <div class="flex flex-col items-center relative">
+          <div class="w-full flex items-center justify-center relative mb-4">
+            <div class="w-12 h-12 rounded-full bg-[#18133a] border-2 border-indigo-400 text-indigo-300 font-bold text-sm flex items-center justify-center shadow-lg shadow-indigo-950 z-10">
               03
             </div>
-            <h3 class="text-sm font-bold text-white mb-1">Implementación</h3>
-            <p class="text-xs text-slate-400 leading-relaxed">Aplicamos las mejoras técnicas y semánticas necesarias.</p>
+            <div class="hidden lg:block absolute left-[50%] right-[-50%] top-1/2 -translate-y-1/2 h-[2px] bg-indigo-800/60 z-0">
+              <div class="absolute right-0 -top-1 border-solid border-l-indigo-400 border-l-8 border-y-transparent border-y-4 border-r-0"></div>
+            </div>
           </div>
+          <h3 class="text-sm font-bold text-white mb-1.5">Implementación</h3>
+          <p class="text-xs text-slate-400 leading-relaxed max-w-[170px]">Aplicamos las mejoras técnicas y semánticas necesarias.</p>
         </div>
 
         <!-- PASO 4 -->
-        <div class="bg-[#0b0e24] p-5 rounded-2xl border border-slate-800/80 hover:border-indigo-500/50 transition-all card-hover flex flex-col justify-between reveal reveal-delay-4">
-          <div>
-            <div class="w-8 h-8 rounded-full bg-indigo-950 border border-indigo-500/60 text-indigo-400 font-black text-xs flex items-center justify-center mb-4">
+        <div class="flex flex-col items-center relative">
+          <div class="w-full flex items-center justify-center relative mb-4">
+            <div class="w-12 h-12 rounded-full bg-[#18133a] border-2 border-indigo-400 text-indigo-300 font-bold text-sm flex items-center justify-center shadow-lg shadow-indigo-950 z-10">
               04
             </div>
-            <h3 class="text-sm font-bold text-white mb-1">Seguimiento</h3>
-            <p class="text-xs text-slate-400 leading-relaxed">Monitorizamos la evolución y detectamos nuevas oportunidades.</p>
+            <div class="hidden lg:block absolute left-[50%] right-[-50%] top-1/2 -translate-y-1/2 h-[2px] bg-indigo-800/60 z-0">
+              <div class="absolute right-0 -top-1 border-solid border-l-indigo-400 border-l-8 border-y-transparent border-y-4 border-r-0"></div>
+            </div>
           </div>
+          <h3 class="text-sm font-bold text-white mb-1.5">Seguimiento</h3>
+          <p class="text-xs text-slate-400 leading-relaxed max-w-[170px]">Monitorizamos la evolución y detectamos nuevas oportunidades.</p>
         </div>
 
         <!-- PASO 5 -->
-        <div class="bg-[#0b0e24] p-5 rounded-2xl border border-slate-800/80 hover:border-indigo-500/50 transition-all card-hover flex flex-col justify-between reveal reveal-delay-1">
-          <div>
-            <div class="w-8 h-8 rounded-full bg-indigo-950 border border-indigo-500/60 text-indigo-400 font-black text-xs flex items-center justify-center mb-4">
+        <div class="flex flex-col items-center relative">
+          <div class="w-full flex items-center justify-center relative mb-4">
+            <div class="w-12 h-12 rounded-full bg-[#18133a] border-2 border-indigo-400 text-indigo-300 font-bold text-sm flex items-center justify-center shadow-lg shadow-indigo-950 z-10">
               05
             </div>
-            <h3 class="text-sm font-bold text-white mb-1">Optimización</h3>
-            <p class="text-xs text-slate-400 leading-relaxed">Evolucionamos la presencia para mantenerla actual y competitiva.</p>
           </div>
+          <h3 class="text-sm font-bold text-white mb-1.5">Optimización</h3>
+          <p class="text-xs text-slate-400 leading-relaxed max-w-[170px]">Evolucionamos tu presencia para mantenerla actual y competitiva.</p>
         </div>
 
       </div>
@@ -250,7 +224,7 @@
     <!-- SECCIÓN: PLANES AEO (4 COLUMNAS DEL MOCKUP) -->
     <section id="planes" class="max-w-6xl mx-auto px-4 sm:px-8 py-20 border-t border-slate-800/80">
       
-      <div class="text-center max-w-xl mx-auto mb-14 reveal">
+      <div class="text-center max-w-xl mx-auto mb-14">
         <h2 class="text-3xl sm:text-4xl font-black text-white mb-2">Planes AEO</h2>
         <p class="text-xs sm:text-sm text-slate-400">Elige el nivel que mejor se adapta a tu empresa.</p>
       </div>
@@ -258,7 +232,7 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 items-stretch">
 
         <!-- 1. SETUP -->
-        <div class="bg-gradient-to-b from-[#0e122b] to-[#05091a] rounded-2xl p-6 border border-slate-800 hover:border-indigo-500/50 flex flex-col justify-between card-hover reveal reveal-delay-1 shadow-xl">
+        <div class="bg-[#0b0f24] rounded-2xl p-6 border border-slate-800 flex flex-col justify-between card-item shadow-xl">
           <div>
             <span class="text-xs font-bold uppercase tracking-wider text-slate-400 block mb-1">SETUP</span>
             <div class="my-3">
@@ -279,7 +253,7 @@
         </div>
 
         <!-- 2. RETAINER BÁSICO -->
-        <div class="bg-gradient-to-b from-[#0e122b] to-[#05091a] rounded-2xl p-6 border border-slate-800 hover:border-indigo-500/50 flex flex-col justify-between card-hover reveal reveal-delay-2 shadow-xl">
+        <div class="bg-[#0b0f24] rounded-2xl p-6 border border-slate-800 flex flex-col justify-between card-item shadow-xl">
           <div>
             <span class="text-xs font-bold uppercase tracking-wider text-slate-400 block mb-1">RETAINER BÁSICO</span>
             <div class="my-3">
@@ -300,7 +274,7 @@
         </div>
 
         <!-- 3. RETAINER PROFESIONAL (DESTACADO) -->
-        <div class="bg-gradient-to-b from-[#1b153e] via-[#0b1028] to-[#040816] rounded-2xl p-6 border-2 border-indigo-400 flex flex-col justify-between relative shadow-2xl glow-violet-card card-hover reveal reveal-delay-3">
+        <div class="bg-gradient-to-b from-[#1b153e] via-[#0b1028] to-[#040816] rounded-2xl p-6 border-2 border-indigo-400 flex flex-col justify-between relative shadow-2xl glow-violet-card card-item">
           <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[#6366f1] text-white text-[9px] uppercase tracking-wider font-black px-3.5 py-1 rounded-full shadow-md">
             ★ RECOMENDADO
           </div>
@@ -325,7 +299,7 @@
         </div>
 
         <!-- 4. RETAINER AVANZADO -->
-        <div class="bg-gradient-to-b from-[#0e122b] to-[#05091a] rounded-2xl p-6 border border-slate-800 hover:border-indigo-500/50 flex flex-col justify-between card-hover reveal reveal-delay-4 shadow-xl">
+        <div class="bg-[#0b0f24] rounded-2xl p-6 border border-slate-800 flex flex-col justify-between card-item shadow-xl">
           <div>
             <span class="text-xs font-bold uppercase tracking-wider text-slate-400 block mb-1">RETAINER AVANZADO</span>
             <div class="my-3">
@@ -356,19 +330,23 @@
 
     </section>
 
-    <!-- BANNER FINAL DE CONVERSIÓN (EXACTO A LA IMAGEN) -->
+    <!-- BANNER FINAL DE CONVERSIÓN (EXACTO AL MOCKUP) -->
     <section class="max-w-6xl mx-auto px-4 sm:px-8 py-20 border-t border-slate-800/80">
-      <div class="bg-gradient-to-r from-[#191438] via-[#0c1028] to-[#040818] rounded-3xl p-8 sm:p-12 border border-indigo-500/40 text-center max-w-3xl mx-auto space-y-4 shadow-2xl reveal">
-        <div class="w-12 h-12 rounded-2xl bg-indigo-500/20 text-indigo-400 flex items-center justify-center mx-auto text-xl font-bold border border-indigo-400/30">🧠</div>
-        <h2 class="text-2xl sm:text-3xl font-black text-white tracking-tight">
-          ¿Quieres saber qué entiende la IA sobre tu empresa?
-        </h2>
-        <p class="text-slate-300 text-xs sm:text-sm leading-relaxed max-w-xl mx-auto">
-          Solicita una auditoría y descubre oportunidades que pueden marcar la diferencia.
-        </p>
-        <div class="pt-2">
+      <div class="bg-gradient-to-r from-[#191438] via-[#0c1028] to-[#040818] rounded-3xl p-8 sm:p-10 border border-indigo-500/40 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl">
+        <div class="flex items-center gap-5 text-left">
+          <div class="w-14 h-14 rounded-2xl bg-indigo-500/20 text-indigo-400 flex items-center justify-center shrink-0 text-2xl font-bold border border-indigo-400/30">🧠</div>
+          <div>
+            <h2 class="text-xl sm:text-2xl font-black text-white tracking-tight">
+              ¿Quieres saber qué entiende la IA sobre tu empresa?
+            </h2>
+            <p class="text-slate-300 text-xs sm:text-sm mt-1">
+              Solicita una auditoría y descubre oportunidades que pueden marcar la diferencia.
+            </p>
+          </div>
+        </div>
+        <div class="shrink-0 w-full md:w-auto">
           <a href="https://wa.me/34362547479?text=Hola%20LogiMotion,%20quiero%20solicitar%20una%20auditoría%20AEO%20para%20mi%20empresa" 
-             class="inline-block bg-[#6366f1] hover:bg-[#4f46e5] text-white font-black text-xs uppercase tracking-wider py-4 px-10 rounded-lg transition-all shadow-lg shadow-indigo-600/30 hover:scale-105">
+             class="block text-center bg-[#6366f1] hover:bg-[#4f46e5] text-white font-black text-xs uppercase tracking-wider py-4 px-8 rounded-lg transition-all shadow-lg shadow-indigo-600/30 hover:scale-105">
             SOLICITAR AUDITORÍA
           </a>
         </div>
@@ -377,7 +355,7 @@
 
   </main>
 
-  <!-- FOOTER GLOBAL -->
+  <!-- FOOTER -->
   <footer class="bg-[#02050e] border-t border-slate-800/80 py-12 px-4 sm:px-8 text-xs text-slate-400">
     <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
       
@@ -419,7 +397,6 @@
     </div>
   </footer>
 
-  <!-- SCRIPT THREE.JS: MOTOR 3D DE RED NEURONAL AEO -->
   <script>
     const menuBtn = document.getElementById('mobileMenuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
@@ -428,112 +405,6 @@
         mobileMenu.classList.toggle('hidden');
       });
     }
-
-    const revealElements = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('active');
-        }
-      });
-    }, {
-      threshold: 0.15,
-      rootMargin: "0px 0px -40px 0px"
-    });
-    revealElements.forEach(el => observer.observe(el));
-
-    // THREE.JS 3D NEURAL SPHERE
-    (function init3DAeo() {
-      const canvas = document.getElementById('aeo3dCanvas');
-      if (!canvas) return;
-
-      const scene = new THREE.Scene();
-      const camera = new THREE.PerspectiveCamera(45, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
-      camera.position.set(0, 0, 4.5);
-
-      const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
-      renderer.setSize(canvas.clientWidth, canvas.clientHeight);
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-
-      const group = new THREE.Group();
-      scene.add(group);
-
-      // CREAR 50 NODOS NEURONALES CON CONEXIONES
-      const nodeCount = 45;
-      const nodes = [];
-      const nodeGeo = new THREE.SphereGeometry(0.045, 12, 12);
-      const nodeMat = new THREE.MeshBasicMaterial({ color: 0x818cf8 });
-      const cyanMat = new THREE.MeshBasicMaterial({ color: 0x38bdf8 });
-
-      for (let i = 0; i < nodeCount; i++) {
-        const phi = Math.acos(-1 + (2 * i) / nodeCount);
-        const theta = Math.sqrt(nodeCount * Math.PI) * phi;
-        const radius = 1.35;
-
-        const x = radius * Math.cos(theta) * Math.sin(phi);
-        const y = radius * Math.sin(theta) * Math.sin(phi);
-        const z = radius * Math.cos(phi);
-
-        const mesh = new THREE.Mesh(nodeGeo, i % 3 === 0 ? cyanMat : nodeMat);
-        mesh.position.set(x, y, z);
-        group.add(mesh);
-        nodes.push(mesh.position);
-      }
-
-      // LÍNEAS DE SINAPSIS CONECTADAS
-      const lineMat = new THREE.LineBasicMaterial({ color: 0x6366f1, transparent: true, opacity: 0.25 });
-      for (let i = 0; i < nodeCount; i++) {
-        for (let j = i + 1; j < nodeCount; j++) {
-          if (nodes[i].distanceTo(nodes[j]) < 0.9) {
-            const lineGeo = new THREE.BufferGeometry().setFromPoints([nodes[i], nodes[j]]);
-            const line = new THREE.Line(lineGeo, lineMat);
-            group.add(line);
-          }
-        }
-      }
-
-      // ANILLO ORBITAL DE DATOS
-      const ringGeo = new THREE.TorusGeometry(1.65, 0.015, 16, 100);
-      const ringMat = new THREE.MeshBasicMaterial({ color: 0xa855f7, transparent: true, opacity: 0.6 });
-      const ringMesh = new THREE.Mesh(ringGeo, ringMat);
-      ringMesh.rotation.x = Math.PI / 2.5;
-      group.add(ringMesh);
-
-      // INTERACTIVIDAD RATÓN
-      let mouseX = 0, mouseY = 0;
-      let targetX = 0, targetY = 0;
-
-      window.addEventListener('mousemove', (e) => {
-        const rect = canvas.getBoundingClientRect();
-        if (rect.top <= window.innerHeight && rect.bottom >= 0) {
-          mouseX = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
-          mouseY = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
-        }
-      });
-
-      function animate() {
-        requestAnimationFrame(animate);
-
-        targetX += (mouseX - targetX) * 0.05;
-        targetY += (mouseY - targetY) * 0.05;
-
-        group.rotation.y += 0.006;
-        group.rotation.x = targetY * 0.5;
-        group.rotation.z = -targetX * 0.3;
-
-        ringMesh.rotation.z += 0.01;
-
-        renderer.render(scene, camera);
-      }
-      animate();
-
-      window.addEventListener('resize', () => {
-        if (!canvas) return;
-        camera.aspect = canvas.clientWidth / canvas.clientHeight;
-        camera.updateProjectionMatrix();
-        renderer.setSize(canvas.clientWidth, canvas.clientHeight);
-      });
-    })();
   </script>
 
 </body>

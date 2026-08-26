@@ -5,15 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LogiMotion Digital • Soluciones Digitales</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- THREE.JS PARA GRÁFICOS 3D INTERACTIVOS EXACTOS AL MOCKUP -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap');
     
     :root {
       --bg-main: #030712;
-      --bg-card: #080f1e;
-      --border-card: rgba(255, 255, 255, 0.08);
+      --bg-card: #070d1a;
+      --border-subtle: rgba(255, 255, 255, 0.08);
       --red-accent: #e11d48;
     }
 
@@ -24,41 +22,19 @@
       overflow-x: hidden;
     }
 
-    /* ANIMACIONES DE ENTRADA SCROLL */
-    .reveal {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-      will-change: opacity, transform;
+    /* CARD HOVER */
+    .card-item {
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    
-    .reveal.active {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .reveal-delay-1 { transition-delay: 0.1s; }
-    .reveal-delay-2 { transition-delay: 0.2s; }
-    .reveal-delay-3 { transition-delay: 0.3s; }
-    .reveal-delay-4 { transition-delay: 0.4s; }
-
-    /* EFECTO HOVER EN TARJETAS */
-    .card-hover {
-      transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
-    }
-    .card-hover:hover {
-      transform: translateY(-5px);
-    }
-
-    /* GLOWS EXACTOS */
-    .glow-red {
-      box-shadow: 0 0 60px -10px rgba(225, 29, 72, 0.35);
+    .card-item:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255, 255, 255, 0.2);
     }
   </style>
 </head>
-<body class="min-h-screen flex flex-col antialiased selection:bg-rose-600 selection:text-white">
+<body class="min-h-screen flex flex-col antialiased selection:bg-rose-600 selection:text-white bg-[#030712]">
 
-  <!-- HEADER GLOBAL -->
+  <!-- HEADER -->
   <header class="sticky top-0 z-50 backdrop-blur-xl bg-[#030712]/90 border-b border-slate-800/80">
     <div class="max-w-6xl mx-auto px-4 sm:px-8 h-20 flex items-center justify-between">
       
@@ -112,14 +88,14 @@
     </div>
   </header>
 
-  <!-- CONTENIDO PRINCIPAL (PANEL 1 DEL MOCKUP) -->
+  <!-- CONTENIDO PRINCIPAL -->
   <main class="flex-grow">
     
-    <!-- HERO SECTION -->
-    <section class="max-w-6xl mx-auto px-4 sm:px-8 py-16 sm:py-24 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative">
+    <!-- HERO SECTION (ESPACIO LISTO PARA VIDEO DEL USUARIO) -->
+    <section class="max-w-6xl mx-auto px-4 sm:px-8 py-14 sm:py-20 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative">
       
       <!-- COLUMNA IZQUIERDA -->
-      <div class="lg:col-span-7 space-y-6 text-left reveal active">
+      <div class="lg:col-span-7 space-y-6 text-left">
         
         <span class="inline-block text-[11px] font-extrabold uppercase tracking-widest text-[#e11d48]">
           SOLICIONES DIGITALES
@@ -142,91 +118,94 @@
 
       </div>
 
-      <!-- COLUMNA DERECHA: 3D THREE.JS CANVAS ISOMÉTRICO EXACTO AL MOCKUP -->
-      <div class="lg:col-span-5 flex justify-center items-center relative reveal reveal-delay-2 active">
-        <div class="w-full max-w-[380px] aspect-square relative flex items-center justify-center">
-          
-          <div class="absolute inset-0 bg-gradient-to-tr from-rose-600/35 via-orange-600/15 to-transparent rounded-full blur-3xl -z-10"></div>
-          
-          <!-- MARCO DE TARJETA OSCURA EXACTA AL MOCKUP -->
-          <div class="relative w-full h-full bg-gradient-to-br from-[#1c0818] via-[#091124] to-[#030612] rounded-3xl border border-rose-500/40 p-5 flex flex-col justify-between shadow-2xl glow-red overflow-hidden">
-            
-            <div class="flex justify-between items-center text-[10px] font-mono text-rose-400 z-10">
-              <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-rose-500 animate-ping"></span> 3D ISOMETRIC CORE</span>
-              <span>LOGIMOTION</span>
+      <!-- COLUMNA DERECHA: CONTENEDOR DE VÍDEO PRINCIPAL -->
+      <div class="lg:col-span-5 flex justify-center items-center relative">
+        <div class="w-full max-w-[420px] aspect-square relative rounded-3xl overflow-hidden border border-rose-500/30 bg-[#060b18] shadow-2xl flex items-center justify-center">
+          <div class="absolute inset-0 bg-gradient-to-tr from-rose-600/20 via-transparent to-transparent -z-10"></div>
+          <!-- VÍDEO / VISUAL PLACEHOLDER LISTO PARA EL USUARIO -->
+          <div id="videoContainer" class="w-full h-full flex flex-col items-center justify-center p-6 text-center">
+            <div class="w-16 h-16 rounded-full bg-rose-600/20 text-rose-500 border border-rose-500/40 flex items-center justify-center mb-3">
+              <svg class="w-8 h-8 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
             </div>
-
-            <!-- CANVAS 3D INTERACTIVO CON THREE.JS -->
-            <div class="relative w-full h-56 flex items-center justify-center my-auto">
-              <canvas id="hero3dCanvas" class="w-full h-full cursor-grab active:cursor-grabbing"></canvas>
-            </div>
-
-            <div class="flex justify-between items-center text-[10px] font-semibold text-slate-400 border-t border-slate-800/80 pt-3 z-10">
-              <span class="text-slate-300">ESTRATEGIA & EJECUCIÓN</span>
-              <span class="text-rose-400 font-mono">CORE v3.0</span>
-            </div>
-
+            <span class="text-xs font-bold text-white uppercase tracking-wider">Espacio de Vídeo Oficial</span>
+            <span class="text-[11px] text-slate-400 mt-1">Listo para incrustar vídeo</span>
           </div>
-
         </div>
       </div>
 
     </section>
 
-    <!-- SECCIÓN: NUESTRAS ESPECIALIDADES (3 CARDS VERTICALES DEL MOCKUP) -->
+    <!-- SECCIÓN: NUESTRAS ESPECIALIDADES (EXACTA A LA IMAGEN media_1787743691423.png) -->
     <section id="especialidades" class="max-w-6xl mx-auto px-4 sm:px-8 py-20 border-t border-slate-800/80">
       
-      <div class="text-center max-w-xl mx-auto mb-14 reveal">
+      <div class="text-center max-w-xl mx-auto mb-14">
         <span class="text-xs font-bold uppercase tracking-widest text-slate-400 block mb-2">NUESTRAS ESPECIALIDADES</span>
-        <h2 class="text-2xl sm:text-3xl font-black text-white">Tres soluciones de alto impacto</h2>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
-        <!-- CARD 1: WEB -->
-        <div class="bg-gradient-to-b from-[#081022] to-[#040814] rounded-2xl p-7 border border-slate-800 hover:border-sky-500/60 transition-all flex flex-col justify-between card-hover reveal reveal-delay-1 shadow-xl">
-          <div>
-            <div class="w-12 h-12 rounded-xl bg-sky-950/80 border border-sky-800/60 flex items-center justify-center mb-5 text-sky-400">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        <!-- CARD 1: WEB (ICONO AZUL CENTRADO, TITULAR CENTRADO, TEXTO CENTRADO) -->
+        <div class="bg-[#050b18] rounded-2xl p-8 border border-slate-800/90 text-center flex flex-col justify-between items-center card-item shadow-xl min-h-[330px]">
+          <div class="flex flex-col items-center">
+            <!-- ICONO MONITOR AZUL -->
+            <div class="w-14 h-14 rounded-2xl bg-sky-950/60 border border-sky-500/40 flex items-center justify-center mb-6 text-sky-400 shadow-md shadow-sky-950/50">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                <rect x="2" y="3" width="20" height="14" rx="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <line x1="8" y1="21" x2="16" y2="21" stroke-linecap="round"/>
+                <line x1="12" y1="17" x2="12" y2="21" stroke-linecap="round"/>
+              </svg>
             </div>
-            <h3 class="text-xl font-bold text-white mb-2">WEB</h3>
-            <p class="text-xs sm:text-sm text-slate-400 leading-relaxed mb-6">
+            
+            <h3 class="text-xl font-bold text-white mb-3 tracking-wide">WEB</h3>
+            
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-[240px]">
               Diseño y desarrollo web a medida que convierte visitantes en clientes.
             </p>
           </div>
-          <a href="web.html" class="inline-flex items-center gap-1.5 text-xs font-bold text-sky-400 hover:text-sky-300 transition-colors pt-3 border-t border-slate-800/80">
+
+          <a href="web.html" class="inline-flex items-center gap-1.5 text-xs font-bold text-sky-400 hover:text-sky-300 transition-colors mt-6 pt-4 border-t border-slate-800/60 w-full justify-center">
             Ver solución <span aria-hidden="true">&rarr;</span>
           </a>
         </div>
 
-        <!-- CARD 2: AEO -->
-        <div class="bg-gradient-to-b from-[#0c0e26] to-[#040614] rounded-2xl p-7 border border-slate-800 hover:border-indigo-500/60 transition-all flex flex-col justify-between card-hover reveal reveal-delay-2 shadow-xl">
-          <div>
-            <div class="w-12 h-12 rounded-xl bg-indigo-950/80 border border-indigo-800/60 flex items-center justify-center mb-5 text-indigo-400">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        <!-- CARD 2: AEO (ICONO CEREBRO PÚRPURA CENTRADO) -->
+        <div class="bg-[#07091c] rounded-2xl p-8 border border-slate-800/90 text-center flex flex-col justify-between items-center card-item shadow-xl min-h-[330px]">
+          <div class="flex flex-col items-center">
+            <!-- ICONO CEREBRO VIOLETA -->
+            <div class="w-14 h-14 rounded-2xl bg-indigo-950/60 border border-indigo-500/40 flex items-center justify-center mb-6 text-indigo-400 shadow-md shadow-indigo-950/50">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+              </svg>
             </div>
-            <h3 class="text-xl font-bold text-white mb-2">AEO</h3>
-            <p class="text-xs sm:text-sm text-slate-400 leading-relaxed mb-6">
+            
+            <h3 class="text-xl font-bold text-white mb-3 tracking-wide">AEO</h3>
+            
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-[240px]">
               Optimización para que la IA y los motores de respuesta entiendan tu empresa.
             </p>
           </div>
-          <a href="aeo.html" class="inline-flex items-center gap-1.5 text-xs font-bold text-indigo-400 hover:text-indigo-300 transition-colors pt-3 border-t border-slate-800/80">
+
+          <a href="aeo.html" class="inline-flex items-center gap-1.5 text-xs font-bold text-indigo-400 hover:text-indigo-300 transition-colors mt-6 pt-4 border-t border-slate-800/60 w-full justify-center">
             Ver solución <span aria-hidden="true">&rarr;</span>
           </a>
         </div>
 
-        <!-- CARD 3: CREATORS -->
-        <div class="bg-gradient-to-b from-[#180918] to-[#040510] rounded-2xl p-7 border border-slate-800 hover:border-rose-500/60 transition-all flex flex-col justify-between card-hover reveal reveal-delay-3 shadow-xl">
-          <div>
-            <div class="w-12 h-12 rounded-xl bg-rose-950/80 border border-rose-800/60 flex items-center justify-center mb-5 text-rose-400">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <!-- CARD 3: CREATORS (ICONO PLAY ROJO CENTRADO) -->
+        <div class="bg-[#120712] rounded-2xl p-8 border border-slate-800/90 text-center flex flex-col justify-between items-center card-item shadow-xl min-h-[330px]">
+          <div class="flex flex-col items-center">
+            <!-- ICONO PLAY YOUTUBE ROJO -->
+            <div class="w-14 h-14 rounded-full bg-rose-950/60 border-2 border-rose-500/50 flex items-center justify-center mb-6 text-rose-500 shadow-md shadow-rose-950/50">
+              <svg class="w-7 h-7 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
             </div>
-            <h3 class="text-xl font-bold text-white mb-2">CREATORS</h3>
-            <p class="text-xs sm:text-sm text-slate-400 leading-relaxed mb-6">
+            
+            <h3 class="text-xl font-bold text-white mb-3 tracking-wide">CREATORS</h3>
+            
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-[240px]">
               Miniaturas estratégicas que captan atención y elevan tu contenido.
             </p>
           </div>
-          <a href="creators.html" class="inline-flex items-center gap-1.5 text-xs font-bold text-rose-400 hover:text-rose-300 transition-colors pt-3 border-t border-slate-800/80">
+
+          <a href="creators.html" class="inline-flex items-center gap-1.5 text-xs font-bold text-rose-400 hover:text-rose-300 transition-colors mt-6 pt-4 border-t border-slate-800/60 w-full justify-center">
             Ver solución <span aria-hidden="true">&rarr;</span>
           </a>
         </div>
@@ -235,27 +214,27 @@
 
     </section>
 
-    <!-- SECCIÓN: 4 PILARES (EXACTOS AL MOCKUP) -->
+    <!-- SECCIÓN: 4 PILARES -->
     <section id="sobre-nosotros" class="max-w-6xl mx-auto px-4 sm:px-8 py-16 border-t border-slate-800/80">
       
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
         
-        <div class="bg-slate-900/40 p-5 rounded-2xl border border-slate-800/80 card-hover reveal reveal-delay-1">
+        <div class="bg-[#060b18] p-5 rounded-2xl border border-slate-800/80 card-item">
           <div class="text-rose-500 font-bold text-xs mb-1">🎯 Enfoque estratégico</div>
           <p class="text-xs text-slate-400 leading-relaxed">Cada proyecto parte de un análisis real.</p>
         </div>
 
-        <div class="bg-slate-900/40 p-5 rounded-2xl border border-slate-800/80 card-hover reveal reveal-delay-2">
+        <div class="bg-[#060b18] p-5 rounded-2xl border border-slate-800/80 card-item">
           <div class="text-rose-500 font-bold text-xs mb-1">💡 Diseño con propósito</div>
           <p class="text-xs text-slate-400 leading-relaxed">Cada elemento tiene una función.</p>
         </div>
 
-        <div class="bg-slate-900/40 p-5 rounded-2xl border border-slate-800/80 card-hover reveal reveal-delay-3">
+        <div class="bg-[#060b18] p-5 rounded-2xl border border-slate-800/80 card-item">
           <div class="text-rose-500 font-bold text-xs mb-1">⚙️ Ejecución precisa</div>
           <p class="text-xs text-slate-400 leading-relaxed">Desarrollamos con calidad y detalle.</p>
         </div>
 
-        <div class="bg-slate-900/40 p-5 rounded-2xl border border-slate-800/80 card-hover reveal reveal-delay-4">
+        <div class="bg-[#060b18] p-5 rounded-2xl border border-slate-800/80 card-item">
           <div class="text-rose-500 font-bold text-xs mb-1">📈 Mejora continua</div>
           <p class="text-xs text-slate-400 leading-relaxed">Optimizamos y evolucionamos.</p>
         </div>
@@ -264,9 +243,9 @@
 
     </section>
 
-    <!-- SECCIÓN BANNER CIERRE HOME (EXACTO AL MOCKUP) -->
+    <!-- SECCIÓN BANNER CIERRE HOME -->
     <section class="max-w-6xl mx-auto px-4 sm:px-8 py-20 border-t border-slate-800/80 text-center">
-      <div class="max-w-2xl mx-auto space-y-4 reveal">
+      <div class="max-w-2xl mx-auto space-y-4">
         <h2 class="text-2xl sm:text-3xl font-black text-white tracking-tight">
           ¿Qué necesitas para tu proyecto?
         </h2>
@@ -284,7 +263,7 @@
 
   </main>
 
-  <!-- FOOTER GLOBAL -->
+  <!-- FOOTER -->
   <footer class="bg-[#02050e] border-t border-slate-800/80 py-12 px-4 sm:px-8 text-xs text-slate-400">
     <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
       
@@ -326,9 +305,7 @@
     </div>
   </footer>
 
-  <!-- SCRIPT THREE.JS: MOTOR 3D DEL CUBO ISOMÉTRICO EXACTO AL MOCKUP -->
   <script>
-    // MENÚ MÓVIL
     const menuBtn = document.getElementById('mobileMenuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
     if (menuBtn && mobileMenu) {
@@ -336,152 +313,6 @@
         mobileMenu.classList.toggle('hidden');
       });
     }
-
-    // SCROLL REVEAL
-    const revealElements = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('active');
-        }
-      });
-    }, {
-      threshold: 0.15,
-      rootMargin: "0px 0px -40px 0px"
-    });
-    revealElements.forEach(el => observer.observe(el));
-
-    // THREE.JS 3D SCENE GENERATOR
-    (function init3DHero() {
-      const canvas = document.getElementById('hero3dCanvas');
-      if (!canvas) return;
-
-      const scene = new THREE.Scene();
-      const camera = new THREE.PerspectiveCamera(45, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
-      camera.position.set(3.8, 3.2, 4.2);
-      camera.lookAt(0, 0, 0);
-
-      const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
-      renderer.setSize(canvas.clientWidth, canvas.clientHeight);
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-
-      // LUCES
-      const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
-      scene.add(ambientLight);
-
-      const pointLight1 = new THREE.PointLight(0xe11d48, 4, 15);
-      pointLight1.position.set(3, 4, 3);
-      scene.add(pointLight1);
-
-      const pointLight2 = new THREE.PointLight(0xf59e0b, 2.5, 12);
-      pointLight2.position.set(-3, -2, -2);
-      scene.add(pointLight2);
-
-      // GRUPO PRINCIPAL
-      const coreGroup = new THREE.Group();
-      scene.add(coreGroup);
-
-      // 1. CUBO INTERIOR METÁLICO CON LOGO LM
-      const cubeGeo = new THREE.BoxGeometry(1.4, 1.4, 1.4);
-      
-      // CREAR TEXTURA DE CANVAS PARA EL LOGO 'LM' EN LAS CARAS
-      function createFaceTexture() {
-        const textCanvas = document.createElement('canvas');
-        textCanvas.width = 256;
-        textCanvas.height = 256;
-        const ctx = textCanvas.getContext('2d');
-        ctx.fillStyle = '#0f172a';
-        ctx.fillRect(0, 0, 256, 256);
-        ctx.lineWidth = 10;
-        ctx.strokeStyle = '#e11d48';
-        ctx.strokeRect(10, 10, 236, 236);
-        ctx.fillStyle = '#ffffff';
-        ctx.font = 'bold 90px "Plus Jakarta Sans", sans-serif';
-        ctx.textAlign = 'center';
-        ctx.textBaseline = 'middle';
-        ctx.fillText('LM', 128, 128);
-        return new THREE.CanvasTexture(textCanvas);
-      }
-      
-      const faceTex = createFaceTexture();
-      const cubeMat = new THREE.MeshStandardMaterial({
-        map: faceTex,
-        roughness: 0.2,
-        metalness: 0.8,
-      });
-      const innerCube = new THREE.Mesh(cubeGeo, cubeMat);
-      coreGroup.add(innerCube);
-
-      // 2. CAJA EXTERIOR DE CRISTAL / WIREFRAME GLOW
-      const wireGeo = new THREE.BoxGeometry(1.7, 1.7, 1.7);
-      const wireMat = new THREE.MeshBasicMaterial({
-        color: 0xe11d48,
-        wireframe: true,
-        transparent: true,
-        opacity: 0.6
-      });
-      const wireCube = new THREE.Mesh(wireGeo, wireMat);
-      coreGroup.add(wireCube);
-
-      // 3. ANILLOS ORBITALES ROTATORIOS
-      const ringGeo = new THREE.TorusGeometry(1.8, 0.02, 16, 100);
-      const ringMat = new THREE.MeshBasicMaterial({ color: 0xf59e0b, transparent: true, opacity: 0.7 });
-      const ringMesh = new THREE.Mesh(ringGeo, ringMat);
-      ringMesh.rotation.x = Math.PI / 3;
-      coreGroup.add(ringMesh);
-
-      // 4. PARTÍCULAS FLOTANTES
-      const partCount = 45;
-      const partGeo = new THREE.BufferGeometry();
-      const positions = new Float32Array(partCount * 3);
-      for (let i = 0; i < partCount * 3; i += 3) {
-        positions[i] = (Math.random() - 0.5) * 4.5;
-        positions[i + 1] = (Math.random() - 0.5) * 4.5;
-        positions[i + 2] = (Math.random() - 0.5) * 4.5;
-      }
-      partGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-      const partMat = new THREE.PointsMaterial({ color: 0xff3b5c, size: 0.06, transparent: true, opacity: 0.8 });
-      const particleSystem = new THREE.Points(partGeo, partMat);
-      scene.add(particleSystem);
-
-      // INTERACTIVIDAD CON EL RATÓN
-      let mouseX = 0, mouseY = 0;
-      let targetX = 0, targetY = 0;
-
-      window.addEventListener('mousemove', (e) => {
-        const rect = canvas.getBoundingClientRect();
-        if (rect.top <= window.innerHeight && rect.bottom >= 0) {
-          mouseX = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
-          mouseY = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
-        }
-      });
-
-      // LOOP DE RENDER
-      function animate() {
-        requestAnimationFrame(animate);
-
-        targetX += (mouseX - targetX) * 0.05;
-        targetY += (mouseY - targetY) * 0.05;
-
-        coreGroup.rotation.y += 0.008;
-        coreGroup.rotation.x = targetY * 0.6;
-        coreGroup.rotation.z = -targetX * 0.4;
-
-        ringMesh.rotation.z += 0.015;
-        particleSystem.rotation.y -= 0.003;
-
-        renderer.render(scene, camera);
-      }
-      animate();
-
-      // RESPONSIVE RESIZE
-      window.addEventListener('resize', () => {
-        if (!canvas) return;
-        camera.aspect = canvas.clientWidth / canvas.clientHeight;
-        camera.updateProjectionMatrix();
-        renderer.setSize(canvas.clientWidth, canvas.clientHeight);
-      });
-    })();
   </script>
 
 </body>
