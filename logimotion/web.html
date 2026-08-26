@@ -131,13 +131,13 @@
           Diseñamos y desarrollamos sitios web profesionales que generan confianza, comunican tu valor y convierten visitantes en clientes.
         </p>
 
-        <div class="flex flex-wrap items-center justify-center gap-4 pt-3">
+        <div class="flex flex-wrap items-center justify-center gap-4 pt-3 relative">
           <a href="#planes" 
-             class="hero-btn bg-[#0284c7] hover:bg-[#0369a1] text-white font-bold text-xs uppercase tracking-wider py-3.5 px-8 rounded-lg transition-all shadow-lg shadow-sky-950/60 hover:scale-105 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-sky-400">
+             class="hero-btn-left bg-[#0284c7] hover:bg-[#0369a1] text-white font-bold text-xs uppercase tracking-wider py-3.5 px-8 rounded-lg transition-all shadow-lg shadow-sky-950/60 hover:scale-105 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-sky-400">
             VER PLANES
           </a>
           <a href="https://wa.me/34362547479?text=Hola%20LogiMotion,%20quiero%20hablar%20con%20un%20experto%20sobre%20mi%20página%20Web" 
-             class="hero-btn bg-slate-900/90 hover:bg-slate-800 text-white border border-slate-700 font-bold text-xs uppercase tracking-wider py-3.5 px-6 rounded-lg transition-all hover:scale-105 focus-visible:ring-2 focus-visible:ring-sky-400">
+             class="hero-btn-right bg-slate-900/90 hover:bg-slate-800 text-white border border-slate-700 font-bold text-xs uppercase tracking-wider py-3.5 px-6 rounded-lg transition-all hover:scale-105 focus-visible:ring-2 focus-visible:ring-sky-400">
             HABLAR CON EXPERTOS
           </a>
         </div>
@@ -462,20 +462,49 @@
     document.addEventListener("DOMContentLoaded", () => {
       gsap.registerPlugin(ScrollTrigger);
 
-      // 1. Animación de entrada de los botones del Hero (Deslizamiento con línea y rebote suave)
+      // 1. Coreografía de impacto dinámico entre botones del Hero
       const tlHero = gsap.timeline();
       tlHero.from("main section:first-child h1, main section:first-child p", {
         y: 25,
         opacity: 0,
-        duration: 0.8,
-        stagger: 0.15,
+        duration: 0.7,
+        stagger: 0.12,
         ease: "power2.out"
-      })
-      .fromTo(".hero-btn", 
-        { x: -35, opacity: 0, scale: 0.9 },
-        { x: 0, opacity: 1, scale: 1, duration: 0.8, stagger: 0.15, ease: "back.out(1.4)", clearProps: "all" },
-        "-=0.3"
-      );
+      });
+
+      const btnLeft = document.querySelector(".hero-btn-left");
+      const btnRight = document.querySelector(".hero-btn-right");
+      if (btnLeft && btnRight) {
+        tlHero
+          // El botón izquierdo entra con velocidad y le pega al botón derecho
+          .fromTo(btnLeft, 
+            { x: -140, opacity: 0, rotate: -8 }, 
+            { x: 20, opacity: 1, rotate: 2, duration: 0.45, ease: "power3.in" },
+            "-=0.2"
+          )
+          .fromTo(btnRight, 
+            { opacity: 0, x: 50 }, 
+            { opacity: 1, x: 0, duration: 0.2 }, 
+            "-=0.2"
+          )
+          // ¡IMPACTO 1! El botón derecho sale despedido a la derecha por el choque del izquierdo
+          .to(btnRight, { x: 35, rotate: 5, scale: 1.05, duration: 0.22, ease: "power2.out" }, "-=0.05")
+          .to(btnLeft, { x: -6, rotate: -2, duration: 0.2, ease: "power1.out" }, "<")
+          
+          // ¡IMPACTO 2! El botón derecho rebota de vuelta y le devuelve el golpe al izquierdo
+          .to(btnRight, { x: -22, rotate: -4, duration: 0.22, ease: "power2.in" })
+          .to(btnLeft, { x: -28, rotate: -5, scale: 1.04, duration: 0.2, ease: "power2.out" }, "-=0.08")
+          
+          // Ambos se acomodan elásticamente en su lugar definitivo con precisión perfecta
+          .to([btnLeft, btnRight], { 
+            x: 0, 
+            rotate: 0, 
+            scale: 1, 
+            duration: 0.65, 
+            ease: "elastic.out(1.15, 0.4)",
+            clearProps: "transform,opacity"
+          });
+      }
 
       // 2. Parallax de expansión en los 5 iconos circulares
       gsap.from(".lg\\:grid-cols-5 > div", {
