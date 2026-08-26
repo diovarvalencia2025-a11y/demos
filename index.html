@@ -1,11 +1,419 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0; url=dossier.html" />
-    <title>LogiMotion Digital</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LogiMotion Digital • Soluciones Digitales</title>
+  
+  <!-- SEO METADATA -->
+  <meta name="description" content="LogiMotion Digital: soluciones de diseño web, optimización para IA (AEO) y miniaturas para creadores. Estrategia, diseño y ejecución con un mismo estándar de calidad.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://diovarvalencia2025-a11y.github.io/demos/logimotion/index.html">
+  <link rel="icon" type="image/png" href="favicon.png">
+
+  <!-- OPEN GRAPH METADATA -->
+  <meta property="og:title" content="LogiMotion Digital • Soluciones Digitales">
+  <meta property="og:description" content="LogiMotion Digital: soluciones de diseño web, optimización para IA (AEO) y miniaturas para creadores. Estrategia, diseño y ejecución con un mismo estándar de calidad.">
+  <meta property="og:image" content="https://diovarvalencia2025-a11y.github.io/demos/logimotion/og-image.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://diovarvalencia2025-a11y.github.io/demos/logimotion/index.html">
+
+  <!-- TWITTER CARD -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="LogiMotion Digital • Soluciones Digitales">
+  <meta name="twitter:description" content="Soluciones de diseño web, optimización para IA (AEO) y miniaturas para creadores.">
+  <meta name="twitter:image" content="https://diovarvalencia2025-a11y.github.io/demos/logimotion/og-image.png">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap');
+    
+    :root {
+      --bg-main: #030712;
+      --bg-card: #070d1a;
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --red-accent: #e11d48;
+    }
+
+    body { 
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg-main);
+      color: #f8fafc;
+      overflow-x: hidden;
+    }
+
+    /* CARD HOVER */
+    .card-item {
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .card-item:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+  </style>
 </head>
-<body>
-    <p>Redireccionando a LogiMotion Digital...</p>
+<body class="min-h-screen flex flex-col antialiased selection:bg-rose-600 selection:text-white bg-[#030712]">
+
+  <!-- HEADER -->
+  <header class="sticky top-0 z-50 backdrop-blur-xl bg-[#030712]/90 border-b border-slate-800/80">
+    <div class="max-w-6xl mx-auto px-4 sm:px-8 h-20 flex items-center justify-between">
+      
+      <!-- LOGO -->
+      <a href="index.html" class="flex flex-col focus-visible:ring-2 focus-visible:ring-rose-500 rounded p-1" aria-label="Ir a la página de inicio">
+        <span class="text-xl sm:text-2xl font-black tracking-tight text-white">
+          LOGIMOTION
+        </span>
+        <span class="text-[8px] tracking-[0.35em] font-extrabold text-rose-500 uppercase -mt-1">
+          DIGITAL
+        </span>
+      </a>
+
+      <!-- NAVEGACIÓN -->
+      <nav class="hidden md:flex items-center gap-8 text-xs font-semibold text-slate-300" aria-label="Navegación principal">
+        <a href="index.html" class="text-white font-bold transition-colors py-1 border-b-2 border-rose-500 focus-visible:ring-2 focus-visible:ring-rose-500 rounded px-1">Inicio</a>
+        <a href="web.html" class="hover:text-white transition-colors focus-visible:ring-2 focus-visible:ring-rose-500 rounded px-1">Web</a>
+        <a href="aeo.html" class="hover:text-white transition-colors focus-visible:ring-2 focus-visible:ring-rose-500 rounded px-1">AEO</a>
+        <a href="creators.html" class="hover:text-white transition-colors focus-visible:ring-2 focus-visible:ring-rose-500 rounded px-1">Creators</a>
+        <a href="#testimonios" class="hover:text-white transition-colors focus-visible:ring-2 focus-visible:ring-rose-500 rounded px-1">Testimonios</a>
+        <a href="#sobre-nosotros" class="hover:text-white transition-colors focus-visible:ring-2 focus-visible:ring-rose-500 rounded px-1">Sobre nosotros</a>
+      </nav>
+
+      <!-- CTA CONTACTAR -->
+      <div class="hidden md:flex items-center">
+        <a href="https://wa.me/34362547479?text=Hola%20LogiMotion,%20quiero%20hacer%20una%20consulta%20para%20mi%20proyecto" 
+           class="bg-[#e11d48] hover:bg-[#be123c] text-white font-bold text-xs uppercase tracking-wider px-5 py-2.5 rounded-lg transition-all shadow-md shadow-rose-950/60 hover:scale-105 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-rose-500">
+          CONTACTAR
+        </a>
+      </div>
+
+      <!-- BOTÓN MENÚ MÓVIL -->
+      <button id="mobileMenuBtn" class="md:hidden text-slate-300 hover:text-white p-2 focus-visible:ring-2 focus-visible:ring-rose-500 rounded" aria-label="Abrir menú de navegación" aria-expanded="false">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+
+    </div>
+
+    <!-- MENÚ MÓVIL -->
+    <div id="mobileMenu" class="hidden md:hidden bg-[#050a16] border-b border-slate-800 px-6 py-5 space-y-4 text-sm font-semibold text-slate-300">
+      <a href="index.html" class="block text-rose-400 font-bold">Inicio</a>
+      <a href="web.html" class="block hover:text-white">Web</a>
+      <a href="aeo.html" class="block hover:text-white">AEO</a>
+      <a href="creators.html" class="block hover:text-white">Creators</a>
+      <a href="#testimonios" class="block hover:text-white">Testimonios</a>
+      <a href="#sobre-nosotros" class="block hover:text-white">Sobre nosotros</a>
+      <div class="pt-2">
+        <a href="https://wa.me/34362547479?text=Hola%20LogiMotion,%20quiero%20hacer%20una%20consulta%20para%20mi%20proyecto" 
+           class="block text-center bg-[#e11d48] hover:bg-[#be123c] text-white font-bold text-xs uppercase tracking-wider py-3 rounded-lg">
+          CONTACTAR
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="flex-grow">
+    
+    <!-- HERO SECTION -->
+    <section class="max-w-4xl mx-auto px-4 sm:px-8 py-16 sm:py-24 text-center relative">
+      
+      <div class="space-y-6">
+        
+        <span class="inline-block text-[11px] font-extrabold uppercase tracking-widest text-[#e11d48]">
+          SOLUCIONES DIGITALES
+        </span>
+
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-[1.15]">
+          Hacemos que tu presencia digital <span class="text-[#e11d48]">trabaje para ti.</span>
+        </h1>
+
+        <p class="text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto font-normal">
+          Tres especialidades. Un mismo estándar de calidad y un único objetivo: ayudarte a crecer.
+        </p>
+
+        <div class="pt-3">
+          <a href="#especialidades" 
+             class="inline-block bg-[#e11d48] hover:bg-[#be123c] text-white font-bold text-xs uppercase tracking-wider py-3.5 px-8 rounded-lg transition-all shadow-lg shadow-rose-950/60 hover:scale-105 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-rose-500">
+            DESCUBRIR LOGIMOTION
+          </a>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- SECCIÓN: NUESTRAS ESPECIALIDADES -->
+    <section id="especialidades" class="max-w-6xl mx-auto px-4 sm:px-8 py-20 border-t border-slate-800/80">
+      
+      <div class="text-center max-w-xl mx-auto mb-14">
+        <h2 class="text-xs font-bold uppercase tracking-widest text-slate-400 block mb-2">NUESTRAS ESPECIALIDADES</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <!-- CARD 1: WEB -->
+        <div class="bg-[#050b18] rounded-2xl p-8 border border-slate-800/90 text-center flex flex-col justify-between items-center card-item shadow-xl min-h-[330px]">
+          <div class="flex flex-col items-center">
+            <div class="w-14 h-14 rounded-2xl bg-sky-950/60 border border-sky-500/40 flex items-center justify-center mb-6 text-sky-400 shadow-md shadow-sky-950/50" aria-hidden="true">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                <rect x="2" y="3" width="20" height="14" rx="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <line x1="8" y1="21" x2="16" y2="21" stroke-linecap="round"/>
+                <line x1="12" y1="17" x2="12" y2="21" stroke-linecap="round"/>
+              </svg>
+            </div>
+            
+            <h3 class="text-xl font-bold text-white mb-3 tracking-wide">WEB</h3>
+            
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-[240px]">
+              Diseño y desarrollo web a medida que convierte visitantes en clientes.
+            </p>
+          </div>
+
+          <a href="web.html" class="inline-flex items-center gap-1.5 text-xs font-bold text-sky-400 hover:text-sky-300 transition-colors mt-6 pt-4 border-t border-slate-800/60 w-full justify-center focus-visible:ring-2 focus-visible:ring-sky-400 rounded">
+            Ver solución <span aria-hidden="true">&rarr;</span>
+          </a>
+        </div>
+
+        <!-- CARD 2: AEO -->
+        <div class="bg-[#07091c] rounded-2xl p-8 border border-slate-800/90 text-center flex flex-col justify-between items-center card-item shadow-xl min-h-[330px]">
+          <div class="flex flex-col items-center">
+            <div class="w-14 h-14 rounded-2xl bg-indigo-950/60 border border-indigo-500/40 flex items-center justify-center mb-6 text-indigo-400 shadow-md shadow-indigo-950/50" aria-hidden="true">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+              </svg>
+            </div>
+            
+            <h3 class="text-xl font-bold text-white mb-3 tracking-wide">AEO</h3>
+            
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-[240px]">
+              Optimización para que la IA y los motores de respuesta entiendan tu empresa.
+            </p>
+          </div>
+
+          <a href="aeo.html" class="inline-flex items-center gap-1.5 text-xs font-bold text-indigo-400 hover:text-indigo-300 transition-colors mt-6 pt-4 border-t border-slate-800/60 w-full justify-center focus-visible:ring-2 focus-visible:ring-indigo-400 rounded">
+            Ver solución <span aria-hidden="true">&rarr;</span>
+          </a>
+        </div>
+
+        <!-- CARD 3: CREATORS -->
+        <div class="bg-[#120712] rounded-2xl p-8 border border-slate-800/90 text-center flex flex-col justify-between items-center card-item shadow-xl min-h-[330px]">
+          <div class="flex flex-col items-center">
+            <div class="w-14 h-14 rounded-full bg-rose-950/60 border-2 border-rose-500/50 flex items-center justify-center mb-6 text-rose-500 shadow-md shadow-rose-950/50" aria-hidden="true">
+              <svg class="w-7 h-7 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+            
+            <h3 class="text-xl font-bold text-white mb-3 tracking-wide">CREATORS</h3>
+            
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-[240px]">
+              Miniaturas estratégicas que captan atención y elevan tu contenido.
+            </p>
+          </div>
+
+          <a href="creators.html" class="inline-flex items-center gap-1.5 text-xs font-bold text-rose-400 hover:text-rose-300 transition-colors mt-6 pt-4 border-t border-slate-800/60 w-full justify-center focus-visible:ring-2 focus-visible:ring-rose-500 rounded">
+            Ver solución <span aria-hidden="true">&rarr;</span>
+          </a>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- SECCIÓN: PRUEBA SOCIAL / TESTIMONIOS (FASE 5) -->
+    <section id="testimonios" class="max-w-6xl mx-auto px-4 sm:px-8 py-20 border-t border-slate-800/80">
+      
+      <div class="text-center max-w-xl mx-auto mb-14">
+        <span class="text-xs font-bold uppercase tracking-widest text-rose-500 block mb-2">RESULTADOS COMPROBADOS</span>
+        <h2 class="text-2xl sm:text-3xl font-black text-white">Lo que dicen quienes trabajan con nosotros</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <!-- TESTIMONIO 1: WEB -->
+        <div class="bg-[#050b18] p-7 rounded-2xl border border-slate-800/90 flex flex-col justify-between card-item shadow-xl">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <div class="flex text-amber-400 text-sm tracking-tighter" aria-label="5 de 5 estrellas">
+                ★★★★★
+              </div>
+              <span class="text-[10px] font-bold uppercase tracking-wider text-sky-400 bg-sky-950/60 border border-sky-800/40 px-2.5 py-0.5 rounded-full">
+                LOGIMOTION WEB
+              </span>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed italic">
+              "Teníamos una web antigua que no recibía contactos. LogiMotion nos rediseñó el sitio completo en 48 horas y en el primer mes duplicamos las solicitudes de presupuesto por WhatsApp."
+            </p>
+          </div>
+          <div class="pt-6 border-t border-slate-800/80 flex items-center gap-3.5 mt-6">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-sky-500 to-sky-800 text-white font-bold text-xs flex items-center justify-center shadow">
+              CM
+            </div>
+            <div>
+              <div class="text-xs font-bold text-white">Carlos Mendíbil</div>
+              <div class="text-[11px] text-slate-400">Director en Reformas del Norte</div>
+              <div class="text-[10px] text-emerald-400 font-semibold mt-0.5">+110% en solicitudes de presupuesto</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TESTIMONIO 2: AEO -->
+        <div class="bg-[#07091c] p-7 rounded-2xl border border-slate-800/90 flex flex-col justify-between card-item shadow-xl">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <div class="flex text-amber-400 text-sm tracking-tighter" aria-label="5 de 5 estrellas">
+                ★★★★★
+              </div>
+              <span class="text-[10px] font-bold uppercase tracking-wider text-indigo-400 bg-indigo-950/60 border border-indigo-800/40 px-2.5 py-0.5 rounded-full">
+                LOGIMOTION AEO
+              </span>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed italic">
+              "ChatGPT y Perplexity no sabían responder sobre nuestros servicios legales especializados. Con la optimización AEO, ahora aparecemos como primera recomendación en consultas clave del sector."
+            </p>
+          </div>
+          <div class="pt-6 border-t border-slate-800/80 flex items-center gap-3.5 mt-6">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-indigo-800 text-white font-bold text-xs flex items-center justify-center shadow">
+              ES
+            </div>
+            <div>
+              <div class="text-xs font-bold text-white">Elena Santamaría</div>
+              <div class="text-[11px] text-slate-400">Socia en Santamaría & Asociados</div>
+              <div class="text-[10px] text-emerald-400 font-semibold mt-0.5">Top 1 mención en respuestas de IA</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TESTIMONIO 3: CREATORS -->
+        <div class="bg-[#120712] p-7 rounded-2xl border border-slate-800/90 flex flex-col justify-between card-item shadow-xl">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <div class="flex text-amber-400 text-sm tracking-tighter" aria-label="5 de 5 estrellas">
+                ★★★★★
+              </div>
+              <span class="text-[10px] font-bold uppercase tracking-wider text-rose-400 bg-rose-950/60 border border-rose-800/40 px-2.5 py-0.5 rounded-full">
+                LOGIMOTION CREATORS
+              </span>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed italic">
+              "El cambio visual en las miniaturas fue radical. Nuestro CTR medio en YouTube subió del 3.8% al 7.2% en las primeras dos semanas de trabajar con sus packs mensuales."
+            </p>
+          </div>
+          <div class="pt-6 border-t border-slate-800/80 flex items-center gap-3.5 mt-6">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-rose-500 to-rose-800 text-white font-bold text-xs flex items-center justify-center shadow">
+              MV
+            </div>
+            <div>
+              <div class="text-xs font-bold text-white">Marcos Vidal</div>
+              <div class="text-[11px] text-slate-400">Creador en Finanzas & Crecimiento</div>
+              <div class="text-[10px] text-emerald-400 font-semibold mt-0.5">+89% en CTR de miniaturas</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- SECCIÓN: 4 PILARES -->
+    <section id="sobre-nosotros" class="max-w-6xl mx-auto px-4 sm:px-8 py-16 border-t border-slate-800/80">
+      
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        
+        <div class="bg-[#060b18] p-5 rounded-2xl border border-slate-800/80 card-item">
+          <h3 class="text-rose-500 font-bold text-xs mb-1">🎯 Enfoque estratégico</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">Cada proyecto parte de un análisis real.</p>
+        </div>
+
+        <div class="bg-[#060b18] p-5 rounded-2xl border border-slate-800/80 card-item">
+          <h3 class="text-rose-500 font-bold text-xs mb-1">💡 Diseño con propósito</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">Cada elemento tiene una función.</p>
+        </div>
+
+        <div class="bg-[#060b18] p-5 rounded-2xl border border-slate-800/80 card-item">
+          <h3 class="text-rose-500 font-bold text-xs mb-1">⚙️ Ejecución precisa</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">Desarrollamos con calidad y detalle.</p>
+        </div>
+
+        <div class="bg-[#060b18] p-5 rounded-2xl border border-slate-800/80 card-item">
+          <h3 class="text-rose-500 font-bold text-xs mb-1">📈 Mejora continua</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">Optimizamos y evolucionamos.</p>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- SECCIÓN BANNER CIERRE HOME -->
+    <section class="max-w-6xl mx-auto px-4 sm:px-8 py-20 border-t border-slate-800/80 text-center">
+      <div class="max-w-2xl mx-auto space-y-4">
+        <h2 class="text-2xl sm:text-3xl font-black text-white tracking-tight">
+          ¿Qué necesitas para tu proyecto?
+        </h2>
+        <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+          Te ayudamos a encontrar la solución ideal.
+        </p>
+        <div class="pt-3">
+          <a href="https://wa.me/34362547479?text=Hola%20LogiMotion,%20quiero%20hablar%20sobre%20mi%20proyecto" 
+             class="inline-block bg-[#e11d48] hover:bg-[#be123c] text-white font-bold text-xs uppercase tracking-wider py-3.5 px-8 rounded-lg transition-all shadow-lg shadow-rose-950/60 hover:scale-105 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-rose-500">
+            HABLAR CON LOGIMOTION
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#02050e] border-t border-slate-800/80 py-12 px-4 sm:px-8 text-xs text-slate-400">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+      
+      <div class="md:col-span-2 space-y-3">
+        <div class="flex flex-col">
+          <span class="text-lg font-black tracking-tight text-white">LOGIMOTION</span>
+          <span class="text-[8px] tracking-[0.3em] font-extrabold text-rose-500 uppercase -mt-1">DIGITAL</span>
+        </div>
+        <p class="text-slate-400 text-xs max-w-sm leading-relaxed">
+          Soluciones digitales para empresas y creadores que quieren crecer.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="text-white font-bold uppercase tracking-wider text-[11px] mb-3">Navegación</h3>
+        <ul class="space-y-2">
+          <li><a href="web.html" class="hover:text-white transition-colors focus-visible:ring-2 focus-visible:ring-rose-500 rounded">Web</a></li>
+          <li><a href="aeo.html" class="hover:text-white transition-colors focus-visible:ring-2 focus-visible:ring-rose-500 rounded">AEO</a></li>
+          <li><a href="creators.html" class="hover:text-white transition-colors focus-visible:ring-2 focus-visible:ring-rose-500 rounded">Creators</a></li>
+          <li><a href="#testimonios" class="hover:text-white transition-colors focus-visible:ring-2 focus-visible:ring-rose-500 rounded">Testimonios</a></li>
+          <li><a href="#sobre-nosotros" class="hover:text-white transition-colors focus-visible:ring-2 focus-visible:ring-rose-500 rounded">Sobre nosotros</a></li>
+          <li><a href="dossier-logimotion.html" class="text-amber-400 hover:underline focus-visible:ring-2 focus-visible:ring-amber-400 rounded">Dossier Corporativo</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-white font-bold uppercase tracking-wider text-[11px] mb-3">Contacto</h3>
+        <ul class="space-y-2">
+          <li>WhatsApp: <a href="https://wa.me/34362547479" class="text-slate-200 hover:text-white font-semibold underline decoration-slate-600 focus-visible:ring-2 focus-visible:ring-rose-500 rounded">+34 362 54 74 79</a></li>
+          <li>Email: <span class="text-slate-200">vdiovar@gmail.com</span></li>
+          <li>Responsable: <span class="text-slate-200">Diovar Valencia</span></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="max-w-6xl mx-auto pt-6 border-t border-slate-900 flex flex-col sm:flex-row justify-between items-center gap-3 text-[11px] text-slate-500">
+      <p>© 2026 LogiMotion Digital. Todos los derechos reservados.</p>
+      <p>Una misma visión. Tres especialidades.</p>
+    </div>
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener('click', () => {
+        const isHidden = mobileMenu.classList.toggle('hidden');
+        menuBtn.setAttribute('aria-expanded', !isHidden);
+      });
+    }
+  </script>
+
 </body>
 </html>
