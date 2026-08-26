@@ -5,13 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LogiMotion AEO • Answer Engine Optimization</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- THREE.JS PARA CEREBRO NEURONAL 3D INTERACTIVO -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap');
     
     :root {
       --bg-main: #030712;
       --bg-card: #081022;
-      --border-card: rgba(255, 255, 255, 0.07);
+      --border-card: rgba(255, 255, 255, 0.08);
+      --violet-accent: #818cf8;
     }
 
     body { 
@@ -48,16 +51,16 @@
     }
 
     .glow-violet {
-      box-shadow: 0 0 50px -10px rgba(129, 140, 248, 0.3);
+      box-shadow: 0 0 60px -10px rgba(129, 140, 248, 0.35);
     }
     .glow-violet-card {
-      box-shadow: 0 0 35px -5px rgba(129, 140, 248, 0.3);
+      box-shadow: 0 0 35px -5px rgba(129, 140, 248, 0.35);
     }
   </style>
 </head>
 <body class="min-h-screen flex flex-col antialiased selection:bg-indigo-500 selection:text-white">
 
-  <!-- HEADER GLOBAL (EXACTO AL MOCKUP) -->
+  <!-- HEADER GLOBAL -->
   <header class="sticky top-0 z-50 backdrop-blur-xl bg-[#030712]/90 border-b border-slate-800/80">
     <div class="max-w-6xl mx-auto px-4 sm:px-8 h-20 flex items-center justify-between">
       
@@ -145,40 +148,26 @@
 
       </div>
 
-      <!-- COLUMNA DERECHA: CEREBRO / RED NEURONAL -->
+      <!-- COLUMNA DERECHA: RED NEURONAL 3D INTERACTIVA CON THREE.JS -->
       <div class="lg:col-span-5 flex justify-center items-center relative reveal reveal-delay-2 active">
         <div class="w-full max-w-[380px] aspect-square relative flex items-center justify-center">
           
-          <div class="absolute inset-0 bg-indigo-600/25 rounded-full blur-3xl -z-10"></div>
+          <div class="absolute inset-0 bg-indigo-600/30 rounded-full blur-3xl -z-10"></div>
 
-          <div class="relative w-72 h-72 sm:w-80 sm:h-80 bg-gradient-to-br from-[#180e2b] via-[#091124] to-[#040814] rounded-3xl border border-indigo-500/40 p-6 flex flex-col justify-between shadow-2xl glow-violet card-hover">
+          <!-- MARCO TARJETA AEO -->
+          <div class="relative w-full h-full bg-gradient-to-br from-[#180e2b] via-[#091124] to-[#040814] rounded-3xl border border-indigo-500/40 p-5 flex flex-col justify-between shadow-2xl glow-violet overflow-hidden">
             
-            <div class="flex justify-between items-center text-[10px] font-mono text-indigo-300">
+            <div class="flex justify-between items-center text-[10px] font-mono text-indigo-300 z-10">
               <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-indigo-400 animate-ping"></span> IA KNOWLEDGE GRAPH</span>
               <span>LLM RECOGNITION</span>
             </div>
 
-            <div class="my-auto flex flex-col items-center justify-center relative">
-              <div class="relative w-32 h-32 flex items-center justify-center">
-                
-                <div class="w-20 h-20 rounded-2xl bg-indigo-950/90 border-2 border-indigo-400 flex items-center justify-center shadow-lg text-indigo-300">
-                  <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
-                </div>
-
-                <div class="absolute -top-2 left-0 bg-slate-900/90 border border-indigo-400/60 text-[10px] font-bold text-indigo-300 px-2.5 py-0.5 rounded-full shadow">
-                  Entidad
-                </div>
-                <div class="absolute -bottom-2 right-0 bg-slate-900/90 border border-indigo-400/60 text-[10px] font-bold text-indigo-300 px-2.5 py-0.5 rounded-full shadow">
-                  Schema JSON-LD
-                </div>
-                <div class="absolute top-1/2 -right-4 bg-slate-900/90 border border-indigo-400/60 text-[10px] font-bold text-indigo-300 px-2.5 py-0.5 rounded-full shadow">
-                  Fuentes
-                </div>
-
-              </div>
+            <!-- CANVAS 3D CEREBRO SEMÁNTICO -->
+            <div class="relative w-full h-56 flex items-center justify-center my-auto">
+              <canvas id="aeo3dCanvas" class="w-full h-full cursor-grab active:cursor-grabbing"></canvas>
             </div>
 
-            <div class="flex justify-between items-center text-[10px] font-semibold text-slate-400 border-t border-slate-800/80 pt-3">
+            <div class="flex justify-between items-center text-[10px] font-semibold text-slate-400 border-t border-slate-800/80 pt-3 z-10">
               <span class="text-slate-300">ANSWER ENGINE OPTIMIZATION</span>
               <span class="text-indigo-400 font-mono">LOGIMOTION AEO</span>
             </div>
@@ -388,11 +377,10 @@
 
   </main>
 
-  <!-- FOOTER GLOBAL (EXACTO AL MOCKUP) -->
+  <!-- FOOTER GLOBAL -->
   <footer class="bg-[#02050e] border-t border-slate-800/80 py-12 px-4 sm:px-8 text-xs text-slate-400">
     <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
       
-      <!-- LOGO + DESCRIPCIÓN -->
       <div class="md:col-span-2 space-y-3">
         <div class="flex flex-col">
           <span class="text-lg font-black tracking-tight text-white">LOGIMOTION</span>
@@ -403,7 +391,6 @@
         </p>
       </div>
 
-      <!-- NAVEGACIÓN -->
       <div>
         <h4 class="text-white font-bold uppercase tracking-wider text-[11px] mb-3">Navegación</h4>
         <ul class="space-y-2">
@@ -415,7 +402,6 @@
         </ul>
       </div>
 
-      <!-- CONTACTO OFICIAL -->
       <div>
         <h4 class="text-white font-bold uppercase tracking-wider text-[11px] mb-3">Contacto</h4>
         <ul class="space-y-2">
@@ -427,13 +413,13 @@
 
     </div>
 
-    <!-- COPYRIGHT -->
     <div class="max-w-6xl mx-auto pt-6 border-t border-slate-900 flex flex-col sm:flex-row justify-between items-center gap-3 text-[11px] text-slate-500">
       <p>© 2026 LogiMotion Digital. Todos los derechos reservados.</p>
       <p>LogiMotion AEO • Answer Engine Optimization.</p>
     </div>
   </footer>
 
+  <!-- SCRIPT THREE.JS: MOTOR 3D DE RED NEURONAL AEO -->
   <script>
     const menuBtn = document.getElementById('mobileMenuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
@@ -454,8 +440,100 @@
       threshold: 0.15,
       rootMargin: "0px 0px -40px 0px"
     });
-
     revealElements.forEach(el => observer.observe(el));
+
+    // THREE.JS 3D NEURAL SPHERE
+    (function init3DAeo() {
+      const canvas = document.getElementById('aeo3dCanvas');
+      if (!canvas) return;
+
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(45, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
+      camera.position.set(0, 0, 4.5);
+
+      const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+      renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+      const group = new THREE.Group();
+      scene.add(group);
+
+      // CREAR 50 NODOS NEURONALES CON CONEXIONES
+      const nodeCount = 45;
+      const nodes = [];
+      const nodeGeo = new THREE.SphereGeometry(0.045, 12, 12);
+      const nodeMat = new THREE.MeshBasicMaterial({ color: 0x818cf8 });
+      const cyanMat = new THREE.MeshBasicMaterial({ color: 0x38bdf8 });
+
+      for (let i = 0; i < nodeCount; i++) {
+        const phi = Math.acos(-1 + (2 * i) / nodeCount);
+        const theta = Math.sqrt(nodeCount * Math.PI) * phi;
+        const radius = 1.35;
+
+        const x = radius * Math.cos(theta) * Math.sin(phi);
+        const y = radius * Math.sin(theta) * Math.sin(phi);
+        const z = radius * Math.cos(phi);
+
+        const mesh = new THREE.Mesh(nodeGeo, i % 3 === 0 ? cyanMat : nodeMat);
+        mesh.position.set(x, y, z);
+        group.add(mesh);
+        nodes.push(mesh.position);
+      }
+
+      // LÍNEAS DE SINAPSIS CONECTADAS
+      const lineMat = new THREE.LineBasicMaterial({ color: 0x6366f1, transparent: true, opacity: 0.25 });
+      for (let i = 0; i < nodeCount; i++) {
+        for (let j = i + 1; j < nodeCount; j++) {
+          if (nodes[i].distanceTo(nodes[j]) < 0.9) {
+            const lineGeo = new THREE.BufferGeometry().setFromPoints([nodes[i], nodes[j]]);
+            const line = new THREE.Line(lineGeo, lineMat);
+            group.add(line);
+          }
+        }
+      }
+
+      // ANILLO ORBITAL DE DATOS
+      const ringGeo = new THREE.TorusGeometry(1.65, 0.015, 16, 100);
+      const ringMat = new THREE.MeshBasicMaterial({ color: 0xa855f7, transparent: true, opacity: 0.6 });
+      const ringMesh = new THREE.Mesh(ringGeo, ringMat);
+      ringMesh.rotation.x = Math.PI / 2.5;
+      group.add(ringMesh);
+
+      // INTERACTIVIDAD RATÓN
+      let mouseX = 0, mouseY = 0;
+      let targetX = 0, targetY = 0;
+
+      window.addEventListener('mousemove', (e) => {
+        const rect = canvas.getBoundingClientRect();
+        if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+          mouseX = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
+          mouseY = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
+        }
+      });
+
+      function animate() {
+        requestAnimationFrame(animate);
+
+        targetX += (mouseX - targetX) * 0.05;
+        targetY += (mouseY - targetY) * 0.05;
+
+        group.rotation.y += 0.006;
+        group.rotation.x = targetY * 0.5;
+        group.rotation.z = -targetX * 0.3;
+
+        ringMesh.rotation.z += 0.01;
+
+        renderer.render(scene, camera);
+      }
+      animate();
+
+      window.addEventListener('resize', () => {
+        if (!canvas) return;
+        camera.aspect = canvas.clientWidth / canvas.clientHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+      });
+    })();
   </script>
 
 </body>
