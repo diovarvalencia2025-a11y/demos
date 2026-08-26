@@ -422,14 +422,11 @@
     document.addEventListener("DOMContentLoaded", () => {
       gsap.registerPlugin(ScrollTrigger);
 
-      // 1. Hero text reveal suave al cargar
-      gsap.from("main section:first-child h1, main section:first-child p, main section:first-child a", {
-        y: 35,
-        opacity: 0,
-        duration: 1.1,
-        stagger: 0.15,
-        ease: "power3.out"
-      });
+      // 1. Hero reveal limpio que nunca oculta botones
+      gsap.fromTo("main section:first-child h1, main section:first-child p, main section:first-child a", 
+        { y: 20, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.8, stagger: 0.1, ease: "power2.out", clearProps: "transform,opacity" }
+      );
 
       // 2. Parallax de expansión suave en las 3 tarjetas de especialidades
       const specialtyCards = gsap.utils.toArray("#especialidades .card-item");
