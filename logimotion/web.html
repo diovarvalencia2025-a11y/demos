@@ -444,7 +444,11 @@
     </div>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+
   <script>
+    // MENÚ MÓVIL
     const menuBtn = document.getElementById('mobileMenuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
     if (menuBtn && mobileMenu) {
@@ -453,6 +457,75 @@
         menuBtn.setAttribute('aria-expanded', !isHidden);
       });
     }
+
+    // GSAP + SCROLLTRIGGER: PARALLAX Y EXPANSIÓN SUAVE
+    document.addEventListener("DOMContentLoaded", () => {
+      gsap.registerPlugin(ScrollTrigger);
+
+      // 1. Hero text reveal
+      gsap.from("main section:first-child h1, main section:first-child p, main section:first-child div a", {
+        y: 30,
+        opacity: 0,
+        duration: 1,
+        stagger: 0.15,
+        ease: "power3.out"
+      });
+
+      // 2. Parallax de expansión en los 5 iconos circulares
+      gsap.from(".lg\\:grid-cols-5 > div", {
+        scale: 0.7,
+        y: 40,
+        opacity: 0.2,
+        stagger: 0.12,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: ".lg\\:grid-cols-5",
+          start: "top 85%",
+          end: "top 55%",
+          scrub: 1
+        }
+      });
+
+      // 3. Parallax de expansión suave en el Showcase de Proyectos Web
+      const projectCards = gsap.utils.toArray("#proyectos .card-item");
+      projectCards.forEach((card) => {
+        gsap.fromTo(card,
+          { scale: 0.88, y: 55, opacity: 0.3 },
+          {
+            scale: 1,
+            y: 0,
+            opacity: 1,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: card,
+              start: "top 88%",
+              end: "top 58%",
+              scrub: 1.2
+            }
+          }
+        );
+      });
+
+      // 4. Parallax de expansión en las Tarjetas de Precios
+      const planCards = gsap.utils.toArray("#planes .card-item");
+      planCards.forEach((card) => {
+        gsap.fromTo(card,
+          { scale: 0.90, y: 50, opacity: 0.4 },
+          {
+            scale: 1,
+            y: 0,
+            opacity: 1,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: card,
+              start: "top 90%",
+              end: "top 60%",
+              scrub: 1.2
+            }
+          }
+        );
+      });
+    });
   </script>
 
 </body>

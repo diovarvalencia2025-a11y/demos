@@ -404,7 +404,11 @@
     </div>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+
   <script>
+    // MENÚ MÓVIL
     const menuBtn = document.getElementById('mobileMenuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
     if (menuBtn && mobileMenu) {
@@ -413,6 +417,87 @@
         menuBtn.setAttribute('aria-expanded', !isHidden);
       });
     }
+
+    // GSAP + SCROLLTRIGGER: PARALLAX Y EXPANSIÓN SUAVE
+    document.addEventListener("DOMContentLoaded", () => {
+      gsap.registerPlugin(ScrollTrigger);
+
+      // 1. Hero text reveal suave al cargar
+      gsap.from("main section:first-child h1, main section:first-child p, main section:first-child a", {
+        y: 35,
+        opacity: 0,
+        duration: 1.1,
+        stagger: 0.15,
+        ease: "power3.out"
+      });
+
+      // 2. Parallax de expansión suave en las 3 tarjetas de especialidades
+      const specialtyCards = gsap.utils.toArray("#especialidades .card-item");
+      specialtyCards.forEach((card, index) => {
+        gsap.fromTo(card, 
+          { 
+            scale: 0.90, 
+            y: 60, 
+            opacity: 0.3 
+          },
+          {
+            scale: 1,
+            y: 0,
+            opacity: 1,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: card,
+              start: "top 88%",
+              end: "top 55%",
+              scrub: 1.2,
+              toggleActions: "play reverse play reverse"
+            }
+          }
+        );
+      });
+
+      // 3. Parallax de expansión suave en los Testimonios
+      const testimonialCards = gsap.utils.toArray("#testimonios .card-item");
+      testimonialCards.forEach((card) => {
+        gsap.fromTo(card,
+          { 
+            scale: 0.88, 
+            y: 50, 
+            opacity: 0.4 
+          },
+          {
+            scale: 1,
+            y: 0,
+            opacity: 1,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: card,
+              start: "top 90%",
+              end: "top 60%",
+              scrub: 1.2
+            }
+          }
+        );
+      });
+
+      // 4. Expansión y parallax en los 4 pilares
+      const pillars = gsap.utils.toArray("#sobre-nosotros .card-item");
+      gsap.fromTo(pillars,
+        { scale: 0.92, y: 40, opacity: 0.3 },
+        {
+          scale: 1,
+          y: 0,
+          opacity: 1,
+          stagger: 0.1,
+          scrollTrigger: {
+            trigger: "#sobre-nosotros",
+            start: "top 85%",
+            end: "top 55%",
+            scrub: 1
+          }
+        }
+      );
+    });
   </script>
 
 </body>
