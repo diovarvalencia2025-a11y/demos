@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dossier Comercial y Tarifas Oficiales • LogiMotion AEO</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap');
+    
+    :root {
+      --bg-main: #070d1e;
+      --bg-card: #0e172e;
+      --bg-card-elevated: #152244;
+      --border-card: rgba(255, 255, 255, 0.08);
+      --sky-primary: #38bdf8;
+      --sky-hover: #0284c7;
+      --emerald-positive: #10b981;
+    }
+
+    body { 
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg-main);
+      color: #f8fafc;
+    }
+
+    @media print {
+      body { 
+        background: #ffffff !important; 
+        color: #0f172a !important; 
+        padding: 0 !important; 
+        font-size: 10pt !important; 
+      }
+      .no-print { display: none !important; }
+      .print-container { 
+        box-shadow: none !important; 
+        border: none !important; 
+        max-width: 100% !important; 
+        margin: 0 !important; 
+        padding: 0 !important;
+      }
+      .print-card {
+        background: #f8fafc !important;
+        border: 1px solid #cbd5e1 !important;
+        color: #0f172a !important;
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+      .print-heading { color: #0f172a !important; }
+      .print-muted { color: #475569 !important; }
+      .print-price { color: #0369a1 !important; }
+    }
+  </style>
+</head>
+<body class="min-h-screen py-6 px-3 sm:px-8 antialiased selection:bg-sky-500 selection:text-slate-950">
+
+  <!-- CONTENEDOR PRINCIPAL -->
+  <main class="max-w-5xl mx-auto bg-[#091124] rounded-3xl shadow-2xl overflow-hidden border border-slate-800/90 print-container">
+    
+    <!-- CABECERA INSTITUCIONAL -->
+    <header class="border-b border-slate-800/80 bg-gradient-to-b from-[#0e172e] to-[#091124] p-6 sm:p-10 relative">
+      <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6">
+        
+        <!-- LOGO Y DIVISIÓN -->
+        <div>
+          <div class="flex items-center gap-2 mb-2">
+            <span class="text-xs uppercase tracking-widest text-sky-400 font-bold px-2.5 py-1 rounded-full bg-sky-950/80 border border-sky-800/50">
+              División Especializada • LogiMotion Digital
+            </span>
+          </div>
+          <h1 class="text-3xl sm:text-4xl font-black tracking-tight text-white flex items-center gap-2">
+            LOGIMOTION <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-400">AEO</span>
+          </h1>
+          <p class="text-sm sm:text-base text-slate-400 mt-1">Answer Engine Optimization • Estructuración Semántica para Motores de Respuesta e IA</p>
+        </div>
+
+        <!-- CONTACTO EJECUTIVO -->
+        <div class="flex flex-col items-start sm:items-end text-xs sm:text-sm text-slate-300 gap-1.5 bg-slate-900/60 p-4 rounded-2xl border border-slate-800 w-full sm:w-auto">
+          <div class="flex items-center gap-2">
+            <span class="text-slate-400">Responsable:</span>
+            <strong class="text-white font-semibold">Diovar Valencia</strong>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-slate-400">WhatsApp:</span>
+            <a href="https://wa.me/34362547479" class="text-sky-400 hover:text-sky-300 font-bold underline decoration-sky-400/40">+34 362 54 74 79</a>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-slate-400">Email:</span>
+            <span class="text-slate-200">vdiovar@gmail.com</span>
+          </div>
+        </div>
+
+      </div>
+    </header>
+
+    <!-- PROPUESTA DE VALOR Y ENFOQUE TÉCNICO -->
+    <section class="p-6 sm:p-10 border-b border-slate-800/80">
+      <div class="bg-gradient-to-r from-sky-950/40 via-indigo-950/20 to-slate-900/50 p-6 sm:p-8 rounded-2xl border border-sky-900/40">
+        <h2 class="text-xl sm:text-2xl font-bold text-white mb-3">
+          ¿Cómo interactúan los sistemas de IA con la información de tu empresa?
+        </h2>
+        <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-4">
+          Cada día más usuarios y empresas consultan directamente a herramientas como <strong>ChatGPT, Perplexity, Claude y Gemini</strong> para encontrar proveedores, despachos y servicios profesionales. Estos sistemas no leen la web como los buscadores tradicionales; buscan <strong class="text-sky-300">entidades claras, datos estructurados, información coherente y fuentes verificables</strong>.
+        </p>
+        <div class="bg-slate-900/90 p-4 rounded-xl border border-slate-800 text-xs sm:text-sm text-slate-300 flex items-start gap-3">
+          <span class="text-sky-400 text-lg font-bold">ℹ️</span>
+          <div>
+            <strong class="text-white">Principio de Transparencia y Rigor:</strong> 
+            LogiMotion AEO no promete posicionamiento garantizado ni resultados mágicos que dependan de terceros. Nuestro trabajo consiste en <strong>auditar, estructurar, corregir inconsistencias e implementar datos semánticos profesionales</strong> para facilitar que tu empresa sea comprendida correctamente por los motores de respuesta.
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 FASES DE METODOLOGÍA -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+        <div class="bg-slate-900/70 p-5 rounded-2xl border border-slate-800">
+          <div class="text-xs font-bold uppercase tracking-wider text-sky-400 mb-2">Fase 1</div>
+          <h3 class="text-base font-bold text-white mb-2">Auditoría en Evidencias</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Detección de vacíos de información, análisis de entidad, inconsistencias de datos públicos y cómo responden actualmente los LLMs en tu categoría.
+          </p>
+        </div>
+
+        <div class="bg-slate-900/70 p-5 rounded-2xl border border-slate-800">
+          <div class="text-xs font-bold uppercase tracking-wider text-sky-400 mb-2">Fase 2</div>
+          <h3 class="text-base font-bold text-white mb-2">Estructuración Semántica</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Redacción de perfil semántico, bloques de preguntas clave (Q&A) de alta precisión e inyección de Schema JSON-LD cuando técnicamente proceda.
+          </p>
+        </div>
+
+        <div class="bg-slate-900/70 p-5 rounded-2xl border border-slate-800">
+          <div class="text-xs font-bold uppercase tracking-wider text-sky-400 mb-2">Fase 3</div>
+          <h3 class="text-base font-bold text-white mb-2">Presencia y Fuentes</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Optimización en directorios sectoriales, fuentes de referencia pública y menciones verificables. Cero prácticas engañosas o reseñas artificiales.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESO DE TRABAJO EN 5 PASOS -->
+    <section class="p-6 sm:p-10 border-b border-slate-800/80">
+      <div class="mb-6">
+        <span class="text-xs font-bold uppercase tracking-widest text-sky-400 block mb-1">Metodología Clara</span>
+        <h2 class="text-xl sm:text-2xl font-bold text-white">¿Cómo trabajamos?</h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
+        <!-- PASO 1 -->
+        <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800/80 flex flex-col justify-between">
+          <div>
+            <span class="text-xs font-black text-sky-400 block mb-1">01</span>
+            <h3 class="text-sm font-bold text-white mb-1">Contratación</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">Definimos el alcance y recopilamos la información necesaria.</p>
+          </div>
+        </div>
+
+        <!-- PASO 2 -->
+        <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800/80 flex flex-col justify-between">
+          <div>
+            <span class="text-xs font-black text-sky-400 block mb-1">02</span>
+            <h3 class="text-sm font-bold text-white mb-1">Auditoría</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">Analizamos presencia digital, entidad, fuentes y oportunidades.</p>
+          </div>
+        </div>
+
+        <!-- PASO 3 -->
+        <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800/80 flex flex-col justify-between">
+          <div>
+            <span class="text-xs font-black text-sky-400 block mb-1">03</span>
+            <h3 class="text-sm font-bold text-white mb-1">Estructuración</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">Organizamos datos y desarrollamos mejoras semánticas.</p>
+          </div>
+        </div>
+
+        <!-- PASO 4 -->
+        <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800/80 flex flex-col justify-between">
+          <div>
+            <span class="text-xs font-black text-sky-400 block mb-1">04</span>
+            <h3 class="text-sm font-bold text-white mb-1">Implementación</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">Aplicamos las mejoras técnicamente cuando corresponda.</p>
+          </div>
+        </div>
+
+        <!-- PASO 5 -->
+        <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800/80 flex flex-col justify-between">
+          <div>
+            <span class="text-xs font-black text-sky-400 block mb-1">05</span>
+            <h3 class="text-sm font-bold text-white mb-1">Seguimiento</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">Monitorizamos evolución en los servicios recurrentes.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TARIFAS OFICIALES -->
+    <section class="p-6 sm:p-10 border-b border-slate-800/80">
+      <div class="text-center max-w-2xl mx-auto mb-6">
+        <span class="text-xs font-bold uppercase tracking-widest text-sky-400 block mb-1">Servicios Oficiales</span>
+        <h2 class="text-2xl sm:text-3xl font-black text-white">Tarifas y Modalidades de Contratación</h2>
+        <div class="mt-3 p-3 bg-slate-900/90 rounded-xl border border-slate-800 text-xs sm:text-sm text-slate-300 leading-relaxed">
+          <strong class="text-white">El Setup es el punto de partida:</strong> analiza, organiza y prepara la estructura inicial. 
+          <span class="text-slate-400 block sm:inline mt-1 sm:mt-0">Los Retainers están diseñados para empresas que necesitan mantenimiento, optimización y seguimiento continuo.</span>
+        </div>
+      </div>
+
+      <!-- PRODUCTO DE ENTRADA: SETUP -->
+      <div class="bg-gradient-to-r from-sky-950/60 to-slate-900/90 rounded-2xl p-6 sm:p-8 border border-sky-500/30 mb-8 relative overflow-hidden">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+          <div>
+            <span class="bg-sky-500 text-slate-950 font-extrabold text-[10px] uppercase tracking-wider px-3 py-1 rounded-full mb-3 inline-block">
+              Producto de Entrada • Puesta a Punto
+            </span>
+            <h3 class="text-2xl font-black text-white">AEO Setup Completo</h3>
+            <p class="text-sm text-slate-300 mt-1 max-w-xl">
+              El servicio fundamental para auditar, organizar y dotar a tu empresa de una estructura semántica profesional en la web.
+            </p>
+            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-300 mt-4">
+              <li class="flex items-center gap-2"><span class="text-emerald-400">✔</span> Auditoría inicial de presencia y entidad</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-400">✔</span> Detección de inconsistencias y datos ausentes</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-400">✔</span> Perfil semántico empresarial para LLMs</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-400">✔</span> Estructura de preguntas y respuestas (Q&A)</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-400">✔</span> Código Schema JSON-LD listo para tu web</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-400">✔</span> Informe Profesional de Oportunidades</li>
+            </ul>
+          </div>
+          <div class="bg-slate-950/80 p-6 rounded-2xl border border-sky-800/40 text-center w-full md:w-auto min-w-[200px]">
+            <span class="text-xs text-slate-400 block mb-1">Precio Público Oficial</span>
+            <div class="text-4xl font-black text-white">290 €</div>
+            <span class="text-[11px] text-sky-400 font-medium block mt-1">Pago único / Sin cuotas</span>
+            <a href="https://wa.me/34362547479?text=Hola%20Diovar,%20quiero%20contratar%20el%20AEO%20Setup%20(290€)" 
+               class="mt-4 block w-full bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold text-xs py-2.5 px-4 rounded-xl transition-all shadow-md">
+              Solicitar Setup
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- SERVICIOS RECURRENTES: RETAINERS -->
+      <h3 class="text-lg font-bold text-white mb-4">Servicios Recurrentes de Optimización y Monitorización (Retainers)</h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <!-- BÁSICO -->
+        <div class="bg-slate-900/80 rounded-2xl p-6 border border-slate-800 flex flex-col justify-between">
+          <div>
+            <h4 class="text-lg font-bold text-white">Retainer Básico</h4>
+            <p class="text-xs text-slate-400 mt-1 mb-4">Mantenimiento y monitorización esencial mensual.</p>
+            <div class="text-3xl font-black text-white mb-4">450 € <span class="text-xs font-normal text-slate-400">/ mes</span></div>
+            <ul class="space-y-2 text-xs text-slate-300 border-t border-slate-800/80 pt-4">
+              <li class="flex items-center gap-2"><span class="text-sky-400">✔</span> Monitorización periódica de consultas</li>
+              <li class="flex items-center gap-2"><span class="text-sky-400">✔</span> Mantenimiento de datos estructurados</li>
+              <li class="flex items-center gap-2"><span class="text-sky-400">✔</span> Revisión de información corporativa</li>
+              <li class="flex items-center gap-2"><span class="text-sky-400">✔</span> Pequeñas optimizaciones de contenido</li>
+              <li class="flex items-center gap-2"><span class="text-sky-400">✔</span> Informe mensual de recomendaciones</li>
+            </ul>
+          </div>
+          <a href="https://wa.me/34362547479?text=Hola%20Diovar,%20me%20interesa%20el%20Retainer%20Básico%20AEO%20(450€/mes)" 
+             class="mt-6 block text-center bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs py-2.5 px-4 rounded-xl transition-all">
+            Consultar Básico
+          </a>
+        </div>
+
+        <!-- PROFESIONAL (DESTACADO) -->
+        <div class="bg-gradient-to-b from-[#152244] to-[#0e172e] rounded-2xl p-6 border-2 border-sky-500 flex flex-col justify-between relative shadow-xl shadow-sky-950/40">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-sky-500 text-slate-950 text-[10px] uppercase tracking-wider font-black px-3 py-0.5 rounded-full">
+            Recomendado
+          </div>
+          <div>
+            <h4 class="text-lg font-bold text-white">Retainer Profesional</h4>
+            <p class="text-xs text-sky-200/80 mt-1 mb-4">Trabajo activo de desarrollo semántico continuo.</p>
+            <div class="text-3xl font-black text-white">650 € <span class="text-xs font-normal text-slate-300">/ mes</span></div>
+            <span class="text-[11px] text-emerald-400 font-medium block mb-4">Tarifa negociada habitual: 600 €/mes</span>
+            <ul class="space-y-2 text-xs text-slate-200 border-t border-sky-800/40 pt-4">
+              <li class="flex items-center gap-2"><span class="text-emerald-400">✔</span> Todo lo incluido en Retainer Básico</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-400">✔</span> Mayor frecuencia de monitorización</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-400">✔</span> Desarrollo de contenido semántico</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-400">✔</span> Revisión y optimización de fuentes</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-400">✔</span> Detección de nuevas oportunidades</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-400">✔</span> Informe bimestral de evolución</li>
+            </ul>
+          </div>
+          <a href="https://wa.me/34362547479?text=Hola%20Diovar,%20me%20interesa%20el%20Retainer%20Profesional%20AEO%20(650€/mes)" 
+             class="mt-6 block text-center bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold text-xs py-2.5 px-4 rounded-xl transition-all shadow-md shadow-sky-500/20">
+            Contratar Profesional
+          </a>
+        </div>
+
+        <!-- AVANZADO -->
+        <div class="bg-slate-900/80 rounded-2xl p-6 border border-slate-800 flex flex-col justify-between">
+          <div>
+            <h4 class="text-lg font-bold text-white">Retainer Avanzado</h4>
+            <p class="text-xs text-slate-400 mt-1 mb-4">Para firmas con alta exigencia y catálogo amplio.</p>
+            <div class="text-3xl font-black text-white">1.000 € <span class="text-xs font-normal text-slate-400">/ mes</span></div>
+            <span class="text-[11px] text-emerald-400 font-medium block mb-4">Tarifa negociada habitual: 950 €/mes</span>
+            <ul class="space-y-2 text-xs text-slate-300 border-t border-slate-800/80 pt-4">
+              <li class="flex items-center gap-2"><span class="text-sky-400">✔</span> Todo lo incluido en Profesional</li>
+              <li class="flex items-center gap-2"><span class="text-sky-400">✔</span> Profundidad analítica y auditorías avanzadas</li>
+              <li class="flex items-center gap-2"><span class="text-sky-400">✔</span> Estrategia integral de contenidos</li>
+              <li class="flex items-center gap-2"><span class="text-sky-400">✔</span> Análisis exhaustivo de competencia</li>
+              <li class="flex items-center gap-2"><span class="text-sky-400">✔</span> Presencia en fuentes sectoriales</li>
+              <li class="flex items-center gap-2"><span class="text-sky-400">✔</span> Consultoría ejecutiva directa</li>
+            </ul>
+          </div>
+          <a href="https://wa.me/34362547479?text=Hola%20Diovar,%20me%20interesa%20el%20Retainer%20Avanzado%20AEO%20(1000€/mes)" 
+             class="mt-6 block text-center bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs py-2.5 px-4 rounded-xl transition-all">
+            Consultar Avanzado
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECCIÓN FINAL DE CONVERSIÓN -->
+    <section class="p-6 sm:p-10 border-b border-slate-800/80 bg-gradient-to-b from-[#091124] to-[#0e1a38]">
+      <div class="max-w-2xl mx-auto text-center">
+        <h2 class="text-xl sm:text-2xl font-black text-white mb-3">
+          ¿Quieres saber qué está entendiendo actualmente la IA sobre tu empresa?
+        </h2>
+        <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-6">
+          Podemos analizar tu presencia digital, detectar vacíos, inconsistencias y oportunidades y mostrarte qué aspectos pueden mejorarse.
+        </p>
+
+        <!-- CTA PRINCIPAL -->
+        <a href="https://wa.me/34362547479?text=Hola%20Diovar,%20quiero%20solicitar%20una%20Auditoría%20AEO%20para%20mi%20empresa" 
+           class="inline-block bg-sky-500 hover:bg-sky-400 text-slate-950 font-black text-sm py-3.5 px-8 rounded-2xl transition-all shadow-lg shadow-sky-500/25">
+          SOLICITAR AUDITORÍA AEO
+        </a>
+
+        <!-- CTA SECUNDARIO -->
+        <div class="mt-6 pt-6 border-t border-slate-800/60">
+          <p class="text-xs text-slate-400 mb-3">También puedes solicitar información sobre nuestros planes de optimización mensual.</p>
+          <a href="https://wa.me/34362547479?text=Hola%20Diovar,%20quiero%20más%20información%20sobre%20los%20Planes%20AEO%20mensuales" 
+             class="inline-block text-sky-400 hover:text-sky-300 font-bold text-xs underline decoration-sky-400/40">
+            CONSULTAR PLANES AEO →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- POLÍTICA DE CONTRATACIÓN Y CONDICIONES -->
+    <footer class="p-6 sm:p-10 bg-slate-950/80 flex flex-col sm:flex-row justify-between items-center gap-6">
+      <div class="text-xs text-slate-400 space-y-1">
+        <p><strong class="text-white font-semibold">LogiMotion Digital</strong> • Todos los derechos reservados.</p>
+        <p>Servicios profesionales de consultoría y desarrollo de software • Sin permanencia obligatoria en retainers.</p>
+      </div>
+      <div class="flex items-center gap-3 no-print">
+        <button onclick="window.print()" class="bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold text-xs py-2 px-4 rounded-xl transition-all flex items-center gap-1.5 border border-slate-700">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+          Descargar en PDF
+        </button>
+      </div>
+    </footer>
+
+  </main>
+
+</body>
+</html>

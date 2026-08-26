@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dossier Corporativo Oficial • LogiMotion Digital</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap');
+    
+    :root {
+      --bg-main: #070d1e;
+      --bg-card: #0e172e;
+      --bg-card-elevated: #152244;
+      --border-card: rgba(255, 255, 255, 0.08);
+      --gold-primary: #fbbf24;
+      --emerald-positive: #10b981;
+    }
+
+    body { 
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg-main);
+      color: #f8fafc;
+    }
+
+    @media print {
+      body { 
+        background: #ffffff !important; 
+        color: #0f172a !important; 
+        padding: 0 !important; 
+        font-size: 10pt !important; 
+      }
+      .no-print { display: none !important; }
+      .print-container { 
+        box-shadow: none !important; 
+        border: none !important; 
+        max-width: 100% !important; 
+        margin: 0 !important; 
+        padding: 0 !important;
+      }
+      .print-card {
+        background: #f8fafc !important;
+        border: 1px solid #cbd5e1 !important;
+        color: #0f172a !important;
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+      .print-heading { color: #0f172a !important; }
+      .print-muted { color: #475569 !important; }
+      .print-price { color: #b45309 !important; }
+    }
+  </style>
+</head>
+<body class="min-h-screen py-6 px-3 sm:px-8 antialiased selection:bg-amber-400 selection:text-slate-950">
+
+  <!-- CONTENEDOR PRINCIPAL DEL DOSSIER CORPORATIVO -->
+  <main class="max-w-5xl mx-auto bg-[#091124] rounded-3xl shadow-2xl overflow-hidden border border-slate-800/90 print-container">
+    
+    <!-- PÁGINA 01 — PORTADA CORPORATIVA -->
+    <header class="border-b border-slate-800/80 bg-gradient-to-b from-[#0e172e] via-[#091124] to-[#070d1e] p-8 sm:p-14 relative overflow-hidden">
+      <div class="max-w-3xl">
+        <div class="flex items-center gap-2 mb-4">
+          <span class="text-xs uppercase tracking-widest text-amber-400 font-bold px-3 py-1 rounded-full bg-amber-950/60 border border-amber-800/40">
+            Dossier Corporativo General • Presentación Oficial
+          </span>
+        </div>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white mb-4">
+          LOGIMOTION <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-200 to-white">DIGITAL</span>
+        </h1>
+        <p class="text-lg sm:text-xl text-slate-300 font-medium leading-relaxed max-w-2xl">
+          Soluciones digitales diseñadas para una presencia que importa.
+        </p>
+      </div>
+
+      <!-- CONTACTO EJECUTIVO DE CABECERA -->
+      <div class="mt-8 pt-6 border-t border-slate-800/80 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 text-xs sm:text-sm text-slate-400">
+        <div>
+          Director de Proyectos: <strong class="text-white font-semibold">Diovar Valencia</strong>
+        </div>
+        <div class="flex items-center gap-4">
+          <span>WhatsApp: <a href="https://wa.me/34362547479" class="text-amber-400 font-bold hover:underline">+34 362 54 74 79</a></span>
+          <span>Email: <span class="text-slate-200">vdiovar@gmail.com</span></span>
+        </div>
+      </div>
+    </header>
+
+    <!-- PÁGINA 02 — QUIÉNES SOMOS -->
+    <section class="p-6 sm:p-12 border-b border-slate-800/80">
+      <div class="max-w-3xl">
+        <span class="text-xs font-bold uppercase tracking-widest text-amber-400 block mb-2">Identidad Corporativa</span>
+        <h2 class="text-2xl sm:text-3xl font-black text-white mb-4">Una misma visión. Tres especialidades.</h2>
+        <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-4">
+          LogiMotion Digital desarrolla soluciones digitales especializadas para empresas y creadores, combinando estrategia, diseño, tecnología y ejecución.
+        </p>
+        <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+          No creemos en soluciones genéricas ni en catálogos dispersos. Operamos mediante tres unidades de trabajo altamente enfocadas, garantizando que cada proyecto reciba exactamente la metodología, el rigor y la dirección de arte que su objetivo demanda.
+        </p>
+      </div>
+    </section>
+
+    <!-- PÁGINA 03 — NUESTRO ECOSISTEMA -->
+    <section class="p-6 sm:p-12 border-b border-slate-800/80 bg-slate-950/40">
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <span class="text-xs font-bold uppercase tracking-widest text-amber-400 block mb-1">Estructura de la Firma</span>
+        <h2 class="text-2xl sm:text-3xl font-black text-white">Tres especialidades. Un mismo estándar.</h2>
+        <p class="text-xs sm:text-sm text-slate-400 mt-2">Unidades especializadas dentro de una misma firma digital.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- BLOQUE 1: WEB -->
+        <div class="bg-slate-900/80 p-6 rounded-2xl border border-slate-800 flex flex-col justify-between">
+          <div>
+            <span class="text-[10px] uppercase font-bold tracking-wider text-amber-400 px-2 py-0.5 bg-amber-950/50 rounded border border-amber-800/30 inline-block mb-3">01 • Experiencia Web</span>
+            <h3 class="text-lg font-bold text-white mb-2">LogiMotion Web</h3>
+            <p class="text-xs text-slate-400 leading-relaxed mb-4">
+              Diseño y desarrollo de experiencias web profesionales, ultrarrápidas y optimizadas para la captación local y la conversión móvil.
+            </p>
+            <div class="text-[11px] text-slate-300 border-t border-slate-800/80 pt-3">
+              <strong class="text-slate-200">Problema que aborda:</strong> Negocios con páginas rotas, lentas o sin presencia web profesional.
+            </div>
+          </div>
+          <a href="https://diovarvalencia2025-a11y.github.io/demos/dossier.html" 
+             class="mt-6 block text-center bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs py-2.5 px-4 rounded-xl transition-all border border-slate-700">
+            Ver Solución Web →
+          </a>
+        </div>
+
+        <!-- BLOQUE 2: AEO -->
+        <div class="bg-slate-900/80 p-6 rounded-2xl border border-slate-800 flex flex-col justify-between">
+          <div>
+            <span class="text-[10px] uppercase font-bold tracking-wider text-sky-400 px-2 py-0.5 bg-sky-950/50 rounded border border-sky-800/30 inline-block mb-3">02 • Inteligencia Semántica</span>
+            <h3 class="text-lg font-bold text-white mb-2">LogiMotion AEO</h3>
+            <p class="text-xs text-slate-400 leading-relaxed mb-4">
+              Optimización de la presencia digital para facilitar que una empresa sea comprendida correctamente por los motores de respuesta basados en IA.
+            </p>
+            <div class="text-[11px] text-slate-300 border-t border-slate-800/80 pt-3">
+              <strong class="text-slate-200">Problema que aborda:</strong> Empresas con información inconsistente o invisible para ChatGPT, Perplexity y Gemini.
+            </div>
+          </div>
+          <a href="https://diovarvalencia2025-a11y.github.io/demos/dossier-aeo.html" 
+             class="mt-6 block text-center bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs py-2.5 px-4 rounded-xl transition-all border border-slate-700">
+            Ver Solución AEO →
+          </a>
+        </div>
+
+        <!-- BLOQUE 3: CREATORS -->
+        <div class="bg-slate-900/80 p-6 rounded-2xl border border-slate-800 flex flex-col justify-between">
+          <div>
+            <span class="text-[10px] uppercase font-bold tracking-wider text-rose-400 px-2 py-0.5 bg-rose-950/50 rounded border border-rose-800/30 inline-block mb-3">03 • Contenido Visual</span>
+            <h3 class="text-lg font-bold text-white mb-2">LogiMotion Creators</h3>
+            <p class="text-xs text-slate-400 leading-relaxed mb-4">
+              Diseño y estrategia visual de miniaturas para YouTube orientadas a potenciar el impacto visual y la consistencia de canal.
+            </p>
+            <div class="text-[11px] text-slate-300 border-t border-slate-800/80 pt-3">
+              <strong class="text-slate-200">Problema que aborda:</strong> Canales con buen contenido pero con miniaturas de bajo contraste o difícil lectura en móvil.
+            </div>
+          </div>
+          <a href="https://diovarvalencia2025-a11y.github.io/demos/dossier-creators.html" 
+             class="mt-6 block text-center bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs py-2.5 px-4 rounded-xl transition-all border border-slate-700">
+            Ver Solución Creators →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PÁGINA 04 — LOGIMOTION WEB (RESUMEN EJECUTIVO) -->
+    <section class="p-6 sm:p-12 border-b border-slate-800/80">
+      <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8">
+        <div class="max-w-xl">
+          <span class="text-xs font-bold uppercase tracking-widest text-amber-400 block mb-1">División Especializada</span>
+          <h2 class="text-2xl sm:text-3xl font-black text-white mb-3">LogiMotion Web</h2>
+          <h3 class="text-base text-slate-300 font-semibold mb-3">Presencia digital que trabaja para tu negocio.</h3>
+          <p class="text-xs sm:text-sm text-slate-400 leading-relaxed mb-4">
+            Desarrollamos páginas web a medida para negocios locales y profesionales independientes. Diseños limpios, velocidad de carga instantánea, integración de reseñas reales de Google Maps y botones directos de contacto para llamadas y WhatsApp.
+          </p>
+          <div class="flex flex-wrap gap-2 text-xs text-slate-300">
+            <span class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800">Plan Start: <strong>190 €</strong></span>
+            <span class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800">Plan Profesional: <strong>250 €</strong></span>
+            <span class="px-2.5 py-1 rounded-lg bg-amber-950/40 border border-amber-800/30 text-amber-300">Todo Incluido: <strong>190 € + 35 €/mes</strong></span>
+          </div>
+        </div>
+        <div class="w-full lg:w-auto min-w-[220px]">
+          <a href="https://diovarvalencia2025-a11y.github.io/demos/dossier.html" 
+             class="block text-center bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs py-3 px-6 rounded-xl transition-all shadow-md shadow-amber-500/10">
+            Descubre la solución Web →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PÁGINA 05 — LOGIMOTION AEO (RESUMEN EJECUTIVO) -->
+    <section class="p-6 sm:p-12 border-b border-slate-800/80 bg-slate-950/20">
+      <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8">
+        <div class="max-w-xl">
+          <span class="text-xs font-bold uppercase tracking-widest text-sky-400 block mb-1">División Especializada</span>
+          <h2 class="text-2xl sm:text-3xl font-black text-white mb-3">LogiMotion AEO</h2>
+          <h3 class="text-base text-slate-300 font-semibold mb-3">Que tu empresa sea comprendida también por la nueva generación de motores de respuesta.</h3>
+          <p class="text-xs sm:text-sm text-slate-400 leading-relaxed mb-4">
+            Auditoría de presencia, resolución de inconsistencias, creación del perfil semántico e implementación de datos estructurados (Schema JSON-LD) para que sistemas como ChatGPT, Perplexity y Claude interpreten tus servicios con rigor.
+          </p>
+          <div class="flex flex-wrap gap-2 text-xs text-slate-300">
+            <span class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800">AEO Setup: <strong>290 €</strong></span>
+            <span class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800">Retainers: <strong>450 € / 650 € / 1.000 €/mes</strong></span>
+          </div>
+        </div>
+        <div class="w-full lg:w-auto min-w-[220px]">
+          <a href="https://diovarvalencia2025-a11y.github.io/demos/dossier-aeo.html" 
+             class="block text-center bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold text-xs py-3 px-6 rounded-xl transition-all shadow-md shadow-sky-500/10">
+            Descubre LogiMotion AEO →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PÁGINA 06 — LOGIMOTION CREATORS (RESUMEN EJECUTIVO) -->
+    <section class="p-6 sm:p-12 border-b border-slate-800/80">
+      <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8">
+        <div class="max-w-xl">
+          <span class="text-xs font-bold uppercase tracking-widest text-rose-400 block mb-1">División Especializada</span>
+          <h2 class="text-2xl sm:text-3xl font-black text-white mb-3">LogiMotion Creators</h2>
+          <h3 class="text-base text-slate-300 font-semibold mb-3">Tu contenido merece una primera impresión a la altura.</h3>
+          <p class="text-xs sm:text-sm text-slate-400 leading-relaxed mb-4">
+            Diseño profesional y dirección de arte en miniaturas para YouTube. Combinamos composición estratégica, contraste nítido, legibilidad inmediata en móvil y entregas ágiles habituales en 24–48h.
+          </p>
+          <div class="flex flex-wrap gap-2 text-xs text-slate-300">
+            <span class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800">Starter: <strong>49 €/mes</strong></span>
+            <span class="px-2.5 py-1 rounded-lg bg-rose-950/50 border border-rose-800/40 text-rose-300 font-semibold">★ Creator: <strong>89 €/mes</strong> (Recomendado)</span>
+            <span class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800">Growth: <strong>159 €/mes</strong></span>
+          </div>
+        </div>
+        <div class="w-full lg:w-auto min-w-[220px]">
+          <a href="https://diovarvalencia2025-a11y.github.io/demos/dossier-creators.html" 
+             class="block text-center bg-rose-600 hover:bg-rose-500 text-white font-bold text-xs py-3 px-6 rounded-xl transition-all shadow-md shadow-rose-950/40">
+            Descubre LogiMotion Creators →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PÁGINA 07 — CÓMO TRABAJAMOS -->
+    <section class="p-6 sm:p-12 border-b border-slate-800/80 bg-slate-950/40">
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-amber-400 block mb-1">Filosofía de Trabajo</span>
+        <h2 class="text-2xl sm:text-3xl font-black text-white">De la necesidad a la solución.</h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+        <div class="bg-slate-900/70 p-4 rounded-xl border border-slate-800">
+          <span class="text-xs font-black text-amber-400 block mb-1">01</span>
+          <h3 class="text-xs font-bold text-white mb-1">Entendemos</h3>
+          <p class="text-[11px] text-slate-400 leading-relaxed">Analizamos la necesidad real y el contexto del proyecto.</p>
+        </div>
+        <div class="bg-slate-900/70 p-4 rounded-xl border border-slate-800">
+          <span class="text-xs font-black text-amber-400 block mb-1">02</span>
+          <h3 class="text-xs font-bold text-white mb-1">Definimos</h3>
+          <p class="text-[11px] text-slate-400 leading-relaxed">Identificamos la solución y división adecuada.</p>
+        </div>
+        <div class="bg-slate-900/70 p-4 rounded-xl border border-slate-800">
+          <span class="text-xs font-black text-amber-400 block mb-1">03</span>
+          <h3 class="text-xs font-bold text-white mb-1">Diseñamos</h3>
+          <p class="text-[11px] text-slate-400 leading-relaxed">Construimos una propuesta visual y estratégica clara.</p>
+        </div>
+        <div class="bg-slate-900/70 p-4 rounded-xl border border-slate-800">
+          <span class="text-xs font-black text-amber-400 block mb-1">04</span>
+          <h3 class="text-xs font-bold text-white mb-1">Implementamos</h3>
+          <p class="text-[11px] text-slate-400 leading-relaxed">Convertimos la propuesta en un entregable funcional.</p>
+        </div>
+        <div class="bg-slate-900/70 p-4 rounded-xl border border-slate-800">
+          <span class="text-xs font-black text-amber-400 block mb-1">05</span>
+          <h3 class="text-xs font-bold text-white mb-1">Optimizamos</h3>
+          <p class="text-[11px] text-slate-400 leading-relaxed">Evolucionamos y mantenemos el servicio cuando corresponde.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PÁGINA 08 — POR QUÉ LOGIMOTION -->
+    <section class="p-6 sm:p-12 border-b border-slate-800/80">
+      <div class="max-w-2xl mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-amber-400 block mb-1">Nuestros Principios</span>
+        <h2 class="text-2xl sm:text-3xl font-black text-white">Un estándar de trabajo. Tres formas de aplicarlo.</h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 text-xs text-slate-300">
+        <div class="p-4 rounded-xl bg-slate-900/40 border border-slate-800/80">
+          <strong class="text-white block text-sm mb-1">Claridad y Transparencia</strong>
+          <p class="text-slate-400 leading-relaxed">Sin falsas promesas algorítmicas ni lenguaje inflado. Explicamos exactamente qué hacemos y el alcance de cada entrega.</p>
+        </div>
+        <div class="p-4 rounded-xl bg-slate-900/40 border border-slate-800/80">
+          <strong class="text-white block text-sm mb-1">Estrategia + Diseño</strong>
+          <p class="text-slate-400 leading-relaxed">La tecnología y la IA son herramientas de aceleración; el criterio visual y la jerarquía dependen de dirección profesional.</p>
+        </div>
+        <div class="p-4 rounded-xl bg-slate-900/40 border border-slate-800/80">
+          <strong class="text-white block text-sm mb-1">Ejecución y Atención al Detalle</strong>
+          <p class="text-slate-400 leading-relaxed">Entregables ágiles, código semántico limpio y respeto absoluto por la identidad y necesidades de cada cliente.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PÁGINA 09 — ENCUENTRA TU SOLUCIÓN -->
+    <section class="p-6 sm:p-12 border-b border-slate-800/80 bg-slate-950/40">
+      <div class="text-center max-w-2xl mx-auto mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-amber-400 block mb-1">Guía Rápida</span>
+        <h2 class="text-2xl sm:text-3xl font-black text-white">¿Qué necesita tu proyecto?</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+        <div class="p-5 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
+          <div>
+            <div class="text-amber-400 font-bold text-sm mb-1">LogiMotion Web</div>
+            <p class="text-slate-300 leading-relaxed">
+              Si necesitas construir, renovar o acelerar la presencia web de tu negocio local o profesional para captar clientes en móvil.
+            </p>
+          </div>
+          <a href="https://diovarvalencia2025-a11y.github.io/demos/dossier.html" class="text-amber-400 hover:underline mt-4 inline-block font-semibold">Ver dossier Web →</a>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
+          <div>
+            <div class="text-sky-400 font-bold text-sm mb-1">LogiMotion AEO</div>
+            <p class="text-slate-300 leading-relaxed">
+              Si ya tienes presencia web y deseas estructurar tus datos y resolver inconsistencias para los motores de respuesta de IA.
+            </p>
+          </div>
+          <a href="https://diovarvalencia2025-a11y.github.io/demos/dossier-aeo.html" class="text-sky-400 hover:underline mt-4 inline-block font-semibold">Ver dossier AEO →</a>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
+          <div>
+            <div class="text-rose-400 font-bold text-sm mb-1">LogiMotion Creators</div>
+            <p class="text-slate-300 leading-relaxed">
+              Si produces contenido en YouTube y necesitas un flujo constante de miniaturas profesionales con alta legibilidad y contraste.
+            </p>
+          </div>
+          <a href="https://diovarvalencia2025-a11y.github.io/demos/dossier-creators.html" class="text-rose-400 hover:underline mt-4 inline-block font-semibold">Ver dossier Creators →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PÁGINA 10 — CIERRE / CONTACTO CORPORATIVO -->
+    <section class="p-8 sm:p-14 text-center bg-gradient-to-b from-[#091124] to-[#070d1e] border-b border-slate-800/80">
+      <div class="max-w-2xl mx-auto">
+        <h2 class="text-2xl sm:text-3xl font-black text-white mb-3">
+          Empecemos por lo que realmente necesitas.
+        </h2>
+        <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-6">
+          Cuéntanos qué quieres mejorar y analizaremos qué solución de LogiMotion encaja mejor con tu proyecto.
+        </p>
+
+        <!-- CTA PRINCIPAL -->
+        <a href="https://wa.me/34362547479?text=Hola%20Diovar,%20quiero%20hacer%20una%20consulta%20general%20sobre%20LogiMotion%20Digital" 
+           class="inline-block bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-sm py-3.5 px-8 rounded-2xl transition-all shadow-lg shadow-amber-500/10">
+          HABLAR CON LOGIMOTION
+        </a>
+      </div>
+    </section>
+
+    <!-- PIE DE PÁGINA INSTITUCIONAL -->
+    <footer class="p-6 sm:p-10 bg-slate-950 flex flex-col sm:flex-row justify-between items-center gap-6 text-xs text-slate-400">
+      <div class="space-y-1 text-center sm:text-left">
+        <p><strong class="text-white font-semibold">LOGIMOTION DIGITAL</strong> • Todos los derechos reservados.</p>
+        <p>Una firma digital. Tres especialidades: Web, AEO y Creators.</p>
+      </div>
+      <div class="flex items-center gap-3 no-print">
+        <button onclick="window.print()" class="bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold text-xs py-2 px-4 rounded-xl transition-all flex items-center gap-1.5 border border-slate-700">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+          Descargar en PDF
+        </button>
+      </div>
+    </footer>
+
+  </main>
+
+</body>
+</html>
