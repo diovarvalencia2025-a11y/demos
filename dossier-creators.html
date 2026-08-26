@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dossier Comercial y Tarifas Oficiales • LogiMotion Creators</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap');
+    
+    :root {
+      --bg-main: #070d1e;
+      --bg-card: #0e172e;
+      --bg-card-elevated: #152244;
+      --border-card: rgba(255, 255, 255, 0.08);
+      --red-yt: #ef4444;
+      --gold-primary: #fbbf24;
+      --emerald-positive: #10b981;
+    }
+
+    body { 
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg-main);
+      color: #f8fafc;
+    }
+
+    @media print {
+      body { 
+        background: #ffffff !important; 
+        color: #0f172a !important; 
+        padding: 0 !important; 
+        font-size: 10pt !important; 
+      }
+      .no-print { display: none !important; }
+      .print-container { 
+        box-shadow: none !important; 
+        border: none !important; 
+        max-width: 100% !important; 
+        margin: 0 !important; 
+        padding: 0 !important;
+      }
+      .print-card {
+        background: #f8fafc !important;
+        border: 1px solid #cbd5e1 !important;
+        color: #0f172a !important;
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+      .print-heading { color: #0f172a !important; }
+      .print-muted { color: #475569 !important; }
+      .print-price { color: #dc2626 !important; }
+    }
+  </style>
+</head>
+<body class="min-h-screen py-6 px-3 sm:px-8 antialiased selection:bg-rose-500 selection:text-white">
+
+  <!-- CONTENEDOR PRINCIPAL -->
+  <main class="max-w-5xl mx-auto bg-[#091124] rounded-3xl shadow-2xl overflow-hidden border border-slate-800/90 print-container">
+    
+    <!-- CABECERA INSTITUCIONAL -->
+    <header class="border-b border-slate-800/80 bg-gradient-to-b from-[#180d1e] to-[#091124] p-6 sm:p-10 relative">
+      <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6">
+        
+        <!-- LOGO Y DIVISIÓN -->
+        <div>
+          <div class="flex items-center gap-2 mb-2">
+            <span class="text-xs uppercase tracking-widest text-rose-400 font-bold px-2.5 py-1 rounded-full bg-rose-950/80 border border-rose-800/50">
+              División de Diseño para Creadores • LogiMotion Digital
+            </span>
+          </div>
+          <h1 class="text-3xl sm:text-4xl font-black tracking-tight text-white flex items-center gap-2">
+            LOGIMOTION <span class="text-transparent bg-clip-text bg-gradient-to-r from-rose-400 via-amber-400 to-orange-400">CREATORS</span>
+          </h1>
+          <p class="text-sm sm:text-base text-slate-400 mt-1">Diseño y Estrategia Visual de Miniaturas de Alto CTR para YouTube</p>
+        </div>
+
+        <!-- CONTACTO EJECUTIVO -->
+        <div class="flex flex-col items-start sm:items-end text-xs sm:text-sm text-slate-300 gap-1.5 bg-slate-900/60 p-4 rounded-2xl border border-slate-800 w-full sm:w-auto">
+          <div class="flex items-center gap-2">
+            <span class="text-slate-400">Responsable:</span>
+            <strong class="text-white font-semibold">Diovar Valencia</strong>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-slate-400">WhatsApp:</span>
+            <a href="https://wa.me/34362547479" class="text-rose-400 hover:text-rose-300 font-bold underline decoration-rose-400/40">+34 362 54 74 79</a>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-slate-400">Email:</span>
+            <span class="text-slate-200">vdiovar@gmail.com</span>
+          </div>
+        </div>
+
+      </div>
+    </header>
+
+    <!-- PROPUESTA DE VALOR Y FILOSOFÍA -->
+    <section class="p-6 sm:p-10 border-b border-slate-800/80">
+      <div class="bg-gradient-to-r from-rose-950/40 via-amber-950/20 to-slate-900/50 p-6 sm:p-8 rounded-2xl border border-rose-900/40">
+        <h2 class="text-xl sm:text-2xl font-bold text-white mb-3">
+          ¿Por qué la miniatura decide el éxito o fracaso de tu vídeo?
+        </h2>
+        <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-4">
+          En YouTube, el algoritmo no recomienda vídeos basándose únicamente en la calidad del guion: la primera métrica crítica es la <strong>Tasa de Clics (CTR)</strong>. Una miniatura con bajo contraste, texto ilegible o composición saturada hace que miles de espectadores pasen de largo en su feed.
+        </p>
+        <div class="bg-slate-900/90 p-4 rounded-xl border border-slate-800 text-xs sm:text-sm text-slate-300 flex items-start gap-3">
+          <span class="text-amber-400 text-lg font-bold">💡</span>
+          <div>
+            <strong class="text-white">Nuestra Fórmula:</strong> 
+            <span class="text-amber-300 font-semibold">«LA IA NO ES EL PRODUCTO»</span>. Nuestro producto es: <strong>DISEÑO PROFESIONAL + ESTRATEGIA VISUAL + VELOCIDAD + CONSISTENCIA</strong>. La IA acelera la exploración de conceptos; la dirección de arte humana garantiza que cada miniatura funcione con máxima nitidez en pantallas móviles.
+          </div>
+        </div>
+      </div>
+
+      <!-- 4 PILARES DEL SISTEMA DE MINIATURAS -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mt-6">
+        <div class="bg-slate-900/70 p-4 rounded-2xl border border-slate-800">
+          <div class="text-rose-400 font-bold text-base mb-1">01. Contraste Extremo</div>
+          <p class="text-xs text-slate-400">Separación clara entre sujeto, fondo y elementos para destacar en modo oscuro y claro.</p>
+        </div>
+        <div class="bg-slate-900/70 p-4 rounded-2xl border border-slate-800">
+          <div class="text-amber-400 font-bold text-base mb-1">02. Lectura Inmediata</div>
+          <p class="text-xs text-slate-400">Tipografía de gran impacto y máximo 2 a 4 palabras clave que provocan curiosidad.</p>
+        </div>
+        <div class="bg-slate-900/70 p-4 rounded-2xl border border-slate-800">
+          <div class="text-sky-400 font-bold text-base mb-1">03. Coherencia y Marca</div>
+          <p class="text-xs text-slate-400">Consistencia visual para que tu audiencia reconozca tus vídeos al instante.</p>
+        </div>
+        <div class="bg-slate-900/70 p-4 rounded-2xl border border-slate-800">
+          <div class="text-emerald-400 font-bold text-base mb-1">04. Rapidez 24-48h</div>
+          <p class="text-xs text-slate-400">Entregas ágiles y organizadas para que nunca te retrases en tu calendario de publicación.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TARIFAS Y PAQUETES OFICIALES -->
+    <section class="p-6 sm:p-10 border-b border-slate-800/80">
+      <div class="text-center max-w-2xl mx-auto mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-rose-400 block mb-1">Packs Mensuales</span>
+        <h2 class="text-2xl sm:text-3xl font-black text-white">Planes de Suscripción para Creadores</h2>
+        <p class="text-sm text-slate-400 mt-2">Flexibilidad mensual sin permanencias obligatorias.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <!-- PACK STARTER -->
+        <div class="bg-slate-900/80 rounded-2xl p-6 border border-slate-800 flex flex-col justify-between">
+          <div>
+            <span class="text-xs uppercase tracking-wider font-bold text-slate-400 block mb-1">1 Vídeo por semana</span>
+            <h3 class="text-xl font-bold text-white">Pack Starter</h3>
+            <p class="text-xs text-slate-400 mt-1 mb-4">Para creadores constantes con publicación semanal.</p>
+            <div class="text-4xl font-black text-white mb-1">49 € <span class="text-xs font-normal text-slate-400">/ mes</span></div>
+            <span class="text-xs text-rose-400 font-semibold block mb-4">4 Miniaturas mensuales (~12,25 € / ud)</span>
+            <ul class="space-y-2 text-xs text-slate-300 border-t border-slate-800/80 pt-4">
+              <li class="flex items-center gap-2"><span class="text-emerald-400">✔</span> 4 Miniaturas 16:9 en alta resolución</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-400">✔</span> Optimización de contraste y tipografía</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-400">✔</span> 1 Ronda de revisión por miniatura</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-400">✔</span> Entrega ágil en 24 a 48 horas</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-400">✔</span> Sin permanencia obligatoria</li>
+            </ul>
+          </div>
+          <a href="https://wa.me/34362547479?text=Hola%20Diovar,%20quiero%20contratar%20el%20Pack%20Starter%20de%20Miniaturas%20(49€/mes)" 
+             class="mt-6 block text-center bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs py-3 px-4 rounded-xl transition-all">
+            Elegir Starter
+          </a>
+        </div>
+
+        <!-- PACK CREATOR (DESTACADO / POPULAR) -->
+        <div class="bg-gradient-to-b from-[#2a1324] via-[#1a0e22] to-[#0e172e] rounded-2xl p-6 border-2 border-rose-500 flex flex-col justify-between relative shadow-2xl shadow-rose-950/50">
+          <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-rose-500 to-amber-500 text-slate-950 text-[10px] uppercase tracking-wider font-black px-3.5 py-1 rounded-full shadow-md">
+            ⭐ Recomendado / Más Popular
+          </div>
+          <div>
+            <span class="text-xs uppercase tracking-wider font-bold text-rose-300 block mb-1">2 Vídeos por semana</span>
+            <h3 class="text-xl font-bold text-white">Pack Creator</h3>
+            <p class="text-xs text-rose-200/80 mt-1 mb-4">El estándar óptimo para profesionalizar tu canal y escalar visitas.</p>
+            <div class="text-4xl font-black text-white mb-1">89 € <span class="text-xs font-normal text-slate-300">/ mes</span></div>
+            <span class="text-xs text-amber-300 font-semibold block mb-4">8 Miniaturas mensuales (~11,12 € / ud)</span>
+            <ul class="space-y-2 text-xs text-slate-200 border-t border-rose-800/40 pt-4">
+              <li class="flex items-center gap-2"><span class="text-emerald-400">✔</span> 8 Miniaturas 16:9 en alta resolución</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-400">✔</span> Análisis estratégico del gancho visual</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-400">✔</span> Hasta 2 variantes de concepto por vídeo</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-400">✔</span> Retoque facial, iluminación y fondo</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-400">✔</span> Hasta 2 rondas de revisión por entrega</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-400">✔</span> Entrega prioritaria en 24 horas</li>
+            </ul>
+          </div>
+          <a href="https://wa.me/34362547479?text=Hola%20Diovar,%20quiero%20contratar%20el%20Pack%20Creator%20de%20Miniaturas%20(89€/mes)" 
+             class="mt-6 block text-center bg-gradient-to-r from-rose-500 to-amber-500 hover:from-rose-400 hover:to-amber-400 text-slate-950 font-black text-xs py-3 px-4 rounded-xl transition-all shadow-lg shadow-rose-500/25">
+            Contratar Pack Creator
+          </a>
+        </div>
+
+        <!-- PACK GROWTH -->
+        <div class="bg-slate-900/80 rounded-2xl p-6 border border-slate-800 flex flex-col justify-between">
+          <div>
+            <span class="text-xs uppercase tracking-wider font-bold text-slate-400 block mb-1">Alta Frecuencia / Diarios</span>
+            <h3 class="text-xl font-bold text-white">Pack Growth</h3>
+            <p class="text-xs text-slate-400 mt-1 mb-4">Para creadores con alto volumen y cobertura de Shorts.</p>
+            <div class="text-4xl font-black text-white mb-1">159 € <span class="text-xs font-normal text-slate-400">/ mes</span></div>
+            <span class="text-xs text-rose-400 font-semibold block mb-4">15 Miniaturas mensuales (~10,60 € / ud)</span>
+            <ul class="space-y-2 text-xs text-slate-300 border-t border-slate-800/80 pt-4">
+              <li class="flex items-center gap-2"><span class="text-emerald-400">✔</span> 15 Miniaturas (Vídeos largos + Shorts)</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-400">✔</span> Estrategia visual global y branding</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-400">✔</span> Prioridad máxima en cola de diseño</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-400">✔</span> Adaptación a tendencias y virales</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-400">✔</span> Soporte directo prioritario WhatsApp</li>
+            </ul>
+          </div>
+          <a href="https://wa.me/34362547479?text=Hola%20Diovar,%20quiero%20contratar%20el%20Pack%20Growth%20de%20Miniaturas%20(159€/mes)" 
+             class="mt-6 block text-center bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs py-3 px-4 rounded-xl transition-all">
+            Elegir Growth
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PIE DE PÁGINA Y DESCARGA -->
+    <footer class="p-6 sm:p-10 bg-slate-950/80 flex flex-col sm:flex-row justify-between items-center gap-6">
+      <div class="text-xs text-slate-400 space-y-1">
+        <p><strong class="text-white font-semibold">LogiMotion Creators</strong> • Una división de LogiMotion Digital.</p>
+        <p>Servicios de diseño visual y dirección de arte para YouTube • Sin permanencia obligatoria.</p>
+      </div>
+      <div class="flex items-center gap-3 no-print">
+        <button onclick="window.print()" class="bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold text-xs py-2 px-4 rounded-xl transition-all flex items-center gap-1.5 border border-slate-700">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+          Descargar en PDF
+        </button>
+      </div>
+    </footer>
+
+  </main>
+
+</body>
+</html>
