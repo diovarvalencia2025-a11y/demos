@@ -3,16 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LogiMotion Web • Diseño y Desarrollo Web Profesional</title>
+  <title>LogiMotion Web • Presencia Digital</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap');
     
     :root {
-      --bg-main: #040814;
+      --bg-main: #030712;
       --bg-card: #081022;
-      --border-subtle: rgba(255, 255, 255, 0.08);
-      --sky-accent: #0284c7;
+      --border-card: rgba(255, 255, 255, 0.07);
     }
 
     body { 
@@ -22,11 +21,11 @@
       overflow-x: hidden;
     }
 
-    /* ANIMACIONES DE SCROLL Y REVEAL */
+    /* ANIMACIONES DE ENTRADA SCROLL */
     .reveal {
       opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: translateY(24px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
       will-change: opacity, transform;
     }
     
@@ -39,67 +38,64 @@
     .reveal-delay-2 { transition-delay: 0.2s; }
     .reveal-delay-3 { transition-delay: 0.3s; }
 
-    /* EFECTO 3D HOVER EN TARJETAS */
-    .card-3d {
-      transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+    /* EFECTO HOVER EN TARJETAS */
+    .card-hover {
+      transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
     }
-    .card-3d:hover {
-      transform: translateY(-6px);
+    .card-hover:hover {
+      transform: translateY(-5px);
     }
 
     .glow-blue {
-      box-shadow: 0 0 50px -10px rgba(2, 132, 199, 0.28);
+      box-shadow: 0 0 50px -10px rgba(2, 132, 199, 0.3);
     }
-
     .glow-blue-card {
-      box-shadow: 0 0 35px -5px rgba(2, 132, 199, 0.25);
+      box-shadow: 0 0 35px -5px rgba(2, 132, 199, 0.3);
     }
   </style>
 </head>
 <body class="min-h-screen flex flex-col antialiased selection:bg-sky-500 selection:text-slate-950">
 
-  <!-- HEADER / NAVEGACIÓN GLOBAL -->
-  <header class="sticky top-0 z-50 backdrop-blur-xl bg-[#040814]/90 border-b border-slate-800/80 transition-all duration-300">
+  <!-- HEADER GLOBAL (EXACTO AL MOCKUP) -->
+  <header class="sticky top-0 z-50 backdrop-blur-xl bg-[#030712]/90 border-b border-slate-800/80">
     <div class="max-w-6xl mx-auto px-4 sm:px-8 h-20 flex items-center justify-between">
       
       <!-- LOGO -->
-      <a href="index.html" class="flex flex-col group">
-        <span class="text-xl sm:text-2xl font-black tracking-tight text-white flex items-center gap-1 group-hover:opacity-90 transition-opacity">
+      <a href="index.html" class="flex flex-col">
+        <span class="text-xl sm:text-2xl font-black tracking-tight text-white">
           LOGIMOTION
         </span>
-        <span class="text-[9px] tracking-[0.3em] font-extrabold text-sky-400 uppercase -mt-1">
+        <span class="text-[8px] tracking-[0.35em] font-extrabold text-sky-400 uppercase -mt-1">
           DIGITAL
         </span>
       </a>
 
-      <!-- NAVEGACIÓN ESCRITORIO -->
+      <!-- NAVEGACIÓN -->
       <nav class="hidden md:flex items-center gap-8 text-xs font-semibold text-slate-300">
         <a href="index.html" class="hover:text-white transition-colors">Inicio</a>
         <a href="web.html" class="text-white font-bold transition-colors py-1 border-b-2 border-sky-400">Web</a>
-        <a href="aeo.html" class="hover:text-white hover:text-indigo-400 transition-colors">AEO</a>
-        <a href="creators.html" class="hover:text-white hover:text-rose-400 transition-colors">Creators</a>
+        <a href="aeo.html" class="hover:text-white transition-colors">AEO</a>
+        <a href="creators.html" class="hover:text-white transition-colors">Creators</a>
         <a href="index.html#sobre-nosotros" class="hover:text-white transition-colors">Sobre nosotros</a>
       </nav>
 
       <!-- CTA CONTACTAR -->
       <div class="hidden md:flex items-center">
         <a href="https://wa.me/34362547479?text=Hola%20LogiMotion,%20me%20interesa%20el%20servicio%20de%20diseño%20Web" 
-           class="bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold text-xs uppercase tracking-wider px-5 py-2.5 rounded-xl transition-all shadow-md shadow-sky-950/50 hover:shadow-sky-500/30 hover:scale-105">
-          Contactar
+           class="bg-[#0284c7] hover:bg-[#0369a1] text-white font-bold text-xs uppercase tracking-wider px-5 py-2.5 rounded-lg transition-all shadow-md shadow-sky-950/60 hover:scale-105">
+          CONTACTAR
         </a>
       </div>
 
       <!-- BOTÓN MENÚ MÓVIL -->
-      <button id="mobileMenuBtn" class="md:hidden text-slate-300 hover:text-white p-2 focus:outline-none" aria-label="Abrir menú">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-        </svg>
+      <button id="mobileMenuBtn" class="md:hidden text-slate-300 hover:text-white p-2" aria-label="Abrir menú">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
       </button>
 
     </div>
 
-    <!-- MENÚ MÓVIL DESPLEGABLE -->
-    <div id="mobileMenu" class="hidden md:hidden bg-[#060c1c] border-b border-slate-800 px-6 py-5 space-y-4 text-sm font-semibold text-slate-300">
+    <!-- MENÚ MÓVIL -->
+    <div id="mobileMenu" class="hidden md:hidden bg-[#050a16] border-b border-slate-800 px-6 py-5 space-y-4 text-sm font-semibold text-slate-300">
       <a href="index.html" class="block hover:text-white">Inicio</a>
       <a href="web.html" class="block text-sky-400 font-bold">Web</a>
       <a href="aeo.html" class="block hover:text-white">AEO</a>
@@ -107,27 +103,28 @@
       <a href="index.html#sobre-nosotros" class="block hover:text-white">Sobre nosotros</a>
       <div class="pt-2">
         <a href="https://wa.me/34362547479?text=Hola%20LogiMotion,%20me%20interesa%20el%20servicio%20de%20diseño%20Web" 
-           class="block text-center bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold text-xs uppercase tracking-wider py-3 rounded-xl">
-          Contactar
+           class="block text-center bg-[#0284c7] hover:bg-[#0369a1] text-white font-bold text-xs uppercase tracking-wider py-3 rounded-lg">
+          CONTACTAR
         </a>
       </div>
     </div>
   </header>
 
-  <!-- HERO PRINCIPAL (PANEL 2 - WEB) -->
+  <!-- CONTENIDO PRINCIPAL (PANEL 2 DEL MOCKUP) -->
   <main class="flex-grow">
     
-    <section class="max-w-6xl mx-auto px-4 sm:px-8 py-14 sm:py-20 lg:py-24 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative">
+    <!-- HERO SECTION -->
+    <section class="max-w-6xl mx-auto px-4 sm:px-8 py-16 sm:py-24 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative">
       
-      <!-- COLUMNA IZQUIERDA: MENSAJE HERO -->
+      <!-- COLUMNA IZQUIERDA -->
       <div class="lg:col-span-6 space-y-6 text-left reveal active">
         
-        <span class="inline-block text-[11px] font-extrabold uppercase tracking-widest text-sky-400 bg-sky-950/40 border border-sky-800/40 px-3 py-1 rounded-full">
+        <span class="inline-block text-[11px] font-extrabold uppercase tracking-widest text-[#0284c7]">
           LOGIMOTION WEB
         </span>
 
-        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-[1.1]">
-          Presencia digital que <span class="text-sky-400 underline decoration-sky-400/30">impulsa</span> tu negocio.
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-[1.12]">
+          Presencia digital que <span class="text-[#38bdf8]">impulsa</span> tu negocio.
         </h1>
 
         <p class="text-slate-300 text-sm sm:text-base leading-relaxed max-w-xl font-normal">
@@ -136,28 +133,26 @@
 
         <div class="flex flex-wrap items-center gap-4 pt-2">
           <a href="#planes" 
-             class="bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold text-xs uppercase tracking-wider py-3.5 px-8 rounded-xl transition-all shadow-lg shadow-sky-900/40 hover:shadow-sky-500/30 hover:scale-105">
+             class="bg-[#0284c7] hover:bg-[#0369a1] text-white font-bold text-xs uppercase tracking-wider py-3.5 px-8 rounded-lg transition-all shadow-lg shadow-sky-950/60 hover:scale-105">
             VER PLANES
           </a>
           <a href="https://wa.me/34362547479?text=Hola%20LogiMotion,%20quiero%20hablar%20con%20un%20experto%20sobre%20mi%20página%20Web" 
-             class="bg-slate-900 hover:bg-slate-800 text-white border border-slate-700 hover:border-sky-500/50 font-bold text-xs uppercase tracking-wider py-3.5 px-6 rounded-xl transition-all hover:scale-105">
+             class="bg-slate-900/90 hover:bg-slate-800 text-white border border-slate-700 font-bold text-xs uppercase tracking-wider py-3.5 px-6 rounded-lg transition-all hover:scale-105">
             HABLAR CON EXPERTOS
           </a>
         </div>
 
       </div>
 
-      <!-- COLUMNA DERECHA: PORTÁTIL / INTERFAZ WEB PROFESIONAL -->
+      <!-- COLUMNA DERECHA: LAPTOP MOCKUP EN PERSPECTIVA -->
       <div class="lg:col-span-6 flex justify-center items-center relative reveal reveal-delay-2 active">
         <div class="w-full max-w-[480px] relative">
           
-          <!-- LUZ AMBIENTAL AZUL -->
           <div class="absolute inset-0 bg-sky-500/20 rounded-full blur-3xl -z-10"></div>
 
-          <!-- MOCKUP LAPTOP ELEGANTE -->
-          <div class="bg-gradient-to-b from-[#15254d] via-[#091124] to-[#040814] rounded-2xl border-2 border-sky-500/40 p-4 sm:p-5 shadow-2xl glow-blue card-3d">
+          <!-- MOCKUP PORTÁTIL -->
+          <div class="bg-gradient-to-b from-[#132857] via-[#09142e] to-[#040816] rounded-2xl border-2 border-sky-500/40 p-4 sm:p-5 shadow-2xl glow-blue card-hover">
             
-            <!-- BARRA DE NAVEGADOR LAPTOP -->
             <div class="flex items-center justify-between border-b border-slate-800 pb-3 mb-4">
               <div class="flex items-center gap-1.5">
                 <div class="w-2.5 h-2.5 rounded-full bg-rose-500/80"></div>
@@ -170,21 +165,19 @@
               <div class="w-8"></div>
             </div>
 
-            <!-- CONTENIDO PANTALLA MOCKUP -->
             <div class="space-y-4 bg-slate-950/90 rounded-xl p-4 sm:p-5 border border-slate-800/80">
               <div class="space-y-1">
                 <span class="text-[10px] font-bold text-sky-400 uppercase tracking-widest">Web Profesional</span>
                 <h3 class="text-base sm:text-lg font-black text-white">Construimos experiencias digitales que convierten.</h3>
               </div>
 
-              <!-- 2 TARJETAS MOCKUP EN INTERFAZ -->
               <div class="grid grid-cols-2 gap-3 pt-2">
-                <div class="bg-[#0b1426] p-3 rounded-lg border border-slate-800 hover:border-sky-500/40 transition-colors">
+                <div class="bg-[#081022] p-3 rounded-lg border border-slate-800">
                   <div class="w-5 h-5 rounded bg-sky-500/20 text-sky-400 text-xs flex items-center justify-center font-bold mb-1.5">⚡</div>
                   <div class="text-xs font-bold text-white">Carga 100% Rápida</div>
                   <div class="text-[10px] text-slate-400">Score 95+ en Google</div>
                 </div>
-                <div class="bg-[#0b1426] p-3 rounded-lg border border-slate-800 hover:border-emerald-500/40 transition-colors">
+                <div class="bg-[#081022] p-3 rounded-lg border border-slate-800">
                   <div class="w-5 h-5 rounded bg-emerald-500/20 text-emerald-400 text-xs flex items-center justify-center font-bold mb-1.5">📱</div>
                   <div class="text-xs font-bold text-white">Contacto Directo</div>
                   <div class="text-[10px] text-slate-400">Llamada y WhatsApp</div>
@@ -199,7 +192,6 @@
 
           </div>
 
-          <!-- BASE DE TECLADO / REFLEJO -->
           <div class="h-3 bg-gradient-to-r from-slate-800 via-slate-700 to-slate-800 rounded-b-xl mx-6 border-t border-sky-400/30"></div>
 
         </div>
@@ -211,64 +203,63 @@
     <section class="max-w-6xl mx-auto px-4 sm:px-8 py-20 border-t border-slate-800/80">
       
       <div class="text-center max-w-xl mx-auto mb-14 reveal">
-        <span class="text-xs font-bold uppercase tracking-widest text-sky-400 block mb-2">CALIDAD DE ENTRADA</span>
-        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black text-white">¿Qué incluye nuestro servicio web?</h2>
+        <h2 class="text-2xl sm:text-3xl font-black text-white">¿Qué incluye nuestro servicio web?</h2>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
         
         <!-- ITEM 1 -->
-        <div class="bg-slate-900/60 p-5 rounded-2xl border border-slate-800 hover:border-sky-500/50 transition-all card-3d flex flex-col justify-between reveal reveal-delay-1">
+        <div class="bg-[#070e1c] p-5 rounded-2xl border border-slate-800/80 hover:border-sky-500/50 transition-all card-hover flex flex-col justify-between reveal reveal-delay-1">
           <div>
-            <div class="w-11 h-11 rounded-xl bg-sky-950/80 border border-sky-800/50 flex items-center justify-center text-sky-400 mb-4 shadow">
+            <div class="w-10 h-10 rounded-xl bg-[#0b162c] border border-sky-800/50 flex items-center justify-center text-sky-400 mb-4">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
             </div>
-            <h3 class="text-sm font-bold text-white mb-1.5">Diseño a medida</h3>
-            <p class="text-xs text-slate-400 leading-relaxed">100% adaptado a tu marca y objetivos comerciales.</p>
+            <h3 class="text-sm font-bold text-white mb-1">Diseño a medida</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">100% adaptado a tu marca y objetivos.</p>
           </div>
         </div>
 
         <!-- ITEM 2 -->
-        <div class="bg-slate-900/60 p-5 rounded-2xl border border-slate-800 hover:border-sky-500/50 transition-all card-3d flex flex-col justify-between reveal reveal-delay-2">
+        <div class="bg-[#070e1c] p-5 rounded-2xl border border-slate-800/80 hover:border-sky-500/50 transition-all card-hover flex flex-col justify-between reveal reveal-delay-2">
           <div>
-            <div class="w-11 h-11 rounded-xl bg-sky-950/80 border border-sky-800/50 flex items-center justify-center text-sky-400 mb-4 shadow">
+            <div class="w-10 h-10 rounded-xl bg-[#0b162c] border border-sky-800/50 flex items-center justify-center text-sky-400 mb-4">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
             </div>
-            <h3 class="text-sm font-bold text-white mb-1.5">Desarrollo profesional</h3>
-            <p class="text-xs text-slate-400 leading-relaxed">Rápida, segura y escalable con código semántico.</p>
+            <h3 class="text-sm font-bold text-white mb-1">Desarrollo profesional</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">Rápida, segura y escalable.</p>
           </div>
         </div>
 
         <!-- ITEM 3 -->
-        <div class="bg-slate-900/60 p-5 rounded-2xl border border-slate-800 hover:border-sky-500/50 transition-all card-3d flex flex-col justify-between reveal reveal-delay-3">
+        <div class="bg-[#070e1c] p-5 rounded-2xl border border-slate-800/80 hover:border-sky-500/50 transition-all card-hover flex flex-col justify-between reveal reveal-delay-3">
           <div>
-            <div class="w-11 h-11 rounded-xl bg-sky-950/80 border border-sky-800/50 flex items-center justify-center text-sky-400 mb-4 shadow">
+            <div class="w-10 h-10 rounded-xl bg-[#0b162c] border border-sky-800/50 flex items-center justify-center text-sky-400 mb-4">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
             </div>
-            <h3 class="text-sm font-bold text-white mb-1.5">Optimización móvil</h3>
+            <h3 class="text-sm font-bold text-white mb-1">Optimización móvil</h3>
             <p class="text-xs text-slate-400 leading-relaxed">Experiencia perfecta en todos los dispositivos.</p>
           </div>
         </div>
 
         <!-- ITEM 4 -->
-        <div class="bg-slate-900/60 p-5 rounded-2xl border border-slate-800 hover:border-sky-500/50 transition-all card-3d flex flex-col justify-between reveal reveal-delay-1">
+        <div class="bg-[#070e1c] p-5 rounded-2xl border border-slate-800/80 hover:border-sky-500/50 transition-all card-hover flex flex-col justify-between reveal reveal-delay-1">
           <div>
-            <div class="w-11 h-11 rounded-xl bg-sky-950/80 border border-sky-800/50 flex items-center justify-center text-sky-400 mb-4 shadow">
+            <div class="w-10 h-10 rounded-xl bg-[#0b162c] border border-sky-800/50 flex items-center justify-center text-sky-400 mb-4">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
             </div>
-            <h3 class="text-sm font-bold text-white mb-1.5">SEO técnico</h3>
-            <p class="text-xs text-slate-400 leading-relaxed">Estructura optimizada para motores de búsqueda.</p>
+            <h3 class="text-sm font-bold text-white mb-1">SEO técnico</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">Estructura optimizada para buscadores.</p>
           </div>
         </div>
 
         <!-- ITEM 5 -->
-        <div class="bg-slate-900/60 p-5 rounded-2xl border border-slate-800 hover:border-sky-500/50 transition-all card-3d flex flex-col justify-between reveal reveal-delay-2">
+        <div class="bg-[#070e1c] p-5 rounded-2xl border border-slate-800/80 hover:border-sky-500/50 transition-all card-hover flex flex-col justify-between reveal reveal-delay-2">
           <div>
-            <div class="w-11 h-11 rounded-xl bg-sky-950/80 border border-sky-800/50 flex items-center justify-center text-sky-400 mb-4 shadow">
+            <div class="w-10 h-10 rounded-xl bg-[#0b162c] border border-sky-800/50 flex items-center justify-center text-sky-400 mb-4">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
             </div>
-            <h3 class="text-sm font-bold text-white mb-1.5">Soporte y mantenimiento</h3>
-            <p class="text-xs text-slate-400 leading-relaxed">Te acompañamos en el crecimiento continuo de tu web.</p>
+            <h3 class="text-sm font-bold text-white mb-1">Soporte y mantenimiento</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">Te acompañamos en el crecimiento.</p>
           </div>
         </div>
 
@@ -276,18 +267,18 @@
 
     </section>
 
-    <!-- SECCIÓN: PLANES WEB OFICIALES (EXACTOS AL MOCKUP) -->
+    <!-- SECCIÓN: PLANES WEB (EXACTOS AL MOCKUP) -->
     <section id="planes" class="max-w-6xl mx-auto px-4 sm:px-8 py-20 border-t border-slate-800/80">
       
       <div class="text-center max-w-xl mx-auto mb-14 reveal">
-        <span class="text-xs font-bold uppercase tracking-widest text-sky-400 block mb-2">Planes Web</span>
-        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black text-white">Elige el plan que mejor se adapte a tu proyecto</h2>
+        <h2 class="text-3xl sm:text-4xl font-black text-white mb-2">Planes Web</h2>
+        <p class="text-xs sm:text-sm text-slate-400">Elige el plan que mejor se adapte a tu proyecto.</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
 
         <!-- PLAN STARTER -->
-        <div class="bg-gradient-to-b from-[#091224] to-[#050a16] rounded-2xl p-7 border border-slate-800 hover:border-slate-700 flex flex-col justify-between card-3d reveal reveal-delay-1">
+        <div class="bg-gradient-to-b from-[#081022] to-[#040814] rounded-2xl p-7 border border-slate-800 hover:border-slate-700 flex flex-col justify-between card-hover reveal reveal-delay-1 shadow-xl">
           <div>
             <span class="text-xs font-bold uppercase tracking-wider text-slate-400 block mb-1">PLAN STARTER</span>
             <div class="flex items-baseline gap-1 my-3">
@@ -304,14 +295,14 @@
             </ul>
           </div>
           <a href="https://wa.me/34362547479?text=Hola%20LogiMotion,%20quiero%20contratar%20el%20Plan%20Starter%20Web%20(190€)" 
-             class="mt-8 block text-center bg-sky-600/30 hover:bg-sky-600 border border-sky-500/50 text-white font-bold text-xs uppercase tracking-wider py-3.5 rounded-xl transition-all hover:scale-105">
+             class="mt-8 block text-center bg-[#07132c] hover:bg-sky-600 border border-sky-500/40 text-white font-bold text-xs uppercase tracking-wider py-3.5 rounded-lg transition-all hover:scale-105">
             EMPEZAR
           </a>
         </div>
 
         <!-- PLAN BUSINESS (DESTACADO CON BORDE AZUL Y GLOW) -->
-        <div class="bg-gradient-to-b from-[#132857] via-[#09142e] to-[#040816] rounded-2xl p-7 border-2 border-sky-400 flex flex-col justify-between relative shadow-2xl glow-blue-card card-3d reveal reveal-delay-2">
-          <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-sky-500 text-slate-950 text-[10px] uppercase tracking-wider font-black px-4 py-1 rounded-full shadow-md">
+        <div class="bg-gradient-to-b from-[#132857] via-[#09142e] to-[#040816] rounded-2xl p-7 border-2 border-sky-400 flex flex-col justify-between relative shadow-2xl glow-blue-card card-hover reveal reveal-delay-2">
+          <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[#0284c7] text-white text-[10px] uppercase tracking-wider font-black px-4 py-1 rounded-full shadow-md">
             ★ RECOMENDADO
           </div>
           <div>
@@ -330,13 +321,13 @@
             </ul>
           </div>
           <a href="https://wa.me/34362547479?text=Hola%20LogiMotion,%20quiero%20contratar%20el%20Plan%20Business%20Web%20(250€)" 
-             class="mt-8 block text-center bg-sky-500 hover:bg-sky-400 text-slate-950 font-black text-xs uppercase tracking-wider py-3.5 rounded-xl transition-all shadow-lg shadow-sky-500/25 hover:scale-105">
+             class="mt-8 block text-center bg-[#0284c7] hover:bg-[#0369a1] text-white font-black text-xs uppercase tracking-wider py-3.5 rounded-lg transition-all shadow-lg shadow-sky-500/30 hover:scale-105">
             EMPEZAR
           </a>
         </div>
 
-        <!-- PLAN PREMIUM (TODO INCLUIDO) -->
-        <div class="bg-gradient-to-b from-[#091224] to-[#050a16] rounded-2xl p-7 border border-slate-800 hover:border-slate-700 flex flex-col justify-between card-3d reveal reveal-delay-3">
+        <!-- PLAN PREMIUM -->
+        <div class="bg-gradient-to-b from-[#081022] to-[#040814] rounded-2xl p-7 border border-slate-800 hover:border-slate-700 flex flex-col justify-between card-hover reveal reveal-delay-3 shadow-xl">
           <div>
             <span class="text-xs font-bold uppercase tracking-wider text-slate-400 block mb-1">PLAN PREMIUM</span>
             <div class="flex items-baseline gap-1 my-3">
@@ -353,7 +344,7 @@
             </ul>
           </div>
           <a href="https://wa.me/34362547479?text=Hola%20LogiMotion,%20quiero%20contratar%20el%20Plan%20Premium%20Web%20(190€+35€/mes)" 
-             class="mt-8 block text-center bg-sky-600/30 hover:bg-sky-600 border border-sky-500/50 text-white font-bold text-xs uppercase tracking-wider py-3.5 rounded-xl transition-all hover:scale-105">
+             class="mt-8 block text-center bg-[#07132c] hover:bg-sky-600 border border-sky-500/40 text-white font-bold text-xs uppercase tracking-wider py-3.5 rounded-lg transition-all hover:scale-105">
             EMPEZAR
           </a>
         </div>
@@ -370,9 +361,9 @@
 
     <!-- BANNER FINAL DE CONVERSIÓN (EXACTO A LA IMAGEN) -->
     <section class="max-w-6xl mx-auto px-4 sm:px-8 py-20 border-t border-slate-800/80">
-      <div class="bg-gradient-to-r from-[#0d1f42] via-[#09142b] to-[#040918] rounded-3xl p-8 sm:p-12 border border-sky-500/40 text-center max-w-3xl mx-auto space-y-5 shadow-2xl reveal">
+      <div class="bg-gradient-to-r from-[#0d1f42] via-[#09142b] to-[#040918] rounded-3xl p-8 sm:p-12 border border-sky-500/40 text-center max-w-3xl mx-auto space-y-4 shadow-2xl reveal">
         <div class="w-12 h-12 rounded-2xl bg-sky-500/20 text-sky-400 flex items-center justify-center mx-auto text-xl font-bold border border-sky-400/30">💻</div>
-        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight">
+        <h2 class="text-2xl sm:text-3xl font-black text-white tracking-tight">
           ¿Listo para tener una web que trabaje para ti?
         </h2>
         <p class="text-slate-300 text-xs sm:text-sm leading-relaxed max-w-xl mx-auto">
@@ -380,7 +371,7 @@
         </p>
         <div class="pt-2">
           <a href="https://wa.me/34362547479?text=Hola%20LogiMotion,%20quiero%20una%20propuesta%20para%20la%20página%20web%20de%20mi%20negocio" 
-             class="inline-block bg-sky-500 hover:bg-sky-400 text-slate-950 font-black text-xs uppercase tracking-wider py-4 px-10 rounded-xl transition-all shadow-lg shadow-sky-500/25 hover:scale-105">
+             class="inline-block bg-[#0284c7] hover:bg-[#0369a1] text-white font-black text-xs uppercase tracking-wider py-4 px-10 rounded-lg transition-all shadow-lg shadow-sky-500/25 hover:scale-105">
             HABLAR CON LOGIMOTION
           </a>
         </div>
@@ -389,7 +380,7 @@
 
   </main>
 
-  <!-- FOOTER GLOBAL UNIFICADO -->
+  <!-- FOOTER GLOBAL (EXACTO AL MOCKUP) -->
   <footer class="bg-[#02050e] border-t border-slate-800/80 py-12 px-4 sm:px-8 text-xs text-slate-400">
     <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
       
@@ -435,7 +426,6 @@
     </div>
   </footer>
 
-  <!-- SCRIPT DE ANIMACIONES Y SCROLL REVEAL -->
   <script>
     const menuBtn = document.getElementById('mobileMenuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
@@ -454,7 +444,7 @@
       });
     }, {
       threshold: 0.15,
-      rootMargin: "0px 0px -50px 0px"
+      rootMargin: "0px 0px -40px 0px"
     });
 
     revealElements.forEach(el => observer.observe(el));

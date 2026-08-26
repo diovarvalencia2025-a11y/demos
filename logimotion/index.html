@@ -3,17 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LogiMotion Digital • Soluciones Digitales, Web, AEO y Creators</title>
+  <title>LogiMotion Digital • Soluciones Digitales</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap');
     
     :root {
-      --bg-main: #040814;
-      --bg-card: #081022;
-      --bg-card-hover: #0c1834;
-      --border-subtle: rgba(255, 255, 255, 0.08);
-      --red-accent: #e11d48;
+      --bg-main: #030712;
+      --bg-card: #080f1e;
+      --border-card: rgba(255, 255, 255, 0.07);
     }
 
     body { 
@@ -23,11 +21,11 @@
       overflow-x: hidden;
     }
 
-    /* ANIMACIONES DE ENTRADA Y SCROLL */
+    /* ANIMACIONES DE ENTRADA SCROLL */
     .reveal {
       opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: translateY(24px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
       will-change: opacity, transform;
     }
     
@@ -41,90 +39,73 @@
     .reveal-delay-3 { transition-delay: 0.3s; }
     .reveal-delay-4 { transition-delay: 0.4s; }
 
-    /* EFECTOS DE TARJETA 3D HOVER */
-    .card-3d {
-      transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+    /* EFECTO 3D HOVER EN TARJETAS */
+    .card-hover {
+      transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
     }
-    .card-3d:hover {
-      transform: translateY(-6px);
+    .card-hover:hover {
+      transform: translateY(-5px);
     }
 
-    /* GLOWS CROMÁTICOS */
     .glow-red {
       box-shadow: 0 0 50px -10px rgba(225, 29, 72, 0.3);
     }
     .glow-cube {
-      filter: drop-shadow(0 25px 35px rgba(225, 29, 72, 0.25));
-    }
-    
-    /* SHIMMER TEXT EFFECT */
-    .shimmer-text {
-      background: linear-gradient(90deg, #ffffff 0%, #f43f5e 50%, #ffffff 100%);
-      background-size: 200% auto;
-      color: transparent;
-      -webkit-background-clip: text;
-      animation: shimmer 6s linear infinite;
+      filter: drop-shadow(0 20px 35px rgba(225, 29, 72, 0.3));
     }
 
-    @keyframes shimmer {
-      0% { background-position: 0% 50%; }
-      100% { background-position: 200% 50%; }
-    }
-
-    @keyframes floatSlow {
+    @keyframes floatCube {
       0%, 100% { transform: translateY(0px) rotate(6deg); }
-      50% { transform: translateY(-10px) rotate(3deg); }
+      50% { transform: translateY(-12px) rotate(3deg); }
     }
 
     .floating-cube {
-      animation: floatSlow 6s ease-in-out infinite;
+      animation: floatCube 6s ease-in-out infinite;
     }
   </style>
 </head>
 <body class="min-h-screen flex flex-col antialiased selection:bg-rose-600 selection:text-white">
 
-  <!-- HEADER / NAVEGACIÓN GLOBAL -->
-  <header class="sticky top-0 z-50 backdrop-blur-xl bg-[#040814]/90 border-b border-slate-800/80 transition-all duration-300">
+  <!-- HEADER GLOBAL (IDÉNTICO AL MOCKUP) -->
+  <header class="sticky top-0 z-50 backdrop-blur-xl bg-[#030712]/90 border-b border-slate-800/80">
     <div class="max-w-6xl mx-auto px-4 sm:px-8 h-20 flex items-center justify-between">
       
       <!-- LOGO -->
-      <a href="index.html" class="flex flex-col group">
-        <span class="text-xl sm:text-2xl font-black tracking-tight text-white flex items-center gap-1 group-hover:opacity-90 transition-opacity">
+      <a href="index.html" class="flex flex-col">
+        <span class="text-xl sm:text-2xl font-black tracking-tight text-white">
           LOGIMOTION
         </span>
-        <span class="text-[9px] tracking-[0.3em] font-extrabold text-rose-500 uppercase -mt-1">
+        <span class="text-[8px] tracking-[0.35em] font-extrabold text-rose-500 uppercase -mt-1">
           DIGITAL
         </span>
       </a>
 
-      <!-- NAVEGACIÓN ESCRITORIO -->
+      <!-- NAVEGACIÓN -->
       <nav class="hidden md:flex items-center gap-8 text-xs font-semibold text-slate-300">
         <a href="index.html" class="text-white font-bold transition-colors py-1 border-b-2 border-rose-500">Inicio</a>
-        <a href="web.html" class="hover:text-white hover:text-sky-400 transition-colors">Web</a>
-        <a href="aeo.html" class="hover:text-white hover:text-indigo-400 transition-colors">AEO</a>
-        <a href="creators.html" class="hover:text-white hover:text-rose-400 transition-colors">Creators</a>
+        <a href="web.html" class="hover:text-white transition-colors">Web</a>
+        <a href="aeo.html" class="hover:text-white transition-colors">AEO</a>
+        <a href="creators.html" class="hover:text-white transition-colors">Creators</a>
         <a href="#sobre-nosotros" class="hover:text-white transition-colors">Sobre nosotros</a>
       </nav>
 
       <!-- CTA CONTACTAR -->
       <div class="hidden md:flex items-center">
         <a href="https://wa.me/34362547479?text=Hola%20LogiMotion,%20quiero%20hacer%20una%20consulta%20para%20mi%20proyecto" 
-           class="bg-rose-600 hover:bg-rose-500 text-white font-bold text-xs uppercase tracking-wider px-5 py-2.5 rounded-xl transition-all shadow-md shadow-rose-950/50 hover:shadow-rose-600/30 hover:scale-105">
-          Contactar
+           class="bg-[#e11d48] hover:bg-[#be123c] text-white font-bold text-xs uppercase tracking-wider px-5 py-2.5 rounded-lg transition-all shadow-md shadow-rose-950/60 hover:scale-105">
+          CONTACTAR
         </a>
       </div>
 
       <!-- BOTÓN MENÚ MÓVIL -->
-      <button id="mobileMenuBtn" class="md:hidden text-slate-300 hover:text-white p-2 focus:outline-none" aria-label="Abrir menú">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-        </svg>
+      <button id="mobileMenuBtn" class="md:hidden text-slate-300 hover:text-white p-2" aria-label="Abrir menú">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
       </button>
 
     </div>
 
-    <!-- MENÚ MÓVIL DESPLEGABLE -->
-    <div id="mobileMenu" class="hidden md:hidden bg-[#060c1c] border-b border-slate-800 px-6 py-5 space-y-4 text-sm font-semibold text-slate-300">
+    <!-- MENÚ MÓVIL -->
+    <div id="mobileMenu" class="hidden md:hidden bg-[#050a16] border-b border-slate-800 px-6 py-5 space-y-4 text-sm font-semibold text-slate-300">
       <a href="index.html" class="block text-rose-400 font-bold">Inicio</a>
       <a href="web.html" class="block hover:text-white">Web</a>
       <a href="aeo.html" class="block hover:text-white">AEO</a>
@@ -132,73 +113,69 @@
       <a href="#sobre-nosotros" class="block hover:text-white">Sobre nosotros</a>
       <div class="pt-2">
         <a href="https://wa.me/34362547479?text=Hola%20LogiMotion,%20quiero%20hacer%20una%20consulta%20para%20mi%20proyecto" 
-           class="block text-center bg-rose-600 hover:bg-rose-500 text-white font-bold text-xs uppercase tracking-wider py-3 rounded-xl">
-          Contactar
+           class="block text-center bg-[#e11d48] hover:bg-[#be123c] text-white font-bold text-xs uppercase tracking-wider py-3 rounded-lg">
+          CONTACTAR
         </a>
       </div>
     </div>
   </header>
 
-  <!-- HERO PRINCIPAL (PANEL 1 - HOME) -->
+  <!-- CONTENIDO PRINCIPAL (PANEL 1 DEL MOCKUP) -->
   <main class="flex-grow">
     
-    <section class="max-w-6xl mx-auto px-4 sm:px-8 py-14 sm:py-20 lg:py-24 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative">
+    <!-- HERO SECTION -->
+    <section class="max-w-6xl mx-auto px-4 sm:px-8 py-16 sm:py-24 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative">
       
-      <!-- COLUMNA IZQUIERDA: MENSAJE HERO -->
+      <!-- COLUMNA IZQUIERDA -->
       <div class="lg:col-span-7 space-y-6 text-left reveal active">
         
-        <span class="inline-block text-[11px] font-extrabold uppercase tracking-widest text-rose-500 bg-rose-950/40 border border-rose-800/40 px-3 py-1 rounded-full">
-          SOLUCIONES DIGITALES
+        <span class="inline-block text-[11px] font-extrabold uppercase tracking-widest text-[#e11d48]">
+          SOLICIONES DIGITALES
         </span>
 
-        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-[1.1]">
-          Hacemos que tu presencia digital <span class="text-rose-500 underline decoration-rose-500/30">trabaje para ti.</span>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-[1.12]">
+          Hacemos que tu presencia digital <span class="text-[#e11d48]">trabaje para ti.</span>
         </h1>
 
         <p class="text-slate-300 text-sm sm:text-base leading-relaxed max-w-xl font-normal">
-          Tres especialidades. Un mismo estándar de calidad y un único objetivo: ayudarte a crecer tu presencia digital.
+          Tres especialidades. Un mismo estándar de calidad y un único objetivo: ayudarte a crecer.
         </p>
 
-        <div class="pt-2 flex flex-wrap items-center gap-4">
+        <div class="pt-2">
           <a href="#especialidades" 
-             class="inline-block bg-rose-600 hover:bg-rose-500 text-white font-bold text-xs uppercase tracking-wider py-3.5 px-8 rounded-xl transition-all shadow-lg shadow-rose-900/40 hover:shadow-rose-600/30 hover:scale-105">
+             class="inline-block bg-[#e11d48] hover:bg-[#be123c] text-white font-bold text-xs uppercase tracking-wider py-3.5 px-8 rounded-lg transition-all shadow-lg shadow-rose-950/60 hover:scale-105">
             DESCUBRIR LOGIMOTION
           </a>
         </div>
 
       </div>
 
-      <!-- COLUMNA DERECHA: OBJETO 3D CUBE LOGIMOTION ANIMADO -->
+      <!-- COLUMNA DERECHA: 3D CUBE LOGIMOTION VISUAL -->
       <div class="lg:col-span-5 flex justify-center items-center relative reveal reveal-delay-2 active">
-        <div class="w-full max-w-[340px] sm:max-w-[400px] aspect-square relative flex items-center justify-center">
+        <div class="w-full max-w-[340px] sm:max-w-[380px] aspect-square relative flex items-center justify-center">
           
-          <!-- LUZ AMBIENTAL DE FONDO -->
-          <div class="absolute inset-0 bg-gradient-to-tr from-rose-600/25 via-amber-500/10 to-transparent rounded-full blur-3xl -z-10"></div>
+          <div class="absolute inset-0 bg-gradient-to-tr from-rose-600/30 via-orange-600/10 to-transparent rounded-full blur-3xl -z-10"></div>
           
-          <!-- ILUSTRACIÓN 3D CUBIC CORE -->
-          <div class="relative w-72 h-72 sm:w-80 sm:h-80 bg-gradient-to-br from-[#180b18] via-[#091124] to-[#040813] rounded-3xl border border-rose-500/30 p-6 flex flex-col justify-between shadow-2xl glow-cube">
+          <!-- CUBO ISOMÉTRICO -->
+          <div class="relative w-72 h-72 sm:w-80 sm:h-80 bg-gradient-to-br from-[#1b0816] via-[#091124] to-[#030612] rounded-3xl border border-rose-500/30 p-6 flex flex-col justify-between shadow-2xl glow-cube">
             
-            <!-- DETALLES TECNOLÓGICOS / CIRCUITO -->
-            <div class="flex justify-between items-center text-[10px] font-mono text-rose-400/80">
+            <div class="flex justify-between items-center text-[10px] font-mono text-rose-400">
               <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-rose-500 animate-ping"></span> CORE DIGITAL</span>
-              <span>v3.0.4</span>
+              <span>v3.0</span>
             </div>
 
-            <!-- CUBO ISOMÉTRICO CENTRAL CON LOGOTIPO LM FLOTANTE -->
             <div class="my-auto flex flex-col items-center justify-center relative">
-              <div class="w-28 h-28 sm:w-32 sm:h-32 bg-[#0c1429] rounded-2xl border-2 border-rose-500/60 shadow-2xl flex items-center justify-center relative floating-cube group cursor-pointer">
-                <div class="absolute inset-2 bg-gradient-to-br from-rose-600/30 via-slate-900 to-black rounded-xl flex items-center justify-center border border-rose-400/40">
+              <div class="w-28 h-28 sm:w-32 sm:h-32 bg-[#0c152b] rounded-2xl border-2 border-rose-500/70 shadow-2xl flex items-center justify-center relative floating-cube cursor-pointer">
+                <div class="absolute inset-2 bg-gradient-to-br from-rose-600/40 via-slate-900 to-black rounded-xl flex items-center justify-center border border-rose-400/50">
                   <div class="text-3xl sm:text-4xl font-black text-white tracking-tighter flex items-center gap-0.5">
                     <span class="text-rose-500">L</span><span>M</span>
                   </div>
                 </div>
-                <!-- MICRO-LUCES LATERALES -->
                 <div class="absolute -top-1 -right-1 w-2.5 h-2.5 bg-amber-400 rounded-full shadow-md shadow-amber-400"></div>
                 <div class="absolute -bottom-1 -left-1 w-2.5 h-2.5 bg-rose-500 rounded-full shadow-md shadow-rose-500"></div>
               </div>
             </div>
 
-            <!-- CHIPS INFERIORES DE IDENTIDAD -->
             <div class="flex justify-between items-center text-[10px] font-semibold text-slate-400 border-t border-slate-800/80 pt-3">
               <span class="text-slate-300">ESTRATEGIA & EJECUCIÓN</span>
               <span class="text-rose-400 font-mono">LOGIMOTION</span>
@@ -211,60 +188,60 @@
 
     </section>
 
-    <!-- SECCIÓN: NUESTRAS ESPECIALIDADES (3 CARDS INTERACTIVAS ANIMADAS) -->
+    <!-- SECCIÓN: NUESTRAS ESPECIALIDADES (3 CARDS VERTICALES DEL MOCKUP) -->
     <section id="especialidades" class="max-w-6xl mx-auto px-4 sm:px-8 py-20 border-t border-slate-800/80">
       
       <div class="text-center max-w-xl mx-auto mb-14 reveal">
         <span class="text-xs font-bold uppercase tracking-widest text-slate-400 block mb-2">NUESTRAS ESPECIALIDADES</span>
-        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black text-white">Tres áreas de alto impacto digital</h2>
+        <h2 class="text-2xl sm:text-3xl font-black text-white">Tres soluciones de alto impacto</h2>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
         <!-- CARD 1: WEB -->
-        <div class="bg-gradient-to-b from-[#091226] to-[#050b18] rounded-2xl p-8 border border-slate-800 hover:border-sky-500/60 transition-all flex flex-col justify-between group shadow-xl card-3d reveal reveal-delay-1">
+        <div class="bg-gradient-to-b from-[#081022] to-[#040814] rounded-2xl p-7 border border-slate-800 hover:border-sky-500/60 transition-all flex flex-col justify-between card-hover reveal reveal-delay-1 shadow-xl">
           <div>
-            <div class="w-14 h-14 rounded-2xl bg-sky-950/80 border border-sky-800/60 flex items-center justify-center mb-6 text-sky-400 group-hover:scale-110 group-hover:bg-sky-900/80 transition-all shadow-md">
-              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            <div class="w-12 h-12 rounded-xl bg-sky-950/80 border border-sky-800/60 flex items-center justify-center mb-5 text-sky-400">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
             </div>
-            <h3 class="text-2xl font-black text-white mb-3 tracking-tight">WEB</h3>
+            <h3 class="text-xl font-bold text-white mb-2">WEB</h3>
             <p class="text-xs sm:text-sm text-slate-400 leading-relaxed mb-6">
-              Diseño y desarrollo web a medida que convierte visitantes en clientes. Carga instantánea, enfoque móvil y alta conversión local.
+              Diseño y desarrollo web a medida que convierte visitantes en clientes.
             </p>
           </div>
-          <a href="web.html" class="inline-flex items-center gap-2 text-xs font-bold text-sky-400 group-hover:text-sky-300 group-hover:translate-x-1.5 transition-all pt-4 border-t border-slate-800/60">
+          <a href="web.html" class="inline-flex items-center gap-1.5 text-xs font-bold text-sky-400 hover:text-sky-300 transition-colors pt-3 border-t border-slate-800/80">
             Ver solución <span aria-hidden="true">&rarr;</span>
           </a>
         </div>
 
         <!-- CARD 2: AEO -->
-        <div class="bg-gradient-to-b from-[#0e102c] to-[#06081c] rounded-2xl p-8 border border-slate-800 hover:border-indigo-500/60 transition-all flex flex-col justify-between group shadow-xl card-3d reveal reveal-delay-2">
+        <div class="bg-gradient-to-b from-[#0c0e26] to-[#040614] rounded-2xl p-7 border border-slate-800 hover:border-indigo-500/60 transition-all flex flex-col justify-between card-hover reveal reveal-delay-2 shadow-xl">
           <div>
-            <div class="w-14 h-14 rounded-2xl bg-indigo-950/80 border border-indigo-800/60 flex items-center justify-center mb-6 text-indigo-400 group-hover:scale-110 group-hover:bg-indigo-900/80 transition-all shadow-md">
-              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            <div class="w-12 h-12 rounded-xl bg-indigo-950/80 border border-indigo-800/60 flex items-center justify-center mb-5 text-indigo-400">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
             </div>
-            <h3 class="text-2xl font-black text-white mb-3 tracking-tight">AEO</h3>
+            <h3 class="text-xl font-bold text-white mb-2">AEO</h3>
             <p class="text-xs sm:text-sm text-slate-400 leading-relaxed mb-6">
-              Optimización para que la IA y los motores de respuesta (ChatGPT, Perplexity, Gemini) entiendan y relacionen correctamente tu empresa.
+              Optimización para que la IA y los motores de respuesta entiendan tu empresa.
             </p>
           </div>
-          <a href="aeo.html" class="inline-flex items-center gap-2 text-xs font-bold text-indigo-400 group-hover:text-indigo-300 group-hover:translate-x-1.5 transition-all pt-4 border-t border-slate-800/60">
+          <a href="aeo.html" class="inline-flex items-center gap-1.5 text-xs font-bold text-indigo-400 hover:text-indigo-300 transition-colors pt-3 border-t border-slate-800/80">
             Ver solución <span aria-hidden="true">&rarr;</span>
           </a>
         </div>
 
         <!-- CARD 3: CREATORS -->
-        <div class="bg-gradient-to-b from-[#1c0a1f] to-[#0a0414] rounded-2xl p-8 border border-slate-800 hover:border-rose-500/60 transition-all flex flex-col justify-between group shadow-xl card-3d reveal reveal-delay-3">
+        <div class="bg-gradient-to-b from-[#180918] to-[#040510] rounded-2xl p-7 border border-slate-800 hover:border-rose-500/60 transition-all flex flex-col justify-between card-hover reveal reveal-delay-3 shadow-xl">
           <div>
-            <div class="w-14 h-14 rounded-2xl bg-rose-950/80 border border-rose-800/60 flex items-center justify-center mb-6 text-rose-400 group-hover:scale-110 group-hover:bg-rose-900/80 transition-all shadow-md">
-              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <div class="w-12 h-12 rounded-xl bg-rose-950/80 border border-rose-800/60 flex items-center justify-center mb-5 text-rose-400">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
             </div>
-            <h3 class="text-2xl font-black text-white mb-3 tracking-tight">CREATORS</h3>
+            <h3 class="text-xl font-bold text-white mb-2">CREATORS</h3>
             <p class="text-xs sm:text-sm text-slate-400 leading-relaxed mb-6">
-              Miniaturas estratégicas para YouTube que captan atención y elevan tu contenido con dirección artística y composición profesional.
+              Miniaturas estratégicas que captan atención y elevan tu contenido.
             </p>
           </div>
-          <a href="creators.html" class="inline-flex items-center gap-2 text-xs font-bold text-rose-400 group-hover:text-rose-300 group-hover:translate-x-1.5 transition-all pt-4 border-t border-slate-800/60">
+          <a href="creators.html" class="inline-flex items-center gap-1.5 text-xs font-bold text-rose-400 hover:text-rose-300 transition-colors pt-3 border-t border-slate-800/80">
             Ver solución <span aria-hidden="true">&rarr;</span>
           </a>
         </div>
@@ -273,51 +250,47 @@
 
     </section>
 
-    <!-- SECCIÓN: NUESTRO ENFOQUE (4 PILARES) -->
-    <section id="sobre-nosotros" class="max-w-6xl mx-auto px-4 sm:px-8 py-20 border-t border-slate-800/80">
+    <!-- SECCIÓN: 4 PILARES (EXACTOS AL MOCKUP) -->
+    <section id="sobre-nosotros" class="max-w-6xl mx-auto px-4 sm:px-8 py-16 border-t border-slate-800/80">
       
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
         
-        <div class="bg-slate-900/50 p-6 rounded-2xl border border-slate-800 hover:border-slate-700 transition-all card-3d reveal reveal-delay-1">
-          <div class="w-8 h-8 rounded-lg bg-rose-950/60 border border-rose-800/40 text-rose-500 font-black text-xs flex items-center justify-center mb-3">01</div>
-          <h3 class="text-sm font-bold text-white mb-1.5">Enfoque estratégico</h3>
-          <p class="text-xs text-slate-400 leading-relaxed">Cada proyecto parte de un análisis real de contexto y objetivos claros.</p>
+        <div class="bg-slate-900/40 p-5 rounded-2xl border border-slate-800/80 card-hover reveal reveal-delay-1">
+          <div class="text-rose-500 font-bold text-xs mb-1">🎯 Enfoque estratégico</div>
+          <p class="text-xs text-slate-400 leading-relaxed">Cada proyecto parte de un análisis real.</p>
         </div>
 
-        <div class="bg-slate-900/50 p-6 rounded-2xl border border-slate-800 hover:border-slate-700 transition-all card-3d reveal reveal-delay-2">
-          <div class="w-8 h-8 rounded-lg bg-rose-950/60 border border-rose-800/40 text-rose-500 font-black text-xs flex items-center justify-center mb-3">02</div>
-          <h3 class="text-sm font-bold text-white mb-1.5">Diseño con propósito</h3>
-          <p class="text-xs text-slate-400 leading-relaxed">Cada elemento visual, tipografía y espacio tiene una función concreta.</p>
+        <div class="bg-slate-900/40 p-5 rounded-2xl border border-slate-800/80 card-hover reveal reveal-delay-2">
+          <div class="text-rose-500 font-bold text-xs mb-1">💡 Diseño con propósito</div>
+          <p class="text-xs text-slate-400 leading-relaxed">Cada elemento tiene una función.</p>
         </div>
 
-        <div class="bg-slate-900/50 p-6 rounded-2xl border border-slate-800 hover:border-slate-700 transition-all card-3d reveal reveal-delay-3">
-          <div class="w-8 h-8 rounded-lg bg-rose-950/60 border border-rose-800/40 text-rose-500 font-black text-xs flex items-center justify-center mb-3">03</div>
-          <h3 class="text-sm font-bold text-white mb-1.5">Ejecución precisa</h3>
-          <p class="text-xs text-slate-400 leading-relaxed">Desarrollamos con calidad técnica, código limpio y atención máxima al detalle.</p>
+        <div class="bg-slate-900/40 p-5 rounded-2xl border border-slate-800/80 card-hover reveal reveal-delay-3">
+          <div class="text-rose-500 font-bold text-xs mb-1">⚙️ Ejecución precisa</div>
+          <p class="text-xs text-slate-400 leading-relaxed">Desarrollamos con calidad y detalle.</p>
         </div>
 
-        <div class="bg-slate-900/50 p-6 rounded-2xl border border-slate-800 hover:border-slate-700 transition-all card-3d reveal reveal-delay-4">
-          <div class="w-8 h-8 rounded-lg bg-rose-950/60 border border-rose-800/40 text-rose-500 font-black text-xs flex items-center justify-center mb-3">04</div>
-          <h3 class="text-sm font-bold text-white mb-1.5">Mejora continua</h3>
-          <p class="text-xs text-slate-400 leading-relaxed">Optimizamos y evolucionamos la presencia digital de forma transparente.</p>
+        <div class="bg-slate-900/40 p-5 rounded-2xl border border-slate-800/80 card-hover reveal reveal-delay-4">
+          <div class="text-rose-500 font-bold text-xs mb-1">📈 Mejora continua</div>
+          <p class="text-xs text-slate-400 leading-relaxed">Optimizamos y evolucionamos.</p>
         </div>
 
       </div>
 
     </section>
 
-    <!-- SECCIÓN: CIERRE HOME / CTA DECISIÓN -->
+    <!-- SECCIÓN BANNER CIERRE HOME (EXACTO AL MOCKUP) -->
     <section class="max-w-6xl mx-auto px-4 sm:px-8 py-20 border-t border-slate-800/80 text-center">
-      <div class="max-w-2xl mx-auto space-y-5 reveal">
-        <h2 class="text-3xl sm:text-4xl font-black text-white tracking-tight">
+      <div class="max-w-2xl mx-auto space-y-4 reveal">
+        <h2 class="text-2xl sm:text-3xl font-black text-white tracking-tight">
           ¿Qué necesitas para tu proyecto?
         </h2>
-        <p class="text-slate-300 text-sm leading-relaxed">
-          Te ayudamos a encontrar la solución ideal según tus objetivos empresariales o de contenido.
+        <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+          Te ayudamos a encontrar la solución ideal.
         </p>
-        <div class="pt-4">
+        <div class="pt-3">
           <a href="https://wa.me/34362547479?text=Hola%20LogiMotion,%20quiero%20hablar%20sobre%20mi%20proyecto" 
-             class="inline-block bg-rose-600 hover:bg-rose-500 text-white font-bold text-xs uppercase tracking-wider py-4 px-10 rounded-xl transition-all shadow-lg shadow-rose-950/60 hover:shadow-rose-600/30 hover:scale-105">
+             class="inline-block bg-[#e11d48] hover:bg-[#be123c] text-white font-bold text-xs uppercase tracking-wider py-3.5 px-8 rounded-lg transition-all shadow-lg shadow-rose-950/60 hover:scale-105">
             HABLAR CON LOGIMOTION
           </a>
         </div>
@@ -326,7 +299,7 @@
 
   </main>
 
-  <!-- FOOTER GLOBAL UNIFICADO -->
+  <!-- FOOTER GLOBAL (EXACTO AL MOCKUP) -->
   <footer class="bg-[#02050e] border-t border-slate-800/80 py-12 px-4 sm:px-8 text-xs text-slate-400">
     <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
       
@@ -337,7 +310,7 @@
           <span class="text-[8px] tracking-[0.3em] font-extrabold text-rose-500 uppercase -mt-1">DIGITAL</span>
         </div>
         <p class="text-slate-400 text-xs max-w-sm leading-relaxed">
-          Soluciones digitales para empresas y creadores que quieren una presencia que importa.
+          Soluciones digitales para empresas y creadores que quieren crecer.
         </p>
       </div>
 
@@ -372,9 +345,7 @@
     </div>
   </footer>
 
-  <!-- SCRIPT DE ANIMACIONES Y SCROLL REVEAL -->
   <script>
-    // MENÚ MÓVIL
     const menuBtn = document.getElementById('mobileMenuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
     if (menuBtn && mobileMenu) {
@@ -383,7 +354,6 @@
       });
     }
 
-    // SCROLL OBSERVER PARA ANIMACIONES DE ENTRADA
     const revealElements = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -393,7 +363,7 @@
       });
     }, {
       threshold: 0.15,
-      rootMargin: "0px 0px -50px 0px"
+      rootMargin: "0px 0px -40px 0px"
     });
 
     revealElements.forEach(el => observer.observe(el));
