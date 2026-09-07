@@ -42,6 +42,7 @@
   }
   </script>
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap');
@@ -68,6 +69,27 @@
       transform: translateY(-4px);
       border-color: rgba(255, 255, 255, 0.2);
     }
+  
+    /* 🛡️ BLINDAJE ANTI-DESBORDAMIENTO DE ICONOS SVG EN MÓVILES */
+    svg {
+      max-width: 100%;
+      box-sizing: border-box;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    svg.w-3\.5 { width: 14px !important; height: 14px !important; min-width: 14px !important; max-width: 14px !important; }
+    svg.w-4 { width: 16px !important; height: 16px !important; min-width: 16px !important; max-width: 16px !important; }
+    svg.w-5 { width: 20px !important; height: 20px !important; min-width: 20px !important; max-width: 20px !important; }
+    svg.w-6 { width: 24px !important; height: 24px !important; min-width: 24px !important; max-width: 24px !important; }
+    svg.w-7 { width: 28px !important; height: 28px !important; min-width: 28px !important; max-width: 28px !important; }
+    svg.w-8 { width: 32px !important; height: 32px !important; min-width: 32px !important; max-width: 32px !important; }
+    svg.w-9 { width: 36px !important; height: 36px !important; min-width: 36px !important; max-width: 36px !important; }
+    svg.w-10 { width: 40px !important; height: 40px !important; min-width: 40px !important; max-width: 40px !important; }
+    svg.w-12 { width: 48px !important; height: 48px !important; min-width: 48px !important; max-width: 48px !important; }
+    svg.w-14 { width: 56px !important; height: 56px !important; min-width: 56px !important; max-width: 56px !important; }
+    svg.w-16 { width: 64px !important; height: 64px !important; min-width: 64px !important; max-width: 64px !important; }
+    svg:not([class*="w-"]) { max-width: 24px !important; max-height: 24px !important; }
+
   </style>
 </head>
 <body class="min-h-screen flex flex-col antialiased selection:bg-rose-600 selection:text-white bg-[#030712]">
@@ -106,7 +128,7 @@
 
       <!-- BOTÓN MENÚ MÓVIL -->
       <button id="mobileMenuBtn" class="md:hidden text-slate-300 hover:text-white p-2 focus-visible:ring-2 focus-visible:ring-rose-500 rounded" aria-label="Abrir menú de navegación" aria-expanded="false">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        <svg width="24" height="24" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
       </button>
 
     </div>
@@ -192,7 +214,7 @@
         <div class="bg-[#050b18] rounded-2xl p-8 border border-slate-800/90 text-center flex flex-col justify-between items-center card-item shadow-xl min-h-[330px]">
           <div class="flex flex-col items-center">
             <div class="w-14 h-14 rounded-2xl bg-sky-950/60 border border-sky-500/40 flex items-center justify-center mb-6 text-sky-400 shadow-md shadow-sky-950/50" aria-hidden="true">
-              <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <svg width="32" height="32" class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
                 <rect x="2" y="3" width="20" height="14" rx="2" stroke-linecap="round" stroke-linejoin="round"/>
                 <line x1="8" y1="21" x2="16" y2="21" stroke-linecap="round"/>
                 <line x1="12" y1="17" x2="12" y2="21" stroke-linecap="round"/>
@@ -215,7 +237,7 @@
         <div class="bg-[#07091c] rounded-2xl p-8 border border-slate-800/90 text-center flex flex-col justify-between items-center card-item shadow-xl min-h-[330px]">
           <div class="flex flex-col items-center">
             <div class="w-14 h-14 rounded-2xl bg-indigo-950/60 border border-indigo-500/40 flex items-center justify-center mb-6 text-indigo-400 shadow-md shadow-indigo-950/50" aria-hidden="true">
-              <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <svg width="32" height="32" class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
               </svg>
             </div>
@@ -236,7 +258,7 @@
         <div class="bg-[#120712] rounded-2xl p-8 border border-slate-800/90 text-center flex flex-col justify-between items-center card-item shadow-xl min-h-[330px]">
           <div class="flex flex-col items-center">
             <div class="w-14 h-14 rounded-full bg-rose-950/60 border-2 border-rose-500/50 flex items-center justify-center mb-6 text-rose-500 shadow-md shadow-rose-950/50" aria-hidden="true">
-              <svg class="w-7 h-7 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+              <svg width="28" height="28" class="w-7 h-7 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
             </div>
             
             <h3 class="text-xl font-bold text-white mb-3 tracking-wide">CREATORS</h3>
@@ -569,7 +591,7 @@
         <span class="relative inline-flex rounded-full h-4 w-4 bg-emerald-500 border-2 border-[#030712]"></span>
       </span>
       <!-- SVG WhatsApp -->
-      <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24">
+      <svg width="28" height="28" class="w-7 h-7 fill-current" viewBox="0 0 24 24">
         <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.53 7.03C9.33 7.03 9 7.11 8.71 7.43C8.42 7.74 7.61 8.5 7.61 10.05C7.61 11.6 8.74 13.09 8.9 13.3C9.06 13.51 11.12 16.68 14.28 18.04C15.03 18.36 15.62 18.56 16.07 18.7C16.82 18.94 17.51 18.91 18.05 18.83C18.66 18.74 19.92 18.07 20.18 17.33C20.44 16.59 20.44 15.96 20.36 15.83C20.28 15.7 20.08 15.62 19.78 15.47C19.48 15.32 18.02 14.6 17.75 14.5C17.48 14.4 17.28 14.35 17.08 14.65C16.88 14.95 16.31 15.62 16.14 15.82C15.97 16.02 15.8 16.05 15.5 15.9C15.2 15.75 14.24 15.44 13.1 14.42C12.21 13.63 11.61 12.65 11.44 12.35C11.27 12.05 11.42 11.89 11.57 11.74C11.71 11.6 11.88 11.38 12.03 11.21C12.18 11.04 12.23 10.91 12.33 10.71C12.43 10.51 12.38 10.33 12.31 10.18C12.23 10.03 11.63 8.55 11.38 7.95C11.13 7.36 10.89 7.44 10.7 7.43C10.53 7.43 10.33 7.43 10.13 7.43C9.93 7.43 9.73 7.03 9.53 7.03Z"/>
       </svg>
       <!-- Tooltip -->
