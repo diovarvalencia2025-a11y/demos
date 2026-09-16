@@ -91,22 +91,18 @@
     }
 
     .experience-container {
-      background-color: #0e1218;
+      background-color: #0c1017;
       background-image: 
-        linear-gradient(to right, rgba(14, 18, 24, 0.96) 0%, rgba(14, 18, 24, 0.85) 50%, rgba(14, 18, 24, 0.95) 100%),
-        url('assets/experience-bg.jpg');
-      background-position: center;
-      background-size: cover;
+        radial-gradient(circle at 80% 20%, rgba(197, 160, 89, 0.12) 0%, transparent 60%),
+        radial-gradient(circle at 15% 85%, rgba(20, 26, 38, 0.9) 0%, transparent 60%),
+        linear-gradient(180deg, #0e1218 0%, #111724 50%, #0e1218 100%);
     }
 
     .footer-container {
-      background-color: #0b0e13;
+      background-color: #090c10;
       background-image: 
-        linear-gradient(to bottom, rgba(11, 14, 19, 0.92) 0%, rgba(11, 14, 19, 0.85) 40%, rgba(11, 14, 19, 0.98) 100%),
-        url('assets/footer-panorama.jpg');
-      background-position: center bottom;
-      background-size: cover;
-      background-repeat: no-repeat;
+        radial-gradient(circle at 50% 0%, rgba(197, 160, 89, 0.08) 0%, transparent 60%),
+        linear-gradient(180deg, #0e1218 0%, #080a0e 100%);
     }
 
     .card-hover {
@@ -220,10 +216,16 @@
         <!-- Columna Izquierda: Texto Principal -->
         <div class="lg:col-span-8 z-10 max-w-2xl">
           
-          <div class="inline-flex items-center gap-3 mb-4">
-            <span class="w-6 h-[1.5px] bg-gold-500"></span>
-            <span class="text-xs sm:text-sm font-semibold tracking-[0.25em] text-gold-400 uppercase">
-              TU CONFIANZA, MI COMPROMISO
+          <div class="flex flex-wrap items-center gap-3 mb-4">
+            <div class="inline-flex items-center gap-2">
+              <span class="w-6 h-[1.5px] bg-gold-500"></span>
+              <span class="text-xs sm:text-sm font-semibold tracking-[0.25em] text-gold-400 uppercase">
+                TU CONFIANZA, MI COMPROMISO
+              </span>
+            </div>
+            <span class="text-slate-600 hidden sm:inline">•</span>
+            <span class="font-serif-lux italic text-xs sm:text-sm text-gold-300/90 tracking-wide">
+              “Más de una historia familiar, una trayectoria de confianza en Burgos”
             </span>
           </div>
 
@@ -268,21 +270,8 @@
 
         </div>
 
-        <!-- Columna Derecha: Cita de Confianza -->
-        <div class="lg:col-span-4 flex flex-col justify-center items-end text-right z-10">
-          <div class="bg-[#0e1218]/85 backdrop-blur-md border border-gold-500/25 p-6 rounded-xl shadow-2xl max-w-sm">
-            <p class="font-signature text-2xl sm:text-3xl text-gold-300 leading-snug mb-3">
-              “Más de una historia familiar, una trayectoria de confianza.”
-            </p>
-            <div class="h-[1px] w-12 bg-gold-500/40 ml-auto mb-2"></div>
-            <p class="text-sm font-serif-lux text-slate-200 font-medium">
-              Anastasia Eugenia Payno Lázaro
-            </p>
-            <p class="text-[11px] text-slate-400 tracking-wider uppercase">
-              Abogada Titular
-            </p>
-          </div>
-        </div>
+        <!-- Espacio despejado: permite apreciar la Catedral de Burgos y la Balanza con máxima amplitud y elegancia -->
+        <div class="hidden lg:block lg:col-span-4"></div>
 
       </div>
     </div>
