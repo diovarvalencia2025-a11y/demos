@@ -75,8 +75,8 @@
     .hero-container {
       background-color: #0e1218;
       background-image: 
-        linear-gradient(to right, rgba(14, 18, 24, 0.98) 0%, rgba(14, 18, 24, 0.92) 40%, rgba(14, 18, 24, 0.45) 80%, rgba(14, 18, 24, 0.25) 100%),
-        url('assets/hero-clean.jpg');
+        linear-gradient(to right, rgba(14, 18, 24, 0.96) 0%, rgba(14, 18, 24, 0.88) 42%, rgba(14, 18, 24, 0.35) 75%, rgba(14, 18, 24, 0.15) 100%),
+        url('assets/bg-hero.png');
       background-position: right center;
       background-repeat: no-repeat;
       background-size: cover;
@@ -85,17 +85,19 @@
     @media (max-width: 768px) {
       .hero-container {
         background-image: 
-          linear-gradient(to bottom, rgba(14, 18, 24, 0.94) 0%, rgba(14, 18, 24, 0.96) 100%),
-          url('assets/hero-clean.jpg');
+          linear-gradient(to bottom, rgba(14, 18, 24, 0.94) 0%, rgba(14, 18, 24, 0.97) 100%),
+          url('assets/bg-hero.png');
       }
     }
 
     .experience-container {
       background-color: #0c1017;
       background-image: 
-        radial-gradient(circle at 80% 20%, rgba(197, 160, 89, 0.12) 0%, transparent 60%),
-        radial-gradient(circle at 15% 85%, rgba(20, 26, 38, 0.9) 0%, transparent 60%),
-        linear-gradient(180deg, #0e1218 0%, #111724 50%, #0e1218 100%);
+        linear-gradient(to right, rgba(12, 16, 23, 0.85) 0%, rgba(12, 16, 23, 0.45) 45%, rgba(12, 16, 23, 0.6) 80%, rgba(12, 16, 23, 0.92) 100%),
+        url('assets/bg-experience.png');
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
     }
 
     .footer-container {
@@ -472,92 +474,85 @@
     </div>
   </section>
 
-  <!-- 4. SECCIÓN: ¿POR QUÉ ELEGIR EL BUFETE? -->
-  <section id="sobre-mi" class="experience-container py-24 px-4 sm:px-6 lg:px-8 border-b border-white/10 text-white relative">
+  <!-- 4. SECCIÓN: ¿POR QUÉ ELEGIR EL BUFETE? (DISEÑO EXACTO DEL MOCKUP CON 1.PNG) -->
+  <section id="sobre-mi" class="experience-container pt-20 pb-16 px-4 sm:px-6 lg:px-8 text-white relative border-t border-b border-white/10">
     <div class="max-w-7xl mx-auto">
       
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-16">
+      <!-- Fila Superior: Título y Cita -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start mb-12">
         <div class="lg:col-span-7">
-          <div class="inline-flex items-center gap-2 mb-3">
-            <span class="w-6 h-[1.5px] bg-gold-500"></span>
+          <div class="inline-flex items-center gap-2 mb-2">
+            <span class="w-6 h-[2px] bg-gold-500"></span>
             <span class="text-xs font-semibold tracking-[0.22em] text-gold-400 uppercase">
               ¿POR QUÉ ELEGIR EL BUFETE ANASTASIA PAYNO?
             </span>
           </div>
           <h2 class="font-serif-lux text-3xl sm:text-4xl lg:text-5xl font-semibold leading-tight text-white">
-            Experiencia, cercanía y compromiso
+            Experiencia, cercanía<br class="hidden sm:inline"> y compromiso
           </h2>
         </div>
 
-        <div class="lg:col-span-5 flex flex-col items-end text-right">
-          <p class="font-signature text-2xl sm:text-3xl text-gold-300 leading-snug">
+        <div class="lg:col-span-5 flex flex-col items-start lg:items-end text-left lg:text-right pt-2">
+          <p class="font-signature text-2xl sm:text-3xl lg:text-4xl text-gold-300 leading-snug">
             “Cada caso es único, y merece una atención especial.”
           </p>
-          <div class="h-[1px] w-12 bg-gold-500/40 ml-auto my-2"></div>
-          <p class="text-xs font-medium text-slate-300">
+          <div class="h-[1px] w-16 bg-gold-500/40 my-2 lg:ml-auto"></div>
+          <p class="text-xs font-medium text-slate-200">
             Anastasia Eugenia Payno Lázaro • <span class="text-gold-400">Abogada</span>
           </p>
         </div>
       </div>
 
-      <!-- Cuadrícula de 4 Pilares -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      <!-- Fila de los 4 Pilares: Horizontal y con Divisores Verticales (Tal como la maqueta) -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 border-t border-b border-white/20 py-8 my-4 backdrop-blur-[2px] bg-black/20 rounded-xl">
         
-        <div class="bg-[#141a23]/80 border border-white/5 p-6 rounded-xl backdrop-blur-sm hover:border-gold-500/30 transition group">
-          <div class="w-12 h-12 rounded-lg bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 mb-5 group-hover:scale-110 transition-transform">
+        <!-- Pilar 1 -->
+        <div class="flex flex-col items-center text-center px-4 py-2 border-r border-white/20">
+          <div class="w-12 h-12 rounded-xl bg-black/40 border border-gold-500/40 flex items-center justify-center text-gold-400 mb-3 shadow-md">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
             </svg>
           </div>
-          <h3 class="font-serif-lux text-xl font-bold text-white mb-2">
-            Atención personalizada
-          </h3>
-          <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
-            Trato directo con la titular del despacho. Sin intermediarios ni centralitas impersonales: su caso recibe dedicación exclusiva.
-          </p>
+          <span class="text-sm sm:text-base font-medium text-white leading-snug">
+            Atención<br>personalizada
+          </span>
         </div>
 
-        <div class="bg-[#141a23]/80 border border-white/5 p-6 rounded-xl backdrop-blur-sm hover:border-gold-500/30 transition group">
-          <div class="w-12 h-12 rounded-lg bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 mb-5 group-hover:scale-110 transition-transform">
+        <!-- Pilar 2 -->
+        <div class="flex flex-col items-center text-center px-4 py-2 lg:border-r border-white/20">
+          <div class="w-12 h-12 rounded-xl bg-black/40 border border-gold-500/40 flex items-center justify-center text-gold-400 mb-3 shadow-md">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
             </svg>
           </div>
-          <h3 class="font-serif-lux text-xl font-bold text-white mb-2">
-            Rigor jurídico y profesionalidad
-          </h3>
-          <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
-            Análisis honesto de viabilidad antes de cualquier acción. Solo recomendamos ir a juicio si es la mejor opción para sus intereses.
-          </p>
+          <span class="text-sm sm:text-base font-medium text-white leading-snug">
+            Rigor jurídico<br>y profesionalidad
+          </span>
         </div>
 
-        <div class="bg-[#141a23]/80 border border-white/5 p-6 rounded-xl backdrop-blur-sm hover:border-gold-500/30 transition group">
-          <div class="w-12 h-12 rounded-lg bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 mb-5 group-hover:scale-110 transition-transform">
+        <!-- Pilar 3 -->
+        <div class="flex flex-col items-center text-center px-4 py-2 border-r border-white/20 mt-6 lg:mt-0">
+          <div class="w-12 h-12 rounded-xl bg-black/40 border border-gold-500/40 flex items-center justify-center text-gold-400 mb-3 shadow-md">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
             </svg>
           </div>
-          <h3 class="font-serif-lux text-xl font-bold text-white mb-2">
-            Conocimiento del entorno de Burgos
-          </h3>
-          <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
-            Profunda experiencia en los Juzgados y Tribunales de Burgos y Castilla y León, conociendo de primera mano su funcionamiento.
-          </p>
+          <span class="text-sm sm:text-base font-medium text-white leading-snug">
+            Conocimiento del<br>entorno de Burgos
+          </span>
         </div>
 
-        <div class="bg-[#141a23]/80 border border-white/5 p-6 rounded-xl backdrop-blur-sm hover:border-gold-500/30 transition group">
-          <div class="w-12 h-12 rounded-lg bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 mb-5 group-hover:scale-110 transition-transform">
+        <!-- Pilar 4 -->
+        <div class="flex flex-col items-center text-center px-4 py-2 mt-6 lg:mt-0">
+          <div class="w-12 h-12 rounded-xl bg-black/40 border border-gold-500/40 flex items-center justify-center text-gold-400 mb-3 shadow-md">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
           </div>
-          <h3 class="font-serif-lux text-xl font-bold text-white mb-2">
-            Tu tranquilidad es nuestra prioridad
-          </h3>
-          <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
-            Presupuesto claro con hoja de encargo firmada previamente. Le informamos de forma constante de cada avance de su expediente.
-          </p>
+          <span class="text-sm sm:text-base font-medium text-white leading-snug">
+            Tu tranquilidad<br>es nuestra prioridad
+          </span>
         </div>
 
       </div>
