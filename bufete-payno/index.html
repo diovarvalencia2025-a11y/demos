@@ -101,10 +101,13 @@
     }
 
     .footer-container {
-      background-color: #090c10;
+      background-color: #0b0e13;
       background-image: 
-        radial-gradient(circle at 50% 0%, rgba(197, 160, 89, 0.08) 0%, transparent 60%),
-        linear-gradient(180deg, #0e1218 0%, #080a0e 100%);
+        linear-gradient(to bottom, rgba(11, 14, 19, 0.85) 0%, rgba(11, 14, 19, 0.70) 45%, rgba(11, 14, 19, 0.95) 100%),
+        url('assets/footer-panorama.jpg');
+      background-position: center bottom;
+      background-size: cover;
+      background-repeat: no-repeat;
     }
 
     .card-hover {
@@ -474,85 +477,113 @@
     </div>
   </section>
 
-  <!-- 4. SECCIÓN: ¿POR QUÉ ELEGIR EL BUFETE? (DISEÑO EXACTO DEL MOCKUP CON 1.PNG) -->
-  <section id="sobre-mi" class="experience-container pt-20 pb-16 px-4 sm:px-6 lg:px-8 text-white relative border-t border-b border-white/10">
-    <div class="max-w-7xl mx-auto">
+  <!-- 4. SECCIÓN: ¿POR QUÉ ELEGIR EL BUFETE? (RÉPLICA EXACTA DEL MOCKUP) -->
+  <section id="sobre-mi" class="relative overflow-hidden py-16 sm:py-20 lg:py-24 border-t border-b border-white/10" style="background: url('assets/bg-experience.png') center/cover no-repeat; background-color: #0c1017;">
+    
+    <!-- Contenedor general -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       
-      <!-- Fila Superior: Título y Cita -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start mb-12">
-        <div class="lg:col-span-7">
-          <div class="inline-flex items-center gap-2 mb-2">
-            <span class="w-6 h-[2px] bg-gold-500"></span>
-            <span class="text-xs font-semibold tracking-[0.22em] text-gold-400 uppercase">
-              ¿POR QUÉ ELEGIR EL BUFETE ANASTASIA PAYNO?
-            </span>
-          </div>
-          <h2 class="font-serif-lux text-3xl sm:text-4xl lg:text-5xl font-semibold leading-tight text-white">
-            Experiencia, cercanía<br class="hidden sm:inline"> y compromiso
-          </h2>
-        </div>
-
-        <div class="lg:col-span-5 flex flex-col items-start lg:items-end text-left lg:text-right pt-2">
-          <p class="font-signature text-2xl sm:text-3xl lg:text-4xl text-gold-300 leading-snug">
-            “Cada caso es único, y merece una atención especial.”
-          </p>
-          <div class="h-[1px] w-16 bg-gold-500/40 my-2 lg:ml-auto"></div>
-          <p class="text-xs font-medium text-slate-200">
-            Anastasia Eugenia Payno Lázaro • <span class="text-gold-400">Abogada</span>
-          </p>
-        </div>
-      </div>
-
-      <!-- Fila de los 4 Pilares: Horizontal y con Divisores Verticales (Tal como la maqueta) -->
-      <div class="grid grid-cols-2 lg:grid-cols-4 border-t border-b border-white/20 py-8 my-4 backdrop-blur-[2px] bg-black/20 rounded-xl">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         
-        <!-- Pilar 1 -->
-        <div class="flex flex-col items-center text-center px-4 py-2 border-r border-white/20">
-          <div class="w-12 h-12 rounded-xl bg-black/40 border border-gold-500/40 flex items-center justify-center text-gold-400 mb-3 shadow-md">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-            </svg>
+        <!-- ============================================== -->
+        <!-- LADO IZQUIERDO: Título, Línea y los 4 Pilares -->
+        <!-- ============================================== -->
+        <div class="lg:col-span-7 flex flex-col justify-between">
+          
+          <!-- Título y Eyebrow -->
+          <div class="mb-6">
+            <div class="inline-flex items-center gap-2 mb-2.5">
+              <span class="w-7 h-[2px] bg-gold-400"></span>
+              <span class="text-xs sm:text-sm font-semibold tracking-[0.22em] text-gold-300 uppercase">
+                ¿POR QUÉ ELEGIR EL BUFETE ANASTASIA PAYNO?
+              </span>
+            </div>
+            <h2 class="font-serif-lux text-3xl sm:text-4xl lg:text-5xl font-semibold leading-[1.15] text-white">
+              Experiencia, cercanía<br>y compromiso
+            </h2>
           </div>
-          <span class="text-sm sm:text-base font-medium text-white leading-snug">
-            Atención<br>personalizada
-          </span>
+
+          <!-- Línea divisoria horizontal idéntica a la imagen -->
+          <div class="h-[1px] w-full bg-gradient-to-r from-gold-500/40 via-white/20 to-transparent my-6"></div>
+
+          <!-- Los 4 Pilares: Solo a la izquierda, transparentes, sin cajas pesadas -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 pt-2">
+            
+            <!-- Pilar 1 -->
+            <div class="flex flex-col items-center text-center px-2 sm:px-3 py-2 border-r border-white/20">
+              <div class="text-white/90 mb-2">
+                <svg class="w-6 h-6 stroke-[1.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+              </div>
+              <span class="text-xs sm:text-sm font-normal text-slate-200 leading-snug">
+                Atención<br>personalizada
+              </span>
+            </div>
+
+            <!-- Pilar 2 -->
+            <div class="flex flex-col items-center text-center px-2 sm:px-3 py-2 sm:border-r border-white/20">
+              <div class="text-white/90 mb-2">
+                <svg class="w-6 h-6 stroke-[1.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+              </div>
+              <span class="text-xs sm:text-sm font-normal text-slate-200 leading-snug">
+                Rigor jurídico<br>y profesionalidad
+              </span>
+            </div>
+
+            <!-- Pilar 3 -->
+            <div class="flex flex-col items-center text-center px-2 sm:px-3 py-2 border-r border-white/20 mt-4 sm:mt-0">
+              <div class="text-white/90 mb-2">
+                <svg class="w-6 h-6 stroke-[1.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+              </div>
+              <span class="text-xs sm:text-sm font-normal text-slate-200 leading-snug">
+                Conocimiento del<br>entorno de Burgos
+              </span>
+            </div>
+
+            <!-- Pilar 4 -->
+            <div class="flex flex-col items-center text-center px-2 sm:px-3 py-2 mt-4 sm:mt-0">
+              <div class="text-white/90 mb-2">
+                <svg class="w-6 h-6 stroke-[1.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <span class="text-xs sm:text-sm font-normal text-slate-200 leading-snug">
+                Tu tranquilidad<br>es nuestra prioridad
+              </span>
+            </div>
+
+          </div>
+
         </div>
 
-        <!-- Pilar 2 -->
-        <div class="flex flex-col items-center text-center px-4 py-2 lg:border-r border-white/20">
-          <div class="w-12 h-12 rounded-xl bg-black/40 border border-gold-500/40 flex items-center justify-center text-gold-400 mb-3 shadow-md">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-            </svg>
+        <!-- ============================================== -->
+        <!-- LADO DERECHO: Deja el libro libre + Cita & Firma -->
+        <!-- ============================================== -->
+        <div class="lg:col-span-5 flex flex-col justify-between h-full min-h-[220px] pt-2 text-right">
+          
+          <!-- Cita Caligráfica en la parte superior derecha del libro -->
+          <div class="mb-auto">
+            <p class="font-signature text-2xl sm:text-3xl lg:text-4xl text-gold-200 leading-snug drop-shadow-md">
+              “Cada caso es único,<br class="hidden sm:inline"> y merece una atención especial.”
+            </p>
           </div>
-          <span class="text-sm sm:text-base font-medium text-white leading-snug">
-            Rigor jurídico<br>y profesionalidad
-          </span>
-        </div>
 
-        <!-- Pilar 3 -->
-        <div class="flex flex-col items-center text-center px-4 py-2 border-r border-white/20 mt-6 lg:mt-0">
-          <div class="w-12 h-12 rounded-xl bg-black/40 border border-gold-500/40 flex items-center justify-center text-gold-400 mb-3 shadow-md">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-            </svg>
+          <!-- Firma al lado del libro -->
+          <div class="mt-8 lg:mt-auto pt-6">
+            <p class="text-xs sm:text-sm font-serif-lux text-white font-medium drop-shadow">
+              Anastasia Eugenia Payno Lázaro
+            </p>
+            <p class="text-[11px] tracking-wider text-gold-400 uppercase drop-shadow">
+              Abogada
+            </p>
           </div>
-          <span class="text-sm sm:text-base font-medium text-white leading-snug">
-            Conocimiento del<br>entorno de Burgos
-          </span>
-        </div>
 
-        <!-- Pilar 4 -->
-        <div class="flex flex-col items-center text-center px-4 py-2 mt-6 lg:mt-0">
-          <div class="w-12 h-12 rounded-xl bg-black/40 border border-gold-500/40 flex items-center justify-center text-gold-400 mb-3 shadow-md">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-          </div>
-          <span class="text-sm sm:text-base font-medium text-white leading-snug">
-            Tu tranquilidad<br>es nuestra prioridad
-          </span>
         </div>
 
       </div>
